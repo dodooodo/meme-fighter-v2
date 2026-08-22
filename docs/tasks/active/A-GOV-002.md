@@ -2,7 +2,7 @@
 id: A-GOV-002
 stage: A
 type: tooling
-status: blocked
+status: done
 dependencies: []
 allowed_paths: [AGENTS.md, CLAUDE.md, .agents/skills/, docs/architecture/, docs/tasks/, scripts/, .github/, CONTRIBUTING.md]
 forbidden_paths: [battle/, fighter/, data/, presentation/, frontend/, assets/]
@@ -53,11 +53,11 @@ The repository policy and skills provide the requested lifecycle, use one
 canonical testing strategy, preserve unrelated work, and report verification
 truthfully.
 
-## Blocker
+## Completion Evidence
 
-The existing global static gate has five failures outside this task's allowed
-paths. They must be repaired by scoped follow-up work before this task's PR can
-be considered green or merged.
+Task scope validation, validator unit tests, static validation, and CI runtime
+verification pass on the final PR branch. Local Godot execution remains
+unavailable, so the runtime PASS is CI evidence rather than a local claim.
 
 ## Out of Scope
 
