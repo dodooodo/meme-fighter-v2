@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"special_neutral"
+display_name = "Special Neutral"
+animation_id = &"special_neutral"
+startup_frames = 12
+active_frames = 3
+recovery_frames = 20

@@ -1,0 +1,45 @@
+[gd_resource type="Resource" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://presentation/data/character_presentation_data.gd" id="presentation"]
+[ext_resource type="Script" path="res://presentation/data/move_presentation_binding.gd" id="move_binding"]
+
+[sub_resource type="Resource" id="stand_light"]
+script = ExtResource("move_binding")
+move_id = &"stand_light"
+animation_key = &"stand_light"
+
+[sub_resource type="Resource" id="stand_heavy"]
+script = ExtResource("move_binding")
+move_id = &"stand_heavy"
+animation_key = &"stand_heavy"
+
+[sub_resource type="Resource" id="crouch_low"]
+script = ExtResource("move_binding")
+move_id = &"crouch_low"
+animation_key = &"crouch_low"
+
+[sub_resource type="Resource" id="air_attack"]
+script = ExtResource("move_binding")
+move_id = &"air_attack"
+animation_key = &"air_attack"
+
+[sub_resource type="Resource" id="ground_throw"]
+script = ExtResource("move_binding")
+move_id = &"ground_throw"
+animation_key = &"ground_throw"
+
+[sub_resource type="Resource" id="special_neutral"]
+script = ExtResource("move_binding")
+move_id = &"special_neutral"
+animation_key = &"special_neutral"
+
+[sub_resource type="Resource" id="ultimate"]
+script = ExtResource("move_binding")
+move_id = &"ultimate"
+animation_key = &"ultimate"
+
+[resource]
+script = ExtResource("presentation")
+character_id = &"_replace_me"
+display_name = "Replace Me"
+move_bindings = Array[ExtResource("move_binding")]([SubResource("stand_light"), SubResource("stand_heavy"), SubResource("crouch_low"), SubResource("air_attack"), SubResource("ground_throw"), SubResource("special_neutral"), SubResource("ultimate")])

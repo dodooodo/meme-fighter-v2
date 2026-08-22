@@ -2,7 +2,7 @@
 id: A-RUN-005
 stage: A
 type: ci
-status: blocked
+status: done
 dependencies: [A-RUN-001, A-RUN-002, A-RUN-003, A-RUN-004]
 allowed_paths: [.github/workflows/, scripts/, README.md, docs/]
 forbidden_paths: [battle/, fighter/, data/, presentation/, frontend/]
@@ -18,7 +18,7 @@ runtime runner aggregates registered suites. The workflow has run successfully
 with the pinned Godot runtime, but GitHub branch protection is an external
 setting.
 
-## Current External Limitation (2026-08-22)
+## Accepted External Limitation (2026-08-22)
 
 The repository is currently a private repository owned by the personal
 `dodooodo` account. GitHub reports that Rulesets cannot be enforced for this
@@ -26,9 +26,11 @@ repository until it is moved to a GitHub Team organization account.
 
 The checked-in workflow remains the canonical verification command and must
 continue to fail on missing runtime or test failures. However, it is not
-currently server-enforced as a required merge gate. Keep this task `blocked`
-until the repository is moved to an eligible organization and the `Godot
-Verify` check is configured as a required Ruleset/branch-protection check.
+currently server-enforced as a required merge gate. The project owner accepted
+this external limitation on 2026-08-22 and considers the repository-owned CI
+portion complete. Moving to an eligible organization and configuring `Godot
+Verify` as a required Ruleset/branch-protection check remains a separately
+tracked external follow-up; this status does not claim that enforcement exists.
 ## Existing Behavior To Preserve
 Existing static validator and `tests/run_tests.gd` remain the verification authority.
 ## Required Change

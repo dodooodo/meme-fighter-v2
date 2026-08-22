@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=6 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_effect_data.gd" id="eff"]
+[ext_resource type="Script" path="res://data/mechanics/area_data.gd" id="area"]
+[sub_resource type="Resource" id="area_1"]
+script = ExtResource("area")
+id = &"jpeg_circle"
+replace_group = &"jpeg_circle"
+lifetime_frames = 100
+telegraph_frames = 18
+half_extents_units = Vector2i(6500, 2500)
+trigger_on_enemy_enter = true
+trigger_damage = 60
+trigger_hitstun_frames = 10
+trigger_knockback_x_units = 800
+trigger_reaction_type = 3
+[sub_resource type="Resource" id="eff_3"]
+script = ExtResource("eff")
+type = 11
+area = SubResource("area_1")
+[resource]
+script = ExtResource("move")
+id = &"magic_circle_l1"
+display_name = "JPEG 魔法陣 Lv1"
+animation_id = &"magic_circle_l1"
+startup_frames = 9
+active_frames = 0
+recovery_frames = 15
+damage = 0
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+on_start_effects = Array[ExtResource("eff")]([SubResource("eff_3")])

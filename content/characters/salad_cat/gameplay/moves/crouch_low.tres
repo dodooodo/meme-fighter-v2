@@ -1,0 +1,37 @@
+[gd_resource type="Resource" load_steps=8 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_effect_data.gd" id="eff"]
+[ext_resource type="Script" path="res://data/mechanics/positioning_effect_data.gd" id="pos"]
+[sub_resource type="Resource" id="box_3"]
+script = ExtResource("box")
+offset = Vector2(40, -25)
+size = Vector2(91, 25)
+[sub_resource type="Resource" id="pos_1"]
+script = ExtResource("pos")
+type = 3
+distance_units = 19000
+[sub_resource type="Resource" id="eff_1"]
+script = ExtResource("eff")
+type = 10
+positioning = SubResource("pos_1")
+[resource]
+script = ExtResource("move")
+id = &"crouch_low"
+display_name = "菜梗掃地"
+animation_id = &"crouch_low"
+startup_frames = 6
+active_frames = 3
+recovery_frames = 13
+damage = 38
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hitbox = SubResource("box_3")
+counter_hit_reaction_type = 3
+on_hit_effects = Array[ExtResource("eff")]([SubResource("eff_1")])

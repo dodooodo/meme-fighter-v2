@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://data/character_manifest.gd" id="manifest"]
+[ext_resource type="Resource" path="res://content/characters/_template/gameplay/character.tres" id="gameplay"]
+[ext_resource type="Resource" path="res://content/characters/_template/presentation/character_presentation.tres" id="presentation"]
+
+[resource]
+script = ExtResource("manifest")
+id = &"_replace_me"
+display_name = "Replace Me"
+version = 1
+content_pack_id = &"_replace_me_pack"
+available = false
+gameplay_resource = ExtResource("gameplay")
+presentation_resource = ExtResource("presentation")

@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=8 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_effect_data.gd" id="eff"]
+[ext_resource type="Script" path="res://data/mechanics/positioning_effect_data.gd" id="pos"]
+[sub_resource type="Resource" id="pos_3"]
+script = ExtResource("pos")
+type = 8
+distance_units = 22000
+attacker_distance_units = 4000
+[sub_resource type="Resource" id="eff_3"]
+script = ExtResource("eff")
+type = 10
+positioning = SubResource("pos_3")
+[sub_resource type="Resource" id="box_9"]
+script = ExtResource("box")
+offset = Vector2(125, -72)
+size = Vector2(245, 65)
+[resource]
+script = ExtResource("move")
+id = &"salad_wave_l3"
+display_name = "拒吃震波 Lv3"
+animation_id = &"salad_wave_l3"
+startup_frames = 11
+active_frames = 5
+recovery_frames = 20
+damage = 70
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 5200
+knockdown_frames = 24
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hitbox = SubResource("box_9")
+reaction_type = 4
+on_hit_effects = Array[ExtResource("eff")]([SubResource("eff_3")])

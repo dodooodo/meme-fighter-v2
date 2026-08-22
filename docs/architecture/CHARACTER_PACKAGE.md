@@ -2,11 +2,12 @@
 
 ## CURRENT
 
-Gameplay characters live in `data/characters/*.tres`; move sets in
+Most gameplay characters live in `data/characters/*.tres`; move sets in
 `data/move_sets/`; moves in `data/moves/`; presentation data in
-`presentation/characters/`. `data/roster_registry.gd` is a frontend/test
-registry containing central concrete preloads. There is no `CharacterManifest`,
-`CharacterCatalog`, or `content/characters/<id>/` package yet.
+`presentation/characters/`. `data/roster_registry.gd` remains a frontend/test
+compatibility registry. `magic_orange_cat` and `salad_cat` are the first
+manifest-backed packages under `content/characters/`; the other twelve roster
+characters remain on central paths.
 
 `CharacterData.id` is the stable gameplay identity. `CharacterData` owns base
 stats, movement, base boxes, `MoveSetData`, and optional typed mechanics.
@@ -45,6 +46,29 @@ MoveRegistry.
 `RosterRegistry`. Pack registration is all-or-nothing and rejects invalid
 manifests, duplicate character IDs, and duplicate content-pack IDs.
 
+The Golden Pair package manifests reference package-owned gameplay,
+presentation, move-set, and per-move resources. Each package move set contains
+ten external `MoveData` references and embeds no moves. `RosterRegistry`
+obtains those two entries through the manifests so existing consumers keep
+their compatibility API while package discovery becomes authoritative for the
+migrated pair.
+
+`content/characters/_template/` is the inert, copyable authoring scaffold. Its
+reserved directory name is excluded from playable package discovery, its
+manifest is unavailable, and its `_replace_me` identities prevent accidental
+registration. It includes the manifest, gameplay, seven canonical placeholder
+moves, presentation bindings, and asset-placement guidance.
+
+`CharacterValidator` performs deterministic, read-only package validation for
+manifest identity, required resources and moves, frame/cancel rules, projectile
+identity and spawn rules, and presentation art bindings. Run
+`scripts/validate_characters.sh`; it discovers non-reserved package directories
+in sorted order and exits nonzero on any missing manifest or validation error.
+For a faster authoring loop, `scripts/test_character.sh <character_id>` validates
+one packaged character and then loads its existing focused roster suite. The
+command accepts exactly one non-reserved packaged ID and propagates validation,
+lookup, usage, and test failures as nonzero exits.
+
 Mechanics require typed, generic data/runtime contracts first. No package may
 introduce a `character_id` switch in generic gameplay. Presentation binds by
 stable identity and can fall back visibly when art is missing.
@@ -55,7 +79,10 @@ stable identity and can fall back visibly when art is missing.
 2. `A-MOD-002` introduces a catalog beside `RosterRegistry` and routes consumers
    incrementally; central preloads are not removed until equivalent coverage exists.
 3. `A-MOD-003` migrates only `magic_orange_cat` and `salad_cat` as the Golden Pair.
-4. Later tasks split/move resources and add the template/validator.
+4. `A-MOD-004` splits the Golden Pair moves into package-owned resources.
+5. `A-MOD-005` adds the inert package authoring template.
+6. `A-MOD-006` adds deterministic package validation and its headless command.
+7. `A-MOD-007` adds the focused per-character test command and contributor workflow.
 
 Every package change needs ID/resource validation and focused character tests.
 Version manifest-compatible changes intentionally; incompatible formats require a

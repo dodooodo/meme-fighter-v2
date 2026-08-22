@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://data/character_data.gd" id="character"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Resource" path="res://content/characters/_template/gameplay/move_set.tres" id="move_set"]
+
+[sub_resource type="Resource" id="pushbox"]
+script = ExtResource("box")
+offset = Vector2(0, -80)
+size = Vector2(64, 160)
+
+[sub_resource type="Resource" id="hurtbox"]
+script = ExtResource("box")
+offset = Vector2(0, -82)
+size = Vector2(72, 164)
+
+[resource]
+script = ExtResource("character")
+id = &"_replace_me"
+display_name = "Replace Me"
+pushbox = SubResource("pushbox")
+hurtbox = SubResource("hurtbox")
+move_set = ExtResource("move_set")

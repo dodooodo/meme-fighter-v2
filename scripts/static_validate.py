@@ -1360,6 +1360,103 @@ for constant, rel in m9p_tests.items():
     check('func run_all() -> int' in body and 'return t.failed' in body, f'M9P suite follows executable runner contract: {rel}')
     check('\t' not in body and _balanced_gd(body), f'M9P test source is structurally clean: {rel}')
 
+package_root = ROOT/'content/characters'
+playable_package_ids = sorted(
+    path.name for path in package_root.iterdir()
+    if path.is_dir() and not path.name.startswith('_')
+)
+golden_pair_package_ids = {'magic_orange_cat', 'salad_cat'}
+check(
+    golden_pair_package_ids.issubset(playable_package_ids),
+    'Golden Pair remains available as playable character packages',
+)
+for character_id in playable_package_ids:
+    package_prefix = f'content/characters/{character_id}'
+    manifest_path = f'{package_prefix}/character_manifest.tres'
+    move_set_path = f'{package_prefix}/gameplay/move_set.tres'
+    moves_path = ROOT/package_prefix/'gameplay/moves'
+    check((ROOT/manifest_path).is_file(), f'Character package manifest exists: {character_id}')
+    check((ROOT/move_set_path).is_file(), f'Character package move set exists: {character_id}')
+    move_resource_count = len(list(moves_path.glob('*.tres')))
+    check(move_resource_count >= 7, f'Character package has at least seven MoveData files: {character_id}')
+    if character_id in golden_pair_package_ids:
+        check(move_resource_count == 10, f'Golden Pair package keeps ten split MoveData files: {character_id}')
+    move_set_source = text(move_set_path)
+    check('[sub_resource' not in move_set_source, f'Package move set embeds no MoveData: {character_id}')
+    check(
+        f'res://content/characters/{character_id}/gameplay/moves/' in move_set_source,
+        f'Package move set references package-owned MoveData: {character_id}',
+    )
+
+# The reserved authoring template must be complete but inert.
+character_template_files = [
+    'content/characters/_template/README.md',
+    'content/characters/_template/character_manifest.tres',
+    'content/characters/_template/gameplay/character.tres',
+    'content/characters/_template/gameplay/move_set.tres',
+    'content/characters/_template/presentation/character_presentation.tres',
+    'content/characters/_template/assets/README.md',
+]
+character_template_files.extend(
+    f'content/characters/_template/gameplay/moves/{move_id}.tres'
+    for move_id in [
+        'stand_light', 'stand_heavy', 'crouch_low', 'air_attack',
+        'ground_throw', 'special_neutral', 'ultimate',
+    ]
+)
+for rel in character_template_files:
+    check((ROOT/rel).is_file(), f'Character package template file exists: {rel}')
+template_manifest = text('content/characters/_template/character_manifest.tres')
+check(
+    'id = &"_replace_me"' in template_manifest and 'available = false' in template_manifest,
+    'Reserved character package template is unavailable and uses placeholder identity',
+)
+check(
+    '_template' not in text('data/roster_registry.gd'),
+    'Reserved character package template is not registered in the roster',
+)
+
+character_validator = text('data/character_validator.gd')
+character_validation_sources = (
+    character_validator
+    + text('data/character_manifest.gd')
+    + text('presentation/data/character_presentation_data.gd')
+)
+for invariant in [
+    'duplicate manifest id', 'gameplay resource id mismatch',
+    'presentation character_id mismatch', 'duplicate move id',
+    'required move missing', 'missing gameplay resource',
+    'missing art binding', 'invalid frame data',
+    'impossible cancel target', 'duplicate projectile id',
+]:
+    check(invariant in character_validation_sources, f'CharacterValidator covers invariant: {invariant}')
+check(
+    (ROOT/'scripts/validate_characters.sh').stat().st_mode & 0o111 != 0,
+    'Character package command is executable: scripts/validate_characters.sh',
+)
+check(
+    (ROOT/'scripts/test_character.sh').stat().st_mode & 0o111 != 0,
+    'Character package command is executable: scripts/test_character.sh',
+)
+test_character_runner = text('scripts/test_character.gd')
+for token in [
+    'arguments.size() != 1', 'Reserved character package ID',
+    'Unknown packaged character', 'CharacterValidator.new()',
+    'tests/characters/roster/test_%s.gd', 'quit(failures)',
+]:
+    check(token in test_character_runner, f'Focused character runner enforces contract: {token}')
+test_character_shell = text('scripts/test_character.sh')
+check(
+    '[[ "$#" -ne 1 ]]' in test_character_shell
+    and '--editor --quit' in test_character_shell
+    and '-- "$1"' in test_character_shell,
+    'Focused character shell command bootstraps Godot, enforces exact arity, and forwards one stable ID',
+)
+check(
+    '--editor --quit' in text('scripts/validate_characters.sh'),
+    'Package validator command bootstraps Godot class discovery on a fresh checkout',
+)
+
 for msg in passes:
     print('[PASS]',msg)
 if errors:

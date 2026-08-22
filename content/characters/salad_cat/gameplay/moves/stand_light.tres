@@ -1,0 +1,33 @@
+[gd_resource type="Resource" load_steps=6 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/moves/cancel_window_data.gd" id="cancel"]
+[sub_resource type="Resource" id="box_1"]
+script = ExtResource("box")
+offset = Vector2(25, -74)
+size = Vector2(48, 30)
+[sub_resource type="Resource" id="cancel_1"]
+script = ExtResource("cancel")
+start_frame = 7
+end_frame = 16
+condition = 2
+allowed_target_move_ids = Array[StringName]([&"stand_light", &"stand_heavy"])
+[resource]
+script = ExtResource("move")
+id = &"stand_light"
+display_name = "菜葉甩臉"
+animation_id = &"stand_light"
+startup_frames = 4
+active_frames = 3
+recovery_frames = 7
+damage = 40
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 500
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_1")])
+hitbox = SubResource("box_1")

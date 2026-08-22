@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[sub_resource type="Resource" id="box_8"]
+script = ExtResource("box")
+offset = Vector2(90, -70)
+size = Vector2(175, 60)
+[resource]
+script = ExtResource("move")
+id = &"salad_wave_l2"
+display_name = "拒吃震波 Lv2"
+animation_id = &"salad_wave_l2"
+startup_frames = 8
+active_frames = 4
+recovery_frames = 16
+damage = 58
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 4000
+knockdown_frames = 12
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hitbox = SubResource("box_8")
+reaction_type = 3
+defender_block_pushback_units = 3300
