@@ -11,7 +11,9 @@ M6 adds deterministic Versus/Training MatchRules, RoundController lifecycle, rou
 
 ## Run Locally (revision 2026-08-22)
 
-This project requires **Godot 4.x**. Godot 4.7.2 was used to launch the current build.
+This project requires **Godot 4.7.2 stable**. This is the supported runtime for
+local development and CI; do not substitute a development, release-candidate,
+or newer Godot build without an explicit runtime-version task.
 
 From the project root (the directory containing `project.godot`), run the game directly:
 
@@ -31,7 +33,9 @@ To launch it from Finder/Application Services instead of a terminal on macOS:
 open -n -a Godot --args --path /absolute/path/to/two_box_fighting_godot
 ```
 
-If `godot` is not on your `PATH`, replace it with the absolute path to your Godot 4 executable. Do not add `--editor` when you want to play: `--editor` opens the project editor rather than the game.
+If `godot` is not on your `PATH`, replace it with the absolute path to your
+Godot 4.7.2 executable. Do not add `--editor` when you want to play: `--editor`
+opens the project editor rather than the game.
 
 Optional headless checks from the same project root:
 
