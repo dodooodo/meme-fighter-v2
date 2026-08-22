@@ -2,7 +2,7 @@
 id: A-RUN-004
 stage: A
 type: verification
-status: blocked
+status: done
 dependencies: [A-RUN-003]
 allowed_paths: [tests/stress/, tests/run_tests.gd, scripts/, docs/, VALIDATION_REPORT.txt]
 forbidden_paths: [battle/, fighter/, data/, presentation/, frontend/]
@@ -28,6 +28,15 @@ If runtime is unavailable, leave status blocked/NOT EXECUTED with evidence.
 Godot editor import and runtime runner, plus static validation.
 ## Acceptance Criteria
 Real runtime result is recorded, including failure output if any.
+## Completion Evidence
+Godot Verify CI run 32553549357 (2026-08-22) executed the global runtime
+runner with the pinned Godot 4.7.2 stable binary. `Simulation Stress tests`
+reported 7 passed, 0 failed, including exactly 10,000 render-free simulation
+ticks and a fresh-Battle replay hash match across 1,800 recorded frames.
+
+The successful process also emitted an exit warning for 2,900 leaked ObjectDB
+instances. This verification task does not change gameplay or test code; the
+warning requires separate diagnosis before it can be treated as resolved.
 ## Rollback / Recovery Notes
 Revert only verified runner fixes; preserve test evidence.
 ## Out of Scope
