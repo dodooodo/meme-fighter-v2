@@ -6,6 +6,8 @@
 class_name CombatResolver
 extends RefCounted
 
+const CORNER_THRESHOLD_UNITS: int = 12000
+
 var temporary_entities: TemporaryEntitySystem = null
 var effect_executor: GameplayEffectExecutor = GameplayEffectExecutor.new()
 var positioning_system: PositioningSystem = PositioningSystem.new()
@@ -64,6 +66,7 @@ func resolve_throw_contact(contact: ThrowContact, attacker: Fighter, defender: F
     result.reaction_type = move.reaction_type if move.reaction_type != CombatReaction.Type.NONE else (CombatReaction.Type.HARD_KNOCKDOWN if move.causes_knockdown else CombatReaction.Type.NONE)
     result.throw_hold_frames = move.throw_hold_frames; result.knockdown_frames = move.knockdown_frames; result.getup_frames = defender.data.default_getup_frames
     result.meter_gain_on_throw = move.meter_gain_on_throw; result.contact_flags = flags
+    _copy_observation_facts(result, attacker, defender, flags)
     result.on_hit_effects = move.on_hit_effects.duplicate()
     return result
 
@@ -139,7 +142,19 @@ func _base_result(contact: StrikeContact, payload, move: MoveData, attacker: Fig
     if move != null:
         result.on_hit_effects.append_array(move.on_hit_effects); result.on_block_effects.append_array(move.on_block_effects)
         if result.reaction_type == CombatReaction.Type.NONE and move.causes_knockdown: result.reaction_type = CombatReaction.Type.HARD_KNOCKDOWN
+    _copy_observation_facts(result, attacker, defender, result.contact_flags)
     return result
+
+func _copy_observation_facts(result: HitResult, attacker: Fighter, defender: Fighter, flags: int) -> void:
+    if result == null or attacker == null or defender == null:
+        return
+    var attacker_x := attacker.movement_motor.sim_position.x
+    var defender_x := defender.movement_motor.sim_position.x
+    result.distance_units = absi(attacker_x - defender_x)
+    result.attacker_cornered = mini(absi(attacker_x - stage_left_units), absi(stage_right_units - attacker_x)) <= CORNER_THRESHOLD_UNITS
+    result.defender_cornered = mini(absi(defender_x - stage_left_units), absi(stage_right_units - defender_x)) <= CORNER_THRESHOLD_UNITS
+    result.defender_airborne = (flags & GameplayConditionEvaluator.FLAG_DEFENDER_AIRBORNE) != 0
+    result.defender_move_phase = defender.move_runner.phase()
 
 func attacker_facing_for_knockback(contact: StrikeContact) -> int: return -contact.incoming_direction_x
 func _is_guarding(defender: Fighter) -> bool: return defender.state_machine.is_guarding()

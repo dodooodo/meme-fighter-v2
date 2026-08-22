@@ -1,47 +1,142 @@
 # Telemetry Contract
 
-## CURRENT
+## Current
 
-No production telemetry transport, identity service, or analytics store exists
-in v2. Existing replay data is deterministic gameplay evidence, not analytics.
-
-## TARGET
-
-Telemetry is observational and non-blocking. It must not write gameplay state,
-wait on network/DB, or emit one event per simulation frame. Transport belongs
-outside battle/fighter core behind a platform/service boundary.
-
-### Event envelope
-
-All events carry explicit scalar fields:
+Stage A provides a local-first telemetry path:
 
 ```text
-event_name, event_version, occurred_at, installation_id, session_id,
-user_id? , match_id? , platform, build_version, payload
+resolved CombatEvent / scene performance sample
+    -> TelemetryService
+    -> TelemetryMatchAggregator / TelemetryPerformanceSampler
+    -> Event Envelope v1
+    -> bounded asynchronous LocalTelemetrySink
+    -> user://telemetry/telemetry-<session_id>.jsonl
 ```
 
-`user_id` is optional and must be a pseudonymous product identity, not an email
-or raw platform account identifier. Event names use lower-case dotted domains
-(for example `match.completed`); incompatible payload changes increment
-`event_version`.
+Playable local/CPU matches also record replay evidence under
+`user://replays/<replay_id>.tbf_replay.json`. There is no production HTTP
+transport, identity service, analytics store, consent UI, or retention worker.
 
-Match events include mode, participants/character IDs, result, duration, and
-replay correlation ID where available. Move events are aggregate/action events,
-not frame polling. Performance events include platform/build and bounded timing
-metrics. Mastery events express player progression milestones, not raw inputs.
+## Authority and failure boundary
 
-Replay files retain input frames plus replay metadata/final hash as defined by
-combat architecture. A replay correlation ID may connect evidence to telemetry,
-but replay payloads are not copied into analytics events.
+Telemetry is observational and non-blocking. It must not write gameplay state,
+wait on network/DB, or emit one event per simulation frame. `BattleSimulation`
+continues to produce deterministic `CombatEvent` facts without importing a
+telemetry class. `BattleScene` copies each drained event batch to telemetry and
+presentation, then dispatches a bounded sink batch after simulation ticks. One
+background writer performs JSONL file access; only explicit scene/application
+shutdown boundaries join the writer and drain the remaining queue.
 
-### Privacy
+Sink, directory, replay-save, and envelope failures are contained. They may
+produce a sanitized `performance.error` when persistence remains available,
+but must never change round, match, fighter, snapshot, hash, or replay input
+state. The local buffer holds at most 512 events by default and drops the oldest
+event on overflow while incrementing an observable drop count.
 
-Collect the minimum needed for stated product decisions; document purpose and
-retention before adding a sink. Avoid content/input capture, secrets, and direct
-identifiers. Respect platform consent/deletion requirements in the future
-platform adapter task.
+## Identity vocabulary
 
-## MIGRATION
+| Field | Lifecycle | Notes |
+| --- | --- | --- |
+| `installation_id` | persisted locally | Random pseudonymous installation identity; not a device fingerprint. |
+| `session_id` | application service lifetime | Shared by matches observed by one `TelemetryService`. |
+| `match_id` | one battle reset-to-finalization lifecycle | Created before the initial round event. |
+| `round_id` | one authoritative round number inside a match | Derived from match ID and round number. |
+| `event_id` | one envelope | Monotonic within the session ID. |
+| `user_id` | future authenticated product session | Optional pseudonymous ID; never email or raw platform account ID. |
 
-Define local event sinks and schemas in task packets before any backend/storage
-integration. Add transport only after it can fail independently of simulation.
+## Event Envelope v1
+
+Every JSONL line is exactly one JSON object:
+
+```json
+{
+  "event_name": "move.summary",
+  "event_version": 1,
+  "event_id": "session-...-event-00000001",
+  "occurred_at": "2026-08-23T01:02:03Z",
+  "installation_id": "installation-...",
+  "session_id": "session-...",
+  "match_id": "match-...",
+  "round_id": "match-...-round-01",
+  "build_id": "0.1.0-stage-a",
+  "content_version": "stage-a-v1",
+  "platform": "macos",
+  "payload": {}
+}
+```
+
+`match_id`, `round_id`, and `user_id` are optional outside their lifecycles.
+Required values are explicit JSON scalars; `payload` is a JSON-safe dictionary.
+Event names use lower-case dotted domains. Incompatible payload changes increment
+`event_version`. Envelope v1 standardizes on `build_id`; the earlier
+`build_version` draft name is retired before any remote consumer exists.
+
+Payloads reject Objects/Resources, non-finite numbers, direct account identifiers,
+secrets, tokens, raw inputs, and replay input frames.
+
+## Event catalog
+
+### Match and move
+
+- `match.completed`: fighter IDs, winner and participant slot, round count,
+  duration in frames/milliseconds, `local_2p`/`vs_cpu`/future `online` mode,
+  build/content versions, disconnect reason, and replay correlation/save status.
+- `move.summary`: one record per fighter/move used in a match. Contains use, hit,
+  block, whiff, punish, counter-hit and damage totals plus close/mid/far distance
+  buckets and midscreen/attacker/defender/both-cornered counts.
+
+Move summaries aggregate resolved actions; they are not frame polling. Multi-hit
+outcomes may increase hit/block counts while one attack instance increases use
+count once. An attack instance with no hit, block, or throw by finalization is
+one whiff.
+
+### Mastery
+
+- `mastery.anti_air_success`
+- `mastery.whiff_punish_success`
+- `mastery.throw_success`
+- `mastery.combo_completion`
+- `mastery.guard_success`
+- `mastery.ultimate_finish`
+
+These events derive from resolved provenance, pre-resolution defender facts, and
+authoritative KO/round state. They do not store raw player input. Combo completion
+requires at least two linked hits and is emitted when the sequence settles or the
+match finalizes.
+
+### Performance
+
+- `performance.fps_snapshot`: bounded FPS histogram.
+- `performance.long_frame`: rate-limited frame duration above 33.333 ms.
+- `performance.memory_snapshot`: latest sampled static memory bytes.
+- `performance.load_duration`: battle setup duration.
+- `performance.asset_pack_load_duration`: presentation/asset configuration duration.
+- `performance.error`: bounded code/message and explicit fatal marker.
+
+Performance sampling occurs in the scene/service layer. A fatal marker is a
+best-effort error observation; Stage A does not claim reliable hard-crash capture.
+
+## Replay correlation
+
+`BattleScene` records the normalized authoritative input stream already defined
+by the replay contract. On normal completion, reset, or scene exit, it finishes
+the replay with the current deterministic state hash and attempts local save.
+The match summary contains `replay_id`, `replay_path`, and `replay_saved`.
+
+Telemetry never embeds or copies replay frames. Failed or empty replay persistence
+does not suppress the match summary; its save status remains false.
+
+## Privacy and retention boundary
+
+Collect the minimum needed for stated product decisions. Avoid content capture,
+raw inputs, secrets, direct identifiers, and device fingerprinting. Local files
+remain on the installation until manually removed; a retention/deletion policy,
+platform disclosure, consent flow, and authenticated deletion mechanism are
+required before remote ingestion.
+
+## Migration to Stage B
+
+Remote telemetry must preserve this envelope and fail independently of simulation.
+Stage B may add bounded batches, retry/drop policy, close-time best-effort flush,
+ingestion quality checks, storage, and privacy controls. It must not move HTTP,
+database, or platform SDK dependencies into battle/fighter core.

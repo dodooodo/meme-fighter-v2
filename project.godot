@@ -4,7 +4,11 @@ config_version=5
 
 [application]
 config/name="Two Box Fighting — M8 Solo Playtest + Charge"
+config/version="0.1.0-stage-a"
 run/main_scene="res://frontend/mode_select_scene.tscn"
+
+[autoload]
+Telemetry="*res://telemetry/telemetry_service.gd"
 
 [display]
 window/size/viewport_width=1280
@@ -21,3 +25,6 @@ environment/defaults/default_clear_color=Color(0.08, 0.08, 0.09, 1)
 
 [debug]
 gdscript/warnings/untyped_declaration=1
+
+[telemetry]
+content_version="stage-a-v1"

@@ -82,6 +82,11 @@ const ROSTER_OK_MEOW_BOSS_SUITE := preload("res://tests/characters/roster/test_o
 const ROSTER_NIU_LAI_SUITE := preload("res://tests/characters/roster/test_niu_lai.gd")
 const ROSTER_BAO_LA_SUITE := preload("res://tests/characters/roster/test_bao_la.gd")
 const BALANCE_TABLE_SUITE := preload("res://tests/tooling/test_balance_table.gd")
+const TELEMETRY_IDENTITY_ENVELOPE_SUITE := preload("res://tests/telemetry/test_telemetry_identity_envelope.gd")
+const LOCAL_TELEMETRY_SINK_SUITE := preload("res://tests/telemetry/test_local_telemetry_sink.gd")
+const MATCH_TELEMETRY_AGGREGATOR_SUITE := preload("res://tests/telemetry/test_match_telemetry_aggregator.gd")
+const PERFORMANCE_TELEMETRY_SUITE := preload("res://tests/telemetry/test_performance_telemetry.gd")
+const TELEMETRY_SERVICE_INTEGRATION_SUITE := preload("res://tests/telemetry/test_telemetry_service_integration.gd")
 
 func _init() -> void:
     call_deferred("_run")
@@ -168,5 +173,10 @@ func _run() -> void:
     failures += ROSTER_NIU_LAI_SUITE.new().run_all()
     failures += ROSTER_BAO_LA_SUITE.new().run_all()
     failures += BALANCE_TABLE_SUITE.new().run_all()
+    failures += TELEMETRY_IDENTITY_ENVELOPE_SUITE.new().run_all()
+    failures += LOCAL_TELEMETRY_SINK_SUITE.new().run_all()
+    failures += MATCH_TELEMETRY_AGGREGATOR_SUITE.new().run_all()
+    failures += PERFORMANCE_TELEMETRY_SUITE.new().run_all()
+    failures += TELEMETRY_SERVICE_INTEGRATION_SUITE.new().run_all()
     failures += STRESS_SUITE.new().run_all()
     quit(failures)
