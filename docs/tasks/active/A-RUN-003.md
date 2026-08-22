@@ -2,7 +2,7 @@
 id: A-RUN-003
 stage: A
 type: tooling
-status: ready
+status: blocked
 dependencies: [A-RUN-001]
 allowed_paths: [scripts/verify.sh, scripts/, README.md, docs/, .github/workflows/godot-verify.yml]
 forbidden_paths: [battle/, fighter/, data/, presentation/, frontend/]

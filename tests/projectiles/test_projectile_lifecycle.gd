@@ -95,9 +95,9 @@ func _test_actual_super_projectile_hit() -> void:
     _tick(battle, InputFrame.with_ultimate_press(1))
     for _i in range(17):
         _tick(battle)
-    t.equal(battle.fighter_b.combatant.hp, 1000, "Super body move deals no damage before F19 spawn")
+    t.equal(battle.fighter_b.combatant.hp, 5000, "Super body move deals no damage before F19 spawn")
     _tick(battle)
-    t.equal(battle.fighter_b.combatant.hp, 780, "zone_super_shot applies 220 ProjectileData damage")
+    t.equal(battle.fighter_b.combatant.hp, 4780, "zone_super_shot applies 220 ProjectileData damage")
     t.equal(battle.fighter_b.combatant.hitstun_remaining, 26, "Super projectile applies 26F hitstun")
     t.equal(battle.fighter_b.combatant.hitstop_remaining, 7, "Super projectile 8F defender hitstop begins on impact frame")
     t.equal(battle.fighter_b.combatant.knockback_velocity_x_units, 1500, "Super projectile applies 1500 horizontal knockback")

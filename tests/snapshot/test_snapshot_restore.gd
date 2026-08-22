@@ -140,7 +140,7 @@ func _test_duplicate_hit_registry_restore() -> void:
     _tick(battle, InputFrame.with_light_press(1))
     for _i in range(5):
         _tick(battle)
-    t.equal(battle.fighter_b.combatant.hp, 950, "Setup strike has already damaged defender once")
+    t.equal(battle.fighter_b.combatant.hp, 4950, "Setup strike has already damaged defender once")
     battle.fighter_a.combatant.hitstop_remaining = 0
     battle.fighter_b.combatant.hitstop_remaining = 0
     var snapshot := battle.capture_state()

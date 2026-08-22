@@ -55,5 +55,5 @@ func _test_training_ko_auto_reset_and_projectile_cleanup() -> void:
     t.equal(battle.round_controller.round_number, 1, "Training reset keeps round_number fixed at 1")
     t.equal(battle.round_controller.p1_round_wins, 0, "Training score remains zero after reset")
     t.equal(battle.round_controller.p2_round_wins, 0, "Training P2 score remains zero after reset")
-    t.equal(battle.fighter_b.combatant.hp, 1000, "Training auto-reset restores KO fighter HP")
+    t.equal(battle.fighter_b.combatant.hp, 5000, "Training auto-reset restores KO fighter HP")
     t.that(not battle.round_controller.is_match_over(), "Training never enters MATCH_OVER")

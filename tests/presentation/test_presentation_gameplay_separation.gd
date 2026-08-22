@@ -35,6 +35,8 @@ func _test_hash_equal_with_read_only_presentation() -> void:
     var fp1 := FighterPresentationController.new()
     var fp2 := FighterPresentationController.new()
     var projectile_presenter := ProjectileVisualPresenter.new()
+    var scene_tree := Engine.get_main_loop() as SceneTree
+    scene_tree.root.add_child(root)
     root.add_child(fp1)
     root.add_child(fp2)
     root.add_child(projectile_presenter)
@@ -51,6 +53,7 @@ func _test_hash_equal_with_read_only_presentation() -> void:
         fp2.sync_from_simulation()
         projectile_presenter.sync_from_simulation()
     t.equal(b.state_signature(), a.state_signature(), "Identical battles with/without presentation observers finish with identical BattleStateHash")
+    scene_tree.root.remove_child(root)
     root.free()
 
 func _test_headless_round_projectile_replay_surface() -> void:

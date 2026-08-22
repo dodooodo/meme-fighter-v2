@@ -10,10 +10,11 @@ reliable runtime verification. The master order/gates remain canonical in
 ## Current baseline
 
 v2 has a fixed 60 Hz `BattleSimulation`, roster data/resources, presentation,
-snapshot/replay tests, `scripts/static_validate.py`, and `scripts/verify.sh`.
-Godot is not installed in this environment. `verify.sh` currently returns 0 if
-Godot is missing; this is a known false-green fixed by the first runtime task.
-There is no CI workflow, CharacterManifest/Catalog, package layout, or telemetry.
+snapshot/replay tests, `scripts/static_validate.py`, and fail-closed
+`scripts/verify.sh`. CI pins Godot 4.7.2. The bootstrap run exposed five stale
+static expectations before runtime; `A-GOV-001` stabilizes that baseline and
+adds PR scope enforcement. There is no CharacterManifest/Catalog, package
+layout, or telemetry implementation.
 
 ## Dependencies and workstreams
 
@@ -38,12 +39,13 @@ runtime command and failure behavior are settled.
 | --- | --- | --- | --- |
 | A-RUN-001 | Pin Godot 4.7.2 for local/docs/CI | none | ready |
 | A-RUN-002 | Make missing Godot fail verification | none | done |
-| A-RUN-003 | Establish one runtime command contract | A-RUN-001 | ready |
-| A-RUN-004 | Execute the existing 10k stress runtime suite | A-RUN-003 | ready |
-| A-RUN-005 | Add CI required verification gate | A-RUN-001..004 | ready |
-| A-VS-001 | Audit Magic Orange Cat + Salad Cat | none | ready |
-| A-MOD-001 | Add CharacterManifest v1 | none | ready |
-| A-MOD-002 | Add CharacterCatalog beside RosterRegistry | A-MOD-001 | ready |
+| A-GOV-001 | Stabilize runtime and governance enforcement | none | in progress |
+| A-RUN-003 | Establish one runtime command contract | A-RUN-001 | blocked |
+| A-RUN-004 | Execute the existing 10k stress runtime suite | A-RUN-003 | blocked |
+| A-RUN-005 | Add CI required verification gate | A-RUN-001..004 | blocked |
+| A-VS-001 | Audit Magic Orange Cat + Salad Cat | A-RUN-005 | blocked |
+| A-MOD-001 | Add CharacterManifest v1 | A-RUN-005 | blocked |
+| A-MOD-002 | Add CharacterCatalog beside RosterRegistry | A-MOD-001 | blocked |
 
 ## Integration points and risks
 
@@ -63,6 +65,6 @@ not waive the Stage gate.
 
 ## Recommended order
 
-Run A-RUN-001 → 003 → 004 → 005; A-RUN-002 is complete. In parallel, run A-VS-001 and
-A-MOD-001; then A-MOD-002. Use the corresponding active task packets as the
-implementation authority.
+Complete A-GOV-001, then run A-RUN-001 → 003 → 004 → 005; A-RUN-002 is
+complete. Only after A-RUN-005 is done, run A-VS-001 and A-MOD-001, then
+A-MOD-002. Use the corresponding active task packets as implementation authority.

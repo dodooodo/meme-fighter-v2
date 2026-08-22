@@ -65,14 +65,14 @@ func _test_throw_success_whiff_and_eligibility() -> void:
     for _i in range(5):
         var f := success.frame_number + 1
         _tick(success, InputFrame.neutral(f), _guard(f))
-    t.equal(success.fighter_b.combatant.hp, 880, "Throw succeeds against Guard for 120 damage")
+    t.equal(success.fighter_b.combatant.hp, 4880, "Throw succeeds against Guard for 120 damage")
     t.equal(success.fighter_b.state_machine.state, FighterStateMachine.State.THROWN, "Successful Throw enters THROWN")
 
     var whiff := _battle(30000, 100000)
     _tick(whiff, _heavy(1, 1))
     for _i in range(5):
         _tick(whiff)
-    t.equal(whiff.fighter_b.combatant.hp, 1000, "Throw fails outside range")
+    t.equal(whiff.fighter_b.combatant.hp, 5000, "Throw fails outside range")
     t.equal(whiff.fighter_a.move_runner.current_move_id(), MoveIds.GROUND_THROW, "Throw whiffs instead of becoming Heavy")
     t.equal(whiff.fighter_a.state_machine.state, FighterStateMachine.State.THROW, "Throw whiff remains THROW until MoveData recovery completes")
 
@@ -80,14 +80,14 @@ func _test_throw_success_whiff_and_eligibility() -> void:
     _tick(airborne, _heavy(1, 1), _dir(1, 0, 1))
     for _i in range(5):
         _tick(airborne)
-    t.equal(airborne.fighter_b.combatant.hp, 1000, "Airborne defender cannot be thrown")
+    t.equal(airborne.fighter_b.combatant.hp, 5000, "Airborne defender cannot be thrown")
 
     var attacking := _battle()
     var light := InputFrame.InputButton.LIGHT
     _tick(attacking, _heavy(1, 1), InputFrame.new(1, 0, 0, light, light, 0))
     for _i in range(5):
         _tick(attacking)
-    t.equal(attacking.fighter_b.combatant.hp, 1000, "GROUND_ATTACK defender is not throwable")
+    t.equal(attacking.fighter_b.combatant.hp, 5000, "GROUND_ATTACK defender is not throwable")
 
 func _test_throw_duplicate_contact() -> void:
     var battle := _battle()
@@ -100,7 +100,7 @@ func _test_throw_duplicate_contact() -> void:
         if event.type == CombatEvent.EventType.THROW:
             throw_events += 1
     t.equal(throw_events, 1, "Throw active duplicate contact only succeeds once per AttackInstanceID")
-    t.equal(battle.fighter_b.combatant.hp, 880, "Throw duplicate protection prevents repeated damage")
+    t.equal(battle.fighter_b.combatant.hp, 4880, "Throw duplicate protection prevents repeated damage")
 
 func _test_dash_recognition_windows() -> void:
     var dash := _battle(30000, 100000)

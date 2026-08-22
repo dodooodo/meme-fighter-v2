@@ -4,7 +4,11 @@ extends RefCounted
 var _modifiers: Array[DefenseModifierData] = []
 
 func configure(mechanics: CharacterMechanicsData) -> void:
-    _modifiers = mechanics.defense_modifiers.duplicate() if mechanics != null else []
+    _modifiers.clear()
+    if mechanics == null:
+        return
+    for modifier: DefenseModifierData in mechanics.defense_modifiers:
+        _modifiers.append(modifier)
 
 func block_pushback_permille(source_move: MoveData) -> int:
     if source_move == null:
