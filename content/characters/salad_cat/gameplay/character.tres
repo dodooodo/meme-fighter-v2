@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://data/mechanics/mode_data.gd" id="mode"]
 [ext_resource type="Script" path="res://data/mechanics/mode_move_override_data.gd" id="override"]
 [ext_resource type="Script" path="res://data/mechanics/defense_modifier_data.gd" id="defense"]
-[ext_resource type="Resource" path="res://data/move_sets/roster/salad_cat_move_set.tres" id="moveset"]
+[ext_resource type="Resource" path="res://content/characters/salad_cat/gameplay/move_set.tres" id="moveset"]
 
 [sub_resource type="Resource" id="box_1"]
 script = ExtResource("box")

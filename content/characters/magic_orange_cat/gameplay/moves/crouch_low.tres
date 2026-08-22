@@ -1,0 +1,70 @@
+[gd_resource type="Resource" load_steps=12 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/mechanics/move_hit_data.gd" id="hit"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_condition_data.gd" id="cond"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_effect_data.gd" id="eff"]
+[sub_resource type="Resource" id="box_3"]
+script = ExtResource("box")
+offset = Vector2(40, -25)
+size = Vector2(91, 25)
+[sub_resource type="Resource" id="cond_1"]
+script = ExtResource("cond")
+type = 12
+group_id = &"jpeg_circle"
+[sub_resource type="Resource" id="cond_2"]
+script = ExtResource("cond")
+type = 12
+group_id = &"jpeg_circle"
+invert = true
+[sub_resource type="Resource" id="eff_1"]
+script = ExtResource("eff")
+type = 15
+id = &"jpeg_circle"
+[sub_resource type="Resource" id="hit_1"]
+script = ExtResource("hit")
+hit_id = 0
+active_start_frame = 6
+active_end_frame = 8
+hitbox = SubResource("box_3")
+hit_level = 2
+damage = 25
+hitstun_frames = 6
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 250
+conditions = Array[ExtResource("cond")]([SubResource("cond_1")])
+on_hit_effects = Array[ExtResource("eff")]([SubResource("eff_1")])
+[sub_resource type="Resource" id="hit_2"]
+script = ExtResource("hit")
+hit_id = 1
+active_start_frame = 6
+active_end_frame = 8
+hitbox = SubResource("box_3")
+hit_level = 2
+damage = 25
+hitstun_frames = 6
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 250
+conditions = Array[ExtResource("cond")]([SubResource("cond_2")])
+[resource]
+script = ExtResource("move")
+id = &"crouch_low"
+display_name = "法杖畫圈"
+animation_id = &"crouch_low"
+startup_frames = 5
+active_frames = 3
+recovery_frames = 12
+damage = 60
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hits = Array[ExtResource("hit")]([SubResource("hit_1"), SubResource("hit_2")])

@@ -1,0 +1,71 @@
+[gd_resource type="Resource" load_steps=13 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_effect_data.gd" id="eff"]
+[ext_resource type="Script" path="res://data/mechanics/positioning_effect_data.gd" id="pos"]
+[ext_resource type="Script" path="res://data/mechanics/sequence_data.gd" id="seq"]
+[ext_resource type="Script" path="res://data/mechanics/sequence_step_data.gd" id="step"]
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("step")
+start_frame = 0
+offset_units = Vector2i(0, 0)
+half_extents_units = Vector2i(5000, 5000)
+telegraph_frames = 18
+hit_level = 1
+record_target_position = true
+record_slot = 0
+[sub_resource type="Resource" id="step_2"]
+script = ExtResource("step")
+start_frame = 22
+offset_units = Vector2i(0, 0)
+half_extents_units = Vector2i(6500, 8500)
+damage = 125
+hitstun_frames = 15
+hit_level = 0
+record_slot = 0
+use_recorded_position = true
+[sub_resource type="Resource" id="step_3"]
+script = ExtResource("step")
+start_frame = 52
+offset_units = Vector2i(0, 0)
+half_extents_units = Vector2i(9000, 2200)
+damage = 105
+hitstun_frames = 14
+hit_level = 2
+reaction_type = 3
+record_slot = 0
+use_recorded_position = true
+[sub_resource type="Resource" id="seq_1"]
+script = ExtResource("seq")
+id = &"salad_high_low"
+duration_frames = 82
+steps = Array[ExtResource("step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3")])
+[sub_resource type="Resource" id="eff_4"]
+script = ExtResource("eff")
+type = 14
+sequence = SubResource("seq_1")
+[sub_resource type="Resource" id="pos_4"]
+script = ExtResource("pos")
+type = 6
+distance_units = 22000
+[sub_resource type="Resource" id="eff_5"]
+script = ExtResource("eff")
+type = 10
+positioning = SubResource("pos_4")
+[resource]
+script = ExtResource("move")
+id = &"ultimate"
+display_name = "菜就多練"
+animation_id = &"ultimate"
+startup_frames = 7
+active_frames = 0
+recovery_frames = 88
+damage = 0
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_cost = 100
+on_start_effects = Array[ExtResource("eff")]([SubResource("eff_4")])
+on_complete_effects = Array[ExtResource("eff")]([SubResource("eff_5")])

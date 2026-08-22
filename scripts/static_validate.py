@@ -1360,6 +1360,30 @@ for constant, rel in m9p_tests.items():
     check('func run_all() -> int' in body and 'return t.failed' in body, f'M9P suite follows executable runner contract: {rel}')
     check('\t' not in body and _balanced_gd(body), f'M9P test source is structurally clean: {rel}')
 
+package_root = ROOT/'content/characters'
+playable_package_ids = sorted(
+    path.name for path in package_root.iterdir()
+    if path.is_dir() and not path.name.startswith('_')
+)
+check(
+    playable_package_ids == ['magic_orange_cat', 'salad_cat'],
+    'A2 migrates only the Golden Pair to playable character packages',
+)
+for character_id in playable_package_ids:
+    package_prefix = f'content/characters/{character_id}'
+    manifest_path = f'{package_prefix}/character_manifest.tres'
+    move_set_path = f'{package_prefix}/gameplay/move_set.tres'
+    moves_path = ROOT/package_prefix/'gameplay/moves'
+    check((ROOT/manifest_path).is_file(), f'Character package manifest exists: {character_id}')
+    check((ROOT/move_set_path).is_file(), f'Character package move set exists: {character_id}')
+    check(len(list(moves_path.glob('*.tres'))) == 10, f'Golden Pair package has ten split MoveData files: {character_id}')
+    move_set_source = text(move_set_path)
+    check('[sub_resource' not in move_set_source, f'Package move set embeds no MoveData: {character_id}')
+    check(
+        f'res://content/characters/{character_id}/gameplay/moves/' in move_set_source,
+        f'Package move set references package-owned MoveData: {character_id}',
+    )
+
 for msg in passes:
     print('[PASS]',msg)
 if errors:

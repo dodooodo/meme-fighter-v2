@@ -46,11 +46,12 @@ MoveRegistry.
 `RosterRegistry`. Pack registration is all-or-nothing and rejects invalid
 manifests, duplicate character IDs, and duplicate content-pack IDs.
 
-The Golden Pair package manifests reference package-owned gameplay and
-presentation resources. Their move sets remain on central paths until
-`A-MOD-004` performs the MoveData split. `RosterRegistry` obtains those two
-entries through the manifests so existing consumers keep their compatibility
-API while package discovery becomes authoritative for the migrated pair.
+The Golden Pair package manifests reference package-owned gameplay,
+presentation, move-set, and per-move resources. Each package move set contains
+ten external `MoveData` references and embeds no moves. `RosterRegistry`
+obtains those two entries through the manifests so existing consumers keep
+their compatibility API while package discovery becomes authoritative for the
+migrated pair.
 
 Mechanics require typed, generic data/runtime contracts first. No package may
 introduce a `character_id` switch in generic gameplay. Presentation binds by

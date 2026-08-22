@@ -2,7 +2,7 @@
 id: A-MOD-005
 stage: A
 type: tooling
-status: blocked
+status: in_progress
 dependencies: [A-MOD-004]
 allowed_paths: [content/, tests/tooling/, scripts/static_validate.py, docs/architecture/, docs/contributors/, docs/stages/, docs/tasks/]
 forbidden_paths: [battle/, fighter/, frontend/, presentation/, assets/]
