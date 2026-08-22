@@ -8,7 +8,7 @@ elif command -v godot4 >/dev/null 2>&1; then
   GODOT_BIN=godot4
 else
   echo "Godot Runtime: NOT RUN — executable unavailable" >&2
-  exit 0
+  exit 2
 fi
 "$GODOT_BIN" --version
 "$GODOT_BIN" --headless --path . --editor --quit
