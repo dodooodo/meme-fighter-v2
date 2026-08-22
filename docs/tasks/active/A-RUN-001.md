@@ -2,7 +2,7 @@
 id: A-RUN-001
 stage: A
 type: tooling
-status: ready
+status: done
 dependencies: []
 allowed_paths: [README.md, project.godot, .github/workflows/godot-verify.yml, docs/]
 forbidden_paths: [battle/, fighter/, data/, presentation/, frontend/]
@@ -29,6 +29,10 @@ Document any platform-specific binary invocation without changing simulation.
 Run static validation and CI YAML syntax/inspection; runtime requires Godot.
 ## Acceptance Criteria
 Docs and CI name exactly 4.7.2; no gameplay paths change.
+## Completion Evidence
+PR #5 passed Task Scope and Godot Verify on 2026-08-22. The CI workflow
+installed the pinned 4.7.2 stable binary, confirmed its version before
+verification, and ran the project verification command successfully.
 ## Rollback / Recovery Notes
 Revert tooling/docs only if the pinned binary is unavailable.
 ## Out of Scope
