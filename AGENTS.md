@@ -41,25 +41,47 @@ A Task Packet may narrow scope but may not silently override an architecture
 contract. Contract changes require the canonical spec, tests, and an ADR when
 the decision has long-term consequences.
 
-## Before editing
+## Git and workspace preflight
 
-1. Read this file and any nested `AGENTS.md` that applies to the path.
-2. Find the task packet; do not begin a task without one, except an explicitly
-   approved emergency repair.
-3. Read its required specs and inspect the current code, tests, and validators.
-4. Confirm its dependencies and allowed/forbidden paths.
-5. Plan the smallest change that satisfies its acceptance criteria.
+Before editing repository files, read applicable root/nested rules and the task
+packet, then inspect current branch, working tree, worktrees, and HEAD. When a
+remote is available, fetch it and compare the branch with the intended base
+(normally `origin/main`). `start-task` standardizes this preflight.
+
+- Never implement normal task work directly on `main`.
+- One Task Packet normally maps to one branch: `task/<TASK-ID>-<slug>`; runtime
+  repairs may use `fix/<TASK-ID>-<slug>` when that is clearer.
+- Do not discard existing working-tree changes to start another task.
+- Use a separate worktree **and** task branch if this checkout has unrelated
+  changes, belongs to another active task, is in use by another worker, or tasks
+  are concurrent. Reuse an existing task branch/worktree when one already exists.
+- Never use `git reset --hard`, `git clean -fd`/`-fdx`, or `git stash` to handle
+  unrelated work without explicit authorization. Do not overwrite or delete
+  another worker's untracked work.
 
 ## Required implementation lifecycle
 
-Read rules → read task → read specs → inspect code → dependency check → plan →
-smallest implementation → targeted test → global verification → scope audit →
-diff review → acceptance check → report.
+Read rules → read task → read specs → preflight Git/workspace → select/create
+branch or worktree → inspect code → dependency check → test plan → RED or
+characterization baseline when applicable → smallest implementation → GREEN →
+refactor → targeted tests → integration/smoke/regression as required → global
+verification → task scope audit → documentation impact review → final diff
+review → commit → clean-tree check → push/prepare PR → CI → review → merge.
 
-Do not silently expand task scope. If the task requires an unlisted path or a
-new architecture decision, stop and record the escalation in the task/PR report.
+`start-task`, `implement-task`, `verify-change`, and `prepare-pr` implement the
+workflow; they do not supersede task packets or architecture specs. Do not
+silently expand scope. Escalate any unlisted path or new architecture decision.
 
-## Verification
+## Test-first and verification
+
+Behavior-changing work is test-first by default. For new behavior, make an
+acceptance test RED, implement the minimum, make it GREEN, then refactor. For a
+bug, first add and reproduce a regression. For a refactor, first ensure enough
+regression/characterization coverage. Choose evidence by change risk and
+acceptance criterion; do not create meaningless tests merely to claim TDD.
+Non-behavioral changes use suitable parser/schema, script, syntax, lint, smoke,
+integration, or documented manual evidence instead. The canonical taxonomy and
+selection rules are [TESTING.md](docs/architecture/TESTING.md).
 
 Run task-required checks and then the project gate:
 
@@ -74,30 +96,51 @@ For a scoped task, also run:
 python3 scripts/validate_task.py --task docs/tasks/active/<TASK-ID>.md
 ```
 
-Runtime is PASS only if Godot actually ran. If the executable is unavailable,
-report **NOT EXECUTED**; CI must fail rather than return a false green.
+The validator resolves the local main merge-base by default; PR CI supplies the
+exact PR base SHA.
 
-## Scope discipline
+Runtime is PASS only if Godot actually ran. Unavailable runtime is **NOT
+EXECUTED**, never PASS. Any behavior/code-affecting edit after final verification
+invalidates it: rerun the relevant checks for the final diff before committing.
+
+## Documentation, commits, and PRs
+
+Every task performs a documentation impact review. Update docs when a contract,
+schema, architecture, documented behavior, workflow, CLI, invariant, task/stage
+status, or existing documentation changes. Otherwise state `Docs impact: none`;
+do not create README churn.
+
+Before committing, inspect `git status --short`, `git diff --check`, and the
+final `git diff`; confirm task scope, acceptance, verification, docs impact, and
+absence of unrelated/debug files. Include the Task ID in the commit subject,
+for example `A-MOD-002: add manifest-backed character catalog`. Afterwards the
+tree should be clean (or a recorded exception) and the committed diff must be
+the verified final diff.
+
+Normal completed tasks use a PR: push the task branch and open/prepare it when
+a writable remote exists unless the task is explicitly local-only or the user
+opts out. Never push directly to `main`, force-push `main`, bypass protection,
+merge without authorization, merge red required CI, or call a PR ready while
+required checks fail. PR summaries use committed diff and actual results only.
+
+## Scope discipline and definition of done
 
 Do not perform incidental gameplay refactors, Godot upgrades, rollback, online,
 Steam, payment, or UI rewrites. Do not weaken/delete existing assertions to make
-a change pass. Preserve working-tree changes that are outside your task.
+a change pass. Preserve working-tree changes outside your task.
 
-## Definition of done
-
-A task is done only when its acceptance criteria are met, required checks are
-reported truthfully, scope validation passes, documentation is updated where the
-task requires it, and the final diff has been reviewed for authority,
-determinism, snapshot/replay, telemetry, and scope impact.
+A task is done only when acceptance criteria are met, required checks are
+truthfully reported, scope validation passes, docs impact is reviewed, and the
+final diff is reviewed for authority, determinism, snapshot/replay, telemetry,
+and scope impact.
 
 ## Documentation map
 
 - Combat/current implementation: [ARCHITECTURE.md](ARCHITECTURE.md)
+- Testing strategy: [TESTING.md](docs/architecture/TESTING.md)
 - Character package target: [CHARACTER_PACKAGE.md](docs/architecture/CHARACTER_PACKAGE.md)
 - Telemetry contract: [TELEMETRY.md](docs/architecture/TELEMETRY.md)
 - Contributor boundaries: [CONTRIBUTOR_CONTRACTS.md](docs/architecture/CONTRIBUTOR_CONTRACTS.md)
 - Stage A execution: [STAGE_A_EXECUTION.md](docs/stages/active/STAGE_A_EXECUTION.md)
 - Task format: [TASK_TEMPLATE.md](docs/tasks/TASK_TEMPLATE.md)
 - Legacy reference inventory: [DORIAN_LEGACY_AUDIT.md](docs/reference/DORIAN_LEGACY_AUDIT.md)
-
-Skills standardize workflow only; they never supersede the specs above.
