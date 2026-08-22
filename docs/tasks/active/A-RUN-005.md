@@ -14,8 +14,21 @@ required_checks: [bash -n scripts/verify.sh, python3 scripts/static_validate.py]
 Require static, runtime, character, replay, and stress coverage in pull-request CI.
 ## Context
 The foundational setup supplies `.github/workflows/godot-verify.yml`; its
-runtime runner aggregates registered suites, but it has not run yet and GitHub
-branch protection is an external setting.
+runtime runner aggregates registered suites. The workflow has run successfully
+with the pinned Godot runtime, but GitHub branch protection is an external
+setting.
+
+## Current External Limitation (2026-08-22)
+
+The repository is currently a private repository owned by the personal
+`dodooodo` account. GitHub reports that Rulesets cannot be enforced for this
+repository until it is moved to a GitHub Team organization account.
+
+The checked-in workflow remains the canonical verification command and must
+continue to fail on missing runtime or test failures. However, it is not
+currently server-enforced as a required merge gate. Keep this task `blocked`
+until the repository is moved to an eligible organization and the `Godot
+Verify` check is configured as a required Ruleset/branch-protection check.
 ## Existing Behavior To Preserve
 Existing static validator and `tests/run_tests.gd` remain the verification authority.
 ## Required Change
@@ -27,11 +40,16 @@ The required check fails on missing runtime or any invoked test failure.
 Do not use a second test runner or claim GitHub branch protection is configured in repository files.
 ## Edge Cases
 Branch-protection configuration is an external repository setting; document it as a follow-up.
+Do not represent the presence of `.github/workflows/godot-verify.yml` as proof
+that merges are server-side protected while this repository remains ineligible
+for GitHub Rulesets.
 ## Tests
 Workflow syntax/inspection and a CI run after merge/PR.
 ## Acceptance Criteria
 Workflow has pinned runtime and failing verification commands.
 ## Rollback / Recovery Notes
 Revert the workflow independently if the CI environment fails to provision Godot.
+After moving to a GitHub Team organization, configure and verify the required
+check before changing this task's status.
 ## Out of Scope
 Release/deployment, web export, external branch-protection administration.

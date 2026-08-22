@@ -42,7 +42,7 @@ runtime command and failure behavior are settled.
 | A-GOV-001 | Stabilize runtime and governance enforcement | none | in progress |
 | A-RUN-003 | Establish one runtime command contract | A-RUN-001 | blocked |
 | A-RUN-004 | Execute the existing 10k stress runtime suite | A-RUN-003 | blocked |
-| A-RUN-005 | Add CI required verification gate | A-RUN-001..004 | blocked |
+| A-RUN-005 | Add CI required verification gate | A-RUN-001..004 | blocked — external GitHub Rulesets limitation |
 | A-VS-001 | Audit Magic Orange Cat + Salad Cat | A-RUN-005 | blocked |
 | A-MOD-001 | Add CharacterManifest v1 | A-RUN-005 | blocked |
 | A-MOD-002 | Add CharacterCatalog beside RosterRegistry | A-MOD-001 | blocked |
@@ -50,6 +50,10 @@ runtime command and failure behavior are settled.
 ## Integration points and risks
 
 - `scripts/verify.sh`, CI, README, and the version pin must agree exactly.
+- The repository is currently private under the personal `dodooodo` account.
+  GitHub Rulesets cannot be enforced until it moves to a GitHub Team
+  organization; the committed CI workflow runs, but is not yet a
+  server-enforced merge gate.
 - `RosterRegistry` is currently used by frontend/tests; catalog migration must
   preserve it until all consumers move under an explicit task.
 - Golden Pair production quality requires real Godot execution and human feel
