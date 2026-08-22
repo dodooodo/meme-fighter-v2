@@ -41,7 +41,7 @@ func _make_thrown() -> BattleSimulation:
 
 func _test_thrown_knockdown_getup_durations() -> void:
     var battle := _make_thrown()
-    t.equal(battle.fighter_b.combatant.hp, 880, "Throw damage = 120 before forced reaction flow")
+    t.equal(battle.fighter_b.combatant.hp, 4880, "Throw damage = 120 before forced reaction flow")
     t.equal(battle.fighter_b.state_machine.state, FighterStateMachine.State.THROWN, "Throw success enters THROWN")
     t.equal(battle.fighter_b.state_machine.thrown_remaining, 10, "THROWN starts with correct 10F duration")
     for _i in range(9):

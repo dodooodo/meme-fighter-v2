@@ -1,4 +1,7 @@
 # Responsibility: Deterministic geometry checks for strike contacts and grounded pushboxes.
+# Owns: Contact candidate geometry, stable hit-id ordering, clash filtering, and pushbox separation.
+# Does NOT own: Damage/reaction application, duplicate-contact mutation, presentation, or engine physics callbacks.
+# Dependencies: Fighter gameplay state, StrikeContact, MoveData/MoveHitData, and SimulationUnits.
 class_name CollisionSystem
 extends RefCounted
 

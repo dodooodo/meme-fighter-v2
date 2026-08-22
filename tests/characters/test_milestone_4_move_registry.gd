@@ -48,11 +48,11 @@ func _test_registry_runtime_isolation() -> void:
 func _test_meter_independence() -> void:
     var battle := _battle(generic, rush)
     battle.fighter_a.meter.gain(8)
-    t.equal(battle.fighter_a.meter.get_value(), 8, "Generic meter gains independently")
+    t.equal(battle.fighter_a.meter.get_value(), 40, "Generic meter gains independently")
     t.equal(battle.fighter_b.meter.get_value(), 0, "Rush meter is unchanged by Generic gain")
     battle.fighter_b.meter.gain(18)
-    t.equal(battle.fighter_b.meter.get_value(), 18, "Rush meter gains independently")
-    t.equal(battle.fighter_a.meter.get_value(), 8, "Generic meter is unchanged by Rush gain")
+    t.equal(battle.fighter_b.meter.get_value(), 90, "Rush meter gains independently")
+    t.equal(battle.fighter_a.meter.get_value(), 40, "Generic meter is unchanged by Rush gain")
 
 func _test_shared_generic_resource_is_not_runtime_mutated() -> void:
     var battle := _battle(generic, generic)

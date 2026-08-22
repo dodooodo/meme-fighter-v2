@@ -126,7 +126,7 @@ func _test_rush_duplicate_contact_snapshot() -> void:
     _tick(battle, InputFrame.with_light_press(1))
     for _i in range(4):
         _tick(battle)
-    t.equal(battle.fighter_b.combatant.hp, 955, "Rush Light has contacted Generic before duplicate snapshot")
+    t.equal(battle.fighter_b.combatant.hp, 4955, "Rush Light has contacted Generic before duplicate snapshot")
     battle.fighter_a.combatant.hitstop_remaining = 0
     battle.fighter_b.combatant.hitstop_remaining = 0
     var snapshot := battle.capture_state()

@@ -2,7 +2,7 @@
 id: A-RUN-005
 stage: A
 type: ci
-status: ready
+status: blocked
 dependencies: [A-RUN-001, A-RUN-002, A-RUN-003, A-RUN-004]
 allowed_paths: [.github/workflows/, scripts/, README.md, docs/]
 forbidden_paths: [battle/, fighter/, data/, presentation/, frontend/]

@@ -34,7 +34,7 @@ func _tick(battle: BattleSimulation, a: InputFrame = null, b: InputFrame = null)
 
 func _test_meter_capture_restore_hash() -> void:
     var battle := _battle(false)
-    battle.fighter_a.meter.gain(73)
+    battle.fighter_a.meter.set_value(73)
     var snapshot := battle.capture_state()
     var hash_73 := battle.state_signature()
     t.equal(snapshot.fighter_a.meter_value, 73, "Snapshot captures exact P1 meter integer")
@@ -95,8 +95,8 @@ func _test_duplicate_meter_contact_restore() -> void:
     _tick(battle, InputFrame.with_light_press(1))
     for _i in range(5):
         _tick(battle)
-    t.equal(battle.fighter_a.meter.get_value(), 8, "Light setup already awarded +8 meter")
-    t.equal(battle.fighter_b.combatant.hp, 950, "Light setup already applied damage once")
+    t.equal(battle.fighter_a.meter.get_value(), 40, "Light setup already awarded tuned meter")
+    t.equal(battle.fighter_b.combatant.hp, 4950, "Light setup already applied damage once")
     battle.fighter_a.combatant.hitstop_remaining = 0
     battle.fighter_b.combatant.hitstop_remaining = 0
     var snapshot := battle.capture_state()

@@ -18,19 +18,28 @@ Foundation**. Read the active task packet before making a task-scoped change.
 
 The detailed, current combat contract is [ARCHITECTURE.md](ARCHITECTURE.md).
 
-## Repository model and truth hierarchy
+## Repository model and authority by domain
 
 This repository is authoritative. `../Dorian` is legacy, read-only reference:
 inspect it for evidence, never copy its architecture by default and never modify it.
 
-When sources conflict, use this order:
+Use the canonical source for the question being answered:
 
-1. Existing v2 production invariants and tests
-2. [Production roadmap](docs/roadmap/PRODUCTION_ROADMAP.md)
-3. [Platform strategy](docs/roadmap/PLATFORM_STRATEGY.md)
-4. Architecture specs in `docs/architecture/`
-5. Task packet in `docs/tasks/active/`
-6. Legacy audit/reference material
+| Question | Canonical source |
+| --- | --- |
+| Current implemented behavior | Code and executable tests |
+| Combat architecture | [ARCHITECTURE.md](ARCHITECTURE.md) |
+| Character/package contract | [CHARACTER_PACKAGE.md](docs/architecture/CHARACTER_PACKAGE.md) |
+| Telemetry contract | [TELEMETRY.md](docs/architecture/TELEMETRY.md) |
+| Stage order and gates | [Production roadmap](docs/roadmap/PRODUCTION_ROADMAP.md) |
+| Platform/product strategy | [Platform strategy](docs/roadmap/PLATFORM_STRATEGY.md) |
+| Current Stage execution | [STAGE_A_EXECUTION.md](docs/stages/active/STAGE_A_EXECUTION.md) |
+| Paths and acceptance for one change | Its active Task Packet |
+| Historical implementation evidence | Legacy Dorian audit/reference material |
+
+A Task Packet may narrow scope but may not silently override an architecture
+contract. Contract changes require the canonical spec, tests, and an ADR when
+the decision has long-term consequences.
 
 ## Git and workspace preflight
 
@@ -84,8 +93,11 @@ bash scripts/verify.sh
 For a scoped task, also run:
 
 ```bash
-python3 scripts/validate_task.py --task docs/tasks/active/<TASK-ID>.md --base <task-base>
+python3 scripts/validate_task.py --task docs/tasks/active/<TASK-ID>.md
 ```
+
+The validator resolves the local main merge-base by default; PR CI supplies the
+exact PR base SHA.
 
 Runtime is PASS only if Godot actually ran. Unavailable runtime is **NOT
 EXECUTED**, never PASS. Any behavior/code-affecting edit after final verification

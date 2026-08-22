@@ -43,13 +43,13 @@ func _test_actual_zone_shot_hit() -> void:
     for _i in range(14):
         _tick(battle)
     t.equal(battle.frame_number, 16, "Zone projectile still spawns on MoveRunner F15 after one charge-entry tick")
-    t.equal(battle.fighter_b.combatant.hp, 1000, "Spawn frame body move deals no damage")
+    t.equal(battle.fighter_b.combatant.hp, 5000, "Spawn frame body move deals no damage")
     _tick(battle)
-    t.equal(battle.fighter_b.combatant.hp, 920, "Zone projectile HIT applies ProjectileData damage 80")
+    t.equal(battle.fighter_b.combatant.hp, 4920, "Zone projectile HIT applies ProjectileData damage 80")
     t.equal(battle.fighter_b.combatant.hitstun_remaining, 16, "Projectile HIT applies 16F hitstun before status tick accounting")
     t.equal(battle.fighter_b.combatant.hitstop_remaining, 3, "Projectile HIT enters 4F hitstop then status tick consumes current frame")
     t.equal(battle.fighter_b.combatant.knockback_velocity_x_units, 700, "Projectile HIT applies directional knockback")
-    t.equal(battle.fighter_a.meter.get_value(), 14, "Projectile HIT awards owner +14 meter")
+    t.equal(battle.fighter_a.meter.get_value(), 70, "Projectile HIT awards owner +14 meter")
     t.equal(battle.projectile_system.active_count(), 0, "Single-hit projectile despawns after HIT")
 
 func _test_actual_zone_shot_block() -> void:
@@ -60,9 +60,9 @@ func _test_actual_zone_shot_block() -> void:
         _tick(battle, null, _guard(f))
     var hit_frame := battle.frame_number + 1
     _tick(battle, null, _guard(hit_frame))
-    t.equal(battle.fighter_b.combatant.hp, 1000, "Projectile BLOCK deals zero prototype chip")
+    t.equal(battle.fighter_b.combatant.hp, 5000, "Projectile BLOCK deals zero prototype chip")
     t.equal(battle.fighter_b.combatant.blockstun_remaining, 12, "Projectile BLOCK applies 12F blockstun before status tick accounting")
-    t.equal(battle.fighter_a.meter.get_value(), 6, "Projectile BLOCK awards owner +6 meter")
+    t.equal(battle.fighter_a.meter.get_value(), 30, "Projectile BLOCK awards owner +6 meter")
     t.equal(battle.fighter_b.combatant.last_result_type, HitResult.ResultType.BLOCK, "Projectile uses canonical HitResult.BLOCK")
     t.equal(battle.projectile_system.active_count(), 0, "Projectile despawns after BLOCK")
 
@@ -117,5 +117,5 @@ func _test_old_projectile_does_not_pollute_current_move_connection() -> void:
     battle.fighter_a.state_machine.transition_to(FighterStateMachine.State.GROUND_ATTACK)
     t.that(not battle.fighter_a.move_runner.connected_hit, "New current Light begins with no hit connection")
     _tick(battle)
-    t.equal(battle.fighter_b.combatant.hp, 920, "Detached old projectile can hit while owner performs another move")
+    t.equal(battle.fighter_b.combatant.hp, 4920, "Detached old projectile can hit while owner performs another move")
     t.that(not battle.fighter_a.move_runner.connected_hit, "Detached projectile HIT does not write current MoveRunner connected_hit")

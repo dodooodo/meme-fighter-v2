@@ -45,7 +45,7 @@ func _test_meter_component_contract() -> void:
     var meter := MeterComponent.new()
     t.equal(meter.get_value(), 0, "Meter starts at 0")
     meter.gain(73)
-    t.equal(meter.get_value(), 73, "Meter gain uses integer value")
+    t.equal(meter.get_value(), 100, "Positive Meter gain applies the global x5 multiplier and clamps to 100")
     meter.gain(50)
     t.equal(meter.get_value(), 100, "Meter gain clamps to 100")
     meter.gain(-20)
@@ -86,19 +86,19 @@ func _test_move_meter_data() -> void:
 func _test_normal_hit_block_meter_gain() -> void:
     var light_hit := _battle()
     _advance_to_first_contact(light_hit, InputFrame.with_light_press(1), 5)
-    t.equal(light_hit.fighter_a.meter.get_value(), 8, "Stand Light HIT gains +8")
+    t.equal(light_hit.fighter_a.meter.get_value(), 40, "Stand Light HIT applies authored +8 through the global x5 gain tuning")
 
     var light_block := _battle()
     _advance_to_first_contact(light_block, InputFrame.with_light_press(1), 5, true)
-    t.equal(light_block.fighter_a.meter.get_value(), 4, "Stand Light BLOCK gains +4")
+    t.equal(light_block.fighter_a.meter.get_value(), 20, "Stand Light BLOCK applies authored +4 through the global x5 gain tuning")
 
     var heavy_hit := _battle()
     _advance_to_first_contact(heavy_hit, InputFrame.with_heavy_press(1), 11)
-    t.equal(heavy_hit.fighter_a.meter.get_value(), 12, "Stand Heavy HIT gains +12")
+    t.equal(heavy_hit.fighter_a.meter.get_value(), 60, "Stand Heavy HIT applies authored +12 through the global x5 gain tuning")
 
     var low_hit := _battle()
     _advance_to_first_contact(low_hit, InputFrame.with_light_press(1, 0, -1), 8)
-    t.equal(low_hit.fighter_a.meter.get_value(), 10, "Crouch Low HIT gains +10")
+    t.equal(low_hit.fighter_a.meter.get_value(), 50, "Crouch Low HIT applies authored +10 through the global x5 gain tuning")
 
 func _test_air_throw_special_meter_gain() -> void:
     var air := _battle()
@@ -106,30 +106,30 @@ func _test_air_throw_special_meter_gain() -> void:
     _tick(air, InputFrame.with_light_press(2))
     for _i in range(6):
         _tick(air)
-    t.equal(air.fighter_a.meter.get_value(), 10, "Air Attack HIT gains +10")
+    t.equal(air.fighter_a.meter.get_value(), 50, "Air Attack HIT applies authored +10 through the global x5 gain tuning")
 
     var throw_battle := _battle()
     _advance_to_first_contact(throw_battle, InputFrame.with_heavy_press(1, 1), 5, true)
-    t.equal(throw_battle.fighter_a.meter.get_value(), 15, "Ground Throw THROW result gains +15")
+    t.equal(throw_battle.fighter_a.meter.get_value(), 75, "Ground Throw applies authored +15 through the global x5 gain tuning")
 
     var special_hit := _battle()
     _advance_to_first_contact(special_hit, InputFrame.with_special_press(1), 10)
-    t.equal(special_hit.fighter_a.meter.get_value(), 18, "Special HIT gains +18")
+    t.equal(special_hit.fighter_a.meter.get_value(), 90, "Special HIT applies authored +18 through the global x5 gain tuning")
 
     var special_block := _battle()
     _advance_to_first_contact(special_block, InputFrame.with_special_press(1), 10, true)
-    t.equal(special_block.fighter_a.meter.get_value(), 8, "Special BLOCK gains +8")
+    t.equal(special_block.fighter_a.meter.get_value(), 40, "Special BLOCK applies authored +8 through the global x5 gain tuning")
 
 func _test_duplicate_contact_meter_gain_once() -> void:
     var battle := _battle()
     _advance_to_first_contact(battle, InputFrame.with_special_press(1), 10)
-    t.equal(battle.fighter_a.meter.get_value(), 18, "Special first active contact grants meter once")
+    t.equal(battle.fighter_a.meter.get_value(), 90, "Special first active contact grants tuned meter once")
     battle.fighter_a.combatant.hitstop_remaining = 0
     battle.fighter_b.combatant.hitstop_remaining = 0
     var hp_after := battle.fighter_b.combatant.hp
     for _i in range(3):
         _tick(battle)
-    t.equal(battle.fighter_a.meter.get_value(), 18, "Same AttackInstance active overlap cannot grant meter repeatedly")
+    t.equal(battle.fighter_a.meter.get_value(), 90, "Same AttackInstance active overlap cannot grant meter repeatedly")
     t.equal(battle.fighter_b.combatant.hp, hp_after, "Duplicate-contact meter protection matches duplicate damage protection")
 
 func _test_same_frame_trade_awards_both() -> void:
@@ -137,8 +137,8 @@ func _test_same_frame_trade_awards_both() -> void:
     _tick(battle, InputFrame.with_light_press(1), InputFrame.with_light_press(1))
     for _i in range(5):
         _tick(battle)
-    t.equal(battle.fighter_a.meter.get_value(), 8, "Same-frame trade awards P1 meter")
-    t.equal(battle.fighter_b.meter.get_value(), 8, "Same-frame trade awards P2 meter")
+    t.equal(battle.fighter_a.meter.get_value(), 40, "Same-frame trade awards tuned P1 meter")
+    t.equal(battle.fighter_b.meter.get_value(), 40, "Same-frame trade awards tuned P2 meter")
 
 func _test_ultimate_awards_no_meter() -> void:
     var battle := _battle()

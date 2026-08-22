@@ -7,7 +7,8 @@ description: Verify a scoped Dorian change without claiming unexecuted runtime w
 
 Read the active task, changed paths, and
 [TESTING.md](../../../docs/architecture/TESTING.md). Run packet
-`required_checks` and select proportional evidence:
+`required_checks` first and select proportional evidence. Let
+`validate_task.py` resolve the local merge-base; CI passes the exact PR base SHA.
 
 - resources/manifests/config/scripts/CI: static/schema plus parser/syntax/script checks;
 - isolated deterministic logic: unit tests;
