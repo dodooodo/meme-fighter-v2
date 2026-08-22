@@ -1,7 +1,7 @@
 # A-VS-004 — Golden Pair Game-Feel Pass
 
 Implementation date: 2026-08-22. Scope: presentation-only combat feedback for
-Salad Cat and Magic Orange Cat. Overall status: **IN PROGRESS**.
+Salad Cat and Magic Orange Cat. Overall status: **COMPLETE WITH DEFERRED AUTHORED-ASSET GAPS**.
 
 ## Evidence status
 
@@ -10,9 +10,11 @@ Salad Cat and Magic Orange Cat. Overall status: **IN PROGRESS**.
   diff: static validation 3650 passed / 0 failed, feedback tests 26 passed / 0
   failed, Golden Pair bindings 54 passed / 0 failed, stress tests 7 passed / 0
   failed, task-scope validation PASS, and the full project gate PASS.
-- **Manual verification:** NOT EXECUTED.
+- **Manual verification:** complete; the user reported the Golden Pair play
+  checklist accepted on 2026-08-22. Per-item notes were not supplied.
 - **Authored asset coverage:** incomplete for hit/guard SFX and Golden Pair
-  Ultimate screen art.
+  Ultimate screen art. The user explicitly accepted both as deferred
+  development fallbacks for this merge on 2026-08-22.
 
 ## Implemented feedback
 
@@ -22,14 +24,14 @@ flash, and named audio cues. Charged specials use the same special tier.
 
 | Event | Automated result | Human/asset result |
 | --- | --- | --- |
-| Light → Heavy → Special → Ultimate | VFX, camera, and white flash increase monotonically | manual feel pending |
-| Block | blue burst, smaller flash/impulse, distinct tiered guard cue | manual readability and authored SFX pending |
-| Throw | dedicated heavy burst/impulse/flash and cue | manual feel pending |
-| KO | strongest burst, camera impulse, white flash; existing KO overlay remains | manual readability pending |
-| Gameplay hitstop | unchanged; existing gameplay tests remain authoritative | manual perceived timing pending |
-| Ultimate body animation | direct Golden Pair binding from A-VS-003 | manual review pending |
-| Ultimate screen | presenter foundation exists | **GAP:** no Golden Pair screen binding/art |
-| Hit/guard sound | tiered cue IDs dispatch | **GAP:** no authored audio streams |
+| Light → Heavy → Special → Ultimate | VFX, camera, and white flash increase monotonically | user checklist accepted |
+| Block | blue burst, smaller flash/impulse, distinct tiered guard cue | readability accepted; authored SFX deferred |
+| Throw | dedicated heavy burst/impulse/flash and cue | user checklist accepted |
+| KO | strongest burst, camera impulse, white flash; existing KO overlay remains | user checklist accepted |
+| Gameplay hitstop | unchanged; existing gameplay tests remain authoritative | perceived timing accepted |
+| Ultimate body animation | direct Golden Pair binding from A-VS-003 | user checklist accepted |
+| Ultimate screen | presenter foundation exists | **DEFERRED GAP:** no Golden Pair screen binding/art |
+| Hit/guard sound | tiered cue IDs dispatch | **DEFERRED GAP:** no authored audio streams |
 
 No gameplay data, hitstop, timing, damage, collision, snapshot, replay, or hash
 state is modified by this pass.
@@ -57,6 +59,7 @@ character order reversed. Record PASS/FAIL and a short note for each item:
 9. Report whether any flash is uncomfortable or any camera impulse causes
    motion discomfort.
 
-Do not mark this task `done` until the checklist is recorded and the two
-authored-asset gaps are either supplied or explicitly accepted as named
-development fallbacks by the user.
+The user accepted the checklist and explicitly accepted the two named authored
+asset gaps as development fallbacks for this merge on 2026-08-22. Future asset
+work must replace the fallback cue-only audio behavior and add a Golden Pair
+Ultimate screen binding/art without claiming those assets exist today.
