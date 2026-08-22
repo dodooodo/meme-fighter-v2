@@ -14,11 +14,12 @@ snapshot/replay tests, `scripts/static_validate.py`, and fail-closed
 `scripts/verify.sh`. CI pins Godot 4.7.2. The Golden Pair now uses manifest-backed
 character packages with package-owned moves, validation, a safe contributor
 template, and focused test commands. The remaining twelve roster characters
-still use central resources. A3 contributor tooling now provides domain
-ownership, role PR contracts, read-only balance exports, a validation-first
-round-trip strategy, a manifest-driven art build entrypoint, mechanic authoring
-guidance, and repeatable merge-conflict simulation; telemetry is not yet
-implemented.
+still use central resources. A3 contributor tooling provides domain ownership,
+role PR contracts, read-only balance exports, a validation-first round-trip
+strategy, a manifest-driven art build entrypoint, mechanic authoring guidance,
+and repeatable merge-conflict simulation. A4 now provides local identity,
+versioned JSONL telemetry for match/move/mastery/performance evidence, bounded
+failure isolation, and replay correlation.
 
 ## Dependencies and workstreams
 
@@ -31,6 +32,7 @@ A-RUN-004 ─┘
 A-VS-001 ─────────────────────────> later Golden Pair presentation/feel work
 A-MOD-001 ─> A-MOD-002 ─> A-MOD-003 ─> A-MOD-004 ─> A-MOD-005 ─> A-MOD-006 ─> A-MOD-007
 A-COL-003 ─> A-COL-004; A-COL-001/002/005/006/007 are independent
+A-DATA-001..008 ─> local Event Envelope v1 + replay-correlated JSONL
 ```
 
 `A-RUN-001` through `A-RUN-004` may run in parallel when their path scopes do
@@ -64,6 +66,14 @@ runtime command and failure behavior are settled.
 | A-COL-005 | Add one-command art manifest build | none | done |
 | A-COL-006 | Add mechanic authoring guide | none | done |
 | A-COL-007 | Simulate four contributor branches | none | done |
+| A-DATA-001 | Add local identity vocabulary | none | done |
+| A-DATA-002 | Add Event Envelope v1 | none | done |
+| A-DATA-003 | Emit match summaries | none | done |
+| A-DATA-004 | Aggregate move telemetry | none | done |
+| A-DATA-005 | Derive mastery events | none | done |
+| A-DATA-006 | Sample performance events | none | done |
+| A-DATA-007 | Persist bounded local JSONL | none | done |
+| A-DATA-008 | Correlate match summaries to replay files | none | done |
 
 ## Integration points and risks
 
@@ -77,10 +87,12 @@ runtime command and failure behavior are settled.
 - Golden Pair production quality requires real Godot execution and human feel
   review; source analysis cannot certify it.
 - Package paths are target architecture. Do not mass-move the existing roster.
+- A4 is local-only. Remote retention, consent/deletion, hard-crash capture,
+  ingestion quality, and analytics storage remain later-stage work.
 
 ## Stage gate
 
-Do not mark Stage A complete until master-roadmap A0–A3 acceptance is met,
+Do not mark Stage A complete until master-roadmap A0–A4 acceptance is met,
 including actual CI runtime evidence, Golden Pair coverage/soak, Character
 Package validation, and local telemetry. Task completion is evidence; it does
 not waive the Stage gate.
@@ -93,4 +105,7 @@ the corresponding task packets and verification evidence as implementation
 authority for later character-package work. A-COL-001 through A-COL-007 are
 also complete. The balance workflow remains export-only until a later task
 implements the complete validation, preview, atomic apply, and rollback
-contract; this is the accepted A-COL-004 strategy, not a partial importer.
+contract; this is the accepted A-COL-004 strategy, not a partial importer. A4
+local telemetry is complete; retain its envelope/ADR as authority and defer all
+HTTP, remote storage, consent, retention, and account identity work to B4 or an
+explicit platform/privacy task.

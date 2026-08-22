@@ -1,5 +1,5 @@
-# Responsibility: One-way simulation -> presentation event payload.
-# Owns: presentation-facing deterministic facts and stable provenance IDs.
+# Responsibility: One-way simulation -> observer event payload.
+# Owns: deterministic observation facts and stable provenance IDs.
 # Does NOT own: combat mutation, animation playback, VFX/audio implementation, presentation dedupe state.
 # Dependencies: HitResult/round enum scalar facts only; no gameplay Resources.
 class_name CombatEvent
@@ -24,6 +24,7 @@ var attacker_id: int = 0
 var defender_id: int = 0
 var move_id: StringName = &""
 var attack_instance_id: int = 0
+var hit_id: int = 0
 var projectile_instance_id: int = 0
 var position: Vector2 = Vector2.ZERO
 var value_before: int = 0
@@ -31,6 +32,12 @@ var value_after: int = 0
 var hitstop_frames: int = 0
 var state_name: StringName = &""
 var result_type: int = -1
+var counter_hit: bool = false
+var defender_airborne: bool = false
+var defender_move_phase: StringName = &"NONE"
+var distance_units: int = 0
+var attacker_cornered: bool = false
+var defender_cornered: bool = false
 var round_number: int = 0
 var round_result: int = 0
 var timeout: bool = false
@@ -111,5 +118,12 @@ static func _copy_result_provenance(event: CombatEvent, result: HitResult) -> vo
     event.defender_id = result.defender_id
     event.move_id = result.move_id
     event.attack_instance_id = result.attack_instance_id
+    event.hit_id = result.hit_id
+    event.counter_hit = result.counter_hit
+    event.defender_airborne = result.defender_airborne
+    event.defender_move_phase = result.defender_move_phase
+    event.distance_units = result.distance_units
+    event.attacker_cornered = result.attacker_cornered
+    event.defender_cornered = result.defender_cornered
     if result.attack_source_kind == HitResult.AttackSourceKind.PROJECTILE:
         event.projectile_instance_id = result.source_runtime_id

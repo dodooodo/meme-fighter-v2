@@ -34,6 +34,43 @@ for p in core_files:
     for forbidden in ['RigidBody2D','CharacterBody2D','AnimationPlayer','AudioStreamPlayer','Camera2D','ProgressBar']:
         check(forbidden not in body, f'{p.relative_to(ROOT)} does not depend on {forbidden}')
     check('_physics_process' not in body and '_process(' not in body, f'{p.relative_to(ROOT)} has no SceneTree timing callback')
+    for forbidden in ['TelemetryService', 'LocalTelemetrySink', 'FileAccess', 'HTTPRequest', 'HTTPClient']:
+        check(forbidden not in body, f'{p.relative_to(ROOT)} has no telemetry transport dependency: {forbidden}')
+
+# A4 local telemetry stays behind the scene/service boundary.
+telemetry_files = [
+    'telemetry/telemetry_identity.gd', 'telemetry/telemetry_envelope_v1.gd',
+    'telemetry/local_telemetry_sink.gd', 'telemetry/telemetry_match_aggregator.gd',
+    'telemetry/telemetry_performance_sampler.gd', 'telemetry/telemetry_replay_store.gd',
+    'telemetry/telemetry_service.gd',
+]
+for rel in telemetry_files:
+    check((ROOT/rel).exists(), f'A4 telemetry component exists: {rel}')
+envelope = text('telemetry/telemetry_envelope_v1.gd')
+for field in ['event_name', 'event_version', 'event_id', 'occurred_at', 'installation_id',
+              'session_id', 'match_id', 'round_id', 'build_id', 'content_version', 'platform', 'payload']:
+    check(f'"{field}"' in envelope, f'Event Envelope v1 declares {field}')
+sink = text('telemetry/local_telemetry_sink.gd')
+check('user://telemetry' in sink and 'DEFAULT_MAX_BUFFER' in sink and 'store_line(JSON.stringify' in sink,
+      'Local telemetry sink is bounded session JSONL')
+check('Thread.new()' in sink and '_write_thread.start' in sink and 'flush_blocking' in sink,
+      'Local telemetry sink dispatches writes asynchronously and joins only at lifecycle boundaries')
+telemetry_service = text('telemetry/telemetry_service.gd')
+check('TelemetryMatchAggregator' in telemetry_service and 'TelemetryPerformanceSampler' in telemetry_service,
+      'Telemetry service composes match and performance observers')
+check('HTTPRequest' not in telemetry_service and 'HTTPClient' not in telemetry_service and 'BattleSimulation.new' not in telemetry_service,
+      'Telemetry service has no HTTP or simulation authority')
+battle_scene_telemetry = text('battle/battle_scene.gd')
+check('_consume_simulation_events' in battle_scene_telemetry and 'telemetry_service.observe_combat_events(events, simulation)' in battle_scene_telemetry,
+      'BattleScene copies each drained event batch to telemetry')
+check('presentation_controller.consume_events(events)' in battle_scene_telemetry,
+      'BattleScene preserves presentation delivery for telemetry-observed batches')
+check('TelemetryReplayStore.save' in battle_scene_telemetry and 'telemetry_service.end_match' in battle_scene_telemetry,
+      'BattleScene finalizes replay correlation before match telemetry')
+check('TELEMETRY_SERVICE_INTEGRATION_SUITE' in text('tests/run_tests.gd'),
+      'Full runtime runner includes A4 telemetry integration coverage')
+check((ROOT/'tests/telemetry/run_battle_scene_telemetry_smoke.gd').exists() and 'A4 BattleScene telemetry smoke: PASS' in text('tests/telemetry/run_battle_scene_telemetry_smoke.gd'),
+      'A4 provides a real BattleScene/autoload/replay/local-sink smoke runner')
 
 important=[
  'battle/battle_simulation.gd','battle/combat/collision_system.gd','battle/combat/combat_resolver.gd','battle/combat/strike_contact.gd','battle/combat/hit_result.gd','battle/combat/combat_event.gd',
@@ -1095,7 +1132,7 @@ check('SCHEMA_VERSION: int = 1' in replay_format and 'COMBAT_RULES_VERSION: int 
 scene_m7=text('battle/battle_scene.gd')
 scene_tscn_m7=text('battle/battle_scene.tscn')
 check('character_a_presentation: CharacterPresentationData' in scene_m7 and 'character_b_presentation: CharacterPresentationData' in scene_m7, 'BattleScene owns gameplay/presentation pair configuration')
-check('presentation_controller.consume_events(simulation.drain_events())' in scene_m7 and 'presentation_controller.sync_from_simulation()' in scene_m7, 'BattleScene drains simulation events one-way into presentation and syncs latest state')
+check('_consume_simulation_events(simulation.drain_events())' in scene_m7 and 'presentation_controller.consume_events(events)' in scene_m7 and 'presentation_controller.sync_from_simulation()' in scene_m7, 'BattleScene drains simulation events one-way through observers into presentation and syncs latest state')
 check('generic_fighter_presentation.tres' in scene_tscn_m7 and 'zone_fighter_presentation.tres' in scene_tscn_m7 and 'BattlePresentationController' in scene_tscn_m7, 'Default M7 scene binds production Generic/Zone presentation resources/controller')
 
 m7_suites={
@@ -1137,7 +1174,7 @@ check('M7 Presentation Boundary' in text('ARCHITECTURE.md'), 'ARCHITECTURE docum
 check('M7 Presentation Guardrails' in text('CONTRIBUTING_AI.md'), 'CONTRIBUTING_AI documents M7 Presentation authority guardrails')
 check('M7 COMPLETE — Presentation Foundation' in text('README.md'), 'README documents M7 Presentation Foundation and headless boundary')
 check('_event_queue.append(CombatEvent.round_started(frame_number, round_controller.round_number))' in battle_sim_m7, 'New BattleSimulation configuration/full reset exposes deterministic ROUND_STARTED presentation output')
-check('presentation_controller.consume_events(simulation.drain_events())' in text('battle/battle_scene.gd'), 'BattleScene routes initial ROUND_STARTED through the shared presentation ledger/cue pipeline')
+check(text('battle/battle_scene.gd').count('_consume_simulation_events(simulation.drain_events())') >= 2 and 'presentation_controller.consume_events(events)' in text('battle/battle_scene.gd'), 'BattleScene routes initial ROUND_STARTED through the shared presentation ledger/cue pipeline')
 
 
 

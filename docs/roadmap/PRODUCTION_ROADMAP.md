@@ -766,6 +766,10 @@ range approximation
 
 ## 6.6 A4 — Telemetry Foundation
 
+Implementation status: complete on 2026-08-23. Stage A now writes bounded local
+Event Envelope v1 JSONL and replay-correlated match evidence; remote ingestion
+remains B4 scope.
+
 ### `A-DATA-001` Identity Vocabulary
 
 本地先建立：
@@ -788,13 +792,14 @@ user_id
 
 ```json
 {
-  "event_name": "move_resolved",
+  "event_name": "move.summary",
   "event_version": 1,
   "event_id": "...",
   "occurred_at": "...",
   "installation_id": "...",
   "session_id": "...",
   "match_id": "...",
+  "round_id": "...",
   "build_id": "...",
   "content_version": "...",
   "platform": "...",
@@ -917,7 +922,7 @@ normalized InputFrame 走 replay stream，不走 analytics event row。
 - [ ] 新增角色不需修改中央 registry
 - [ ] CI 真跑 Godot runtime
 - [ ] replay determinism regression 綠
-- [ ] local telemetry 可產生 match/move/performance data
+- [x] local telemetry 可產生 match/move/performance data
 - [ ] 角色 package 可被單獨驗證
 - [ ] 4 類協作者 ownership boundary 已文件化
 
