@@ -103,7 +103,7 @@ func _present_character_impact(event: CombatEvent) -> void:
         return
     var attacker_controller := _controller_for_fighter_id(event.attacker_id)
     var defender_controller := _controller_for_fighter_id(event.defender_id)
-    var tier := _impact_tier(event.move_id)
+    var tier := CombatFeedbackProfile.tier_for_move(event.move_id)
     if event.type == CombatEvent.EventType.BLOCK:
         if attacker_controller != null:
             attacker_controller.request_visual_hold(1 if tier >= 3 else 0)
@@ -142,15 +142,6 @@ func _controller_for_fighter_id(fighter_id: int) -> FighterPresentationControlle
     if simulation.fighter_b != null and simulation.fighter_b.fighter_id == fighter_id:
         return p2_controller
     return null
-
-func _impact_tier(move_id: StringName) -> int:
-    if move_id == &"ultimate":
-        return 4
-    if move_id == &"special_neutral":
-        return 3
-    if move_id in [&"stand_heavy", &"ground_throw"]:
-        return 2
-    return 1
 
 func resync_all() -> void:
     if not configured:
