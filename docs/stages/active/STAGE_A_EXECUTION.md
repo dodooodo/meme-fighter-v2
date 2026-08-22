@@ -42,11 +42,16 @@ runtime command and failure behavior are settled.
 | A-GOV-001 | Stabilize runtime and governance enforcement | none | in progress |
 | A-RUN-003 | Establish one runtime command contract | A-RUN-001 | blocked |
 | A-RUN-004 | Execute the existing 10k stress runtime suite | A-RUN-003 | blocked |
-| A-RUN-005 | Add CI required verification gate | A-RUN-001..004 | blocked — external GitHub Rulesets limitation |
+| A-RUN-005 | Add CI required verification gate | A-RUN-001..004 | done — repository CI accepted; Rulesets follow-up remains external |
 | A-VS-001 | Audit Magic Orange Cat + Salad Cat | A-RUN-005 | done — gameplay coverage evidence merged |
 | A-VS-002 | Audit Golden Pair presentation coverage | A-VS-001 | done — bindings gap identified |
-| A-MOD-001 | Add CharacterManifest v1 | A-RUN-005 | blocked |
-| A-MOD-002 | Add CharacterCatalog beside RosterRegistry | A-MOD-001 | blocked |
+| A-MOD-001 | Add CharacterManifest v1 | A-RUN-005 | done |
+| A-MOD-002 | Add CharacterCatalog beside RosterRegistry | A-MOD-001 | done |
+| A-MOD-003 | Migrate the Golden Pair to packages | A-MOD-002 | in progress |
+| A-MOD-004 | Split Golden Pair MoveData resources | A-MOD-003 | blocked |
+| A-MOD-005 | Add the character package template | A-MOD-004 | blocked |
+| A-MOD-006 | Add package validation | A-MOD-005 | blocked |
+| A-MOD-007 | Add per-character test command | A-MOD-006 | blocked |
 
 ## Integration points and risks
 
@@ -70,6 +75,7 @@ not waive the Stage gate.
 
 ## Recommended order
 
-Complete A-GOV-001, then run A-RUN-001 → 003 → 004 → 005; A-RUN-002 is
-complete. Only after A-RUN-005 is done, run A-VS-001 and A-MOD-001, then
-A-MOD-002. Use the corresponding active task packets as implementation authority.
+The project owner accepted A-RUN-005's external Rulesets limitation on
+2026-08-22. Continue the modular stream from A-MOD-003 through A-MOD-007 in
+dependency order, using the corresponding active task packets as implementation
+authority.
