@@ -1412,6 +1412,25 @@ check(
     'Reserved character package template is not registered in the roster',
 )
 
+character_validator = text('data/character_validator.gd')
+character_validation_sources = (
+    character_validator
+    + text('data/character_manifest.gd')
+    + text('presentation/data/character_presentation_data.gd')
+)
+for invariant in [
+    'duplicate manifest id', 'gameplay resource id mismatch',
+    'presentation character_id mismatch', 'duplicate move id',
+    'required move missing', 'missing gameplay resource',
+    'missing art binding', 'invalid frame data',
+    'impossible cancel target', 'duplicate projectile id',
+]:
+    check(invariant in character_validation_sources, f'CharacterValidator covers invariant: {invariant}')
+check(
+    (ROOT/'scripts/validate_characters.sh').stat().st_mode & 0o111 != 0,
+    'Character package command is executable: scripts/validate_characters.sh',
+)
+
 for msg in passes:
     print('[PASS]',msg)
 if errors:

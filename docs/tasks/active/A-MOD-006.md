@@ -2,9 +2,9 @@
 id: A-MOD-006
 stage: A
 type: tooling
-status: in_progress
+status: done
 dependencies: [A-MOD-005]
-allowed_paths: [data/character_validator.gd, content/, tests/characters/, tests/tooling/, tests/run_tests.gd, scripts/validate_characters.gd, scripts/validate_characters.sh, scripts/static_validate.py, docs/architecture/, docs/contributors/, docs/stages/, docs/tasks/]
+allowed_paths: [data/character_validator.gd, data/character_validator.gd.uid, content/, tests/characters/, tests/tooling/, tests/run_tests.gd, scripts/validate_characters.gd, scripts/validate_characters.gd.uid, scripts/validate_characters.sh, scripts/static_validate.py, docs/architecture/, docs/contributors/, docs/stages/, docs/tasks/]
 forbidden_paths: [battle/, fighter/, frontend/, presentation/events/, presentation/fighter/, assets/]
 required_specs: [AGENTS.md, ARCHITECTURE.md, docs/architecture/CHARACTER_PACKAGE.md, docs/architecture/TESTING.md]
 required_checks: [python3 scripts/static_validate.py, godot --headless --path . -s res://tests/run_tests.gd, bash scripts/verify.sh]

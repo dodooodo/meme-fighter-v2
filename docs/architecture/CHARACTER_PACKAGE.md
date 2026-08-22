@@ -59,6 +59,12 @@ manifest is unavailable, and its `_replace_me` identities prevent accidental
 registration. It includes the manifest, gameplay, seven canonical placeholder
 moves, presentation bindings, and asset-placement guidance.
 
+`CharacterValidator` performs deterministic, read-only package validation for
+manifest identity, required resources and moves, frame/cancel rules, projectile
+identity and spawn rules, and presentation art bindings. Run
+`scripts/validate_characters.sh`; it discovers non-reserved package directories
+in sorted order and exits nonzero on any missing manifest or validation error.
+
 Mechanics require typed, generic data/runtime contracts first. No package may
 introduce a `character_id` switch in generic gameplay. Presentation binds by
 stable identity and can fall back visibly when art is missing.
@@ -71,7 +77,8 @@ stable identity and can fall back visibly when art is missing.
 3. `A-MOD-003` migrates only `magic_orange_cat` and `salad_cat` as the Golden Pair.
 4. `A-MOD-004` splits the Golden Pair moves into package-owned resources.
 5. `A-MOD-005` adds the inert package authoring template.
-6. Later tasks add package validation and focused test commands.
+6. `A-MOD-006` adds deterministic package validation and its headless command.
+7. A later task adds the focused per-character test command.
 
 Every package change needs ID/resource validation and focused character tests.
 Version manifest-compatible changes intentionally; incompatible formats require a
