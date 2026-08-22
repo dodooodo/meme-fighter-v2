@@ -3,14 +3,17 @@
 class_name RosterRegistry
 extends RefCounted
 
+const SALAD_CAT_MANIFEST: CharacterManifest = preload("res://content/characters/salad_cat/character_manifest.tres")
+const MAGIC_ORANGE_CAT_MANIFEST: CharacterManifest = preload("res://content/characters/magic_orange_cat/character_manifest.tres")
+
 const ENTRIES: Array[Dictionary] = [
     {"id": &"alien_meow", "name": "Alien Meow", "character": preload("res://data/characters/alien_meow.tres"), "presentation": preload("res://presentation/characters/alien_meow_presentation.tres")},
     {"id": &"doge", "name": "Doge", "character": preload("res://data/characters/doge.tres"), "presentation": preload("res://presentation/characters/doge_presentation.tres")},
     {"id": &"ya_mouse", "name": "YA鼠", "character": preload("res://data/characters/ya_mouse.tres"), "presentation": preload("res://presentation/characters/ya_mouse_presentation.tres")},
     {"id": &"tempura_penguin", "name": "Oh fuxking 天婦羅尬哩涼", "character": preload("res://data/characters/tempura_penguin.tres"), "presentation": preload("res://presentation/characters/tempura_penguin_presentation.tres")},
     {"id": &"goblin_love", "name": "哥布林也想談戀愛", "character": preload("res://data/characters/goblin_love.tres"), "presentation": preload("res://presentation/characters/goblin_love_presentation.tres")},
-    {"id": &"salad_cat", "name": "沙拉貓貓", "character": preload("res://data/characters/salad_cat.tres"), "presentation": preload("res://presentation/characters/salad_cat_presentation.tres")},
-    {"id": &"magic_orange_cat", "name": "魔法胖橘貓", "character": preload("res://data/characters/magic_orange_cat.tres"), "presentation": preload("res://presentation/characters/magic_orange_cat_presentation.tres")},
+    {"id": SALAD_CAT_MANIFEST.id, "name": SALAD_CAT_MANIFEST.display_name, "character": SALAD_CAT_MANIFEST.gameplay_resource, "presentation": SALAD_CAT_MANIFEST.presentation_resource},
+    {"id": MAGIC_ORANGE_CAT_MANIFEST.id, "name": MAGIC_ORANGE_CAT_MANIFEST.display_name, "character": MAGIC_ORANGE_CAT_MANIFEST.gameplay_resource, "presentation": MAGIC_ORANGE_CAT_MANIFEST.presentation_resource},
     {"id": &"blade_shield", "name": "我的刀盾", "character": preload("res://data/characters/blade_shield.tres"), "presentation": preload("res://presentation/characters/blade_shield_presentation.tres")},
     {"id": &"pink_star", "name": "粉紅星星", "character": preload("res://data/characters/pink_star.tres"), "presentation": preload("res://presentation/characters/pink_star_presentation.tres")},
     {"id": &"sauce_stubble_dog", "name": "蘸醬胡渣狗", "character": preload("res://data/characters/sauce_stubble_dog.tres"), "presentation": preload("res://presentation/characters/sauce_stubble_dog_presentation.tres")},

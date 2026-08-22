@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://data/character_manifest.gd" id="manifest"]
+[ext_resource type="Resource" path="res://content/characters/salad_cat/gameplay/character.tres" id="gameplay"]
+[ext_resource type="Resource" path="res://content/characters/salad_cat/presentation/character_presentation.tres" id="presentation"]
+
+[resource]
+script = ExtResource("manifest")
+id = &"salad_cat"
+display_name = "沙拉貓貓"
+version = 1
+content_pack_id = &"golden_pair_salad_cat"
+available = true
+gameplay_resource = ExtResource("gameplay")
+presentation_resource = ExtResource("presentation")

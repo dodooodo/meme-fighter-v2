@@ -41,8 +41,8 @@ production mappings. They must not be represented as complete coverage.
 
 ## Traceable source evidence
 
-- `presentation/characters/magic_orange_cat_presentation.tres`
-- `presentation/characters/salad_cat_presentation.tres`
+- `content/characters/magic_orange_cat/presentation/character_presentation.tres`
+- `content/characters/salad_cat/presentation/character_presentation.tres`
 - `presentation/visuals/production/magic_orange_cat_visual.tscn`
 - `presentation/visuals/production/salad_cat_visual.tscn`
 - `assets/characters/magic_orange_cat/animations/manifest.json`

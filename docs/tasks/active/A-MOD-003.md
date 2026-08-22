@@ -2,7 +2,7 @@
 id: A-MOD-003
 stage: A
 type: architecture
-status: in_progress
+status: done
 dependencies: [A-MOD-002]
 allowed_paths: [content/, data/characters/, data/roster_registry.gd, presentation/characters/, tests/characters/, tests/roster/, tests/run_tests.gd, scripts/static_validate.py, docs/architecture/, docs/stages/, docs/tasks/]
 forbidden_paths: [battle/, fighter/, frontend/, presentation/events/, presentation/fighter/, assets/]

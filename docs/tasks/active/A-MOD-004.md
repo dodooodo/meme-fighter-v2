@@ -2,7 +2,7 @@
 id: A-MOD-004
 stage: A
 type: refactor
-status: blocked
+status: in_progress
 dependencies: [A-MOD-003]
 allowed_paths: [content/, data/characters/, data/move_sets/, tests/characters/, tests/roster/, tests/run_tests.gd, scripts/, docs/architecture/, docs/stages/, docs/tasks/]
 forbidden_paths: [battle/, fighter/, frontend/, presentation/, assets/]

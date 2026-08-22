@@ -2,11 +2,12 @@
 
 ## CURRENT
 
-Gameplay characters live in `data/characters/*.tres`; move sets in
+Most gameplay characters live in `data/characters/*.tres`; move sets in
 `data/move_sets/`; moves in `data/moves/`; presentation data in
-`presentation/characters/`. `data/roster_registry.gd` is a frontend/test
-registry containing central concrete preloads. There is no `CharacterManifest`,
-`CharacterCatalog`, or `content/characters/<id>/` package yet.
+`presentation/characters/`. `data/roster_registry.gd` remains a frontend/test
+compatibility registry. `magic_orange_cat` and `salad_cat` are the first
+manifest-backed packages under `content/characters/`; the other twelve roster
+characters remain on central paths.
 
 `CharacterData.id` is the stable gameplay identity. `CharacterData` owns base
 stats, movement, base boxes, `MoveSetData`, and optional typed mechanics.
@@ -44,6 +45,12 @@ MoveRegistry.
 `data/character_catalog.gd` provides this additive v1 boundary beside
 `RosterRegistry`. Pack registration is all-or-nothing and rejects invalid
 manifests, duplicate character IDs, and duplicate content-pack IDs.
+
+The Golden Pair package manifests reference package-owned gameplay and
+presentation resources. Their move sets remain on central paths until
+`A-MOD-004` performs the MoveData split. `RosterRegistry` obtains those two
+entries through the manifests so existing consumers keep their compatibility
+API while package discovery becomes authoritative for the migrated pair.
 
 Mechanics require typed, generic data/runtime contracts first. No package may
 introduce a `character_id` switch in generic gameplay. Presentation binds by

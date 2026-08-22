@@ -47,8 +47,8 @@ runtime command and failure behavior are settled.
 | A-VS-002 | Audit Golden Pair presentation coverage | A-VS-001 | done — bindings gap identified |
 | A-MOD-001 | Add CharacterManifest v1 | A-RUN-005 | done |
 | A-MOD-002 | Add CharacterCatalog beside RosterRegistry | A-MOD-001 | done |
-| A-MOD-003 | Migrate the Golden Pair to packages | A-MOD-002 | in progress |
-| A-MOD-004 | Split Golden Pair MoveData resources | A-MOD-003 | blocked |
+| A-MOD-003 | Migrate the Golden Pair to packages | A-MOD-002 | done |
+| A-MOD-004 | Split Golden Pair MoveData resources | A-MOD-003 | in progress |
 | A-MOD-005 | Add the character package template | A-MOD-004 | blocked |
 | A-MOD-006 | Add package validation | A-MOD-005 | blocked |
 | A-MOD-007 | Add per-character test command | A-MOD-006 | blocked |
