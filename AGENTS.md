@@ -103,6 +103,25 @@ Runtime is PASS only if Godot actually ran. Unavailable runtime is **NOT
 EXECUTED**, never PASS. Any behavior/code-affecting edit after final verification
 invalidates it: rerun the relevant checks for the final diff before committing.
 
+### Completion claims and evidence boundaries
+
+Always distinguish these statuses explicitly in progress updates and handoff:
+
+- **Implementation complete** — the requested source/artifact changes exist.
+- **Automated verification complete** — the required static and Godot runtime
+  checks actually ran and passed against the final diff.
+- **Manual verification complete** — a human performed every required play,
+  visual, feel, hardware, or UX check and recorded the result.
+
+Never use an automated or source-level result as evidence for a manual check.
+If acceptance requires human play or visual/feel judgment, the overall task is
+not complete until that evidence exists; report the implemented and automated
+portions as complete and list the exact manual work still required. Likewise,
+if Godot or another required runtime is unavailable, report that check as
+**NOT EXECUTED** and do not call the task complete. A task packet may be marked
+`done` only after every required acceptance criterion and evidence class has
+been satisfied.
+
 ## Documentation, commits, and PRs
 
 Every task performs a documentation impact review. Update docs when a contract,
