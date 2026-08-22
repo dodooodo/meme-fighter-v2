@@ -4,10 +4,10 @@ stage: A
 type: implementation
 status: in_progress
 dependencies: [A-MOD-007, A-DATA-001]
-allowed_paths: [content/characters/, assets/characters/, data/character_catalog.gd, data/character_validator.gd, data/roster_registry.gd, data/characters/doge.tres, data/move_sets/roster/doge_move_set.tres, fighter/input/, battle/battle_scene.gd, battle/battle_scene.tscn, battle/match/, frontend/, presentation/characters/doge_presentation.tres, presentation/data/, presentation/training/, presentation/tutorial/, presentation/visuals/production/, tests/a5/, tests/characters/roster/test_doge.gd, tests/run_tests.gd, scripts/static_validate.py, project.godot, docs/architecture/, docs/contributors/, docs/roadmap/, docs/stages/, docs/tasks/]
+allowed_paths: [content/characters/, assets/characters/, data/character_catalog.gd, data/character_validator.gd, data/roster_registry.gd, data/characters/doge.tres, data/move_sets/roster/doge_move_set.tres, fighter/input/, battle/battle_scene.gd, battle/battle_scene.tscn, battle/match/, frontend/, presentation/characters/doge_presentation.tres, presentation/data/, presentation/training/, presentation/tutorial/, presentation/visuals/production/, tests/a5/, tests/characters/roster/test_doge.gd, tests/run_tests.gd, scripts/static_validate.py, play.sh, project.godot, docs/architecture/, docs/contributors/, docs/roadmap/, docs/stages/, docs/tasks/]
 forbidden_paths: [server/, telemetry/]
 required_specs: [AGENTS.md, ARCHITECTURE.md, docs/architecture/CHARACTER_PACKAGE.md, docs/architecture/TESTING.md, docs/roadmap/PRODUCTION_ROADMAP.md]
-required_checks: [godot --headless --path . -s res://tests/a5/run_a5_tests.gd, godot --headless --path . -s res://tests/a5/run_a5_scene_smoke.gd, bash scripts/test_character.sh doge, python3 scripts/static_validate.py, bash scripts/verify.sh, python3 scripts/validate_task.py --task docs/tasks/active/A-MVP-001.md]
+required_checks: [./play.sh version, godot --headless --path . -s res://tests/a5/run_a5_tests.gd, godot --headless --path . -s res://tests/a5/run_a5_scene_smoke.gd, bash scripts/test_character.sh doge, python3 scripts/static_validate.py, bash scripts/verify.sh, python3 scripts/validate_task.py --task docs/tasks/active/A-MVP-001.md]
 ---
 
 # A5 Third Character Aggregate
