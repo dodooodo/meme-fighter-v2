@@ -1,5 +1,8 @@
 # Godot editor/import cache (generated locally)
 .godot/
 
+# Local pinned Godot app used only for verification.
+.godot_runtime/
+
 # macOS Finder metadata
 .DS_Store
