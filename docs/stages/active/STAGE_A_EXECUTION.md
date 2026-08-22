@@ -43,7 +43,8 @@ runtime command and failure behavior are settled.
 | A-RUN-003 | Establish one runtime command contract | A-RUN-001 | blocked |
 | A-RUN-004 | Execute the existing 10k stress runtime suite | A-RUN-003 | blocked |
 | A-RUN-005 | Add CI required verification gate | A-RUN-001..004 | blocked — external GitHub Rulesets limitation |
-| A-VS-001 | Audit Magic Orange Cat + Salad Cat | A-RUN-005 | blocked |
+| A-VS-001 | Audit Magic Orange Cat + Salad Cat | A-RUN-005 | done — gameplay coverage evidence merged |
+| A-VS-002 | Audit Golden Pair presentation coverage | A-VS-001 | done — bindings gap identified |
 | A-MOD-001 | Add CharacterManifest v1 | A-RUN-005 | blocked |
 | A-MOD-002 | Add CharacterCatalog beside RosterRegistry | A-MOD-001 | blocked |
 
