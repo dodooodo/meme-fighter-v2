@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"stand_heavy"
+display_name = "Stand Heavy"
+animation_id = &"stand_heavy"
+startup_frames = 10
+active_frames = 4
+recovery_frames = 20

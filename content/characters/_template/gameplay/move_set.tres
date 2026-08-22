@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://data/move_set_data.gd" id="move_set"]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Resource" path="res://content/characters/_template/gameplay/moves/stand_light.tres" id="stand_light"]
+[ext_resource type="Resource" path="res://content/characters/_template/gameplay/moves/stand_heavy.tres" id="stand_heavy"]
+[ext_resource type="Resource" path="res://content/characters/_template/gameplay/moves/crouch_low.tres" id="crouch_low"]
+[ext_resource type="Resource" path="res://content/characters/_template/gameplay/moves/air_attack.tres" id="air_attack"]
+[ext_resource type="Resource" path="res://content/characters/_template/gameplay/moves/ground_throw.tres" id="ground_throw"]
+[ext_resource type="Resource" path="res://content/characters/_template/gameplay/moves/special_neutral.tres" id="special_neutral"]
+[ext_resource type="Resource" path="res://content/characters/_template/gameplay/moves/ultimate.tres" id="ultimate"]
+
+[resource]
+script = ExtResource("move_set")
+moves = Array[ExtResource("move")]([ExtResource("stand_light"), ExtResource("stand_heavy"), ExtResource("crouch_low"), ExtResource("air_attack"), ExtResource("ground_throw"), ExtResource("special_neutral"), ExtResource("ultimate")])

@@ -53,6 +53,12 @@ obtains those two entries through the manifests so existing consumers keep
 their compatibility API while package discovery becomes authoritative for the
 migrated pair.
 
+`content/characters/_template/` is the inert, copyable authoring scaffold. Its
+reserved directory name is excluded from playable package discovery, its
+manifest is unavailable, and its `_replace_me` identities prevent accidental
+registration. It includes the manifest, gameplay, seven canonical placeholder
+moves, presentation bindings, and asset-placement guidance.
+
 Mechanics require typed, generic data/runtime contracts first. No package may
 introduce a `character_id` switch in generic gameplay. Presentation binds by
 stable identity and can fall back visibly when art is missing.
@@ -63,7 +69,9 @@ stable identity and can fall back visibly when art is missing.
 2. `A-MOD-002` introduces a catalog beside `RosterRegistry` and routes consumers
    incrementally; central preloads are not removed until equivalent coverage exists.
 3. `A-MOD-003` migrates only `magic_orange_cat` and `salad_cat` as the Golden Pair.
-4. Later tasks split/move resources and add the template/validator.
+4. `A-MOD-004` splits the Golden Pair moves into package-owned resources.
+5. `A-MOD-005` adds the inert package authoring template.
+6. Later tasks add package validation and focused test commands.
 
 Every package change needs ID/resource validation and focused character tests.
 Version manifest-compatible changes intentionally; incompatible formats require a

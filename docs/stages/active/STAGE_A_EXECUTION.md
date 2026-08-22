@@ -49,8 +49,8 @@ runtime command and failure behavior are settled.
 | A-MOD-002 | Add CharacterCatalog beside RosterRegistry | A-MOD-001 | done |
 | A-MOD-003 | Migrate the Golden Pair to packages | A-MOD-002 | done |
 | A-MOD-004 | Split Golden Pair MoveData resources | A-MOD-003 | done |
-| A-MOD-005 | Add the character package template | A-MOD-004 | in progress |
-| A-MOD-006 | Add package validation | A-MOD-005 | blocked |
+| A-MOD-005 | Add the character package template | A-MOD-004 | done |
+| A-MOD-006 | Add package validation | A-MOD-005 | in progress |
 | A-MOD-007 | Add per-character test command | A-MOD-006 | blocked |
 
 ## Integration points and risks

@@ -1384,6 +1384,34 @@ for character_id in playable_package_ids:
         f'Package move set references package-owned MoveData: {character_id}',
     )
 
+# The reserved authoring template must be complete but inert.
+character_template_files = [
+    'content/characters/_template/README.md',
+    'content/characters/_template/character_manifest.tres',
+    'content/characters/_template/gameplay/character.tres',
+    'content/characters/_template/gameplay/move_set.tres',
+    'content/characters/_template/presentation/character_presentation.tres',
+    'content/characters/_template/assets/README.md',
+]
+character_template_files.extend(
+    f'content/characters/_template/gameplay/moves/{move_id}.tres'
+    for move_id in [
+        'stand_light', 'stand_heavy', 'crouch_low', 'air_attack',
+        'ground_throw', 'special_neutral', 'ultimate',
+    ]
+)
+for rel in character_template_files:
+    check((ROOT/rel).is_file(), f'Character package template file exists: {rel}')
+template_manifest = text('content/characters/_template/character_manifest.tres')
+check(
+    'id = &"_replace_me"' in template_manifest and 'available = false' in template_manifest,
+    'Reserved character package template is unavailable and uses placeholder identity',
+)
+check(
+    '_template' not in text('data/roster_registry.gd'),
+    'Reserved character package template is not registered in the roster',
+)
+
 for msg in passes:
     print('[PASS]',msg)
 if errors:
