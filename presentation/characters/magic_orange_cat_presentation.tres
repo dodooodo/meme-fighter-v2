@@ -1,7 +1,114 @@
-[gd_resource type="Resource" load_steps=3 format=3]
+[gd_resource type="Resource" load_steps=29 format=3]
 
 [ext_resource type="Script" path="res://presentation/data/character_presentation_data.gd" id="data"]
 [ext_resource type="PackedScene" path="res://presentation/visuals/production/magic_orange_cat_visual.tscn" id="visual"]
+[ext_resource type="Script" path="res://presentation/data/state_presentation_binding.gd" id="state"]
+[ext_resource type="Script" path="res://presentation/data/move_presentation_binding.gd" id="move"]
+
+[sub_resource type="Resource" id="State_idle"]
+script = ExtResource("state")
+state_key = &"idle"
+animation_key = &"idle"
+[sub_resource type="Resource" id="State_walk_forward"]
+script = ExtResource("state")
+state_key = &"walk_forward"
+animation_key = &"walk_forward"
+[sub_resource type="Resource" id="State_walk_back"]
+script = ExtResource("state")
+state_key = &"walk_back"
+animation_key = &"walk_back"
+[sub_resource type="Resource" id="State_crouch"]
+script = ExtResource("state")
+state_key = &"crouch"
+animation_key = &"crouch"
+[sub_resource type="Resource" id="State_jump"]
+script = ExtResource("state")
+state_key = &"jump"
+animation_key = &"jump"
+[sub_resource type="Resource" id="State_landing"]
+script = ExtResource("state")
+state_key = &"landing"
+animation_key = &"landing"
+[sub_resource type="Resource" id="State_guard_stand"]
+script = ExtResource("state")
+state_key = &"guard_stand"
+animation_key = &"guard_stand"
+[sub_resource type="Resource" id="State_guard_crouch"]
+script = ExtResource("state")
+state_key = &"guard_crouch"
+animation_key = &"guard_crouch"
+[sub_resource type="Resource" id="State_hitstun"]
+script = ExtResource("state")
+state_key = &"hitstun"
+animation_key = &"hitstun"
+[sub_resource type="Resource" id="State_blockstun"]
+script = ExtResource("state")
+state_key = &"blockstun"
+animation_key = &"blockstun"
+[sub_resource type="Resource" id="State_thrown"]
+script = ExtResource("state")
+state_key = &"thrown"
+animation_key = &"thrown"
+[sub_resource type="Resource" id="State_knockdown"]
+script = ExtResource("state")
+state_key = &"knockdown"
+animation_key = &"knockdown"
+[sub_resource type="Resource" id="State_getup"]
+script = ExtResource("state")
+state_key = &"getup"
+animation_key = &"getup"
+[sub_resource type="Resource" id="State_ko"]
+script = ExtResource("state")
+state_key = &"ko"
+animation_key = &"ko"
+[sub_resource type="Resource" id="State_dash_forward"]
+script = ExtResource("state")
+state_key = &"dash_forward"
+animation_key = &"dash_forward"
+[sub_resource type="Resource" id="State_backstep"]
+script = ExtResource("state")
+state_key = &"backstep"
+animation_key = &"backstep"
+[sub_resource type="Resource" id="State_charge"]
+script = ExtResource("state")
+state_key = &"charge"
+animation_key = &"special_neutral"
+[sub_resource type="Resource" id="Move_light"]
+script = ExtResource("move")
+move_id = &"stand_light"
+animation_key = &"stand_light"
+[sub_resource type="Resource" id="Move_heavy"]
+script = ExtResource("move")
+move_id = &"stand_heavy"
+animation_key = &"stand_heavy"
+[sub_resource type="Resource" id="Move_low"]
+script = ExtResource("move")
+move_id = &"crouch_low"
+animation_key = &"crouch_low"
+[sub_resource type="Resource" id="Move_air"]
+script = ExtResource("move")
+move_id = &"air_attack"
+animation_key = &"air_attack"
+[sub_resource type="Resource" id="Move_throw"]
+script = ExtResource("move")
+move_id = &"ground_throw"
+animation_key = &"ground_throw"
+[sub_resource type="Resource" id="Move_special"]
+script = ExtResource("move")
+move_id = &"special_neutral"
+animation_key = &"special_neutral"
+[sub_resource type="Resource" id="Move_ultimate"]
+script = ExtResource("move")
+move_id = &"ultimate"
+animation_key = &"ultimate"
+[sub_resource type="Resource" id="Move_special_l2"]
+script = ExtResource("move")
+move_id = &"special_neutral_l2"
+animation_key = &"special_neutral"
+[sub_resource type="Resource" id="Move_special_l3"]
+script = ExtResource("move")
+move_id = &"special_neutral_l3"
+animation_key = &"special_neutral"
 
 [resource]
 script = ExtResource("data")
@@ -11,3 +118,5 @@ fighter_visual_scene = ExtResource("visual")
 visual_offset_pixels = Vector2(0, 0)
 visual_scale = 1.0
 placeholder_color = Color(0.72, 0.72, 0.78, 1)
+state_bindings = Array[ExtResource("state")]([SubResource("State_idle"), SubResource("State_walk_forward"), SubResource("State_walk_back"), SubResource("State_crouch"), SubResource("State_jump"), SubResource("State_landing"), SubResource("State_guard_stand"), SubResource("State_guard_crouch"), SubResource("State_hitstun"), SubResource("State_blockstun"), SubResource("State_thrown"), SubResource("State_knockdown"), SubResource("State_getup"), SubResource("State_ko"), SubResource("State_dash_forward"), SubResource("State_backstep"), SubResource("State_charge")])
+move_bindings = Array[ExtResource("move")]([SubResource("Move_light"), SubResource("Move_heavy"), SubResource("Move_low"), SubResource("Move_air"), SubResource("Move_throw"), SubResource("Move_special"), SubResource("Move_ultimate"), SubResource("Move_special_l2"), SubResource("Move_special_l3")])
