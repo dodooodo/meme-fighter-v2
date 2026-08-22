@@ -37,11 +37,23 @@ If `godot` is not on your `PATH`, replace it with the absolute path to your
 Godot 4.7.2 executable. Do not add `--editor` when you want to play: `--editor`
 opens the project editor rather than the game.
 
-Optional headless checks from the same project root:
+The canonical local and CI verification command is:
 
 ```bash
-godot --headless --path . --editor --quit
+bash scripts/verify.sh
+```
+
+It fails closed when Godot is unavailable. It runs the same commands in the
+same order locally and in CI: static validation, the pinned Godot version,
+headless editor import, then the headless runtime test runner.
+
+To run the individual headless commands for diagnosis from the same project
+root:
+
+```bash
 python3 scripts/static_validate.py
+godot --version
+godot --headless --path . --editor --quit
 godot --headless --path . -s res://tests/run_tests.gd
 ```
 
