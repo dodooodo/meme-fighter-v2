@@ -1,0 +1,61 @@
+[gd_resource type="Resource" load_steps=10 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/mechanics/move_hit_data.gd" id="hit"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_condition_data.gd" id="cond"]
+[sub_resource type="Resource" id="body_hitbox"]
+script = ExtResource("box")
+offset = Vector2(38, -56)
+size = Vector2(98, 40)
+[sub_resource type="Resource" id="deep_hitbox"]
+script = ExtResource("box")
+offset = Vector2(35, -38)
+size = Vector2(70, 72)
+[sub_resource type="Resource" id="deep_condition"]
+script = ExtResource("cond")
+type = 11
+[sub_resource type="Resource" id="normal_hit"]
+script = ExtResource("hit")
+hit_id = 0
+active_start_frame = 6
+active_end_frame = 9
+hitbox = SubResource("body_hitbox")
+hit_level = 1
+damage = 72
+hitstun_frames = 11
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 700
+[sub_resource type="Resource" id="deep_hit"]
+script = ExtResource("hit")
+hit_id = 1
+active_start_frame = 6
+active_end_frame = 9
+hitbox = SubResource("deep_hitbox")
+hit_level = 1
+damage = 72
+hitstun_frames = 16
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 700
+conditions = Array[ExtResource("cond")]([SubResource("deep_condition")])
+[resource]
+script = ExtResource("move")
+id = &"air_attack"
+display_name = "柴犬泰山壓頂"
+animation_id = &"air_attack"
+startup_frames = 5
+active_frames = 4
+recovery_frames = 16
+damage = 60
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hits = Array[ExtResource("hit")]([SubResource("normal_hit"), SubResource("deep_hit")])

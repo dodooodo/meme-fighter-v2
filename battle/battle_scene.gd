@@ -13,6 +13,8 @@ var replay_recorder: ReplayRecorder
 var replay_id: String = ""
 var replay_directory: String = TelemetryReplayStore.DEFAULT_DIRECTORY
 var _match_finalized: bool = true
+var training_dummy_source: TrainingDummyInputSource
+var _training_guard_mode: int = TrainingDummyInputSource.GuardMode.OFF
 @export var character_a_data: CharacterData
 @export var character_b_data: CharacterData
 @export var character_a_presentation: CharacterPresentationData
@@ -26,6 +28,8 @@ var _match_finalized: bool = true
 @onready var round_overlay: RoundPresentationOverlay = $CanvasLayer/RoundOverlay
 @onready var debug_overlay: DebugOverlay = $CanvasLayer/DebugOverlay
 @onready var mode_label: Label = $CanvasLayer/ModeIndicator
+@onready var training_overlay: TrainingOverlay = $CanvasLayer/TrainingOverlay
+@onready var tutorial_overlay: TutorialOverlay = $CanvasLayer/TutorialOverlay
 
 func _ready() -> void:
     telemetry_service = get_node_or_null("/root/Telemetry") as TelemetryService
@@ -47,6 +51,8 @@ func _process(delta: float) -> void:
         _consume_simulation_events(simulation.drain_events())
     presentation_controller.sync_from_simulation()
     debug_overlay.update_from_simulation(simulation)
+    training_overlay.update_from_simulation(simulation)
+    tutorial_overlay.update_from_simulation(simulation)
     telemetry_service.sample_performance(delta, Engine.get_frames_per_second(), int(Performance.get_monitor(Performance.MEMORY_STATIC)))
     telemetry_service.flush()
 
@@ -71,6 +77,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
             frame_stepper.request_advance(5, clock)
         KEY_R:
             _reset_battle()
+        KEY_G:
+            if battle_mode == BattleMode.Mode.TRAINING and training_dummy_source != null:
+                _training_guard_mode = training_dummy_source.cycle_guard_mode()
+                training_overlay.refresh_guard_mode()
         KEY_ESCAPE:
             get_tree().change_scene_to_file("res://frontend/mode_select_scene.tscn")
 
@@ -80,6 +90,9 @@ func _reset_battle() -> void:
     var source_p1: InputSource = BattleInputWiring.create_p1_source()
     var source_p2: InputSource = BattleInputWiring.create_p2_source(battle_mode)
     var cpu_source := source_p2 as CpuInputSource
+    training_dummy_source = source_p2 as TrainingDummyInputSource
+    if training_dummy_source != null:
+        training_dummy_source.set_guard_mode(_training_guard_mode)
 
     simulation = BattleSimulation.new()
     simulation.configure(
@@ -98,7 +111,7 @@ func _reset_battle() -> void:
     var match_id := telemetry_service.begin_match(
         String(simulation.fighter_a.data.id),
         String(simulation.fighter_b.data.id),
-        "vs_cpu" if battle_mode == BattleMode.Mode.VS_CPU else "local_2p",
+        BattleMode.telemetry_name(battle_mode),
         "",
         simulation.frame_number
     )
@@ -120,6 +133,8 @@ func _reset_battle() -> void:
     battle_view.set_simulation(simulation)
     hitbox_debugger.set_simulation(simulation)
     mode_label.text = "%s%s" % [BattleMode.display_name(battle_mode), " | P2 [CPU]" if battle_mode == BattleMode.Mode.VS_CPU else ""]
+    training_overlay.configure(battle_mode, training_dummy_source)
+    tutorial_overlay.configure(battle_mode)
     var asset_load_started_usec := Time.get_ticks_usec()
     if not presentation_controller.configure(simulation, character_a_presentation, character_b_presentation, hud, round_overlay):
         push_error("Battle presentation configuration failed; simulation remains independently valid")

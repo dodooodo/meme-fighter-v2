@@ -1,0 +1,38 @@
+[gd_resource type="Resource" load_steps=6 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/mechanics/armor_data.gd" id="armor"]
+[sub_resource type="Resource" id="hitbox"]
+script = ExtResource("box")
+offset = Vector2(65, -80)
+size = Vector2(120, 50)
+[sub_resource type="Resource" id="armor_data"]
+script = ExtResource("armor")
+max_absorbed_hits = 1
+start_frame = 5
+end_frame = 8
+valid_source_mask = 1
+[resource]
+script = ExtResource("move")
+id = &"doge_super_heavy"
+display_name = "超級認真一拳"
+animation_id = &"doge_super_heavy"
+startup_frames = 8
+active_frames = 4
+recovery_frames = 19
+damage = 125
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 2200
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+travel_x_units_per_tick = 480
+travel_start_frame = 3
+travel_end_frame = 8
+hitbox = SubResource("hitbox")
+counter_hit_reaction_type = 6
+counter_hit_extra_knockback_x_units = 2200
+armor_data = SubResource("armor_data")

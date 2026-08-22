@@ -1,0 +1,64 @@
+[gd_resource type="SpriteFrames" load_steps=31 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/01.webp" id="1"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/02.webp" id="2"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/03.webp" id="3"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/04.webp" id="4"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/05.webp" id="5"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/06.webp" id="6"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/07.webp" id="7"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/08.webp" id="8"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/09.webp" id="9"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/10.webp" id="10"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/11.webp" id="11"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/12.webp" id="12"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/13.webp" id="13"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/14.webp" id="14"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/15.webp" id="15"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/16.webp" id="16"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/17.webp" id="17"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/18.webp" id="18"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/19.webp" id="19"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/20.webp" id="20"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/21.webp" id="21"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/22.webp" id="22"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/23.webp" id="23"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/24.webp" id="24"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/25.webp" id="25"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/26.webp" id="26"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/27.webp" id="27"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/28.webp" id="28"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/29.webp" id="29"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/30.webp" id="30"]
+
+[resource]
+animations = [
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("3")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": true, "name": &"idle", "speed": 4.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("2")}, {"duration": 1.0, "texture": ExtResource("3")}], "loop": true, "name": &"walk_forward", "speed": 6.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("3")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": true, "name": &"walk_back", "speed": 5.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("4")}], "loop": true, "name": &"crouch", "speed": 1.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("3")}, {"duration": 1.0, "texture": ExtResource("27")}], "loop": true, "name": &"charge", "speed": 5.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("5")}, {"duration": 1.0, "texture": ExtResource("12")}], "loop": false, "name": &"jump", "speed": 7.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("11")}, {"duration": 1.0, "texture": ExtResource("3")}], "loop": false, "name": &"landing", "speed": 7.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("14")}], "loop": true, "name": &"guard_stand", "speed": 1.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("15")}], "loop": true, "name": &"guard_crouch", "speed": 1.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("7")}, {"duration": 1.0, "texture": ExtResource("16")}], "loop": false, "name": &"hitstun", "speed": 8.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("14")}, {"duration": 1.0, "texture": ExtResource("17")}], "loop": false, "name": &"blockstun", "speed": 8.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("19")}, {"duration": 1.0, "texture": ExtResource("13")}], "loop": false, "name": &"thrown", "speed": 7.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("13")}, {"duration": 1.0, "texture": ExtResource("18")}], "loop": false, "name": &"knockdown", "speed": 6.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("18")}, {"duration": 1.0, "texture": ExtResource("15")}, {"duration": 1.0, "texture": ExtResource("3")}], "loop": false, "name": &"getup", "speed": 7.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("21")}, {"duration": 1.0, "texture": ExtResource("22")}], "loop": false, "name": &"ko", "speed": 3.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("6")}, {"duration": 1.0, "texture": ExtResource("20")}], "loop": false, "name": &"dash_forward", "speed": 9.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("20")}, {"duration": 1.0, "texture": ExtResource("6")}], "loop": false, "name": &"backstep", "speed": 9.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("3")}, {"duration": 1.0, "texture": ExtResource("8")}, {"duration": 1.0, "texture": ExtResource("10")}], "loop": false, "name": &"stand_light", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("3")}, {"duration": 1.0, "texture": ExtResource("9")}, {"duration": 1.0, "texture": ExtResource("28")}], "loop": false, "name": &"stand_heavy", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("4")}, {"duration": 1.0, "texture": ExtResource("10")}, {"duration": 1.0, "texture": ExtResource("11")}], "loop": false, "name": &"crouch_low", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("5")}, {"duration": 1.0, "texture": ExtResource("12")}, {"duration": 1.0, "texture": ExtResource("19")}], "loop": false, "name": &"air_attack", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("2")}, {"duration": 1.0, "texture": ExtResource("20")}, {"duration": 1.0, "texture": ExtResource("13")}], "loop": false, "name": &"ground_throw", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("3")}, {"duration": 1.0, "texture": ExtResource("27")}], "loop": false, "name": &"special_neutral", "speed": 8.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("3")}, {"duration": 1.0, "texture": ExtResource("6")}, {"duration": 1.0, "texture": ExtResource("20")}], "loop": false, "name": &"doge_rush_l1", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("27")}, {"duration": 1.0, "texture": ExtResource("6")}, {"duration": 1.0, "texture": ExtResource("25")}], "loop": false, "name": &"doge_rush_l2", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("27")}, {"duration": 1.0, "texture": ExtResource("28")}, {"duration": 1.0, "texture": ExtResource("25")}], "loop": false, "name": &"doge_rush_l3", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("27")}, {"duration": 1.0, "texture": ExtResource("28")}, {"duration": 1.0, "texture": ExtResource("23")}], "loop": false, "name": &"ultimate", "speed": 7.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("27")}, {"duration": 1.0, "texture": ExtResource("28")}, {"duration": 1.0, "texture": ExtResource("9")}], "loop": false, "name": &"doge_super_heavy", "speed": 10.0}
+]

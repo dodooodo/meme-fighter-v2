@@ -5,10 +5,11 @@ extends RefCounted
 
 const SALAD_CAT_MANIFEST: CharacterManifest = preload("res://content/characters/salad_cat/character_manifest.tres")
 const MAGIC_ORANGE_CAT_MANIFEST: CharacterManifest = preload("res://content/characters/magic_orange_cat/character_manifest.tres")
+const DOGE_MANIFEST: CharacterManifest = preload("res://content/characters/doge/character_manifest.tres")
 
 const ENTRIES: Array[Dictionary] = [
     {"id": &"alien_meow", "name": "Alien Meow", "character": preload("res://data/characters/alien_meow.tres"), "presentation": preload("res://presentation/characters/alien_meow_presentation.tres")},
-    {"id": &"doge", "name": "Doge", "character": preload("res://data/characters/doge.tres"), "presentation": preload("res://presentation/characters/doge_presentation.tres")},
+    {"id": DOGE_MANIFEST.id, "name": DOGE_MANIFEST.display_name, "character": DOGE_MANIFEST.gameplay_resource, "presentation": DOGE_MANIFEST.presentation_resource},
     {"id": &"ya_mouse", "name": "YA鼠", "character": preload("res://data/characters/ya_mouse.tres"), "presentation": preload("res://presentation/characters/ya_mouse_presentation.tres")},
     {"id": &"tempura_penguin", "name": "Oh fuxking 天婦羅尬哩涼", "character": preload("res://data/characters/tempura_penguin.tres"), "presentation": preload("res://presentation/characters/tempura_penguin_presentation.tres")},
     {"id": &"goblin_love", "name": "哥布林也想談戀愛", "character": preload("res://data/characters/goblin_love.tres"), "presentation": preload("res://presentation/characters/goblin_love_presentation.tres")},

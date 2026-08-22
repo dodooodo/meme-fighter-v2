@@ -1,0 +1,8 @@
+{
+  "manifest_version": 1,
+  "asset_version": 1,
+  "character_id": "doge",
+  "pack_type": "BASE_FIGHTER",
+  "source": "legacy_dorian_pose_set",
+  "animations": []
+}
