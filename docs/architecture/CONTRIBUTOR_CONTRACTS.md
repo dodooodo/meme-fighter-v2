@@ -12,3 +12,8 @@
 `allowed_paths` in the active task packet takes precedence for a specific task.
 If a role needs another boundary, do not make an opportunistic edit: propose a
 new task/dependency or get the owner to review it.
+
+Character/skill contributors follow
+[`MECHANIC_AUTHORING_GUIDE.md`](../contributors/MECHANIC_AUTHORING_GUIDE.md).
+Balance and art contributors use the commands and safety contracts in
+[`TOOLING.md`](../contributors/TOOLING.md).

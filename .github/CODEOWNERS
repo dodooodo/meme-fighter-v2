@@ -1,0 +1,24 @@
+# Repository governance defaults to the current maintainer. Replace these handles
+# with organization teams after the repository moves to an organization.
+* @dodooodo
+
+# Deterministic gameplay authority and fighter runtime.
+/battle/ @dodooodo
+/fighter/ @dodooodo
+
+# Frontend and UI flow.
+/frontend/ @dodooodo
+
+# Presentation runtime and visual/audio source assets.
+/presentation/ @dodooodo
+/assets/ @dodooodo
+
+# Character packages, central compatibility data, and balance resources.
+/content/characters/ @dodooodo
+/data/characters/ @dodooodo
+/data/move_sets/ @dodooodo
+/data/moves/ @dodooodo
+/data/projectiles/ @dodooodo
+
+# Backend/service boundary (reserved until the server tree is introduced).
+/server/ @dodooodo

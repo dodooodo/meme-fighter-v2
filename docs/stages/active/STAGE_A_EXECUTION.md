@@ -14,7 +14,11 @@ snapshot/replay tests, `scripts/static_validate.py`, and fail-closed
 `scripts/verify.sh`. CI pins Godot 4.7.2. The Golden Pair now uses manifest-backed
 character packages with package-owned moves, validation, a safe contributor
 template, and focused test commands. The remaining twelve roster characters
-still use central resources; telemetry is not yet implemented.
+still use central resources. A3 contributor tooling now provides domain
+ownership, role PR contracts, read-only balance exports, a validation-first
+round-trip strategy, a manifest-driven art build entrypoint, mechanic authoring
+guidance, and repeatable merge-conflict simulation; telemetry is not yet
+implemented.
 
 ## Dependencies and workstreams
 
@@ -26,6 +30,7 @@ A-RUN-004 ─┘
 
 A-VS-001 ─────────────────────────> later Golden Pair presentation/feel work
 A-MOD-001 ─> A-MOD-002 ─> A-MOD-003 ─> A-MOD-004 ─> A-MOD-005 ─> A-MOD-006 ─> A-MOD-007
+A-COL-003 ─> A-COL-004; A-COL-001/002/005/006/007 are independent
 ```
 
 `A-RUN-001` through `A-RUN-004` may run in parallel when their path scopes do
@@ -52,6 +57,13 @@ runtime command and failure behavior are settled.
 | A-MOD-005 | Add the character package template | A-MOD-004 | done |
 | A-MOD-006 | Add package validation | A-MOD-005 | done |
 | A-MOD-007 | Add per-character test command | A-MOD-006 | done |
+| A-COL-001 | Add domain-separated CODEOWNERS | none | done |
+| A-COL-002 | Add five role-based PR templates | none | done |
+| A-COL-003 | Export balance tables as CSV/Markdown | none | done |
+| A-COL-004 | Define validation-first balance import strategy | A-COL-003 | done — import remains intentionally export-only |
+| A-COL-005 | Add one-command art manifest build | none | done |
+| A-COL-006 | Add mechanic authoring guide | none | done |
+| A-COL-007 | Simulate four contributor branches | none | done |
 
 ## Integration points and risks
 
@@ -78,4 +90,7 @@ not waive the Stage gate.
 The project owner accepted A-RUN-005's external Rulesets limitation on
 2026-08-22. The A-MOD-003 through A-MOD-007 modular stream is complete; retain
 the corresponding task packets and verification evidence as implementation
-authority for later character-package work.
+authority for later character-package work. A-COL-001 through A-COL-007 are
+also complete. The balance workflow remains export-only until a later task
+implements the complete validation, preview, atomic apply, and rollback
+contract; this is the accepted A-COL-004 strategy, not a partial importer.

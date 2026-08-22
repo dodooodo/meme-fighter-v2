@@ -81,6 +81,7 @@ const ROSTER_SCARED_CAT_SUITE := preload("res://tests/characters/roster/test_sca
 const ROSTER_OK_MEOW_BOSS_SUITE := preload("res://tests/characters/roster/test_ok_meow_boss.gd")
 const ROSTER_NIU_LAI_SUITE := preload("res://tests/characters/roster/test_niu_lai.gd")
 const ROSTER_BAO_LA_SUITE := preload("res://tests/characters/roster/test_bao_la.gd")
+const BALANCE_TABLE_SUITE := preload("res://tests/tooling/test_balance_table.gd")
 
 func _init() -> void:
     call_deferred("_run")
@@ -166,5 +167,6 @@ func _run() -> void:
     failures += ROSTER_OK_MEOW_BOSS_SUITE.new().run_all()
     failures += ROSTER_NIU_LAI_SUITE.new().run_all()
     failures += ROSTER_BAO_LA_SUITE.new().run_all()
+    failures += BALANCE_TABLE_SUITE.new().run_all()
     failures += STRESS_SUITE.new().run_all()
     quit(failures)
