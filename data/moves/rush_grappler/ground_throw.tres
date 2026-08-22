@@ -1,0 +1,34 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="1_move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="2_box"]
+[sub_resource type="Resource" id="BoxData_throw"]
+script = ExtResource("2_box")
+offset = Vector2(60, -80)
+size = Vector2(96, 132)
+[resource]
+script = ExtResource("1_move")
+id = &"ground_throw"
+display_name = "Rush Ground Throw"
+tags = Array[StringName]([&"THROW"])
+animation_id = &"ground_throw"
+startup_frames = 5
+active_frames = 2
+recovery_frames = 20
+damage = 150
+chip_damage = 0
+hitstun_frames = 0
+blockstun_frames = 0
+hitstop_attacker = 5
+hitstop_defender = 5
+hit_level = 1
+knockback_x_units = 0
+knockback_y_units = 0
+causes_knockdown = true
+throw_box = SubResource("BoxData_throw")
+throw_hold_frames = 12
+knockdown_frames = 36
+meter_cost = 0
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
+meter_gain_on_throw = 18
+meter_gain_on_whiff = 0

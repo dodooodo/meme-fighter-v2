@@ -1,0 +1,54 @@
+[gd_resource type="Resource" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://data/character_data.gd" id="1_char"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="2_box"]
+[ext_resource type="Resource" path="res://data/moves/stand_light.tres" id="3_light"]
+[ext_resource type="Script" path="res://data/move_data.gd" id="4_move_data"]
+[ext_resource type="Script" path="res://data/move_set_data.gd" id="5_move_set"]
+[ext_resource type="Resource" path="res://data/moves/stand_heavy.tres" id="6_heavy"]
+[ext_resource type="Resource" path="res://data/moves/crouch_low.tres" id="7_low"]
+[ext_resource type="Resource" path="res://data/moves/air_attack.tres" id="8_air"]
+[ext_resource type="Resource" path="res://data/moves/ground_throw.tres" id="9_throw"]
+[ext_resource type="Resource" path="res://data/moves/special_neutral.tres" id="10_special"]
+[ext_resource type="Resource" path="res://data/moves/ultimate.tres" id="11_ultimate"]
+[ext_resource type="Resource" path="res://data/moves/special_neutral_l2.tres" id="12_special_l2"]
+[ext_resource type="Resource" path="res://data/moves/special_neutral_l3.tres" id="13_special_l3"]
+
+[sub_resource type="Resource" id="BoxData_push"]
+script = ExtResource("2_box")
+offset = Vector2(0, -80)
+size = Vector2(64, 160)
+
+[sub_resource type="Resource" id="BoxData_hurt"]
+script = ExtResource("2_box")
+offset = Vector2(0, -82)
+size = Vector2(72, 164)
+
+[sub_resource type="Resource" id="MoveSet_generic"]
+script = ExtResource("5_move_set")
+moves = Array[ExtResource("4_move_data")]([ExtResource("3_light"), ExtResource("6_heavy"), ExtResource("7_low"), ExtResource("8_air"), ExtResource("9_throw"), ExtResource("10_special"), ExtResource("12_special_l2"), ExtResource("13_special_l3"), ExtResource("11_ultimate")])
+
+[resource]
+script = ExtResource("1_char")
+id = &"generic_fighter"
+display_name = "Generic Fighter"
+max_hp = 5000
+max_meter = 100
+walk_forward_units_per_tick = 300
+walk_back_units_per_tick = 240
+jump_velocity_y_units_per_tick = -1400
+gravity_y_units_per_tick2 = 80
+max_fall_speed_y_units_per_tick = 1800
+air_forward_units_per_tick = 240
+air_back_units_per_tick = 210
+landing_recovery_frames = 3
+dash_move_frames = 8
+dash_speed_units_per_tick = 900
+dash_recovery_frames = 4
+backstep_move_frames = 7
+backstep_speed_units_per_tick = 800
+backstep_recovery_frames = 6
+default_getup_frames = 18
+pushbox = SubResource("BoxData_push")
+hurtbox = SubResource("BoxData_hurt")
+move_set = SubResource("MoveSet_generic")

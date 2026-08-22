@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "pack_type": "HAZARD",
+  "character_asset_key": "magic_orange_cat",
+  "effect_id": "jpeg_circle_l3",
+  "fps": 10,
+  "loop": true,
+  "anchor": "CENTER",
+  "source": {"type": "horizontal_strip", "path": "jpeg_circle_l3_strip.webp", "frame_count": 8}
+}

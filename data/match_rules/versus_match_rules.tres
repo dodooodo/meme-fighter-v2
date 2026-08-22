@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/match_rules_data.gd" id="1_rules"]
+
+[resource]
+script = ExtResource("1_rules")
+id = &"versus"
+mode = 0
+rounds_to_win = 2
+timer_enabled = true
+round_timer_frames = 5940
+post_round_frames = 90
+match_can_end = true
+reset_meter_each_round = true

@@ -1,0 +1,89 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://presentation/preview/character_preview.gd" id="1_preview"]
+
+[node name="ProductionAssetPreview" type="Node2D"]
+script = ExtResource("1_preview")
+
+[node name="VisualAnchor" type="Node2D" parent="."]
+position = Vector2(640, 610)
+
+[node name="ScreenAnchor" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Backdrop" type="ColorRect" parent="BackgroundLayer"]
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.08, 0.08, 0.09, 1)
+show_behind_parent = true
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 50
+
+[node name="UI" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="UILayer/UI"]
+offset_left = 32.0
+offset_top = 20.0
+offset_right = 580.0
+offset_bottom = 48.0
+text = "M9P Production Asset Preview"
+
+[node name="CharacterPicker" type="OptionButton" parent="UILayer/UI"]
+offset_left = 32.0
+offset_top = 58.0
+offset_right = 230.0
+offset_bottom = 94.0
+mouse_filter = 0
+
+[node name="PackTypePicker" type="OptionButton" parent="UILayer/UI"]
+offset_left = 242.0
+offset_top = 58.0
+offset_right = 430.0
+offset_bottom = 94.0
+mouse_filter = 0
+
+[node name="AssetPicker" type="OptionButton" parent="UILayer/UI"]
+offset_left = 442.0
+offset_top = 58.0
+offset_right = 650.0
+offset_bottom = 94.0
+mouse_filter = 0
+
+[node name="AnimationPicker" type="OptionButton" parent="UILayer/UI"]
+offset_left = 662.0
+offset_top = 58.0
+offset_right = 872.0
+offset_bottom = 94.0
+mouse_filter = 0
+
+[node name="SpeedPicker" type="OptionButton" parent="UILayer/UI"]
+offset_left = 884.0
+offset_top = 58.0
+offset_right = 1000.0
+offset_bottom = 94.0
+mouse_filter = 0
+
+[node name="Info" type="Label" parent="UILayer/UI"]
+offset_left = 32.0
+offset_top = 104.0
+offset_right = 1220.0
+offset_bottom = 138.0
+text = "Presentation Preview only"

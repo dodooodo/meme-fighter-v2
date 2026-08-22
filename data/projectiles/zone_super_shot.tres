@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/projectile_data.gd" id="1_projectile"]
+
+[resource]
+script = ExtResource("1_projectile")
+id = &"zone_super_shot"
+velocity_x_units_per_tick = 1100
+lifetime_frames = 120
+hitbox_offset = Vector2(0, 0)
+hitbox_size = Vector2(96, 72)
+damage = 220
+chip_damage = 0
+hitstun_frames = 26
+blockstun_frames = 18
+hitstop_attacker = 8
+hitstop_defender = 8
+hit_level = 1
+knockback_x_units = 1500
+knockback_y_units = -400
+meter_gain_on_hit = 0
+meter_gain_on_block = 0

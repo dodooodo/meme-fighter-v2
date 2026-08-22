@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "pack_type": "ULTIMATE_SCREEN",
+  "character_asset_key": "magic_orange_cat",
+  "ultimate_id": "ultimate",
+  "screen_id": "cthulhu_background",
+  "source": "cthulhu_background_1920x1080.webp",
+  "fps": 1,
+  "loop": false
+}

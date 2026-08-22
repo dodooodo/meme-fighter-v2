@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="1_move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="2_box"]
+[sub_resource type="Resource" id="BoxData_hit"]
+script = ExtResource("2_box")
+offset = Vector2(70, -70)
+size = Vector2(108, 68)
+[resource]
+script = ExtResource("1_move")
+id = &"air_attack"
+display_name = "Zone Air Attack"
+tags = Array[StringName]([&"NORMAL", &"AIR"])
+animation_id = &"air_attack"
+startup_frames = 7
+active_frames = 4
+recovery_frames = 13
+damage = 68
+chip_damage = 0
+hitstun_frames = 14
+blockstun_frames = 10
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 0
+knockback_x_units = 680
+knockback_y_units = -320
+meter_cost = 0
+meter_gain_on_hit = 9
+meter_gain_on_block = 4
+meter_gain_on_throw = 0
+meter_gain_on_whiff = 0
+cancel_windows = []
+hitbox = SubResource("BoxData_hit")

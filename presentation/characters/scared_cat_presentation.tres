@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://presentation/data/character_presentation_data.gd" id="data"]
+[ext_resource type="PackedScene" path="res://presentation/visuals/greybox_fighter_visual.tscn" id="visual"]
+
+[resource]
+script = ExtResource("data")
+character_id = &"scared_cat"
+display_name = "驚嚇小貓"
+fighter_visual_scene = ExtResource("visual")
+visual_offset_pixels = Vector2(0, 0)
+visual_scale = 1.0
+placeholder_color = Color(0.72, 0.72, 0.78, 1)

@@ -1,0 +1,228 @@
+[gd_scene load_steps=19 format=3]
+
+[ext_resource type="Script" path="res://battle/battle_scene.gd" id="1_scene"]
+[ext_resource type="Script" path="res://presentation/battle_view.gd" id="2_view"]
+[ext_resource type="Script" path="res://debug/hitbox_debugger.gd" id="3_boxes"]
+[ext_resource type="Script" path="res://presentation/battle_hud.gd" id="4_hud"]
+[ext_resource type="Script" path="res://debug/debug_overlay.gd" id="5_debug"]
+[ext_resource type="Resource" path="res://data/characters/generic_fighter.tres" id="6_generic"]
+[ext_resource type="Resource" path="res://data/characters/zone_fighter.tres" id="7_zone"]
+[ext_resource type="Resource" path="res://data/match_rules/versus_match_rules.tres" id="8_rules"]
+[ext_resource type="Resource" path="res://presentation/characters/generic_fighter_presentation.tres" id="9_generic_present"]
+[ext_resource type="Resource" path="res://presentation/characters/zone_fighter_presentation.tres" id="10_zone_present"]
+[ext_resource type="Script" path="res://presentation/battle_presentation_controller.gd" id="11_present"]
+[ext_resource type="Script" path="res://presentation/projectiles/projectile_visual_presenter.gd" id="12_projectiles"]
+[ext_resource type="Script" path="res://presentation/feedback/combat_vfx_presenter.gd" id="13_vfx"]
+[ext_resource type="Script" path="res://presentation/feedback/combat_audio_presenter.gd" id="14_audio"]
+[ext_resource type="Script" path="res://presentation/camera/battle_camera_controller.gd" id="15_camera"]
+[ext_resource type="Script" path="res://presentation/round/round_presentation_overlay.gd" id="16_round_overlay"]
+[ext_resource type="Script" path="res://presentation/effects/world_effect_presenter.gd" id="17_world_effects"]
+[ext_resource type="Script" path="res://presentation/ultimates/ultimate_screen_presenter.gd" id="18_ultimate_screens"]
+
+[node name="BattleScene" type="Node"]
+script = ExtResource("1_scene")
+character_a_data = ExtResource("6_generic")
+character_b_data = ExtResource("7_zone")
+character_a_presentation = ExtResource("9_generic_present")
+character_b_presentation = ExtResource("10_zone_present")
+match_rules_data = ExtResource("8_rules")
+
+[node name="BattleView" type="Node2D" parent="."]
+script = ExtResource("2_view")
+
+[node name="BattlePresentationController" type="Node" parent="."]
+script = ExtResource("11_present")
+
+[node name="World" type="Node2D" parent="BattlePresentationController"]
+
+[node name="Fighters" type="Node2D" parent="BattlePresentationController/World"]
+
+[node name="Projectiles" type="Node2D" parent="BattlePresentationController/World"]
+script = ExtResource("12_projectiles")
+
+[node name="VFX" type="Node2D" parent="BattlePresentationController/World"]
+script = ExtResource("13_vfx")
+
+[node name="WorldEffects" type="Node2D" parent="BattlePresentationController/World"]
+script = ExtResource("17_world_effects")
+
+[node name="CameraFeedback" type="Node2D" parent="BattlePresentationController/World"]
+script = ExtResource("15_camera")
+
+[node name="Camera2D" type="Camera2D" parent="BattlePresentationController/World/CameraFeedback"]
+position = Vector2(0, -200)
+enabled = true
+
+[node name="Audio" type="Node" parent="BattlePresentationController"]
+script = ExtResource("14_audio")
+
+[node name="UltimateScreens" type="CanvasLayer" parent="BattlePresentationController"]
+layer = 10
+script = ExtResource("18_ultimate_screens")
+
+[node name="HitboxDebugger" type="Node2D" parent="."]
+script = ExtResource("3_boxes")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BattleHUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_hud")
+
+[node name="P1Name" type="Label" parent="CanvasLayer/BattleHUD"]
+offset_left = 40.0
+offset_top = 8.0
+offset_right = 300.0
+offset_bottom = 28.0
+text = "P1"
+
+[node name="P1HP" type="ProgressBar" parent="CanvasLayer/BattleHUD"]
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 510.0
+offset_bottom = 56.0
+max_value = 1000.0
+value = 1000.0
+show_percentage = false
+
+[node name="P1HPText" type="Label" parent="CanvasLayer/BattleHUD"]
+offset_left = 40.0
+offset_top = 57.0
+offset_right = 230.0
+offset_bottom = 78.0
+text = "1000 / 1000"
+
+[node name="P1Meter" type="ProgressBar" parent="CanvasLayer/BattleHUD"]
+offset_left = 40.0
+offset_top = 80.0
+offset_right = 360.0
+offset_bottom = 100.0
+max_value = 100.0
+show_percentage = false
+
+[node name="P1Wins" type="Label" parent="CanvasLayer/BattleHUD"]
+offset_left = 370.0
+offset_top = 78.0
+offset_right = 510.0
+offset_bottom = 100.0
+text = "Wins 0"
+
+[node name="P2Name" type="Label" parent="CanvasLayer/BattleHUD"]
+offset_left = 980.0
+offset_top = 8.0
+offset_right = 1240.0
+offset_bottom = 28.0
+text = "P2"
+horizontal_alignment = 2
+
+[node name="P2HP" type="ProgressBar" parent="CanvasLayer/BattleHUD"]
+offset_left = 770.0
+offset_top = 30.0
+offset_right = 1240.0
+offset_bottom = 56.0
+max_value = 1000.0
+value = 1000.0
+show_percentage = false
+
+[node name="P2HPText" type="Label" parent="CanvasLayer/BattleHUD"]
+offset_left = 1050.0
+offset_top = 57.0
+offset_right = 1240.0
+offset_bottom = 78.0
+text = "1000 / 1000"
+horizontal_alignment = 2
+
+[node name="P2Meter" type="ProgressBar" parent="CanvasLayer/BattleHUD"]
+offset_left = 920.0
+offset_top = 80.0
+offset_right = 1240.0
+offset_bottom = 100.0
+max_value = 100.0
+show_percentage = false
+
+[node name="P2Wins" type="Label" parent="CanvasLayer/BattleHUD"]
+offset_left = 770.0
+offset_top = 78.0
+offset_right = 910.0
+offset_bottom = 100.0
+text = "Wins 0"
+
+[node name="Timer" type="Label" parent="CanvasLayer/BattleHUD"]
+offset_left = 590.0
+offset_top = 15.0
+offset_right = 690.0
+offset_bottom = 55.0
+text = "99"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 28
+
+[node name="RoundState" type="Label" parent="CanvasLayer/BattleHUD"]
+offset_left = 515.0
+offset_top = 62.0
+offset_right = 765.0
+offset_bottom = 88.0
+text = "ROUND 1 | ROUND_ACTIVE"
+horizontal_alignment = 1
+
+[node name="Training" type="Label" parent="CanvasLayer/BattleHUD"]
+offset_left = 570.0
+offset_top = 90.0
+offset_right = 710.0
+offset_bottom = 116.0
+text = ""
+horizontal_alignment = 1
+visible = false
+
+[node name="ModeIndicator" type="Label" parent="CanvasLayer"]
+offset_left = 520.0
+offset_top = 120.0
+offset_right = 760.0
+offset_bottom = 145.0
+text = "2P LOCAL"
+horizontal_alignment = 1
+
+[node name="RoundOverlay" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("16_round_overlay")
+
+[node name="Message" type="Label" parent="CanvasLayer/RoundOverlay"]
+offset_left = 390.0
+offset_top = 250.0
+offset_right = 890.0
+offset_bottom = 380.0
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 36
+
+[node name="DebugOverlay" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_debug")
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/DebugOverlay"]
+offset_left = 16.0
+offset_top = 120.0
+offset_right = 1260.0
+offset_bottom = 355.0
+
+[node name="Label" type="Label" parent="CanvasLayer/DebugOverlay/Panel"]
+layout_mode = 2
+text = "Debug"

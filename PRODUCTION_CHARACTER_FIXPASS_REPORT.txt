@@ -1,0 +1,146 @@
+TWO BOX FIGHTING — PRODUCTION CHARACTER ASSET INTEGRATION FIX PASS
+=================================================================
+
+Baseline
+--------
+Input project: two_box_fighting_godot_m7_two_production_characters.zip
+Presentation-only fix pass. No protected gameplay data was changed.
+Godot executable in this environment: unavailable.
+
+Production Binding
+------------------
+generic_fighter -> Salad Cat
+zone_fighter -> Magic Orange Cat
+rush_grappler -> existing Greybox
+Default Battle: P1 generic_fighter / Salad Cat; P2 zone_fighter / Magic Orange Cat
+Magic Orange Cat Battle Binding: zone_fighter — BOUND
+
+Crop Pipeline
+-------------
+Sprite crop algorithm: GRID/GUTTER DETECTION
+Naive width/5 slicing: REMOVED
+154/153 rational slicing: REMOVED
+Detector: foreground projection + repeated low-content gutter search + per-row/per-column localized gap refinement
+Crop overrides: 0
+Runtime canvas: 320x320, no scaling/stretching
+Frames touching runtime canvas: 0
+Frames suspected neighbor contamination: 0
+Safe-cell-boundary warnings: Salad Cat 26; Magic Orange Cat 46 (QA overlays generated for inspection)
+Salad Sheet 09 alpha cleanup: EDGE-CONNECTED BACKGROUND; reliable=True
+Global color threshold background removal: NOT USED
+
+Source Defect Found
+-------------------
+The supplied Salad source ZIP itself contains no valid production foreground in Sheet 02 cells 13, 14, and 15.
+These are global frames 038, 039, 040, i.e. the first three walk_back frames according to the user-authoritative mapping.
+The pipeline does NOT duplicate adjacent frames, infer missing art, or fabricate replacements.
+It emits transparent placeholders and marks the source defect as validation errors.
+
+Asset Counts
+------------
+Salad Cat runtime files: 250/250
+  Valid non-empty source-derived frames: 247
+  Source-missing transparent placeholders: 3 (038, 039, 040)
+  Animations: 23
+  Failed source cells: 3
+  Source SHA-256: 407aea428ddcae0dc86cda26dafaecba34b7623ea834bbb4df81896725536725
+
+Magic Orange Cat runtime files: 250/250
+  Valid non-empty source-derived frames: 250
+  Animations: 23
+  Failed source cells: 0
+  Source SHA-256: 3c47099beacc282096a110365780f21c77207ea33ff638d658fbf172889d4294
+
+Total runtime files: 500
+Total animation bindings: 46
+
+Feet / Grounding
+----------------
+Feet anchor method: animation-level normalized feet-center + shared ground baseline; no per-frame bbox centering.
+Salad walk_forward: PASS, max supporting-foot deviation 0 px
+Salad walk_back: FAIL only because 3 authoritative source frames are missing; all 10 available frames align at the same baseline
+Magic walk_forward: PASS, max supporting-foot deviation 0 px
+Magic walk_back: PASS, max supporting-foot deviation 0 px
+Walk feet baseline validation: FAIL (global, because Salad source frames 038–040 are missing)
+
+Presentation Timing
+-------------------
+Non-attack presentation FPS reduced (idle/walk/crouch/guard 8 FPS; movement/reactions generally 10 FPS).
+Attack playback authority: MOVE_PHASE_TIMELINE
+Stand Light: 3 anticipation / 3 contact / 4 recovery visual frames distributed inside authoritative 5/3/10 gameplay ticks.
+Stand Heavy: stronger anticipation/contact/follow-through distribution.
+Special visual timing: PASS (2-tick anticipation hold inside existing startup; contact presentation emphasis)
+Ultimate anticipation pause: PASS (4-tick strong anticipation hold inside existing startup)
+All Special/Ultimate 25 authored visual frames are allocated within authoritative MoveData startup/active/recovery duration.
+animation_finished gameplay callback: NOT USED
+MoveData timing extension: NONE
+
+Impact Feedback
+---------------
+Readability hierarchy: Light < Heavy < Special < Ultimate
+Special HIT feedback: PASS (larger deterministic impact burst, flash, stronger camera shake, 2-render-tick visual hold)
+Ultimate HIT feedback: PASS (largest deterministic impact burst, stronger flash/shake, 3-render-tick visual hold)
+BLOCK feedback: distinct smaller blue block burst / smaller shake
+Simulation freeze/hitstop modification: NONE
+Visual hold is presentation-only; deterministic BattleSimulation continues normally.
+
+Preview / QA
+------------
+Preview characters: Salad Cat / Magic Orange Cat
+Preview animation keys: 23
+Preview metadata: current frame number + animation key + presentation phase
+Preview speed: 0.25x / 0.5x / 1.0x
+QA output generated under build/qa during build:
+  20 source-sheet crop overlays
+  20 source-sheet contact sheets
+QA output is excluded from the production ZIP and supplied separately.
+
+Validation
+----------
+Static validation: 2724 passed / 0 failed
+Magic Orange Cat asset validation: PASS
+Salad Cat asset validation: FAIL — source frames 038/039/040 contain no valid foreground
+Crop validation: FAIL (only because the supplied Salad source bundle is missing those 3 authoritative cells)
+Frames touching canvas: 0
+Frames suspected neighbor contamination: 0
+
+Protected Gameplay Regression
+-----------------------------
+Protected files compared by exact SHA-256: 48
+Protected files changed: 0
+Gameplay files changed: NO
+MoveData timing changed: NO
+Hitbox/Hurtbox/Pushbox changed: NO
+CombatRulesVersion changed: NO
+Snapshot version changed: NO
+Replay schema changed: NO
+BattleSimulation/CombatResolver/MoveRunner/CollisionSystem/BattleStateHasher changed: NO
+
+Determinism
+-----------
+Clean build pass 1 asset-tree SHA-256: 91bdf8a930a6cc9c6a4ec69b62cd0cb230d6fcfeb7c642ba9cdbaf752b17b8fd
+Clean build pass 2 asset-tree SHA-256: 91bdf8a930a6cc9c6a4ec69b62cd0cb230d6fcfeb7c642ba9cdbaf752b17b8fd
+Build twice determinism: IDENTICAL / PASS
+
+Godot Runtime
+-------------
+NOT EXECUTED — godot/godot4 unavailable in this environment; external verifier required.
+Runtime BattleState hash comparison therefore was not fabricated. Protected gameplay source SHA regression is PASS.
+
+Final requested summary
+-----------------------
+Sprite crop algorithm: GRID/GUTTER DETECTION
+Naive width/5 slicing: REMOVED
+Crop overrides: 0
+Crop validation: FAIL — Salad source frames 038–040 missing
+Frames touching canvas: 0
+Frames suspected neighbor contamination: 0
+Salad Cat frames: 250/250 files (247 valid source-derived + 3 explicit transparent source-missing placeholders)
+Magic Orange Cat frames: 250/250
+Magic Orange Cat Battle Binding: zone_fighter — BOUND
+Walk feet baseline validation: FAIL — Salad source-missing walk_back frames; Magic PASS
+Special visual timing: PASS
+Ultimate anticipation pause: PASS
+Special HIT feedback: PASS
+Ultimate HIT feedback: PASS
+Gameplay files changed: NO

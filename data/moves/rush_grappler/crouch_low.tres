@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=5 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="1_move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="2_box"]
+[ext_resource type="Script" path="res://data/moves/cancel_window_data.gd" id="3_cancel"]
+[sub_resource type="Resource" id="BoxData_hit"]
+script = ExtResource("2_box")
+offset = Vector2(66, -36)
+size = Vector2(98, 34)
+[sub_resource type="Resource" id="CancelWindow_low_special"]
+script = ExtResource("3_cancel")
+start_frame = 8
+end_frame = 14
+condition = 3
+allowed_target_move_ids = Array[StringName]([&"special_neutral"])
+[resource]
+script = ExtResource("1_move")
+id = &"crouch_low"
+display_name = "Rush Crouch Low"
+tags = Array[StringName]([&"NORMAL", &"LIGHT", &"LOW"])
+animation_id = &"crouch_low"
+startup_frames = 7
+active_frames = 3
+recovery_frames = 14
+damage = 55
+chip_damage = 0
+hitstun_frames = 14
+blockstun_frames = 10
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 2
+knockback_x_units = 560
+knockback_y_units = 0
+meter_cost = 0
+meter_gain_on_hit = 9
+meter_gain_on_block = 4
+meter_gain_on_throw = 0
+meter_gain_on_whiff = 0
+cancel_windows = Array[ExtResource("3_cancel")]([SubResource("CancelWindow_low_special")])
+hitbox = SubResource("BoxData_hit")

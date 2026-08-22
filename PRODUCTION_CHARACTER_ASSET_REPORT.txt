@@ -1,0 +1,101 @@
+TWO BOX FIGHTING — TWO PRODUCTION CHARACTER ASSET INTEGRATION
+=============================================================
+Baseline:
+  two_box_fighting_godot_m7_complete.zip
+  Expected SHA-256: 7e1bbe41dcb35fcef0c98bc6b21f37d24c48808c218a59153dd818277a2571ab
+  Actual SHA-256:   7e1bbe41dcb35fcef0c98bc6b21f37d24c48808c218a59153dd818277a2571ab
+  ZIP integrity: PASS
+
+Implementation boundary:
+  Production Presentation integration only.
+  No Gameplay Fighter was created.
+  No gameplay values, MoveData, ProjectileData, hitbox, hurtbox, pushbox,
+  meter, cancel graph, BattleSimulation, CombatResolver, MoveRunner,
+  CollisionSystem, Snapshot gameplay state, Replay gameplay identity,
+  or BattleStateHasher rules were modified.
+
+Important supplied-source geometry:
+  All 20 supplied optimized WebP sheets are 768x768.
+  768 is not divisible by 5. The build therefore uses deterministic nearest
+  rational fifth boundaries: 154/153/154/153/154 pixels on each axis.
+  Each raw source cell is preserved completely, with no overlap and no dropped
+  source pixel, then right/bottom transparent padding creates a stable 154x154
+  runtime cell. No alpha tight-cropping is performed.
+  Runtime frame WebP is lossless; decoded source cell pixels are verified
+  byte-for-byte against the corresponding runtime content region.
+  The exact original source ZIP is also packaged under each character source/
+  directory and verified against source_sha256.
+
+Source alpha note:
+  Salad Cat source Sheet 09 is RGB/opaque in the supplied source bundle.
+  There is no source alpha channel to recover. The pipeline does not infer or
+  synthesize background removal. Existing source content remains opaque and only
+  deterministic padding outside the source cell is transparent.
+
+Salad Cat:
+  Source bundle: salad_optimized_aggressive.zip
+  Source SHA-256: 407aea428ddcae0dc86cda26dafaecba34b7623ea834bbb4df81896725536725
+  Source sheets: 10
+  Frames extracted: 250
+  Animations: 23
+  Failed cells: 0
+  Asset validation: PASS
+  Runtime max frame dimensions: 154x154
+  Estimated decoded RGBA memory: 23,716,000 bytes (22.617 MiB)
+  Output frame SHA digest: ce066ffb5a8cb7e935e50aa3aedba6473f399f069206308cc99309e63b876381
+  Decoded RGBA aggregate digest: 5fbc7f42ad8b54e97e96227e9977b03393a3cffd1e9e721ff4aaf994555ef4d6
+  Gameplay ID: generic_fighter
+  Presentation names:
+    special_neutral = Salad Tornado
+    ultimate = Ultimate Salad Burst
+
+Magic Orange Cat:
+  Source bundle: magic_orange_cat_optimized_aggressive.zip
+  Source SHA-256: 3c47099beacc282096a110365780f21c77207ea33ff638d658fbf172889d4294
+  Source sheets: 10
+  Frames extracted: 250
+  Animations: 23
+  Failed cells: 0
+  Asset validation: PASS
+  Runtime max frame dimensions: 154x154
+  Estimated decoded RGBA memory: 23,716,000 bytes (22.617 MiB)
+  Output frame SHA digest: 0e930747c1a0810766090d3292a395f3d137355c26e67e8914ab43c44987e679
+  Decoded RGBA aggregate digest: 196217e25e81f28681e83e8c97fefe28b9d25c63c4682255e7a721fe80938e5c
+  Gameplay ID: UNBOUND — explicit roster mapping required
+  Presentation names:
+    special_neutral = JPEG魔法陣
+    ultimate = 喵蘇魯的召喚
+
+Total:
+  20 source sheets
+  500 animation frames
+  46 animation bindings
+
+Deterministic build:
+  Build 1 vs Build 2 complete asset-tree SHA comparison: PASS
+
+Project static validation:
+  2723 passed / 0 failed
+
+Gameplay regression:
+  Protected gameplay data SHA comparison: PASS
+  Existing gameplay files changed: NO
+
+Versions:
+  CombatRulesVersion changed: NO (remains 2)
+  Snapshot version changed: NO (remains 6)
+  Replay schema changed: NO (remains 1)
+
+Godot Runtime:
+  NOT EXECUTED — godot/godot4 not available in this environment; external verifier required.
+
+External verification commands:
+  godot --version
+  godot --headless --path . --editor --quit
+  godot --headless --path . -s res://tests/run_tests.gd
+  ./scripts/verify.sh
+
+Production asset build commands:
+  python3 scripts/build_character_assets.py --character salad_cat --source assets/characters/salad_cat/source/salad_optimized_aggressive.zip
+  python3 scripts/build_character_assets.py --character magic_orange_cat --source assets/characters/magic_orange_cat/source/magic_orange_cat_optimized_aggressive.zip
+  python3 scripts/validate_presentation_assets.py

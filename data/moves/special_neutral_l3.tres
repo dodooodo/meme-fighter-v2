@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=5 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="1_move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="2_box"]
+[ext_resource type="Script" path="res://data/moves/cancel_window_data.gd" id="3_cancel"]
+[sub_resource type="Resource" id="BoxData_hit"]
+script = ExtResource("2_box")
+offset = Vector2(112, -84)
+size = Vector2(184, 104)
+[sub_resource type="Resource" id="CancelWindow_special_ultimate"]
+script = ExtResource("3_cancel")
+start_frame = 17
+end_frame = 26
+condition = 1
+allowed_target_move_ids = Array[StringName]([&"ultimate"])
+[resource]
+script = ExtResource("1_move")
+id = &"special_neutral_l3"
+display_name = "Neutral Special Lv3"
+tags = Array[StringName]([&"SPECIAL", &"GROUND", &"CHARGE_RELEASE"])
+animation_id = &"special_neutral"
+startup_frames = 16
+active_frames = 5
+recovery_frames = 24
+damage = 190
+chip_damage = 0
+hitstun_frames = 28
+blockstun_frames = 17
+hitstop_attacker = 9
+hitstop_defender = 9
+hit_level = 1
+knockback_x_units = 1700
+knockback_y_units = -300
+causes_knockdown = true
+knockdown_frames = 24
+meter_cost = 0
+meter_gain_on_hit = 24
+meter_gain_on_block = 11
+cancel_windows = Array[ExtResource("3_cancel")]([SubResource("CancelWindow_special_ultimate")])
+hitbox = SubResource("BoxData_hit")

@@ -1,0 +1,178 @@
+[gd_resource type="Resource" load_steps=45 format=3]
+
+[ext_resource type="Script" path="res://presentation/data/character_presentation_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://presentation/data/state_presentation_binding.gd" id="2_state"]
+[ext_resource type="Script" path="res://presentation/data/move_presentation_binding.gd" id="3_move"]
+[ext_resource type="Script" path="res://presentation/data/projectile_presentation_binding.gd" id="4_proj"]
+[ext_resource type="PackedScene" path="res://presentation/visuals/production/magic_orange_cat_visual.tscn" id="5_visual"]
+[ext_resource type="PackedScene" path="res://presentation/visuals/greybox_projectile_visual.tscn" id="6_projectile_visual"]
+
+[sub_resource type="Resource" id="State_0"]
+script = ExtResource("2_state")
+state_key = &"idle"
+animation_key = &"idle"
+
+[sub_resource type="Resource" id="State_1"]
+script = ExtResource("2_state")
+state_key = &"walk_forward"
+animation_key = &"walk_forward"
+
+[sub_resource type="Resource" id="State_2"]
+script = ExtResource("2_state")
+state_key = &"walk_back"
+animation_key = &"walk_back"
+
+[sub_resource type="Resource" id="State_3"]
+script = ExtResource("2_state")
+state_key = &"crouch"
+animation_key = &"crouch"
+
+[sub_resource type="Resource" id="State_4"]
+script = ExtResource("2_state")
+state_key = &"jump"
+animation_key = &"jump"
+
+[sub_resource type="Resource" id="State_5"]
+script = ExtResource("2_state")
+state_key = &"landing"
+animation_key = &"landing"
+
+[sub_resource type="Resource" id="State_6"]
+script = ExtResource("2_state")
+state_key = &"guard_stand"
+animation_key = &"guard_stand"
+
+[sub_resource type="Resource" id="State_7"]
+script = ExtResource("2_state")
+state_key = &"guard_crouch"
+animation_key = &"guard_crouch"
+
+[sub_resource type="Resource" id="State_8"]
+script = ExtResource("2_state")
+state_key = &"hitstun"
+animation_key = &"hitstun"
+
+[sub_resource type="Resource" id="State_9"]
+script = ExtResource("2_state")
+state_key = &"blockstun"
+animation_key = &"blockstun"
+
+[sub_resource type="Resource" id="State_10"]
+script = ExtResource("2_state")
+state_key = &"thrown"
+animation_key = &"thrown"
+
+[sub_resource type="Resource" id="State_11"]
+script = ExtResource("2_state")
+state_key = &"knockdown"
+animation_key = &"knockdown"
+
+[sub_resource type="Resource" id="State_12"]
+script = ExtResource("2_state")
+state_key = &"getup"
+animation_key = &"getup"
+
+[sub_resource type="Resource" id="State_13"]
+script = ExtResource("2_state")
+state_key = &"ko"
+animation_key = &"ko"
+
+[sub_resource type="Resource" id="State_14"]
+script = ExtResource("2_state")
+state_key = &"dash_forward"
+animation_key = &"dash_forward"
+
+[sub_resource type="Resource" id="State_15"]
+script = ExtResource("2_state")
+state_key = &"backstep"
+animation_key = &"backstep"
+
+[sub_resource type="Resource" id="State_16"]
+script = ExtResource("2_state")
+state_key = &"charge"
+animation_key = &"special_neutral"
+
+[sub_resource type="Resource" id="Move_0"]
+script = ExtResource("3_move")
+move_id = &"stand_light"
+animation_key = &"stand_light"
+
+[sub_resource type="Resource" id="Move_1"]
+script = ExtResource("3_move")
+move_id = &"stand_heavy"
+animation_key = &"stand_heavy"
+
+[sub_resource type="Resource" id="Move_2"]
+script = ExtResource("3_move")
+move_id = &"crouch_low"
+animation_key = &"crouch_low"
+
+[sub_resource type="Resource" id="Move_3"]
+script = ExtResource("3_move")
+move_id = &"air_attack"
+animation_key = &"air_attack"
+
+[sub_resource type="Resource" id="Move_4"]
+script = ExtResource("3_move")
+move_id = &"ground_throw"
+animation_key = &"ground_throw"
+
+[sub_resource type="Resource" id="Move_5"]
+script = ExtResource("3_move")
+move_id = &"special_neutral"
+animation_key = &"special_neutral"
+
+[sub_resource type="Resource" id="Move_6"]
+script = ExtResource("3_move")
+move_id = &"ultimate"
+animation_key = &"ultimate"
+
+[sub_resource type="Resource" id="Projectile_0"]
+script = ExtResource("4_proj")
+projectile_id = &"zone_shot"
+visual_scene = ExtResource("6_projectile_visual")
+placeholder_color = Color(0.35, 0.95, 0.65, 1)
+visual_scale = 1.0
+
+[sub_resource type="Resource" id="Projectile_1"]
+script = ExtResource("4_proj")
+projectile_id = &"zone_super_shot"
+visual_scene = ExtResource("6_projectile_visual")
+placeholder_color = Color(0.55, 1, 0.8, 1)
+visual_scale = 1.35
+
+[sub_resource type="Resource" id="Projectile_2"]
+script = ExtResource("4_proj")
+projectile_id = &"zone_shot_l2"
+visual_scene = ExtResource("6_projectile_visual")
+placeholder_color = Color(0.4, 0.95, 0.7, 1)
+visual_scale = 1.15
+
+[sub_resource type="Resource" id="Projectile_3"]
+script = ExtResource("4_proj")
+projectile_id = &"zone_shot_l3"
+visual_scene = ExtResource("6_projectile_visual")
+placeholder_color = Color(0.55, 1, 0.8, 1)
+visual_scale = 1.45
+
+[sub_resource type="Resource" id="Move_7"]
+script = ExtResource("3_move")
+move_id = &"special_neutral_l2"
+animation_key = &"special_neutral"
+
+[sub_resource type="Resource" id="Move_8"]
+script = ExtResource("3_move")
+move_id = &"special_neutral_l3"
+animation_key = &"special_neutral"
+
+[resource]
+script = ExtResource("1_data")
+character_id = &"zone_fighter"
+display_name = "Magic Orange Cat"
+fighter_visual_scene = ExtResource("5_visual")
+visual_offset_pixels = Vector2(0, 0)
+visual_scale = 1.0
+placeholder_color = Color(0.45, 0.82, 0.48, 1)
+state_bindings = Array[ExtResource("2_state")]([SubResource("State_0"), SubResource("State_1"), SubResource("State_2"), SubResource("State_3"), SubResource("State_4"), SubResource("State_5"), SubResource("State_6"), SubResource("State_7"), SubResource("State_8"), SubResource("State_9"), SubResource("State_10"), SubResource("State_11"), SubResource("State_12"), SubResource("State_13"), SubResource("State_14"), SubResource("State_15"), SubResource("State_16")])
+move_bindings = Array[ExtResource("3_move")]([SubResource("Move_0"), SubResource("Move_1"), SubResource("Move_2"), SubResource("Move_3"), SubResource("Move_4"), SubResource("Move_5"), SubResource("Move_6"), SubResource("Move_7"), SubResource("Move_8")])
+projectile_bindings = Array[ExtResource("4_proj")]([SubResource("Projectile_0"), SubResource("Projectile_1"), SubResource("Projectile_2"), SubResource("Projectile_3")])

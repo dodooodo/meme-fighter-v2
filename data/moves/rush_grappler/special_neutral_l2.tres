@@ -1,0 +1,37 @@
+[gd_resource type="Resource" load_steps=5 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="1_move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="2_box"]
+[ext_resource type="Script" path="res://data/moves/cancel_window_data.gd" id="3_cancel"]
+[sub_resource type="Resource" id="BoxData_hit"]
+script = ExtResource("2_box")
+offset = Vector2(104, -76)
+size = Vector2(166, 92)
+[sub_resource type="Resource" id="CancelWindow_special_ultimate"]
+script = ExtResource("3_cancel")
+start_frame = 11
+end_frame = 19
+condition = 1
+allowed_target_move_ids = Array[StringName]([&"ultimate"])
+[resource]
+script = ExtResource("1_move")
+id = &"special_neutral_l2"
+display_name = "Rush Breaker Lv2"
+tags = Array[StringName]([&"SPECIAL", &"GROUND", &"CHARGE_RELEASE"])
+animation_id = &"special_neutral"
+startup_frames = 10
+active_frames = 4
+recovery_frames = 17
+damage = 135
+hitstun_frames = 22
+blockstun_frames = 13
+hitstop_attacker = 7
+hitstop_defender = 7
+hit_level = 1
+knockback_x_units = 1300
+meter_gain_on_hit = 19
+meter_gain_on_block = 8
+cancel_windows = Array[ExtResource("3_cancel")]([SubResource("CancelWindow_special_ultimate")])
+travel_x_units_per_tick = 500
+travel_start_frame = 4
+travel_end_frame = 12
+hitbox = SubResource("BoxData_hit")

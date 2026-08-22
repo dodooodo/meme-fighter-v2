@@ -1,0 +1,428 @@
+[gd_resource type="Resource" load_steps=54 format=3]
+
+[ext_resource type="Script" path="res://data/move_set_data.gd" id="set"]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/moves/cancel_window_data.gd" id="cancel"]
+[ext_resource type="Script" path="res://data/moves/charge_special_data.gd" id="charge"]
+[ext_resource type="Script" path="res://data/mechanics/move_hit_data.gd" id="hit"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_condition_data.gd" id="cond"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_effect_data.gd" id="eff"]
+[ext_resource type="Script" path="res://data/mechanics/status_effect_data.gd" id="status"]
+[ext_resource type="Script" path="res://data/mechanics/positioning_effect_data.gd" id="pos"]
+[ext_resource type="Script" path="res://data/mechanics/armor_data.gd" id="armor"]
+[ext_resource type="Script" path="res://data/mechanics/counter_data.gd" id="counter"]
+[ext_resource type="Script" path="res://data/mechanics/hurtbox_override_data.gd" id="hurt"]
+[ext_resource type="Script" path="res://data/mechanics/area_data.gd" id="area"]
+[ext_resource type="Script" path="res://data/mechanics/summon_data.gd" id="summon"]
+[ext_resource type="Script" path="res://data/mechanics/sequence_data.gd" id="seq"]
+[ext_resource type="Script" path="res://data/mechanics/sequence_step_data.gd" id="step"]
+[ext_resource type="Script" path="res://data/moves/projectile_spawn_data.gd" id="spawn"]
+
+[sub_resource type="Resource" id="box_1"]
+script = ExtResource("box")
+offset = Vector2(25, -74)
+size = Vector2(48, 30)
+
+[sub_resource type="Resource" id="box_2"]
+script = ExtResource("box")
+offset = Vector2(42, -76)
+size = Vector2(89, 36)
+
+[sub_resource type="Resource" id="box_3"]
+script = ExtResource("box")
+offset = Vector2(40, -25)
+size = Vector2(91, 25)
+
+[sub_resource type="Resource" id="box_4"]
+script = ExtResource("box")
+offset = Vector2(38, -56)
+size = Vector2(98, 40)
+
+[sub_resource type="Resource" id="box_5"]
+script = ExtResource("box")
+offset = Vector2(34, -70)
+size = Vector2(48, 80)
+
+[sub_resource type="Resource" id="cancel_1"]
+script = ExtResource("cancel")
+start_frame = 7
+end_frame = 16
+condition = 2
+allowed_target_move_ids = Array[StringName]([&"stand_light", &"stand_heavy"])
+
+[sub_resource type="Resource" id="cancel_2"]
+script = ExtResource("cancel")
+start_frame = 10
+end_frame = 18
+condition = 1
+allowed_target_move_ids = Array[StringName]([&"special_neutral"])
+
+[sub_resource type="Resource" id="move_1"]
+script = ExtResource("move")
+id = &"stand_light"
+display_name = "隨便一拍"
+animation_id = &"stand_light"
+startup_frames = 4
+active_frames = 3
+recovery_frames = 7
+damage = 44
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_1")])
+hitbox = SubResource("box_1")
+
+[sub_resource type="Resource" id="box_6"]
+script = ExtResource("box")
+offset = Vector2(55, -78)
+size = Vector2(100, 48)
+
+[sub_resource type="Resource" id="move_2"]
+script = ExtResource("move")
+id = &"stand_heavy"
+display_name = "認真一拳"
+animation_id = &"stand_heavy"
+startup_frames = 11
+active_frames = 4
+recovery_frames = 19
+damage = 112
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 7
+hitstop_defender = 7
+hit_level = 1
+knockback_x_units = 1800
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_2")])
+hitbox = SubResource("box_6")
+counter_hit_extra_knockback_x_units = 1800
+
+[sub_resource type="Resource" id="cond_1"]
+script = ExtResource("cond")
+type = 4
+
+[sub_resource type="Resource" id="cond_2"]
+script = ExtResource("cond")
+type = 4
+invert = true
+
+[sub_resource type="Resource" id="hit_1"]
+script = ExtResource("hit")
+hit_id = 0
+active_start_frame = 7
+active_end_frame = 9
+hitbox = SubResource("box_3")
+hit_level = 2
+damage = 42
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 500
+conditions = Array[ExtResource("cond")]([SubResource("cond_2")])
+
+[sub_resource type="Resource" id="hit_2"]
+script = ExtResource("hit")
+hit_id = 1
+active_start_frame = 7
+active_end_frame = 9
+hitbox = SubResource("box_3")
+hit_level = 2
+damage = 42
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 700
+reaction_type = 3
+knockdown_frames = 12
+conditions = Array[ExtResource("cond")]([SubResource("cond_1")])
+
+[sub_resource type="Resource" id="move_3"]
+script = ExtResource("move")
+id = &"crouch_low"
+display_name = "懶狗絆腳"
+animation_id = &"crouch_low"
+startup_frames = 6
+active_frames = 3
+recovery_frames = 14
+damage = 60
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hits = Array[ExtResource("hit")]([SubResource("hit_1"), SubResource("hit_2")])
+
+[sub_resource type="Resource" id="cond_3"]
+script = ExtResource("cond")
+type = 11
+
+[sub_resource type="Resource" id="hit_3"]
+script = ExtResource("hit")
+hit_id = 0
+active_start_frame = 6
+active_end_frame = 9
+hitbox = SubResource("box_4")
+hit_level = 1
+damage = 72
+hitstun_frames = 11
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 700
+
+[sub_resource type="Resource" id="box_7"]
+script = ExtResource("box")
+offset = Vector2(35, -38)
+size = Vector2(70, 72)
+
+[sub_resource type="Resource" id="hit_4"]
+script = ExtResource("hit")
+hit_id = 1
+active_start_frame = 6
+active_end_frame = 9
+hitbox = SubResource("box_7")
+hit_level = 1
+damage = 72
+hitstun_frames = 16
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 700
+conditions = Array[ExtResource("cond")]([SubResource("cond_3")])
+
+[sub_resource type="Resource" id="move_4"]
+script = ExtResource("move")
+id = &"air_attack"
+display_name = "柴犬泰山壓頂"
+animation_id = &"air_attack"
+startup_frames = 5
+active_frames = 4
+recovery_frames = 16
+damage = 60
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hits = Array[ExtResource("hit")]([SubResource("hit_3"), SubResource("hit_4")])
+
+[sub_resource type="Resource" id="pos_1"]
+script = ExtResource("pos")
+type = 5
+distance_units = 7000
+
+[sub_resource type="Resource" id="move_5"]
+script = ExtResource("move")
+id = &"ground_throw"
+display_name = "你過來一下"
+animation_id = &"ground_throw"
+startup_frames = 5
+active_frames = 2
+recovery_frames = 17
+damage = 125
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+throw_box = SubResource("box_5")
+throw_hold_frames = 8
+knockdown_frames = 26
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+reaction_type = 4
+throw_positioning = SubResource("pos_1")
+
+[sub_resource type="Resource" id="charge_1"]
+script = ExtResource("charge")
+level_2_threshold_frames = 24
+level_3_threshold_frames = 54
+level_1_move_id = &"doge_rush_l1"
+level_2_move_id = &"doge_rush_l2"
+level_3_move_id = &"doge_rush_l3"
+
+[sub_resource type="Resource" id="move_6"]
+script = ExtResource("move")
+id = &"special_neutral"
+display_name = "肌肉衝撞 Charge"
+animation_id = &"special_neutral"
+startup_frames = 1
+active_frames = 0
+recovery_frames = 0
+damage = 0
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+charge_special_data = SubResource("charge_1")
+
+[sub_resource type="Resource" id="move_7"]
+script = ExtResource("move")
+id = &"doge_rush_l1"
+display_name = "肌肉衝撞 Lv1"
+animation_id = &"doge_rush_l1"
+startup_frames = 7
+active_frames = 4
+recovery_frames = 14
+damage = 85
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 1400
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+travel_x_units_per_tick = 720
+travel_start_frame = 3
+travel_end_frame = 10
+hitbox = SubResource("box_2")
+
+[sub_resource type="Resource" id="box_8"]
+script = ExtResource("box")
+offset = Vector2(55, -80)
+size = Vector2(115, 50)
+
+[sub_resource type="Resource" id="move_8"]
+script = ExtResource("move")
+id = &"doge_rush_l2"
+display_name = "肌肉衝撞 Lv2"
+animation_id = &"doge_rush_l2"
+startup_frames = 9
+active_frames = 5
+recovery_frames = 20
+damage = 105
+hitstun_frames = 10
+blockstun_frames = 8
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 3200
+knockdown_frames = 14
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+travel_x_units_per_tick = 1050
+travel_start_frame = 3
+travel_end_frame = 14
+hitbox = SubResource("box_8")
+reaction_type = 3
+
+[sub_resource type="Resource" id="armor_1"]
+script = ExtResource("armor")
+max_absorbed_hits = 1
+start_frame = 7
+end_frame = 12
+valid_source_mask = 1
+
+[sub_resource type="Resource" id="box_9"]
+script = ExtResource("box")
+offset = Vector2(65, -82)
+size = Vector2(130, 54)
+
+[sub_resource type="Resource" id="move_9"]
+script = ExtResource("move")
+id = &"doge_rush_l3"
+display_name = "肌肉衝撞 Lv3"
+animation_id = &"doge_rush_l3"
+startup_frames = 11
+active_frames = 6
+recovery_frames = 22
+damage = 125
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 3800
+knockdown_frames = 16
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+travel_x_units_per_tick = 1350
+travel_start_frame = 4
+travel_end_frame = 17
+hitbox = SubResource("box_9")
+reaction_type = 3
+armor_data = SubResource("armor_1")
+
+[sub_resource type="Resource" id="eff_1"]
+script = ExtResource("eff")
+type = 6
+id = &"super_doge"
+value = 480
+
+[sub_resource type="Resource" id="move_10"]
+script = ExtResource("move")
+id = &"ultimate"
+display_name = "超級賽狗"
+animation_id = &"ultimate"
+startup_frames = 6
+active_frames = 0
+recovery_frames = 20
+damage = 0
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_cost = 100
+on_start_effects = Array[ExtResource("eff")]([SubResource("eff_1")])
+
+[sub_resource type="Resource" id="armor_2"]
+script = ExtResource("armor")
+max_absorbed_hits = 1
+start_frame = 5
+end_frame = 8
+valid_source_mask = 1
+
+[sub_resource type="Resource" id="box_10"]
+script = ExtResource("box")
+offset = Vector2(65, -80)
+size = Vector2(120, 50)
+
+[sub_resource type="Resource" id="move_11"]
+script = ExtResource("move")
+id = &"doge_super_heavy"
+display_name = "超級認真一拳"
+animation_id = &"doge_super_heavy"
+startup_frames = 8
+active_frames = 4
+recovery_frames = 19
+damage = 125
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 2200
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+travel_x_units_per_tick = 480
+travel_start_frame = 3
+travel_end_frame = 8
+hitbox = SubResource("box_10")
+counter_hit_reaction_type = 6
+counter_hit_extra_knockback_x_units = 2200
+armor_data = SubResource("armor_2")
+
+[resource]
+script = ExtResource("set")
+moves = Array[ExtResource("move")]([SubResource("move_1"), SubResource("move_2"), SubResource("move_3"), SubResource("move_4"), SubResource("move_5"), SubResource("move_6"), SubResource("move_7"), SubResource("move_8"), SubResource("move_9"), SubResource("move_10"), SubResource("move_11")])

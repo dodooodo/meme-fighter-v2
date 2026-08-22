@@ -1,0 +1,408 @@
+[gd_resource type="Resource" load_steps=57 format=3]
+
+[ext_resource type="Script" path="res://data/move_set_data.gd" id="set"]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/moves/cancel_window_data.gd" id="cancel"]
+[ext_resource type="Script" path="res://data/moves/charge_special_data.gd" id="charge"]
+[ext_resource type="Script" path="res://data/mechanics/move_hit_data.gd" id="hit"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_condition_data.gd" id="cond"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_effect_data.gd" id="eff"]
+[ext_resource type="Script" path="res://data/mechanics/status_effect_data.gd" id="status"]
+[ext_resource type="Script" path="res://data/mechanics/positioning_effect_data.gd" id="pos"]
+[ext_resource type="Script" path="res://data/mechanics/armor_data.gd" id="armor"]
+[ext_resource type="Script" path="res://data/mechanics/counter_data.gd" id="counter"]
+[ext_resource type="Script" path="res://data/mechanics/hurtbox_override_data.gd" id="hurt"]
+[ext_resource type="Script" path="res://data/mechanics/area_data.gd" id="area"]
+[ext_resource type="Script" path="res://data/mechanics/summon_data.gd" id="summon"]
+[ext_resource type="Script" path="res://data/mechanics/sequence_data.gd" id="seq"]
+[ext_resource type="Script" path="res://data/mechanics/sequence_step_data.gd" id="step"]
+[ext_resource type="Script" path="res://data/moves/projectile_spawn_data.gd" id="spawn"]
+[ext_resource type="Resource" path="res://data/projectiles/roster/sauce_blob_l1.tres" id="sauce_blob_l1"]
+[ext_resource type="Resource" path="res://data/projectiles/roster/sauce_blob_l2.tres" id="sauce_blob_l2"]
+[ext_resource type="Resource" path="res://data/projectiles/roster/sauce_blob_l3.tres" id="sauce_blob_l3"]
+
+[sub_resource type="Resource" id="box_1"]
+script = ExtResource("box")
+offset = Vector2(25, -74)
+size = Vector2(48, 30)
+
+[sub_resource type="Resource" id="box_2"]
+script = ExtResource("box")
+offset = Vector2(42, -76)
+size = Vector2(89, 36)
+
+[sub_resource type="Resource" id="box_3"]
+script = ExtResource("box")
+offset = Vector2(40, -25)
+size = Vector2(91, 25)
+
+[sub_resource type="Resource" id="box_4"]
+script = ExtResource("box")
+offset = Vector2(38, -56)
+size = Vector2(98, 40)
+
+[sub_resource type="Resource" id="box_5"]
+script = ExtResource("box")
+offset = Vector2(34, -70)
+size = Vector2(48, 80)
+
+[sub_resource type="Resource" id="cancel_1"]
+script = ExtResource("cancel")
+start_frame = 7
+end_frame = 16
+condition = 2
+allowed_target_move_ids = Array[StringName]([&"stand_light", &"stand_heavy"])
+
+[sub_resource type="Resource" id="cancel_2"]
+script = ExtResource("cancel")
+start_frame = 10
+end_frame = 18
+condition = 1
+allowed_target_move_ids = Array[StringName]([&"special_neutral"])
+
+[sub_resource type="Resource" id="move_1"]
+script = ExtResource("move")
+id = &"stand_light"
+display_name = "討飯小爪"
+animation_id = &"stand_light"
+startup_frames = 4
+active_frames = 3
+recovery_frames = 7
+damage = 38
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_1")])
+hitbox = SubResource("box_1")
+
+[sub_resource type="Resource" id="cond_1"]
+script = ExtResource("cond")
+type = 6
+id = &"sauce"
+
+[sub_resource type="Resource" id="cond_2"]
+script = ExtResource("cond")
+type = 6
+id = &"sauce"
+invert = true
+
+[sub_resource type="Resource" id="hit_1"]
+script = ExtResource("hit")
+hit_id = 0
+active_start_frame = 8
+active_end_frame = 11
+hitbox = SubResource("box_2")
+hit_level = 1
+damage = 72
+hitstun_frames = 11
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 500
+conditions = Array[ExtResource("cond")]([SubResource("cond_1")])
+
+[sub_resource type="Resource" id="hit_2"]
+script = ExtResource("hit")
+hit_id = 1
+active_start_frame = 8
+active_end_frame = 11
+hitbox = SubResource("box_2")
+hit_level = 1
+damage = 72
+hitstun_frames = 11
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 1500
+conditions = Array[ExtResource("cond")]([SubResource("cond_2")])
+
+[sub_resource type="Resource" id="move_2"]
+script = ExtResource("move")
+id = &"stand_heavy"
+display_name = "破碗敲頭"
+animation_id = &"stand_heavy"
+startup_frames = 7
+active_frames = 4
+recovery_frames = 14
+damage = 60
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_2")])
+hits = Array[ExtResource("hit")]([SubResource("hit_1"), SubResource("hit_2")])
+
+[sub_resource type="Resource" id="eff_1"]
+script = ExtResource("eff")
+type = 2
+id = &"sauce"
+value = 60
+
+[sub_resource type="Resource" id="move_3"]
+script = ExtResource("move")
+id = &"crouch_low"
+display_name = "低頭撿飯"
+animation_id = &"crouch_low"
+startup_frames = 6
+active_frames = 3
+recovery_frames = 12
+damage = 32
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hitbox = SubResource("box_3")
+on_hit_effects = Array[ExtResource("eff")]([SubResource("eff_1")])
+
+[sub_resource type="Resource" id="box_6"]
+script = ExtResource("box")
+offset = Vector2(58, -55)
+size = Vector2(105, 42)
+
+[sub_resource type="Resource" id="move_4"]
+script = ExtResource("move")
+id = &"air_attack"
+display_name = "搶飯飛撲"
+animation_id = &"air_attack"
+startup_frames = 5
+active_frames = 4
+recovery_frames = 11
+damage = 58
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 700
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hitbox = SubResource("box_6")
+
+[sub_resource type="Resource" id="move_5"]
+script = ExtResource("move")
+id = &"ground_throw"
+display_name = "有飯吃嗎？"
+animation_id = &"ground_throw"
+startup_frames = 5
+active_frames = 2
+recovery_frames = 14
+damage = 78
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+throw_box = SubResource("box_5")
+throw_hold_frames = 7
+knockdown_frames = 18
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+reaction_type = 4
+
+[sub_resource type="Resource" id="spawn_1"]
+script = ExtResource("spawn")
+spawn_frame = 8
+spawn_offset_units = Vector2i(4500, -6500)
+projectile_data = ExtResource("sauce_blob_l1")
+
+[sub_resource type="Resource" id="move_6"]
+script = ExtResource("move")
+id = &"sauce_shot_l1"
+display_name = "蘸醬飛彈 Lv1"
+animation_id = &"sauce_shot_l1"
+startup_frames = 7
+active_frames = 0
+recovery_frames = 14
+damage = 0
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+projectile_spawns = Array[ExtResource("spawn")]([SubResource("spawn_1")])
+
+[sub_resource type="Resource" id="spawn_2"]
+script = ExtResource("spawn")
+spawn_frame = 9
+spawn_offset_units = Vector2i(4500, -6500)
+projectile_data = ExtResource("sauce_blob_l2")
+
+[sub_resource type="Resource" id="move_7"]
+script = ExtResource("move")
+id = &"sauce_shot_l2"
+display_name = "蘸醬飛彈 Lv2"
+animation_id = &"sauce_shot_l2"
+startup_frames = 9
+active_frames = 0
+recovery_frames = 17
+damage = 0
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+projectile_spawns = Array[ExtResource("spawn")]([SubResource("spawn_2")])
+
+[sub_resource type="Resource" id="spawn_3"]
+script = ExtResource("spawn")
+spawn_frame = 10
+spawn_offset_units = Vector2i(4500, -6500)
+projectile_data = ExtResource("sauce_blob_l3")
+
+[sub_resource type="Resource" id="move_8"]
+script = ExtResource("move")
+id = &"sauce_shot_l3"
+display_name = "蘸醬飛彈 Lv3"
+animation_id = &"sauce_shot_l3"
+startup_frames = 11
+active_frames = 0
+recovery_frames = 20
+damage = 0
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+projectile_spawns = Array[ExtResource("spawn")]([SubResource("spawn_3")])
+
+[sub_resource type="Resource" id="charge_1"]
+script = ExtResource("charge")
+level_2_threshold_frames = 24
+level_3_threshold_frames = 54
+level_1_move_id = &"sauce_shot_l1"
+level_2_move_id = &"sauce_shot_l2"
+level_3_move_id = &"sauce_shot_l3"
+
+[sub_resource type="Resource" id="move_9"]
+script = ExtResource("move")
+id = &"special_neutral"
+display_name = "蘸醬飛彈 Charge"
+animation_id = &"special_neutral"
+startup_frames = 1
+active_frames = 0
+recovery_frames = 0
+damage = 0
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+charge_special_data = SubResource("charge_1")
+
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("step")
+start_frame = 0
+offset_units = Vector2i(-12000, 0)
+half_extents_units = Vector2i(6500, 6500)
+telegraph_frames = 9
+damage = 48
+hitstun_frames = 8
+hit_level = 1
+
+[sub_resource type="Resource" id="step_2"]
+script = ExtResource("step")
+start_frame = 26
+offset_units = Vector2i(9000, 0)
+half_extents_units = Vector2i(6500, 6500)
+telegraph_frames = 9
+damage = 48
+hitstun_frames = 8
+hit_level = 1
+
+[sub_resource type="Resource" id="step_3"]
+script = ExtResource("step")
+start_frame = 52
+offset_units = Vector2i(-7000, 0)
+half_extents_units = Vector2i(6500, 6500)
+telegraph_frames = 9
+damage = 48
+hitstun_frames = 8
+hit_level = 1
+
+[sub_resource type="Resource" id="step_4"]
+script = ExtResource("step")
+start_frame = 78
+offset_units = Vector2i(14000, 0)
+half_extents_units = Vector2i(6500, 6500)
+telegraph_frames = 9
+damage = 48
+hitstun_frames = 8
+hit_level = 1
+
+[sub_resource type="Resource" id="step_5"]
+script = ExtResource("step")
+start_frame = 112
+offset_units = Vector2i(0, 0)
+half_extents_units = Vector2i(11000, 7000)
+telegraph_frames = 10
+damage = 120
+hitstun_frames = 15
+hit_level = 1
+reaction_type = 3
+exclude_target_status = &"sauce"
+
+[sub_resource type="Resource" id="step_6"]
+script = ExtResource("step")
+start_frame = 112
+offset_units = Vector2i(0, 0)
+half_extents_units = Vector2i(11000, 7000)
+telegraph_frames = 10
+damage = 165
+hitstun_frames = 18
+hit_level = 1
+reaction_type = 4
+require_target_status = &"sauce"
+consume_target_status = &"sauce"
+
+[sub_resource type="Resource" id="seq_1"]
+script = ExtResource("seq")
+id = &"sauce_four_pass"
+duration_frames = 142
+interruptible_owner_hit = true
+steps = Array[ExtResource("step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4"), SubResource("step_5"), SubResource("step_6")])
+
+[sub_resource type="Resource" id="eff_2"]
+script = ExtResource("eff")
+type = 14
+sequence = SubResource("seq_1")
+
+[sub_resource type="Resource" id="move_10"]
+script = ExtResource("move")
+id = &"ultimate"
+display_name = "四輪搶飯大暴走"
+animation_id = &"ultimate"
+startup_frames = 7
+active_frames = 0
+recovery_frames = 18
+damage = 0
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_cost = 100
+on_start_effects = Array[ExtResource("eff")]([SubResource("eff_2")])
+
+[resource]
+script = ExtResource("set")
+moves = Array[ExtResource("move")]([SubResource("move_1"), SubResource("move_2"), SubResource("move_3"), SubResource("move_4"), SubResource("move_5"), SubResource("move_9"), SubResource("move_6"), SubResource("move_7"), SubResource("move_8"), SubResource("move_10")])

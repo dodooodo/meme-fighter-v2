@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=5 format=3]
+[ext_resource type="Script" path="res://data/character_data.gd" id="1_char"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="2_box"]
+[ext_resource type="Resource" path="res://data/move_sets/zone_fighter_move_set.tres" id="3_set"]
+[sub_resource type="Resource" id="BoxData_push"]
+script = ExtResource("2_box")
+offset = Vector2(0, -80)
+size = Vector2(64, 160)
+[sub_resource type="Resource" id="BoxData_hurt"]
+script = ExtResource("2_box")
+offset = Vector2(0, -82)
+size = Vector2(72, 164)
+[resource]
+script = ExtResource("1_char")
+id = &"zone_fighter"
+display_name = "Zone Fighter"
+max_hp = 5000
+max_meter = 100
+walk_forward_units_per_tick = 270
+walk_back_units_per_tick = 250
+jump_velocity_y_units_per_tick = -1450
+gravity_y_units_per_tick2 = 75
+max_fall_speed_y_units_per_tick = 1750
+air_forward_units_per_tick = 220
+air_back_units_per_tick = 230
+landing_recovery_frames = 3
+dash_move_frames = 8
+dash_speed_units_per_tick = 820
+dash_recovery_frames = 5
+backstep_move_frames = 7
+backstep_speed_units_per_tick = 900
+backstep_recovery_frames = 5
+default_getup_frames = 18
+pushbox = SubResource("BoxData_push")
+hurtbox = SubResource("BoxData_hurt")
+move_set = ExtResource("3_set")

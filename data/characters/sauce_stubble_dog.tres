@@ -1,0 +1,59 @@
+[gd_resource type="Resource" load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://data/character_data.gd" id="char"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/mechanics/character_mechanics_data.gd" id="mech"]
+[ext_resource type="Script" path="res://data/mechanics/fighter_resource_data.gd" id="res"]
+[ext_resource type="Script" path="res://data/mechanics/status_effect_data.gd" id="status"]
+[ext_resource type="Script" path="res://data/mechanics/mode_data.gd" id="mode"]
+[ext_resource type="Script" path="res://data/mechanics/mode_move_override_data.gd" id="override"]
+[ext_resource type="Script" path="res://data/mechanics/defense_modifier_data.gd" id="defense"]
+[ext_resource type="Resource" path="res://data/move_sets/roster/sauce_stubble_dog_move_set.tres" id="moveset"]
+
+[sub_resource type="Resource" id="box_1"]
+script = ExtResource("box")
+offset = Vector2(0, -80)
+size = Vector2(64, 160)
+
+[sub_resource type="Resource" id="box_2"]
+script = ExtResource("box")
+offset = Vector2(0, -82)
+size = Vector2(72, 164)
+
+[sub_resource type="Resource" id="status_1"]
+script = ExtResource("status")
+id = &"sauce"
+duration_frames = 180
+walk_speed_permille = 760
+dash_speed_permille = 700
+backstep_speed_permille = 700
+
+[sub_resource type="Resource" id="mech_1"]
+script = ExtResource("mech")
+statuses = Array[ExtResource("status")]([SubResource("status_1")])
+
+[resource]
+script = ExtResource("char")
+id = &"sauce_stubble_dog"
+display_name = "蘸醬胡渣狗"
+max_hp = 5000
+max_meter = 100
+walk_forward_units_per_tick = 275
+walk_back_units_per_tick = 240
+jump_velocity_y_units_per_tick = -1400
+gravity_y_units_per_tick2 = 80
+max_fall_speed_y_units_per_tick = 1800
+air_forward_units_per_tick = 220
+air_back_units_per_tick = 205
+landing_recovery_frames = 3
+dash_move_frames = 8
+dash_speed_units_per_tick = 840
+dash_recovery_frames = 4
+backstep_move_frames = 7
+backstep_speed_units_per_tick = 800
+backstep_recovery_frames = 6
+default_getup_frames = 18
+pushbox = SubResource("box_1")
+hurtbox = SubResource("box_2")
+move_set = ExtResource("moveset")
+mechanics = SubResource("mech_1")

@@ -1,0 +1,80 @@
+[gd_resource type="Resource" load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://data/character_data.gd" id="char"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/mechanics/character_mechanics_data.gd" id="mech"]
+[ext_resource type="Script" path="res://data/mechanics/fighter_resource_data.gd" id="res"]
+[ext_resource type="Script" path="res://data/mechanics/status_effect_data.gd" id="status"]
+[ext_resource type="Script" path="res://data/mechanics/mode_data.gd" id="mode"]
+[ext_resource type="Script" path="res://data/mechanics/mode_move_override_data.gd" id="override"]
+[ext_resource type="Script" path="res://data/mechanics/defense_modifier_data.gd" id="defense"]
+[ext_resource type="Resource" path="res://data/move_sets/roster/blade_shield_move_set.tres" id="moveset"]
+
+[sub_resource type="Resource" id="box_1"]
+script = ExtResource("box")
+offset = Vector2(0, -80)
+size = Vector2(64, 160)
+
+[sub_resource type="Resource" id="box_2"]
+script = ExtResource("box")
+offset = Vector2(0, -82)
+size = Vector2(72, 164)
+
+[sub_resource type="Resource" id="override_1"]
+script = ExtResource("override")
+canonical_move_id = &"stand_heavy"
+replacement_move_id = &"dual_blade_heavy"
+
+[sub_resource type="Resource" id="override_2"]
+script = ExtResource("override")
+canonical_move_id = &"crouch_low"
+replacement_move_id = &"dual_blade_low"
+
+[sub_resource type="Resource" id="override_3"]
+script = ExtResource("override")
+canonical_move_id = &"air_attack"
+replacement_move_id = &"dual_blade_air"
+
+[sub_resource type="Resource" id="mode_1"]
+script = ExtResource("mode")
+mode_id = &"dual_blade"
+duration_frames = 480
+forward_walk_permille = 1150
+guard_allowed = false
+move_overrides = Array[ExtResource("override")]([SubResource("override_1"), SubResource("override_2"), SubResource("override_3")])
+
+[sub_resource type="Resource" id="defense_1"]
+script = ExtResource("defense")
+source_tags = Array[StringName]([&"HEAVY", &"SPECIAL"])
+block_pushback_permille = 600
+
+[sub_resource type="Resource" id="mech_1"]
+script = ExtResource("mech")
+modes = Array[ExtResource("mode")]([SubResource("mode_1")])
+defense_modifiers = Array[ExtResource("defense")]([SubResource("defense_1")])
+
+[resource]
+script = ExtResource("char")
+id = &"blade_shield"
+display_name = "我的刀盾"
+max_hp = 5000
+max_meter = 100
+walk_forward_units_per_tick = 250
+walk_back_units_per_tick = 215
+jump_velocity_y_units_per_tick = -1400
+gravity_y_units_per_tick2 = 80
+max_fall_speed_y_units_per_tick = 1800
+air_forward_units_per_tick = 205
+air_back_units_per_tick = 185
+landing_recovery_frames = 3
+dash_move_frames = 8
+dash_speed_units_per_tick = 780
+dash_recovery_frames = 4
+backstep_move_frames = 7
+backstep_speed_units_per_tick = 800
+backstep_recovery_frames = 6
+default_getup_frames = 18
+pushbox = SubResource("box_1")
+hurtbox = SubResource("box_2")
+move_set = ExtResource("moveset")
+mechanics = SubResource("mech_1")

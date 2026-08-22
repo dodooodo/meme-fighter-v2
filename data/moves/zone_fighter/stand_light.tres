@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=5 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="1_move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="2_box"]
+[ext_resource type="Script" path="res://data/moves/cancel_window_data.gd" id="3_cancel"]
+[sub_resource type="Resource" id="BoxData_hit"]
+script = ExtResource("2_box")
+offset = Vector2(66, -70)
+size = Vector2(96, 58)
+[sub_resource type="Resource" id="CancelWindow_light"]
+script = ExtResource("3_cancel")
+start_frame = 7
+end_frame = 13
+condition = 3
+allowed_target_move_ids = Array[StringName]([&"stand_heavy", &"special_neutral"])
+[resource]
+script = ExtResource("1_move")
+id = &"stand_light"
+display_name = "Zone Stand Light"
+tags = Array[StringName]([&"NORMAL", &"LIGHT"])
+animation_id = &"stand_light"
+startup_frames = 6
+active_frames = 3
+recovery_frames = 11
+damage = 48
+chip_damage = 0
+hitstun_frames = 13
+blockstun_frames = 9
+hitstop_attacker = 3
+hitstop_defender = 3
+hit_level = 1
+knockback_x_units = 560
+knockback_y_units = 0
+meter_cost = 0
+meter_gain_on_hit = 7
+meter_gain_on_block = 3
+meter_gain_on_throw = 0
+meter_gain_on_whiff = 0
+cancel_windows = Array[ExtResource("3_cancel")]([SubResource("CancelWindow_light")])
+hitbox = SubResource("BoxData_hit")

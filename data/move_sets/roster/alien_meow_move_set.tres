@@ -1,0 +1,490 @@
+[gd_resource type="Resource" load_steps=67 format=3]
+
+[ext_resource type="Script" path="res://data/move_set_data.gd" id="set"]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/moves/cancel_window_data.gd" id="cancel"]
+[ext_resource type="Script" path="res://data/moves/charge_special_data.gd" id="charge"]
+[ext_resource type="Script" path="res://data/mechanics/move_hit_data.gd" id="hit"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_condition_data.gd" id="cond"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_effect_data.gd" id="eff"]
+[ext_resource type="Script" path="res://data/mechanics/status_effect_data.gd" id="status"]
+[ext_resource type="Script" path="res://data/mechanics/positioning_effect_data.gd" id="pos"]
+[ext_resource type="Script" path="res://data/mechanics/armor_data.gd" id="armor"]
+[ext_resource type="Script" path="res://data/mechanics/counter_data.gd" id="counter"]
+[ext_resource type="Script" path="res://data/mechanics/hurtbox_override_data.gd" id="hurt"]
+[ext_resource type="Script" path="res://data/mechanics/area_data.gd" id="area"]
+[ext_resource type="Script" path="res://data/mechanics/summon_data.gd" id="summon"]
+[ext_resource type="Script" path="res://data/mechanics/sequence_data.gd" id="seq"]
+[ext_resource type="Script" path="res://data/mechanics/sequence_step_data.gd" id="step"]
+[ext_resource type="Script" path="res://data/moves/projectile_spawn_data.gd" id="spawn"]
+
+[sub_resource type="Resource" id="box_1"]
+script = ExtResource("box")
+offset = Vector2(25, -74)
+size = Vector2(48, 30)
+
+[sub_resource type="Resource" id="box_2"]
+script = ExtResource("box")
+offset = Vector2(42, -76)
+size = Vector2(89, 36)
+
+[sub_resource type="Resource" id="box_3"]
+script = ExtResource("box")
+offset = Vector2(40, -25)
+size = Vector2(91, 25)
+
+[sub_resource type="Resource" id="box_4"]
+script = ExtResource("box")
+offset = Vector2(38, -56)
+size = Vector2(98, 40)
+
+[sub_resource type="Resource" id="box_5"]
+script = ExtResource("box")
+offset = Vector2(34, -70)
+size = Vector2(48, 80)
+
+[sub_resource type="Resource" id="cancel_1"]
+script = ExtResource("cancel")
+start_frame = 7
+end_frame = 16
+condition = 2
+allowed_target_move_ids = Array[StringName]([&"stand_light", &"stand_heavy"])
+
+[sub_resource type="Resource" id="cancel_2"]
+script = ExtResource("cancel")
+start_frame = 10
+end_frame = 18
+condition = 1
+allowed_target_move_ids = Array[StringName]([&"special_neutral"])
+
+[sub_resource type="Resource" id="move_1"]
+script = ExtResource("move")
+id = &"stand_light"
+display_name = "訊號校正"
+animation_id = &"stand_light"
+startup_frames = 4
+active_frames = 3
+recovery_frames = 8
+damage = 38
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 450
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_1")])
+hitbox = SubResource("box_1")
+
+[sub_resource type="Resource" id="box_6"]
+script = ExtResource("box")
+offset = Vector2(72, -78)
+size = Vector2(118, 36)
+
+[sub_resource type="Resource" id="move_2"]
+script = ExtResource("move")
+id = &"stand_heavy"
+display_name = "水平掃描"
+animation_id = &"stand_heavy"
+startup_frames = 10
+active_frames = 3
+recovery_frames = 18
+damage = 82
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 2400
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_2")])
+hitbox = SubResource("box_6")
+
+[sub_resource type="Resource" id="cond_1"]
+script = ExtResource("cond")
+type = 5
+invert = true
+
+[sub_resource type="Resource" id="cond_2"]
+script = ExtResource("cond")
+type = 3
+
+[sub_resource type="Resource" id="cond_3"]
+script = ExtResource("cond")
+type = 3
+invert = true
+
+[sub_resource type="Resource" id="hit_1"]
+script = ExtResource("hit")
+hit_id = 0
+active_start_frame = 7
+active_end_frame = 9
+hitbox = SubResource("box_3")
+hit_level = 2
+damage = 42
+hitstun_frames = 8
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 750
+conditions = Array[ExtResource("cond")]([SubResource("cond_1"), SubResource("cond_3")])
+
+[sub_resource type="Resource" id="hit_2"]
+script = ExtResource("hit")
+hit_id = 1
+active_start_frame = 7
+active_end_frame = 9
+hitbox = SubResource("box_3")
+hit_level = 2
+damage = 42
+hitstun_frames = 9
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 2600
+reaction_type = 1
+conditions = Array[ExtResource("cond")]([SubResource("cond_1"), SubResource("cond_2")])
+
+[sub_resource type="Resource" id="move_3"]
+script = ExtResource("move")
+id = &"crouch_low"
+display_name = "地表斷訊脈衝"
+animation_id = &"crouch_low"
+startup_frames = 6
+active_frames = 3
+recovery_frames = 13
+damage = 60
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hits = Array[ExtResource("hit")]([SubResource("hit_1"), SubResource("hit_2")])
+
+[sub_resource type="Resource" id="cond_4"]
+script = ExtResource("cond")
+type = 11
+
+[sub_resource type="Resource" id="cond_5"]
+script = ExtResource("cond")
+type = 11
+invert = true
+
+[sub_resource type="Resource" id="box_7"]
+script = ExtResource("box")
+offset = Vector2(58, -65)
+size = Vector2(92, 38)
+
+[sub_resource type="Resource" id="box_8"]
+script = ExtResource("box")
+offset = Vector2(35, -38)
+size = Vector2(62, 68)
+
+[sub_resource type="Resource" id="hit_3"]
+script = ExtResource("hit")
+hit_id = 0
+active_start_frame = 5
+active_end_frame = 8
+hitbox = SubResource("box_7")
+hit_level = 1
+damage = 55
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 900
+conditions = Array[ExtResource("cond")]([SubResource("cond_5")])
+
+[sub_resource type="Resource" id="hit_4"]
+script = ExtResource("hit")
+hit_id = 1
+active_start_frame = 5
+active_end_frame = 8
+hitbox = SubResource("box_8")
+hit_level = 1
+damage = 60
+hitstun_frames = 13
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 800
+conditions = Array[ExtResource("cond")]([SubResource("cond_4")])
+
+[sub_resource type="Resource" id="move_4"]
+script = ExtResource("move")
+id = &"air_attack"
+display_name = "空域掃描墜擊"
+animation_id = &"air_attack"
+startup_frames = 4
+active_frames = 4
+recovery_frames = 10
+damage = 60
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hits = Array[ExtResource("hit")]([SubResource("hit_3"), SubResource("hit_4")])
+
+[sub_resource type="Resource" id="pos_1"]
+script = ExtResource("pos")
+type = 4
+
+[sub_resource type="Resource" id="move_5"]
+script = ExtResource("move")
+id = &"ground_throw"
+display_name = "UFO 回收程序"
+animation_id = &"ground_throw"
+startup_frames = 5
+active_frames = 2
+recovery_frames = 15
+damage = 85
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+throw_box = SubResource("box_5")
+throw_hold_frames = 8
+knockdown_frames = 18
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+reaction_type = 4
+throw_positioning = SubResource("pos_1")
+
+[sub_resource type="Resource" id="charge_1"]
+script = ExtResource("charge")
+level_2_threshold_frames = 24
+level_3_threshold_frames = 54
+level_1_move_id = &"alien_scan_l1"
+level_2_move_id = &"alien_scan_l2"
+level_3_move_id = &"alien_scan_l3"
+
+[sub_resource type="Resource" id="move_6"]
+script = ExtResource("move")
+id = &"special_neutral"
+display_name = "斷訊掃描波 Charge"
+animation_id = &"special_neutral"
+startup_frames = 1
+active_frames = 0
+recovery_frames = 0
+damage = 0
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+charge_special_data = SubResource("charge_1")
+
+[sub_resource type="Resource" id="box_9"]
+script = ExtResource("box")
+offset = Vector2(62, -65)
+size = Vector2(105, 42)
+
+[sub_resource type="Resource" id="move_7"]
+script = ExtResource("move")
+id = &"alien_scan_l1"
+display_name = "斷訊掃描波 Lv1"
+animation_id = &"alien_scan_l1"
+startup_frames = 7
+active_frames = 3
+recovery_frames = 13
+damage = 55
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 1000
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hitbox = SubResource("box_9")
+
+[sub_resource type="Resource" id="box_10"]
+script = ExtResource("box")
+offset = Vector2(88, -70)
+size = Vector2(155, 50)
+
+[sub_resource type="Resource" id="move_8"]
+script = ExtResource("move")
+id = &"alien_scan_l2"
+display_name = "斷訊掃描波 Lv2"
+animation_id = &"alien_scan_l2"
+startup_frames = 9
+active_frames = 4
+recovery_frames = 16
+damage = 68
+hitstun_frames = 13
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 2200
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hitbox = SubResource("box_10")
+
+[sub_resource type="Resource" id="status_1"]
+script = ExtResource("status")
+id = &"signal_mark"
+duration_frames = 180
+
+[sub_resource type="Resource" id="eff_1"]
+script = ExtResource("eff")
+type = 0
+status = SubResource("status_1")
+
+[sub_resource type="Resource" id="box_11"]
+script = ExtResource("box")
+offset = Vector2(135, -73)
+size = Vector2(270, 58)
+
+[sub_resource type="Resource" id="move_9"]
+script = ExtResource("move")
+id = &"alien_scan_l3"
+display_name = "斷訊掃描波 Lv3"
+animation_id = &"alien_scan_l3"
+startup_frames = 12
+active_frames = 5
+recovery_frames = 20
+damage = 75
+hitstun_frames = 14
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 2600
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hitbox = SubResource("box_11")
+on_hit_effects = Array[ExtResource("eff")]([SubResource("eff_1")])
+
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("step")
+start_frame = 0
+offset_units = Vector2i(0, 0)
+half_extents_units = Vector2i(5000, 5000)
+telegraph_frames = 18
+hit_level = 1
+record_target_position = true
+record_slot = 0
+
+[sub_resource type="Resource" id="step_2"]
+script = ExtResource("step")
+start_frame = 26
+offset_units = Vector2i(0, 0)
+half_extents_units = Vector2i(5800, 7000)
+damage = 85
+hitstun_frames = 12
+hit_level = 1
+record_slot = 0
+use_recorded_position = true
+
+[sub_resource type="Resource" id="step_3"]
+script = ExtResource("step")
+start_frame = 50
+offset_units = Vector2i(0, 0)
+half_extents_units = Vector2i(5000, 5000)
+telegraph_frames = 12
+hit_level = 1
+record_target_position = true
+record_slot = 1
+
+[sub_resource type="Resource" id="step_4"]
+script = ExtResource("step")
+start_frame = 68
+offset_units = Vector2i(0, 0)
+half_extents_units = Vector2i(6500, 7200)
+damage = 95
+hitstun_frames = 13
+hit_level = 1
+record_slot = 1
+use_recorded_position = true
+
+[sub_resource type="Resource" id="step_5"]
+script = ExtResource("step")
+start_frame = 96
+offset_units = Vector2i(0, 0)
+half_extents_units = Vector2i(23000, 8000)
+damage = 130
+hitstun_frames = 18
+hit_level = 1
+reaction_type = 3
+
+[sub_resource type="Resource" id="seq_1"]
+script = ExtResource("seq")
+id = &"alien_position_lock"
+duration_frames = 125
+steps = Array[ExtResource("step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4"), SubResource("step_5")])
+
+[sub_resource type="Resource" id="step_6"]
+script = ExtResource("step")
+start_frame = 0
+offset_units = Vector2i(0, 0)
+half_extents_units = Vector2i(5000, 5000)
+telegraph_frames = 6
+hit_level = 1
+record_target_position = true
+record_slot = 0
+
+[sub_resource type="Resource" id="seq_2"]
+script = ExtResource("seq")
+id = &"alien_position_lock_marked"
+duration_frames = 113
+steps = Array[ExtResource("step")]([SubResource("step_6"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4"), SubResource("step_5")])
+
+[sub_resource type="Resource" id="cond_6"]
+script = ExtResource("cond")
+type = 6
+id = &"signal_mark"
+
+[sub_resource type="Resource" id="cond_7"]
+script = ExtResource("cond")
+type = 6
+id = &"signal_mark"
+invert = true
+
+[sub_resource type="Resource" id="eff_2"]
+script = ExtResource("eff")
+type = 14
+conditions = Array[ExtResource("cond")]([SubResource("cond_7")])
+sequence = SubResource("seq_1")
+
+[sub_resource type="Resource" id="eff_3"]
+script = ExtResource("eff")
+type = 14
+conditions = Array[ExtResource("cond")]([SubResource("cond_6")])
+sequence = SubResource("seq_2")
+
+[sub_resource type="Resource" id="move_10"]
+script = ExtResource("move")
+id = &"ultimate"
+display_name = "逼逼逼動感光波"
+animation_id = &"ultimate"
+startup_frames = 8
+active_frames = 1
+recovery_frames = 28
+damage = 0
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_cost = 100
+on_start_effects = Array[ExtResource("eff")]([SubResource("eff_2"), SubResource("eff_3")])
+
+[resource]
+script = ExtResource("set")
+moves = Array[ExtResource("move")]([SubResource("move_1"), SubResource("move_2"), SubResource("move_3"), SubResource("move_4"), SubResource("move_5"), SubResource("move_6"), SubResource("move_7"), SubResource("move_8"), SubResource("move_9"), SubResource("move_10")])

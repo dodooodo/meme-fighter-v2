@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=5 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="1_move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="2_box"]
+[ext_resource type="Script" path="res://data/moves/cancel_window_data.gd" id="3_cancel"]
+[sub_resource type="Resource" id="BoxData_hit"]
+script = ExtResource("2_box")
+offset = Vector2(92, -74)
+size = Vector2(148, 70)
+[sub_resource type="Resource" id="CancelWindow_heavy"]
+script = ExtResource("3_cancel")
+start_frame = 14
+end_frame = 21
+condition = 3
+allowed_target_move_ids = Array[StringName]([&"special_neutral"])
+[resource]
+script = ExtResource("1_move")
+id = &"stand_heavy"
+display_name = "Zone Stand Heavy"
+tags = Array[StringName]([&"NORMAL", &"HEAVY"])
+animation_id = &"stand_heavy"
+startup_frames = 13
+active_frames = 4
+recovery_frames = 22
+damage = 100
+chip_damage = 0
+hitstun_frames = 19
+blockstun_frames = 13
+hitstop_attacker = 6
+hitstop_defender = 6
+hit_level = 1
+knockback_x_units = 1000
+knockback_y_units = 0
+meter_cost = 0
+meter_gain_on_hit = 12
+meter_gain_on_block = 6
+meter_gain_on_throw = 0
+meter_gain_on_whiff = 0
+cancel_windows = Array[ExtResource("3_cancel")]([SubResource("CancelWindow_heavy")])
+hitbox = SubResource("BoxData_hit")

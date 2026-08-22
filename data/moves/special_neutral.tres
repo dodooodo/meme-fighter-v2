@@ -1,0 +1,53 @@
+[gd_resource type="Resource" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://data/move_data.gd" id="1_move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="2_box"]
+[ext_resource type="Script" path="res://data/moves/cancel_window_data.gd" id="3_cancel"]
+[ext_resource type="Script" path="res://data/moves/charge_special_data.gd" id="4_charge"]
+
+[sub_resource type="Resource" id="BoxData_special_hit"]
+script = ExtResource("2_box")
+offset = Vector2(82, -76)
+size = Vector2(120, 88)
+
+[sub_resource type="Resource" id="CancelWindow_special_ultimate"]
+script = ExtResource("3_cancel")
+start_frame = 11
+end_frame = 18
+condition = 1
+allowed_target_move_ids = Array[StringName]([&"ultimate"])
+
+[sub_resource type="Resource" id="ChargeSpecial_generic"]
+script = ExtResource("4_charge")
+level_2_threshold_frames = 24
+level_3_threshold_frames = 54
+level_1_move_id = &"special_neutral"
+level_2_move_id = &"special_neutral_l2"
+level_3_move_id = &"special_neutral_l3"
+
+[resource]
+script = ExtResource("1_move")
+id = &"special_neutral"
+display_name = "Neutral Special Lv1"
+tags = Array[StringName]([&"SPECIAL", &"GROUND", &"CHARGE_RELEASE"])
+animation_id = &"special_neutral"
+startup_frames = 10
+active_frames = 4
+recovery_frames = 18
+damage = 110
+chip_damage = 0
+hitstun_frames = 20
+blockstun_frames = 14
+hitstop_attacker = 6
+hitstop_defender = 6
+hit_level = 1
+knockback_x_units = 1100
+knockback_y_units = 0
+meter_cost = 0
+meter_gain_on_hit = 18
+meter_gain_on_block = 8
+meter_gain_on_throw = 0
+meter_gain_on_whiff = 0
+cancel_windows = Array[ExtResource("3_cancel")]([SubResource("CancelWindow_special_ultimate")])
+charge_special_data = SubResource("ChargeSpecial_generic")
+hitbox = SubResource("BoxData_special_hit")

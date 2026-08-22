@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "pack_type": "PROJECTILE",
+  "character_asset_key": "pink_star",
+  "effect_id": "sonic_l3",
+  "fps": 12,
+  "loop": true,
+  "anchor": "CENTER",
+  "frames": ["sonic_l3/001.webp", "sonic_l3/002.webp", "sonic_l3/003.webp"]
+}

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "pack_type": "MODE_FIGHTER",
+  "character_asset_key": "doge",
+  "character_id": "rush_grappler",
+  "mode_id": "super_doge",
+  "display_name": "SUPER_DOGE",
+  "visual_scale": 1.2,
+  "transparent_padding": 8,
+  "required_animations": ["idle", "walk_forward", "walk_back", "guard_stand", "hitstun", "stand_light", "stand_heavy", "special_neutral"],
+  "animations": [
+    {"key": "idle", "fps": 8, "loop": true, "frames": ["idle/001.webp", "idle/002.webp"]},
+    {"key": "stand_light", "fps": 10, "loop": false, "source": {"type": "horizontal_strip", "path": "stand_light_strip.webp", "frame_count": 6}}
+  ]
+}

@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://frontend/mode_select_scene.gd" id="1"]
+
+[node name="ModeSelectScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+custom_minimum_size = Vector2(620, 0)
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Title" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Two Box Fighting"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Center/VBox"]
+layout_mode = 2
+text = "14 CHARACTER ROSTER PLAYTEST"
+horizontal_alignment = 1
+
+[node name="CharacterSelectors" type="HBoxContainer" parent="Center/VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 18
+
+[node name="P1Select" type="OptionButton" parent="Center/VBox/CharacterSelectors"]
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+
+[node name="P2Select" type="OptionButton" parent="Center/VBox/CharacterSelectors"]
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Center/VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 18
+
+[node name="VsCpu" type="Button" parent="Center/VBox/Buttons"]
+custom_minimum_size = Vector2(240, 58)
+layout_mode = 2
+text = "1P VS CPU"
+
+[node name="Local2P" type="Button" parent="Center/VBox/Buttons"]
+custom_minimum_size = Vector2(240, 58)
+layout_mode = 2
+text = "2P LOCAL"
+
+[node name="Controls" type="Label" parent="Center/VBox"]
+layout_mode = 2
+text = "P1  WASD | U Light | I Heavy | J Guard | K Special | L Ultimate\nP2 LOCAL  Arrow Keys | M Light | , Heavy | . Guard | / Special | ; Ultimate\n\n1P VS CPU: P1 = Human, P2 = deterministic CPU\nBattle: R = Reset | ESC = Mode Select | F1-F5 = Debug"
+horizontal_alignment = 1

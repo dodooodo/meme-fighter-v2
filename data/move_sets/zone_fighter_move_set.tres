@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=11 format=3]
+[ext_resource type="Script" path="res://data/move_set_data.gd" id="1_set"]
+[ext_resource type="Script" path="res://data/move_data.gd" id="2_move"]
+[ext_resource type="Resource" path="res://data/moves/zone_fighter/stand_light.tres" id="3_light"]
+[ext_resource type="Resource" path="res://data/moves/zone_fighter/stand_heavy.tres" id="4_heavy"]
+[ext_resource type="Resource" path="res://data/moves/zone_fighter/crouch_low.tres" id="5_low"]
+[ext_resource type="Resource" path="res://data/moves/zone_fighter/air_attack.tres" id="6_air"]
+[ext_resource type="Resource" path="res://data/moves/zone_fighter/ground_throw.tres" id="7_throw"]
+[ext_resource type="Resource" path="res://data/moves/zone_fighter/special_neutral.tres" id="8_special"]
+[ext_resource type="Resource" path="res://data/moves/zone_fighter/ultimate.tres" id="9_ultimate"]
+[ext_resource type="Resource" path="res://data/moves/zone_fighter/special_neutral_l2.tres" id="10_special_l2"]
+[ext_resource type="Resource" path="res://data/moves/zone_fighter/special_neutral_l3.tres" id="11_special_l3"]
+[resource]
+script = ExtResource("1_set")
+moves = Array[ExtResource("2_move")]([ExtResource("3_light"), ExtResource("4_heavy"), ExtResource("5_low"), ExtResource("6_air"), ExtResource("7_throw"), ExtResource("8_special"), ExtResource("10_special_l2"), ExtResource("11_special_l3"), ExtResource("9_ultimate")])

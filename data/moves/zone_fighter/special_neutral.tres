@@ -1,0 +1,44 @@
+[gd_resource type="Resource" load_steps=5 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="1_move"]
+[ext_resource type="Script" path="res://data/moves/projectile_spawn_data.gd" id="2_spawn"]
+[ext_resource type="Resource" path="res://data/projectiles/zone_shot.tres" id="3_projectile"]
+[ext_resource type="Script" path="res://data/moves/charge_special_data.gd" id="4_charge"]
+[sub_resource type="Resource" id="ProjectileSpawn_zone_shot"]
+script = ExtResource("2_spawn")
+spawn_frame = 15
+spawn_offset_units = Vector2i(100, -70)
+projectile_data = ExtResource("3_projectile")
+[sub_resource type="Resource" id="ChargeSpecial_zone"]
+script = ExtResource("4_charge")
+level_2_threshold_frames = 24
+level_3_threshold_frames = 54
+level_1_move_id = &"special_neutral"
+level_2_move_id = &"special_neutral_l2"
+level_3_move_id = &"special_neutral_l3"
+[resource]
+script = ExtResource("1_move")
+id = &"special_neutral"
+display_name = "Zone Shot Lv1"
+tags = Array[StringName]([&"SPECIAL", &"GROUND", &"PROJECTILE", &"CHARGE_RELEASE"])
+animation_id = &"special_neutral"
+startup_frames = 14
+active_frames = 1
+recovery_frames = 20
+damage = 0
+chip_damage = 0
+hitstun_frames = 0
+blockstun_frames = 0
+hitstop_attacker = 0
+hitstop_defender = 0
+hit_level = 1
+knockback_x_units = 0
+knockback_y_units = 0
+meter_cost = 0
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
+meter_gain_on_throw = 0
+meter_gain_on_whiff = 0
+cancel_windows = []
+hitbox = null
+charge_special_data = SubResource("ChargeSpecial_zone")
+projectile_spawns = Array[ExtResource("2_spawn")]([SubResource("ProjectileSpawn_zone_shot")])

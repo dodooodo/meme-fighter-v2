@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+[ext_resource type="Script" path="res://data/projectile_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = &"zone_shot_l3"
+velocity_x_units_per_tick = 620
+lifetime_frames = 180
+hitbox_offset = Vector2(0, 0)
+hitbox_size = Vector2(120, 78)
+damage = 155
+hitstun_frames = 25
+blockstun_frames = 17
+hitstop_attacker = 7
+hitstop_defender = 7
+hit_level = 1
+knockback_x_units = 1250
+knockback_y_units = -200
+meter_gain_on_hit = 21
+meter_gain_on_block = 9

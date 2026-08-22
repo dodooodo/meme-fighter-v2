@@ -1,0 +1,191 @@
+TWO BOX FIGHTING — M6 COMPLETE VALIDATION REPORT
+================================================
+
+Baseline
+--------
+Input: two_box_fighting_godot_m5_complete(1).zip
+Expected SHA-256: 3b3cecdc7904eb8838b7ec816be4c7a44510520e14ac610f60329bb1a4fa39eb
+Actual SHA-256:   3b3cecdc7904eb8838b7ec816be4c7a44510520e14ac610f60329bb1a4fa39eb
+SHA: PASS
+Input unzip -t: PASS
+
+Environment
+-----------
+godot: UNAVAILABLE
+godot4: UNAVAILABLE
+Godot runtime: NOT EXECUTED
+External verifier required: YES
+
+Implemented M6 Proof
+--------------------
+MatchRulesData / Versus / Training: ADDED
+RoundController: ADDED, BattleSimulation-owned
+Round states: ROUND_ACTIVE / POST_ROUND / MATCH_OVER
+Versus: first-to-2, 5940F timer, 90F post-round, meter reset
+Training: no timer, 60F KO auto-reset, zero wins, no MATCH_OVER
+KO before timeout: YES
+Timeout uses post-apply HP: YES
+Hitstop freezes timer: YES
+Same-frame trade ordering retained: YES
+Round input/contact suppression: YES
+Round Fighter/input reset API: YES
+Temporary entity cleanup hook: YES
+Round projectile cleanup preserves per-match serial: YES
+Full match reset resets global frame + projectile serial: YES
+Snapshot schema v6: YES
+Stable MatchRules identity restore guard: YES
+Round mutable state hashed: YES
+Replay schema: 1
+Combat rules version: 1
+Stage ID: greybox_stage
+Replay = normalized InputFrame pairs only: YES
+ReplayRecorder post-gating seam: YES
+ReplayInputSource random-access InputSource: YES
+ReplayCodec explicit JSON/FileAccess boundary: YES
+Replay metadata validation: YES
+Fresh-Battle final hash test source: YES
+FrameStepper timer exact-step source test: YES
+F2 Round/Match debug + sparse logger: YES
+
+Prior Milestone Fix During M6
+-----------------------------
+M5 tests referenced MeterComponent.set_value() but production MeterComponent lacked that compatibility setter.
+M6 adds a minimal clamped alias to the existing restore setter. Gameplay meter policy is unchanged.
+
+Test Source Inventory
+---------------------
+M6 new _test* functions: 32
+M6 net new assertion-call sites: 179
+Whole project _test* functions: 212
+Whole project assertion-call sites: 1208
+M6 suites wired in tests/run_tests.gd: 8
+Existing FrameStepper suite: UPDATED
+Existing Stress suite: UPDATED
+
+Static / Source Validation
+--------------------------
+python3 scripts/static_validate.py: 1588 passed / 0 failed
+Python syntax: PASS
+verify.sh shell syntax: PASS
+M5 26 protected gameplay resources byte-for-byte unchanged: PASS
+Character IDs unique: PASS
+Projectile IDs unique: PASS
+MatchRules IDs unique: PASS
+No duplicate class_name: PASS
+No missing resource references by static validator: PASS
+No Round Timer/delta/wall-clock gameplay authority: PASS
+No character-ID branch in generic Round/Replay runtime: PASS
+No Replay raw keyboard polling: PASS
+No Replay gameplay Resource/Node snapshot truth: PASS
+No new InputButton: PASS
+
+Stress Source
+-------------
+General deterministic gameplay stress: exactly 10,000 ticks
+Generic vs Generic: 2000
+Rush vs Rush: 2000
+Generic vs Rush: 2000
+Zone vs Generic projectile: 4000
+Round/post-round/match-over/full-reset invariants: ADDED
+Periodic same-build snapshot immediate-restore hash invariant: ADDED
+Separate Replay determinism stress: 1800 frames
+Godot execution: NOT EXECUTED
+Result: NOT CLAIMED
+
+Known Debt Retained
+-------------------
+float Rect2 / Vector2 gameplay collision
+possible float horizontal knockback damping
+crouch standing-hurtbox prototype
+no formal block pushback
+GetUp state-level protection
+no cross-platform determinism audit
+
+Intentional M6 Limits
+---------------------
+No round/result presentation
+No Training UI
+Replay same-build only
+No CombatDataHash / cross-build replay migration
+No replay seek/checkpoint/video system
+No Touch UI
+No Online / rollback networking
+No Character 4 / Beam / Trap / Summon
+
+External Godot 4.7.2 Handoff
+----------------------------
+godot --version
+godot --headless --path . --editor --quit
+godot --headless --path . -s res://tests/run_tests.gd
+./scripts/verify.sh
+
+Until an external verifier runs these commands, Runtime PASS is NOT CLAIMED.
+
+
+
+M7 PRESENTATION FOUNDATION ADDENDUM
+==================================
+
+Formal baseline
+---------------
+Input: two_box_fighting_godot_m6_complete.zip
+Expected/actual SHA-256: 75118660afadf3307de2771e8ddb6043816c8680dace0889f4d1215f77270fc6
+SHA: PASS
+Input unzip -t: PASS
+
+Architecture / version invariants
+---------------------------------
+BattleSimulation remains gameplay authority: YES
+Gameplay -> Presentation dependency: NONE (BattleScene is the allowed composition boundary)
+CharacterPresentationData separate from CharacterData: YES
+100 simulation units = 1 render pixel helper: YES
+Fighter visual feet-center convention: YES
+Projectile visuals keyed by ProjectileInstanceID: YES
+Presentation event ID deterministic scalar/text facts: YES
+Presentation event ledger outside Snapshot/Hash: YES
+Snapshot schema: v6 unchanged
+Replay schema: 1 unchanged
+Combat rules version: 2 — bumped for proven M6 POST_ROUND deterministic gameplay fix
+
+Presentation scope implemented
+------------------------------
+Fighter visual binding/state+move resolution: YES
+Generic/Rush/Zone presentation resources: YES
+HUD HP/Meter/Timer/Wins/Names/Training: YES
+Round/Fight/KO/Time Up/Draw/Match Winner overlay: YES
+Placeholder HIT/BLOCK/THROW/Projectile/KO VFX hooks: YES
+Audio cue hooks / missing-audio no-op foundation: YES
+Camera midpoint follow + presentation-only deterministic shake: YES
+Projectile visual spawn/move/facing/concurrency/despawn: YES
+Resync/reset presentation seam: YES
+
+Runtime truthfulness
+--------------------
+Godot executable: UNAVAILABLE
+Godot Runtime: NOT EXECUTED
+Passed: NOT CLAIMED
+Failed: NOT CLAIMED
+External verifier required: YES
+
+Final M7 Source / Static Inventory
+----------------------------------
+M7 net new _test* functions vs formal M6 baseline: 20
+M7 net new assertion-call sites vs formal M6 baseline: 70
+Whole project _test* functions: 232
+Whole project assertion-call sites: 1278
+M7 presentation suites wired: 8
+python3 scripts/static_validate.py: 2182 passed / 0 failed
+./scripts/verify.sh: exit 0; static 2182 / 0; Godot Runtime NOT RUN — executable unavailable
+Python syntax: PASS
+Shell syntax: PASS
+Resource ExtResource/SubResource/res:// audit: PASS
+M6 gameplay resources protected by byte compare: 28 / 28 byte-identical
+  - 3 CharacterData
+  - 21 MoveData
+  - 2 ProjectileData
+  - 2 MatchRulesData resources
+Snapshot version: v6 unchanged
+Replay schema: 1 unchanged
+Combat rules version: 2 — bumped for proven M6 POST_ROUND deterministic gameplay fix
+M6 prior defect fixed during M7: POST_ROUND now settles P1/P2 movement exactly once each; symmetric mirror regression source added.
+Godot runtime: NOT EXECUTED / PASS NOT CLAIMED

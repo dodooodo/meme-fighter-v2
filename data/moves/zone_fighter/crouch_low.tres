@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="1_move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="2_box"]
+[sub_resource type="Resource" id="BoxData_hit"]
+script = ExtResource("2_box")
+offset = Vector2(72, -36)
+size = Vector2(110, 34)
+[resource]
+script = ExtResource("1_move")
+id = &"crouch_low"
+display_name = "Zone Crouch Low"
+tags = Array[StringName]([&"NORMAL", &"LIGHT", &"LOW"])
+animation_id = &"crouch_low"
+startup_frames = 9
+active_frames = 3
+recovery_frames = 17
+damage = 58
+chip_damage = 0
+hitstun_frames = 15
+blockstun_frames = 11
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 2
+knockback_x_units = 620
+knockback_y_units = 0
+meter_cost = 0
+meter_gain_on_hit = 9
+meter_gain_on_block = 4
+meter_gain_on_throw = 0
+meter_gain_on_whiff = 0
+cancel_windows = []
+hitbox = SubResource("BoxData_hit")

@@ -1,0 +1,23 @@
+; Engine configuration file.
+; M3 Complete First Character. Combat runs in a custom fixed-step scheduler.
+config_version=5
+
+[application]
+config/name="Two Box Fighting — M8 Solo Playtest + Charge"
+run/main_scene="res://frontend/mode_select_scene.tscn"
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/handheld/orientation=0
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.08, 0.08, 0.09, 1)
+
+[debug]
+gdscript/warnings/untyped_declaration=1

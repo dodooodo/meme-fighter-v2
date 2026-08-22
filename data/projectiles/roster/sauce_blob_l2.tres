@@ -1,0 +1,35 @@
+[gd_resource type="Resource" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://data/projectile_data.gd" id="proj"]
+[ext_resource type="Script" path="res://data/mechanics/status_effect_data.gd" id="status"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_effect_data.gd" id="eff"]
+
+[sub_resource type="Resource" id="sauce_status"]
+script = ExtResource("status")
+id = &"sauce"
+duration_frames = 180
+walk_speed_permille = 760
+dash_speed_permille = 700
+backstep_speed_permille = 700
+
+[sub_resource type="Resource" id="apply_sauce"]
+script = ExtResource("eff")
+type = 0
+status = SubResource("sauce_status")
+
+[resource]
+script = ExtResource("proj")
+id = &"sauce_blob_l2"
+velocity_x_units_per_tick = 850
+lifetime_frames = 95
+hitbox_offset = Vector2(0, -64)
+hitbox_size = Vector2(54, 42)
+damage = 55
+hitstun_frames = 9
+blockstun_frames = 7
+hitstop_attacker = 3
+hitstop_defender = 3
+knockback_x_units = 700
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+on_hit_effects = Array[ExtResource("eff")]([SubResource("apply_sauce")])
