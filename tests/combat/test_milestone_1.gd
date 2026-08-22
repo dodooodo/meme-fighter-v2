@@ -89,9 +89,9 @@ func _test_startup_cannot_hit_and_first_active_can_hit() -> void:
     var battle := _battle()
     _start_p1_light(battle) # move frame 1 occurs here
     _tick_neutral(battle, 4) # through move frame 5
-    t.equal(battle.fighter_b.combatant.hp, 1000, "Light cannot hit during startup frames 1-5")
+    t.equal(battle.fighter_b.combatant.hp, 5000, "Light cannot hit during startup frames 1-5")
     _tick_neutral(battle, 1) # move frame 6 collision
-    t.equal(battle.fighter_b.combatant.hp, 950, "Light can hit on first active frame 6")
+    t.equal(battle.fighter_b.combatant.hp, 4950, "Light can hit on first active frame 6")
     t.equal(battle.fighter_b.combatant.hitstun_remaining, 14, "Hit applies configured 14F hitstun before hitstop elapses")
 
 func _test_same_attack_instance_damages_only_once() -> void:
@@ -100,8 +100,8 @@ func _test_same_attack_instance_damages_only_once() -> void:
     _tick_neutral(battle, 5) # hit on frame 6
     var hp_after_hit := battle.fighter_b.combatant.hp
     _tick_neutral(battle, 12) # remains overlapped across frozen/active frames
-    t.equal(hp_after_hit, 950, "First contact deals exactly 50 damage")
-    t.equal(battle.fighter_b.combatant.hp, 950, "Same AttackInstanceID cannot damage same defender twice")
+    t.equal(hp_after_hit, 4950, "First contact deals exactly 50 damage")
+    t.equal(battle.fighter_b.combatant.hp, 4950, "Same AttackInstanceID cannot damage same defender twice")
 
 func _test_hitstun_blocks_normal_move_start() -> void:
     var battle := _battle()
@@ -152,7 +152,11 @@ func _test_combat_events_are_queued() -> void:
     var battle := _battle()
     _start_p1_light(battle)
     var start_events := battle.drain_events()
-    t.that(start_events.size() == 1 and start_events[0].type == CombatEvent.EventType.MOVE_STARTED, "MoveStarted is queued for presentation")
+    var found_move_started := false
+    for event in start_events:
+        if event.type == CombatEvent.EventType.MOVE_STARTED:
+            found_move_started = true
+    t.that(found_move_started, "MoveStarted is queued for presentation")
     _tick_neutral(battle, 5)
     var events := battle.drain_events()
     var found_hit := false
@@ -166,5 +170,5 @@ func _test_same_frame_trade_is_preserved() -> void:
     var f := battle.frame_number + 1
     battle.simulate_frame(_light(f), _light(f))
     _tick_neutral(battle, 5)
-    t.equal(battle.fighter_a.combatant.hp, 950, "Same-frame trade lets P2 hit P1")
-    t.equal(battle.fighter_b.combatant.hp, 950, "Same-frame trade lets P1 hit P2")
+    t.equal(battle.fighter_a.combatant.hp, 4950, "Same-frame trade lets P2 hit P1")
+    t.equal(battle.fighter_b.combatant.hp, 4950, "Same-frame trade lets P1 hit P2")

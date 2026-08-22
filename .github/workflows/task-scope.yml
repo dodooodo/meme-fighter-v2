@@ -1,0 +1,26 @@
+name: Task Scope
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  scope:
+    name: Task Scope
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validator unit tests
+        run: python3 -m unittest tests/tooling/test_validate_task.py
+      - name: Validate task packet and PR scope
+        env:
+          TASK_BRANCH: ${{ github.head_ref }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: python3 scripts/validate_task.py --branch "$TASK_BRANCH" --base "$PR_BASE_SHA"

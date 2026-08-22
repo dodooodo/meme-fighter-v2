@@ -2,7 +2,7 @@
 id: A-RUN-004
 stage: A
 type: verification
-status: ready
+status: blocked
 dependencies: [A-RUN-003]
 allowed_paths: [tests/stress/, tests/run_tests.gd, scripts/, docs/, VALIDATION_REPORT.txt]
 forbidden_paths: [battle/, fighter/, data/, presentation/, frontend/]

@@ -196,8 +196,10 @@ check('input_buffer.peek_intent(current_frame)' in state and 'input_buffer.consu
       'StateMachine owns buffered intent legality/consumption')
 
 hitbox_owner=text('fighter/combat/hitbox_owner.gd')
-check('_tracked_attack_instance_id' in hitbox_owner and '_hit_defender_ids' in hitbox_owner and 'can_hit_defender' in hitbox_owner,
-      'AttackInstance duplicate-hit protection remains present')
+check(all(token in hitbox_owner for token in [
+    '_tracked_attack_instance_id', '_contact_keys', 'can_hit_defender',
+    '_key(hit_id, defender_id)', '_contact_keys.has(_key(hit_id, defender_id))',
+]), 'AttackInstance+HitID+Defender duplicate-hit protection remains present')
 debug=text('debug/debug_overlay.gd')
 check('debug_summary(simulation.frame_number)' in debug, 'Debug overlay provides simulation frame to read-only buffer diagnostics')
 check(all(token in fighter for token in ['phase=%s','buf=%s','@F%d dir=(%d,%d)','fwd=%s','back=%s','exp=%d']),
@@ -367,7 +369,7 @@ check('contacted_defender_ids' in snapshot_codec and 'restore_contact_registry' 
 check('ActionIntentSnapshot.from_intent' in snapshot_codec and 'to_intent()' in snapshot_codec, 'Buffered ActionIntent snapshot is deep value reconstruction')
 check('clear_pending_presentation_events()' in battle_snapshot_codec and 'func clear_pending_presentation_events()' in battle and '_event_queue.clear()' in battle, 'Restore clears pending presentation events by documented policy')
 hasher_code='\n'.join(line for line in hasher.splitlines() if not line.lstrip().startswith('#'))
-check('sha256_text()' in hasher_code and 'get_instance_id' not in hasher_code and 'get_instance_id()' not in hasher_code and '_canonical_variant' in hasher_code and 'keys.sort' in hasher_code, 'BattleStateHasher canonicalizes Dictionary/Array values with explicit sorted keys and no instance IDs')
+check('sha256_text()' in hasher_code and 'get_instance_id' not in hasher_code and 'get_instance_id()' not in hasher_code and '_variant_canonical' in hasher_code and 'keys.sort_custom' in hasher_code and 'str(a) < str(b)' in hasher_code, 'BattleStateHasher canonicalizes Dictionary/Array values with explicit sorted keys and no instance IDs')
 
 # This milestone explicitly does not add network/matchmaking gameplay code.
 gameplay_gd='\n'.join('\n'.join(line for line in p.read_text(encoding='utf-8').splitlines() if not line.lstrip().startswith('#')) for p in list((ROOT/'fighter').rglob('*.gd')) + list((ROOT/'battle').rglob('*.gd')))
@@ -668,7 +670,7 @@ check('var projectile_system: ProjectileSystem = ProjectileSystem.new()' in batt
 check('projectile_system.cleanup_end_of_tick' in battle and battle.find('projectile_system.cleanup_end_of_tick') > battle.find('apply_throw_result'), 'Projectile contact/KO/lifetime cleanup occurs after outcome apply phase')
 
 check('id = &"zone_fighter"' in zone_character, 'Zone CharacterData stable ID exists')
-for key,value in {'max_hp':1000,'walk_forward_units_per_tick':270,'walk_back_units_per_tick':250,'jump_velocity_y_units_per_tick':-1450,'gravity_y_units_per_tick2':75,'max_fall_speed_y_units_per_tick':1750,'air_forward_units_per_tick':220,'air_back_units_per_tick':230,'landing_recovery_frames':3,'dash_move_frames':8,'dash_speed_units_per_tick':820,'dash_recovery_frames':5,'backstep_move_frames':7,'backstep_speed_units_per_tick':900,'backstep_recovery_frames':5}.items():
+for key,value in {'max_hp':5000,'walk_forward_units_per_tick':270,'walk_back_units_per_tick':250,'jump_velocity_y_units_per_tick':-1450,'gravity_y_units_per_tick2':75,'max_fall_speed_y_units_per_tick':1750,'air_forward_units_per_tick':220,'air_back_units_per_tick':230,'landing_recovery_frames':3,'dash_move_frames':8,'dash_speed_units_per_tick':820,'dash_recovery_frames':5,'backstep_move_frames':7,'backstep_speed_units_per_tick':900,'backstep_recovery_frames':5}.items():
     check(re.search(rf'^{key}\s*=\s*{value}\s*$', zone_character, re.M) is not None, f'Zone CharacterData {key}={value}')
 for move_id in ['stand_light','stand_heavy','crouch_low','air_attack','ground_throw','special_neutral','ultimate']:
     path=f'data/moves/zone_fighter/{move_id}.tres'

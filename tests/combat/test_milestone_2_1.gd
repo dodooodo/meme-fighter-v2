@@ -97,9 +97,9 @@ func _test_heavy_startup_and_first_active_hit() -> void:
     var battle := _battle()
     _start_p1_heavy(battle)
     _tick_neutral(battle, 10) # frame 11 collision has completed; next is first Active.
-    t.equal(battle.fighter_b.combatant.hp, 1000, "Heavy cannot hit during startup frames 1-11")
+    t.equal(battle.fighter_b.combatant.hp, 5000, "Heavy cannot hit during startup frames 1-11")
     _tick_neutral(battle, 1) # move frame 12 collision
-    t.equal(battle.fighter_b.combatant.hp, 905, "Heavy hits for 95 on first active frame 12")
+    t.equal(battle.fighter_b.combatant.hp, 4905, "Heavy hits for 95 on first active frame 12")
     t.equal(battle.fighter_b.combatant.hitstun_remaining, 19, "Heavy applies 19F hitstun before hitstop elapses")
 
 func _test_heavy_hitstop_freezes_timeline() -> void:
@@ -118,8 +118,8 @@ func _test_heavy_duplicate_hit_protection() -> void:
     _tick_neutral(battle, 11)
     var hp_after_hit := battle.fighter_b.combatant.hp
     _tick_neutral(battle, 12)
-    t.equal(hp_after_hit, 905, "Heavy first contact deals exactly 95 damage")
-    t.equal(battle.fighter_b.combatant.hp, 905, "Heavy four-frame Active overlap damages once per AttackInstanceID")
+    t.equal(hp_after_hit, 4905, "Heavy first contact deals exactly 95 damage")
+    t.equal(battle.fighter_b.combatant.hp, 4905, "Heavy four-frame Active overlap damages once per AttackInstanceID")
 
 func _test_heavy_returns_idle_and_frame_36_is_actionable() -> void:
     var battle := _battle(40000, 100000)
@@ -239,5 +239,5 @@ func _test_mixed_light_heavy_trade() -> void:
     frame = battle.frame_number + 1
     battle.simulate_frame(_light(frame), _neutral(frame))
     _tick_neutral(battle, 5) # P1 Light frame 6 and P2 Heavy frame 12 become active together.
-    t.equal(battle.fighter_a.combatant.hp, 905, "Mixed trade applies P2 Heavy result to P1")
-    t.equal(battle.fighter_b.combatant.hp, 950, "Mixed trade applies P1 Light result to P2")
+    t.equal(battle.fighter_a.combatant.hp, 4905, "Mixed trade applies P2 Heavy result to P1")
+    t.equal(battle.fighter_b.combatant.hp, 4950, "Mixed trade applies P1 Light result to P2")

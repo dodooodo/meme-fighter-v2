@@ -20,6 +20,7 @@ func run_all() -> int:
 
 func _stress_rules(timer_frames: int) -> MatchRulesData:
     var rules := MatchRulesData.versus_defaults()
+    rules.rounds_to_win = 1
     rules.round_timer_frames = timer_frames
     rules.post_round_frames = 6
     return rules
@@ -46,6 +47,10 @@ func _run_segment(
     var start_a := Vector2i(50000, BattleSimulation.GROUND_Y_UNITS) if character_a.id == &"zone_fighter" else Vector2i(36000, BattleSimulation.GROUND_Y_UNITS)
     var start_b := Vector2i(61000, BattleSimulation.GROUND_Y_UNITS) if character_a.id == &"zone_fighter" else Vector2i(90000, BattleSimulation.GROUND_Y_UNITS)
     battle.configure(character_a, character_b, null, null, start_a, start_b, _stress_rules(timer_frames))
+    # Symmetric scripted inputs can reach timeout with exactly equal HP. Give P1
+    # a deterministic one-point lead so every segment exercises MATCH_OVER and
+    # the explicit full-match reset path without changing production tuning.
+    battle.fighter_b.combatant.hp -= 1
     var airborne_age := [0, 0]
     var state_age := [0, 0]
     var last_state := [battle.fighter_a.state_machine.state, battle.fighter_b.state_machine.state]
@@ -88,8 +93,8 @@ func _run_segment(
         # Periodic same-build snapshot/restore must be state-neutral across ACTIVE/POST/MATCH lifecycle states.
         if step % 401 == 0:
             var before_hash := battle.state_signature()
-            var snapshot := battle.capture_snapshot()
-            if not battle.restore_snapshot(snapshot) and violations.size() < 20:
+            var snapshot: BattleStateSnapshot = battle.capture_state()
+            if not battle.restore_state(snapshot) and violations.size() < 20:
                 violations.append("%s F%d snapshot restore rejected its own current state" % [label, battle.frame_number])
             elif battle.state_signature() != before_hash and violations.size() < 20:
                 violations.append("%s F%d snapshot identity hash changed after immediate restore" % [label, battle.frame_number])

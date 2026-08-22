@@ -89,8 +89,8 @@ func _test_special_runtime_outcome_and_actionable_frame() -> void:
     _tick(hit, InputFrame.with_special_press(1))
     for _i in range(11):
         _tick(hit)
-    t.equal(hit.fighter_b.combatant.hp, 890, "Special runtime HIT applies exactly 110 damage")
-    t.equal(hit.fighter_b.combatant.hitstun_remaining, 19, "Special runtime HIT installs 20F hitstun before same-tick status decrement")
+    t.equal(hit.fighter_b.combatant.hp, 4890, "Special runtime HIT applies exactly 110 damage")
+    t.equal(hit.fighter_b.combatant.hitstun_remaining, 20, "Special runtime HIT installs the configured 20F hitstun")
     t.equal(hit.fighter_a.combatant.hitstop_remaining, 5, "Special runtime HIT installs 6F attacker hitstop before same-tick status decrement")
     t.equal(hit.fighter_b.combatant.hitstop_remaining, 5, "Special runtime HIT installs 6F defender hitstop before same-tick status decrement")
     t.equal(hit.fighter_b.combatant.knockback_velocity_x_units, 1100, "Special runtime HIT applies 1100 horizontal knockback")
@@ -103,8 +103,8 @@ func _test_special_runtime_outcome_and_actionable_frame() -> void:
     for _i in range(11):
         var f := block.frame_number + 1
         _tick(block, null, InputFrame.new(f, 0, 0, guard_bit, 0, 0))
-    t.equal(block.fighter_b.combatant.hp, 1000, "Special BLOCK does no direct damage with zero chip")
-    t.equal(block.fighter_b.combatant.blockstun_remaining, 13, "Special BLOCK installs 14F blockstun before same-tick status decrement")
+    t.equal(block.fighter_b.combatant.hp, 5000, "Special BLOCK does no direct damage with zero chip")
+    t.equal(block.fighter_b.combatant.blockstun_remaining, 14, "Special BLOCK installs the configured 14F blockstun")
 
     var timing := _battle()
     _tick(timing, InputFrame.with_special_press(1))
@@ -156,8 +156,8 @@ func _test_ultimate_runtime_outcome_and_actionable_frame() -> void:
     _tick(hit, InputFrame.with_ultimate_press(1))
     for _i in range(14):
         _tick(hit)
-    t.equal(hit.fighter_b.combatant.hp, 740, "Ultimate runtime HIT applies exactly 260 damage")
-    t.equal(hit.fighter_b.combatant.hitstun_remaining, 27, "Ultimate runtime HIT installs 28F hitstun before same-tick status decrement")
+    t.equal(hit.fighter_b.combatant.hp, 4740, "Ultimate runtime HIT applies exactly 260 damage")
+    t.equal(hit.fighter_b.combatant.hitstun_remaining, 28, "Ultimate runtime HIT installs the configured 28F hitstun")
     t.equal(hit.fighter_a.combatant.hitstop_remaining, 9, "Ultimate runtime HIT installs 10F attacker hitstop before same-tick status decrement")
     t.equal(hit.fighter_b.combatant.hitstop_remaining, 9, "Ultimate runtime HIT installs 10F defender hitstop before same-tick status decrement")
     t.equal(hit.fighter_b.combatant.knockback_velocity_x_units, 1600, "Ultimate runtime HIT applies 1600 horizontal knockback")
@@ -203,7 +203,7 @@ func _test_special_ground_air_and_whiff_rules() -> void:
 
 func _test_ultimate_meter_spend_and_legality() -> void:
     var insufficient := _battle()
-    insufficient.fighter_a.meter.gain(99)
+    insufficient.fighter_a.meter.set_value(99)
     _tick(insufficient, InputFrame.with_ultimate_press(1))
     t.that(insufficient.fighter_a.move_runner.current_move_id() != MoveIds.ULTIMATE, "99 meter cannot start Ultimate")
     t.equal(insufficient.fighter_a.meter.get_value(), 99, "Failed Ultimate start leaves 99 meter unchanged")

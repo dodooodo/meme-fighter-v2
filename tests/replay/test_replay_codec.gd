@@ -65,7 +65,10 @@ func _test_corruption_rejection() -> void:
     t.equal(ReplayCodec.decode_from_string(JSON.stringify(bad_bits)), null, "Codec rejects bit fields outside canonical InputButton mask")
 
 func _test_file_roundtrip() -> void:
-    var path := "user://m6_replay_codec_test.tbf_replay.json"
+    # Use the OS temporary directory so restricted CI/local runners do not
+    # depend on an OS-specific user-data location. ReplayCodec still receives a
+    # normal FileAccess path and removes the fixture after the roundtrip.
+    var path := OS.get_temp_dir().path_join("m6_replay_codec_test.tbf_replay.json")
     var replay := _sample()
     t.that(ReplayCodec.save_to_file(path, replay), "ReplayCodec save_to_file uses FileAccess only at persistence boundary")
     var loaded := ReplayCodec.load_from_file(path)
