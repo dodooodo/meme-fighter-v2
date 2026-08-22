@@ -50,3 +50,13 @@ bash scripts/verify.sh
 
 The reserved `_template` directory is inert: commands reject it and package
 discovery skips directories whose names start with `_`.
+
+## Current frontend integration limit
+
+The package, validator, focused-test command, and `CharacterCatalog` registration
+work for a newly authored character without combat-core edits. The current
+frontend character-select flow still reads the fixed 14-character
+`RosterRegistry`, however. Making a new package selectable in the shipped UI
+therefore requires a separate frontend/content-composition task until that
+consumer is migrated to `CharacterCatalog`; do not work around this by adding
+character-specific branches to `battle/` or `fighter/`.

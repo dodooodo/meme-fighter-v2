@@ -1365,9 +1365,10 @@ playable_package_ids = sorted(
     path.name for path in package_root.iterdir()
     if path.is_dir() and not path.name.startswith('_')
 )
+golden_pair_package_ids = {'magic_orange_cat', 'salad_cat'}
 check(
-    playable_package_ids == ['magic_orange_cat', 'salad_cat'],
-    'A2 migrates only the Golden Pair to playable character packages',
+    golden_pair_package_ids.issubset(playable_package_ids),
+    'Golden Pair remains available as playable character packages',
 )
 for character_id in playable_package_ids:
     package_prefix = f'content/characters/{character_id}'
@@ -1376,7 +1377,10 @@ for character_id in playable_package_ids:
     moves_path = ROOT/package_prefix/'gameplay/moves'
     check((ROOT/manifest_path).is_file(), f'Character package manifest exists: {character_id}')
     check((ROOT/move_set_path).is_file(), f'Character package move set exists: {character_id}')
-    check(len(list(moves_path.glob('*.tres'))) == 10, f'Golden Pair package has ten split MoveData files: {character_id}')
+    move_resource_count = len(list(moves_path.glob('*.tres')))
+    check(move_resource_count >= 7, f'Character package has at least seven MoveData files: {character_id}')
+    if character_id in golden_pair_package_ids:
+        check(move_resource_count == 10, f'Golden Pair package keeps ten split MoveData files: {character_id}')
     move_set_source = text(move_set_path)
     check('[sub_resource' not in move_set_source, f'Package move set embeds no MoveData: {character_id}')
     check(
