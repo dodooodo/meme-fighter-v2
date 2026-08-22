@@ -26,7 +26,24 @@ required_checks: []
 
 ## Edge Cases
 
-## Tests
+## Test Plan
+
+Change type:
+- feature | bugfix | refactor | tooling | docs | asset | other
+
+Expected test levels:
+- static | unit | component | integration | smoke | determinism | e2e | performance
+
+Pre-change expected failure / characterization:
+
+Post-change required checks:
+
+## Documentation Impact
+
+Expected:
+- required | none | to-review
+
+Affected docs:
 
 ## Acceptance Criteria
 
