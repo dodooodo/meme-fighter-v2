@@ -32,38 +32,13 @@ func sync_follow() -> void:
 func present_event(event: CombatEvent) -> void:
     if event == null:
         return
-    var strength := 0.0
-    var duration := 0.10
-    var tier := _impact_tier(event.move_id)
-    match event.type:
-        CombatEvent.EventType.BLOCK:
-            strength = 1.5 + float(tier) * 0.65
-            duration = 0.09
-        CombatEvent.EventType.HIT:
-            match tier:
-                1: strength = 2.2
-                2: strength = 4.5
-                3: strength = 7.0
-                4: strength = 10.0
-            duration = 0.10 + float(tier) * 0.02
-        CombatEvent.EventType.THROW:
-            strength = 6.0
-            duration = 0.14
-        CombatEvent.EventType.KO:
-            strength = 10.0
-            duration = 0.20
-        _:
-            return
-    request_shake(strength, duration)
-
-func _impact_tier(move_id: StringName) -> int:
-    if move_id == &"ultimate":
-        return 4
-    if move_id == &"special_neutral":
-        return 3
-    if move_id in [&"stand_heavy", &"ground_throw"]:
-        return 2
-    return 1
+    if event.type not in [CombatEvent.EventType.BLOCK, CombatEvent.EventType.HIT, CombatEvent.EventType.THROW, CombatEvent.EventType.KO]:
+        return
+    var tier := CombatFeedbackProfile.tier_for_move(event.move_id)
+    request_shake(
+        CombatFeedbackProfile.camera_strength_for(event.type, tier),
+        CombatFeedbackProfile.camera_duration_for(event.type, tier)
+    )
 
 func request_shake(strength_pixels: float, duration_seconds: float) -> void:
     shake_strength_pixels = maxf(shake_strength_pixels, strength_pixels)

@@ -16,17 +16,11 @@ func present_event(event: CombatEvent) -> void:
     # M7 has no formal audio assets; future bindings may play AudioStreamPlayer here.
 
 func _cue_for_event(event: CombatEvent) -> StringName:
+    if event.type in [CombatEvent.EventType.HIT, CombatEvent.EventType.BLOCK, CombatEvent.EventType.THROW, CombatEvent.EventType.KO]:
+        return CombatFeedbackProfile.audio_cue_for(event.type, CombatFeedbackProfile.tier_for_move(event.move_id))
     match event.type:
         CombatEvent.EventType.MOVE_STARTED:
             return &"move_started"
-        CombatEvent.EventType.HIT:
-            return &"hit"
-        CombatEvent.EventType.BLOCK:
-            return &"block"
-        CombatEvent.EventType.THROW:
-            return &"throw"
-        CombatEvent.EventType.KO:
-            return &"ko"
         CombatEvent.EventType.ROUND_STARTED:
             return &"round_start"
         CombatEvent.EventType.ROUND_ENDED:

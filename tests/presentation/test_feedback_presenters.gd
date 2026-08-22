@@ -7,18 +7,74 @@ var t = ASSERT_HELPER.new()
 
 func run_all() -> int:
     _test_shared_dedupe()
+    _test_feedback_hierarchy()
+    _test_block_and_ko_are_distinct()
     _test_camera_follow_and_reset()
     print("\nM7 feedback presenter tests: %d passed, %d failed" % [t.passed, t.failed])
     return t.failed
 
 func _event() -> CombatEvent:
+    return _hit_event(&"stand_heavy")
+
+func _hit_event(move_id: StringName) -> CombatEvent:
     var result := HitResult.new()
     result.attacker_id = 1
     result.defender_id = 2
-    result.move_id = &"stand_heavy"
+    result.move_id = move_id
     result.attack_instance_id = 9
     result.hit_position = Vector2(600, 450)
     return CombatEvent.hit(20, result, 1000, 900)
+
+func _test_feedback_hierarchy() -> void:
+    var moves := [&"stand_light", &"stand_heavy", &"special_neutral", &"ultimate"]
+    var previous_intensity := 0.0
+    var previous_shake := 0.0
+    var previous_flash := 0.0
+    for move_id: StringName in moves:
+        var event := _hit_event(move_id)
+        var vfx := CombatVfxPresenter.new()
+        var audio := CombatAudioPresenter.new()
+        var camera := BattleCameraController.new()
+        vfx.present_event(event)
+        audio.present_event(event)
+        camera.present_event(event)
+        t.that(vfx.last_impact_intensity > previous_intensity, "%s VFX intensity exceeds prior tier" % String(move_id))
+        t.that(camera.shake_strength_pixels > previous_shake, "%s camera impulse exceeds prior tier" % String(move_id))
+        t.that(vfx.last_flash_alpha > previous_flash, "%s white flash exceeds prior tier" % String(move_id))
+        t.equal(audio.last_cue, StringName("hit_%s" % CombatFeedbackProfile.tier_name_for_move(move_id)), "%s uses tiered hit cue" % String(move_id))
+        previous_intensity = vfx.last_impact_intensity
+        previous_shake = camera.shake_strength_pixels
+        previous_flash = vfx.last_flash_alpha
+        vfx.free()
+        audio.free()
+        camera.free()
+
+func _test_block_and_ko_are_distinct() -> void:
+    var block_result := HitResult.new()
+    block_result.attacker_id = 1
+    block_result.defender_id = 2
+    block_result.move_id = &"stand_heavy"
+    block_result.attack_instance_id = 11
+    block_result.hit_position = Vector2(600, 450)
+    var block_event := CombatEvent.block(30, block_result, 1000, 1000)
+    var block_vfx := CombatVfxPresenter.new()
+    var block_audio := CombatAudioPresenter.new()
+    block_vfx.present_event(block_event)
+    block_audio.present_event(block_event)
+    t.equal(block_audio.last_cue, &"block_heavy", "Block uses a distinct tiered guard cue")
+    t.that(block_vfx.last_flash_alpha < CombatFeedbackProfile.flash_alpha_for(CombatEvent.EventType.HIT, 2), "Block flash stays below same-tier hit")
+
+    var ko_event := CombatEvent.ko(31, block_result)
+    var ko_vfx := CombatVfxPresenter.new()
+    var ko_camera := BattleCameraController.new()
+    ko_vfx.present_event(ko_event)
+    ko_camera.present_event(ko_event)
+    t.that(ko_vfx.last_flash_alpha >= CombatFeedbackProfile.flash_alpha_for(CombatEvent.EventType.HIT, 4), "KO flash is at least Ultimate-hit strength")
+    t.that(ko_camera.shake_strength_pixels >= CombatFeedbackProfile.camera_strength_for(CombatEvent.EventType.HIT, 4), "KO camera impulse is at least Ultimate-hit strength")
+    block_vfx.free()
+    block_audio.free()
+    ko_vfx.free()
+    ko_camera.free()
 
 func _test_shared_dedupe() -> void:
     var ledger := PresentationEventLedger.new()
