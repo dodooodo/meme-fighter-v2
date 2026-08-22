@@ -11,10 +11,10 @@ reliable runtime verification. The master order/gates remain canonical in
 
 v2 has a fixed 60 Hz `BattleSimulation`, roster data/resources, presentation,
 snapshot/replay tests, `scripts/static_validate.py`, and fail-closed
-`scripts/verify.sh`. CI pins Godot 4.7.2. The bootstrap run exposed five stale
-static expectations before runtime; `A-GOV-001` stabilizes that baseline and
-adds PR scope enforcement. There is no CharacterManifest/Catalog, package
-layout, or telemetry implementation.
+`scripts/verify.sh`. CI pins Godot 4.7.2. The Golden Pair now uses manifest-backed
+character packages with package-owned moves, validation, a safe contributor
+template, and focused test commands. The remaining twelve roster characters
+still use central resources; telemetry is not yet implemented.
 
 ## Dependencies and workstreams
 
@@ -25,7 +25,7 @@ A-RUN-003 ─┤
 A-RUN-004 ─┘
 
 A-VS-001 ─────────────────────────> later Golden Pair presentation/feel work
-A-MOD-001 ─> A-MOD-002 ─> A-MOD-003 (Golden Pair migration)
+A-MOD-001 ─> A-MOD-002 ─> A-MOD-003 ─> A-MOD-004 ─> A-MOD-005 ─> A-MOD-006 ─> A-MOD-007
 ```
 
 `A-RUN-001` through `A-RUN-004` may run in parallel when their path scopes do
@@ -51,7 +51,7 @@ runtime command and failure behavior are settled.
 | A-MOD-004 | Split Golden Pair MoveData resources | A-MOD-003 | done |
 | A-MOD-005 | Add the character package template | A-MOD-004 | done |
 | A-MOD-006 | Add package validation | A-MOD-005 | done |
-| A-MOD-007 | Add per-character test command | A-MOD-006 | in progress |
+| A-MOD-007 | Add per-character test command | A-MOD-006 | done |
 
 ## Integration points and risks
 
@@ -76,6 +76,6 @@ not waive the Stage gate.
 ## Recommended order
 
 The project owner accepted A-RUN-005's external Rulesets limitation on
-2026-08-22. Continue the modular stream from A-MOD-003 through A-MOD-007 in
-dependency order, using the corresponding active task packets as implementation
-authority.
+2026-08-22. The A-MOD-003 through A-MOD-007 modular stream is complete; retain
+the corresponding task packets and verification evidence as implementation
+authority for later character-package work.

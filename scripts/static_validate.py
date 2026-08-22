@@ -1430,6 +1430,28 @@ check(
     (ROOT/'scripts/validate_characters.sh').stat().st_mode & 0o111 != 0,
     'Character package command is executable: scripts/validate_characters.sh',
 )
+check(
+    (ROOT/'scripts/test_character.sh').stat().st_mode & 0o111 != 0,
+    'Character package command is executable: scripts/test_character.sh',
+)
+test_character_runner = text('scripts/test_character.gd')
+for token in [
+    'arguments.size() != 1', 'Reserved character package ID',
+    'Unknown packaged character', 'CharacterValidator.new()',
+    'tests/characters/roster/test_%s.gd', 'quit(failures)',
+]:
+    check(token in test_character_runner, f'Focused character runner enforces contract: {token}')
+test_character_shell = text('scripts/test_character.sh')
+check(
+    '[[ "$#" -ne 1 ]]' in test_character_shell
+    and '--editor --quit' in test_character_shell
+    and '-- "$1"' in test_character_shell,
+    'Focused character shell command bootstraps Godot, enforces exact arity, and forwards one stable ID',
+)
+check(
+    '--editor --quit' in text('scripts/validate_characters.sh'),
+    'Package validator command bootstraps Godot class discovery on a fresh checkout',
+)
 
 for msg in passes:
     print('[PASS]',msg)
