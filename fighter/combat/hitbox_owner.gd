@@ -1,6 +1,7 @@
 # Responsibility: Produce gameplay rectangles and guard against duplicate resolved contacts.
 # Owns: pushbox/hurtbox configuration and per-AttackInstance+HitID+Defender resolved-contact registry.
 # Does NOT own: damage application, sprites, engine physics callbacks.
+# Dependencies: CharacterData, BoxData, MoveRunner, and MoveHitData.
 class_name HitboxOwner
 extends RefCounted
 

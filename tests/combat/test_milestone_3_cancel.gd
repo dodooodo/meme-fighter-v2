@@ -67,15 +67,20 @@ func _setup_heavy_contact(blocked: bool) -> BattleSimulation:
     return battle
 
 func _finish_heavy_special_cancel(battle: BattleSimulation, blocked: bool) -> void:
+    # The 5F input buffer is intentionally shorter than Heavy's 6F hitstop. Wait
+    # until the cancel-ready state instead of asserting that an expired request
+    # remains queued beyond the public buffer contract.
+    for _i in range(5):
+        var f := battle.frame_number + 1
+        _tick(battle, null, _guard(f) if blocked else null)
     var f := battle.frame_number + 1
     _tick(battle, InputFrame.with_special_press(f), _guard(f) if blocked else null)
-    for _i in range(5):
-        f = battle.frame_number + 1
-        _tick(battle, null, _guard(f) if blocked else null)
+    f = battle.frame_number + 1
+    _tick(battle, null, _guard(f) if blocked else null)
 
 func _setup_special_contact(blocked: bool, starting_meter: int) -> BattleSimulation:
     var battle := _battle(true)
-    battle.fighter_a.meter.gain(starting_meter)
+    battle.fighter_a.meter.set_value(starting_meter)
     _tick(battle, InputFrame.with_special_press(1), _guard(1, true) if blocked else null)
     for _i in range(11):
         var f := battle.frame_number + 1
@@ -167,14 +172,14 @@ func _test_heavy_whiff_and_early_buffer_expiry() -> void:
     t.that(not early.fighter_a.input_buffer.has_pending(early.frame_number), "Early Special buffer is expired/cleared by the time Heavy cancel window arrives")
 
 func _test_special_hit_to_ultimate_meter_gate() -> void:
-    var success := _setup_special_contact(false, 82)
-    t.equal(success.fighter_a.meter.get_value(), 100, "Special HIT raises 82 meter to 100 before later cancel decision")
+    var success := _setup_special_contact(false, 10)
+    t.equal(success.fighter_a.meter.get_value(), 100, "Tuned Special HIT raises 10 meter to 100 before later cancel decision")
     _finish_special_ultimate_attempt(success, false)
     t.equal(success.fighter_a.move_runner.current_move_id(), MoveIds.ULTIMATE, "Special HIT -> Ultimate works at 100 meter")
     t.equal(success.fighter_a.meter.get_value(), 0, "Special -> Ultimate cancel spends 100 immediately")
 
-    var denied := _setup_special_contact(false, 81)
-    t.equal(denied.fighter_a.meter.get_value(), 99, "Special HIT raises 81 meter to exactly 99")
+    var denied := _setup_special_contact(false, 9)
+    t.equal(denied.fighter_a.meter.get_value(), 99, "Tuned Special HIT raises 9 meter to exactly 99")
     _finish_special_ultimate_attempt(denied, false)
     t.that(denied.fighter_a.move_runner.current_move_id() != MoveIds.ULTIMATE, "Special HIT -> Ultimate denied at 99 meter")
     t.equal(denied.fighter_a.meter.get_value(), 99, "Meter-denied cancel does not spend or refund")

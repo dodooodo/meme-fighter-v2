@@ -77,8 +77,8 @@ func _test_single_ko_post_round_exact_reset() -> void:
     t.equal(battle.round_controller.state, RoundController.State.ROUND_ACTIVE, "90th post-round tick starts next round")
     t.equal(battle.round_controller.round_number, 2, "Versus round number advances after post-round")
     t.equal(battle.frame_number, frame_before_reset + 1, "Global BattleSimulation frame remains monotonic across round reset")
-    t.equal(battle.fighter_a.combatant.hp, 1000, "Next round restores P1 HP")
-    t.equal(battle.fighter_b.combatant.hp, 1000, "Next round restores P2 HP")
+    t.equal(battle.fighter_a.combatant.hp, 5000, "Next round restores P1 HP")
+    t.equal(battle.fighter_b.combatant.hp, 5000, "Next round restores P2 HP")
     t.equal(battle.round_controller.round_timer_remaining_frames, 5940, "Next round timer resets to 5940F")
 
 func _test_double_ko_draw() -> void:

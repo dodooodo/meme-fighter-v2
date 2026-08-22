@@ -5,7 +5,8 @@ description: Verify a scoped Dorian change without claiming unexecuted runtime w
 
 # Verify Change
 
-Read the active task and changed paths. Run its `required_checks` first.
+Read the active task and changed paths. Run its `required_checks` first. Let
+`validate_task.py` resolve the local merge-base; CI passes the exact PR base SHA.
 
 - Gameplay core/data changes: targeted character tests plus snapshot/replay/hash
   regression and static validation.

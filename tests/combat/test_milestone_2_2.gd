@@ -128,9 +128,9 @@ func _test_crouch_low_startup_hit_duplicate_and_recovery() -> void:
     battle.simulate_frame(_light(1, true), _neutral(1))
     t.equal(battle.fighter_a.move_runner.current_move_id(), MoveIds.CROUCH_LOW, "Down+Light starts Crouch Low")
     _tick_neutral(battle, 7)
-    t.equal(battle.fighter_b.combatant.hp, 1000, "Crouch Low cannot hit during startup frames 1-8")
+    t.equal(battle.fighter_b.combatant.hp, 5000, "Crouch Low cannot hit during startup frames 1-8")
     _tick_neutral(battle, 1)
-    t.equal(battle.fighter_b.combatant.hp, 940, "Crouch Low hits for 60 on first Active frame 9")
+    t.equal(battle.fighter_b.combatant.hp, 4940, "Crouch Low hits for 60 on first Active frame 9")
     var hp_after_first := battle.fighter_b.combatant.hp
     _tick_neutral(battle, 9)
     t.equal(battle.fighter_b.combatant.hp, hp_after_first, "Crouch Low same AttackInstance cannot damage repeatedly across Active overlap")
@@ -222,7 +222,7 @@ func _test_real_light_and_heavy_block() -> void:
         var frame := light_battle.frame_number + 1
         light_battle.simulate_frame(_neutral(frame), _guard(frame))
     var light_events := light_battle.peek_events()
-    t.equal(light_battle.fighter_b.combatant.hp, 1000, "Standing Guard block of Stand Light does not reduce HP")
+    t.equal(light_battle.fighter_b.combatant.hp, 5000, "Standing Guard block of Stand Light does not reduce HP")
     t.equal(light_battle.fighter_b.combatant.hitstun_remaining, 0, "Blocked Stand Light applies no hitstun")
     t.equal(light_battle.fighter_b.combatant.blockstun_remaining, 10, "Blocked Stand Light applies 10F blockstun")
     t.equal(light_battle.fighter_b.combatant.knockback_velocity_x_units, 0, "BLOCK applies no normal hit knockback")
@@ -241,7 +241,7 @@ func _test_real_light_and_heavy_block() -> void:
     for _i in range(11):
         var frame := heavy_battle.frame_number + 1
         heavy_battle.simulate_frame(_neutral(frame), _guard(frame))
-    t.equal(heavy_battle.fighter_b.combatant.hp, 1000, "Standing Guard block of Stand Heavy does not reduce HP")
+    t.equal(heavy_battle.fighter_b.combatant.hp, 5000, "Standing Guard block of Stand Heavy does not reduce HP")
     t.equal(heavy_battle.fighter_b.combatant.blockstun_remaining, 13, "Blocked Stand Heavy applies 13F blockstun")
     var heavy_events := heavy_battle.peek_events()
     var heavy_block_event: CombatEvent = null
@@ -257,7 +257,7 @@ func _test_standing_guard_loses_to_real_low() -> void:
     for _i in range(8):
         var frame := battle.frame_number + 1
         battle.simulate_frame(_neutral(frame), _guard(frame))
-    t.equal(battle.fighter_b.combatant.hp, 940, "Standing Guard loses to real Crouch Low for 60 damage")
+    t.equal(battle.fighter_b.combatant.hp, 4940, "Standing Guard loses to real Crouch Low for 60 damage")
     t.equal(battle.fighter_b.combatant.hitstun_remaining, 15, "Standing Guard hit by Low receives 15F hitstun")
     t.equal(battle.fighter_b.combatant.blockstun_remaining, 0, "Standing Guard hit by Low does not receive blockstun")
     t.equal(_count_events(battle.peek_events(), CombatEvent.EventType.HIT), 1, "Standing Guard losing to Low emits HIT")
@@ -268,7 +268,7 @@ func _test_crouching_guard_blocks_real_low() -> void:
     for _i in range(8):
         var frame := battle.frame_number + 1
         battle.simulate_frame(_neutral(frame), _guard(frame, true))
-    t.equal(battle.fighter_b.combatant.hp, 1000, "Crouching Guard blocks real Crouch Low with zero chip")
+    t.equal(battle.fighter_b.combatant.hp, 5000, "Crouching Guard blocks real Crouch Low with zero chip")
     t.equal(battle.fighter_b.combatant.hitstun_remaining, 0, "Crouching Guard block of Low applies no hitstun")
     t.equal(battle.fighter_b.combatant.blockstun_remaining, 11, "Crouching Guard block of Low applies 11F blockstun")
     t.equal(_count_events(battle.peek_events(), CombatEvent.EventType.BLOCK), 1, "Crouching Guard Low block emits BLOCK")
@@ -281,7 +281,7 @@ func _test_block_duplicate_contact_protection() -> void:
         battle.simulate_frame(_neutral(frame), _guard(frame))
     var events := battle.peek_events()
     t.equal(_count_events(events, CombatEvent.EventType.BLOCK), 1, "Heavy multi-frame overlap resolves BLOCK once per AttackInstanceID")
-    t.equal(battle.fighter_b.combatant.hp, 1000, "Repeated active overlap does not apply repeated block chip")
+    t.equal(battle.fighter_b.combatant.hp, 5000, "Repeated active overlap does not apply repeated block chip")
 
 func _test_blockstun_state_and_ground_settle() -> void:
     var guard_battle := _battle(40000, 100000)
@@ -367,6 +367,6 @@ func _test_block_event_contract() -> void:
     var event := CombatEvent.block(99, result, 1000, 1000)
     t.equal(event.type, CombatEvent.EventType.BLOCK, "CombatEvent.block creates BLOCK event type")
     t.equal(event.frame_number, 99, "BLOCK event captures simulation frame")
-    t.equal(event.value_before, 1000, "BLOCK event captures HP before")
-    t.equal(event.value_after, 1000, "Zero-chip BLOCK event preserves HP after")
+    t.equal(event.value_before, 1000, "Standalone BLOCK event fixture captures its configured HP before")
+    t.equal(event.value_after, 1000, "Standalone zero-chip BLOCK event fixture preserves HP after")
     t.equal(event.hitstop_frames, 4, "BLOCK event carries defender hitstop")

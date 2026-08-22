@@ -34,14 +34,14 @@ func _test_cross_character_light_damage() -> void:
     var generic_hits := _battle(generic, rush)
     _tick(generic_hits, InputFrame.with_light_press(1))
     _advance(generic_hits, 5)
-    t.equal(generic_hits.fighter_b.combatant.hp, 950, "Generic Light hits Rush using Generic damage 50")
-    t.equal(generic_hits.fighter_a.meter.get_value(), 8, "Generic Light uses Generic +8 HIT meter")
+    t.equal(generic_hits.fighter_b.combatant.hp, 4950, "Generic Light hits Rush using Generic damage 50")
+    t.equal(generic_hits.fighter_a.meter.get_value(), 40, "Generic Light uses Generic +8 HIT meter")
 
     var rush_hits := _battle(rush, generic)
     _tick(rush_hits, InputFrame.with_light_press(1))
     _advance(rush_hits, 4)
-    t.equal(rush_hits.fighter_b.combatant.hp, 955, "Rush Light hits Generic using Rush damage 45")
-    t.equal(rush_hits.fighter_a.meter.get_value(), 7, "Rush Light uses Rush +7 HIT meter")
+    t.equal(rush_hits.fighter_b.combatant.hp, 4955, "Rush Light hits Generic using Rush damage 45")
+    t.equal(rush_hits.fighter_a.meter.get_value(), 35, "Rush Light uses Rush +7 HIT meter")
 
 func _test_same_frame_trade_uses_each_registry() -> void:
     var battle := _battle(generic, rush)
@@ -49,10 +49,10 @@ func _test_same_frame_trade_uses_each_registry() -> void:
     _tick(battle, InputFrame.with_light_press(1), InputFrame.neutral(1))
     _tick(battle, InputFrame.neutral(2), InputFrame.with_light_press(2))
     _advance(battle, 4)
-    t.equal(battle.fighter_a.combatant.hp, 955, "Asymmetric trade applies Rush 45 damage to Generic")
-    t.equal(battle.fighter_b.combatant.hp, 950, "Asymmetric trade applies Generic 50 damage to Rush")
-    t.equal(battle.fighter_a.meter.get_value(), 8, "Asymmetric trade gives Generic +8")
-    t.equal(battle.fighter_b.meter.get_value(), 7, "Asymmetric trade gives Rush +7")
+    t.equal(battle.fighter_a.combatant.hp, 4955, "Asymmetric trade applies Rush 45 damage to Generic")
+    t.equal(battle.fighter_b.combatant.hp, 4950, "Asymmetric trade applies Generic 50 damage to Rush")
+    t.equal(battle.fighter_a.meter.get_value(), 40, "Asymmetric trade gives Generic +8")
+    t.equal(battle.fighter_b.meter.get_value(), 35, "Asymmetric trade gives Rush +7")
 
 func _guard(frame: int) -> InputFrame:
     var bit := InputFrame.InputButton.GUARD
@@ -64,16 +64,16 @@ func _test_cross_character_throw_data() -> void:
     for _i in range(5):
         var f := generic_throw.frame_number + 1
         _tick(generic_throw, null, InputFrame.new(f, 0, 0, InputFrame.InputButton.GUARD, 0, 0))
-    t.equal(generic_throw.fighter_b.combatant.hp, 880, "Generic throws Rush for Generic 120 damage")
-    t.equal(generic_throw.fighter_a.meter.get_value(), 15, "Generic throw rewards Generic +15")
+    t.equal(generic_throw.fighter_b.combatant.hp, 4880, "Generic throws Rush for Generic 120 damage")
+    t.equal(generic_throw.fighter_a.meter.get_value(), 75, "Generic throw rewards Generic +15")
 
     var rush_throw := _battle(rush, generic)
     _tick(rush_throw, InputFrame.with_heavy_press(1, 1), _guard(1))
     for _i in range(5):
         var f := rush_throw.frame_number + 1
         _tick(rush_throw, null, InputFrame.new(f, 0, 0, InputFrame.InputButton.GUARD, 0, 0))
-    t.equal(rush_throw.fighter_b.combatant.hp, 850, "Rush throws Generic for Rush 150 damage")
-    t.equal(rush_throw.fighter_a.meter.get_value(), 18, "Rush throw rewards Rush +18")
+    t.equal(rush_throw.fighter_b.combatant.hp, 4850, "Rush throws Generic for Rush 150 damage")
+    t.equal(rush_throw.fighter_a.meter.get_value(), 90, "Rush throw rewards Rush +18")
 
 func _test_mirror_match_configurations_still_construct() -> void:
     for pair in [[generic, generic], [rush, rush], [generic, rush], [rush, generic]]:

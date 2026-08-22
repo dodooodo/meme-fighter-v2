@@ -2,8 +2,8 @@
 id: A-MOD-001
 stage: A
 type: architecture
-status: ready
-dependencies: []
+status: blocked
+dependencies: [A-RUN-005]
 allowed_paths: [data/, tests/characters/, tests/run_tests.gd, scripts/static_validate.py, docs/architecture/, docs/tasks/]
 forbidden_paths: [battle/, fighter/, frontend/, presentation/, assets/]
 required_specs: [AGENTS.md, ARCHITECTURE.md, docs/architecture/CHARACTER_PACKAGE.md]
