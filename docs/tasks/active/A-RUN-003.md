@@ -2,7 +2,7 @@
 id: A-RUN-003
 stage: A
 type: tooling
-status: blocked
+status: done
 dependencies: [A-RUN-001]
 allowed_paths: [scripts/verify.sh, scripts/, README.md, docs/, .github/workflows/godot-verify.yml]
 forbidden_paths: [battle/, fighter/, data/, presentation/, frontend/]
@@ -28,6 +28,9 @@ Runtime absence must fail gate per A-RUN-002.
 Static validation, shell syntax, actual Godot run when available.
 ## Acceptance Criteria
 One command contract is referenced by script, docs, and CI.
+## Completion Evidence
+PR #6 passed Task Scope and Godot Verify on 2026-08-22. CI ran the shared
+`bash scripts/verify.sh` contract under the pinned Godot 4.7.2 stable binary.
 ## Rollback / Recovery Notes
 Restore prior command documentation only if the Godot runner contract changes.
 ## Out of Scope
