@@ -4,7 +4,7 @@ stage: A
 type: architecture
 status: done
 dependencies: [A-MOD-002]
-allowed_paths: [content/, data/characters/, data/roster_registry.gd, presentation/characters/, tests/characters/, tests/roster/, tests/run_tests.gd, scripts/static_validate.py, docs/architecture/, docs/stages/, docs/tasks/]
+allowed_paths: [content/, data/characters/, data/move_sets/, data/character_catalog.gd.uid, data/character_manifest.gd.uid, data/character_validator.gd, data/character_validator.gd.uid, data/roster_registry.gd, presentation/characters/, tests/characters/, tests/roster/, tests/run_tests.gd, scripts/static_validate.py, scripts/test_character.gd, scripts/test_character.gd.uid, scripts/test_character.sh, scripts/validate_characters.gd, scripts/validate_characters.gd.uid, scripts/validate_characters.sh, docs/architecture/, docs/contributors/, docs/stages/, docs/tasks/]
 forbidden_paths: [battle/, fighter/, frontend/, presentation/events/, presentation/fighter/, assets/]
 required_specs: [AGENTS.md, ARCHITECTURE.md, docs/architecture/CHARACTER_PACKAGE.md, docs/architecture/TESTING.md]
 required_checks: [python3 scripts/static_validate.py, godot --headless --path . -s res://tests/run_tests.gd, bash scripts/verify.sh]
