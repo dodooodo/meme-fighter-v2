@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "jobs": [
+    {
+      "id": "golden_pair_magic_orange",
+      "type": "base_fighter",
+      "character": "magic_orange_cat",
+      "source": "assets/characters/magic_orange_cat/source/magic_orange_cat_optimized_aggressive.zip"
+    },
+    {
+      "id": "golden_pair_salad",
+      "type": "base_fighter",
+      "character": "salad_cat",
+      "source": "assets/characters/salad_cat/source/salad_optimized_aggressive.zip"
+    }
+  ]
+}
