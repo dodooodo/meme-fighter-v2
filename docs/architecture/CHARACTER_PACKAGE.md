@@ -41,6 +41,10 @@ identity mismatches; `CharacterData.id` remains the canonical gameplay identity.
 `register_pack`. It must not be a global combat registry or mutate a Fighter's
 MoveRegistry.
 
+`data/character_catalog.gd` provides this additive v1 boundary beside
+`RosterRegistry`. Pack registration is all-or-nothing and rejects invalid
+manifests, duplicate character IDs, and duplicate content-pack IDs.
+
 Mechanics require typed, generic data/runtime contracts first. No package may
 introduce a `character_id` switch in generic gameplay. Presentation binds by
 stable identity and can fall back visibly when art is missing.
