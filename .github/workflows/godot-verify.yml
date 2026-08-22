@@ -25,6 +25,7 @@ jobs:
       - name: Confirm pinned Godot version
         run: godot --version | grep -E '^4\.7\.2\.stable'
       - name: Verify project
+        # Keep CI on the same command contract documented for local verification.
         run: bash scripts/verify.sh
 
 # Configure this workflow's check as required in GitHub branch protection.
