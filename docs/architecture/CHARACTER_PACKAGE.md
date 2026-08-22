@@ -32,6 +32,10 @@ content/characters/<id>/
 presentation resource, portrait, icon, content pack ID, and availability. It is
 metadata and discovery only: it does not become combat runtime state.
 
+`data/character_manifest.gd` is the v1 schema introduced by A-MOD-001. Its
+validation rejects empty metadata, missing gameplay/presentation references, and
+identity mismatches; `CharacterData.id` remains the canonical gameplay identity.
+
 `CharacterCatalog` is the package discovery boundary. Its target API is
 `list_manifests`, `get_manifest`, `load_gameplay`, `load_presentation`, and
 `register_pack`. It must not be a global combat registry or mutate a Fighter's
