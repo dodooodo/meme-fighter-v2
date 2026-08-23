@@ -1,0 +1,141 @@
+[gd_resource type="Resource" load_steps=36 format=3]
+[ext_resource type="Script" path="res://presentation/data/character_presentation_data.gd" id="data"]
+[ext_resource type="PackedScene" path="res://presentation/visuals/production/doge_visual.tscn" id="visual"]
+[ext_resource type="PackedScene" path="res://presentation/visuals/production/doge_super_visual.tscn" id="super_visual"]
+[ext_resource type="Script" path="res://presentation/data/state_presentation_binding.gd" id="state"]
+[ext_resource type="Script" path="res://presentation/data/move_presentation_binding.gd" id="move"]
+[ext_resource type="Script" path="res://presentation/data/mode_presentation_binding.gd" id="mode"]
+
+[sub_resource type="Resource" id="s_idle"]
+script = ExtResource("state")
+state_key = &"idle"
+animation_key = &"idle"
+[sub_resource type="Resource" id="s_walk_forward"]
+script = ExtResource("state")
+state_key = &"walk_forward"
+animation_key = &"walk_forward"
+[sub_resource type="Resource" id="s_walk_back"]
+script = ExtResource("state")
+state_key = &"walk_back"
+animation_key = &"walk_back"
+[sub_resource type="Resource" id="s_crouch"]
+script = ExtResource("state")
+state_key = &"crouch"
+animation_key = &"crouch"
+[sub_resource type="Resource" id="s_charge"]
+script = ExtResource("state")
+state_key = &"charge"
+animation_key = &"charge"
+[sub_resource type="Resource" id="s_jump"]
+script = ExtResource("state")
+state_key = &"jump"
+animation_key = &"jump"
+[sub_resource type="Resource" id="s_landing"]
+script = ExtResource("state")
+state_key = &"landing"
+animation_key = &"landing"
+[sub_resource type="Resource" id="s_guard_stand"]
+script = ExtResource("state")
+state_key = &"guard_stand"
+animation_key = &"guard_stand"
+[sub_resource type="Resource" id="s_guard_crouch"]
+script = ExtResource("state")
+state_key = &"guard_crouch"
+animation_key = &"guard_crouch"
+[sub_resource type="Resource" id="s_hitstun"]
+script = ExtResource("state")
+state_key = &"hitstun"
+animation_key = &"hitstun"
+[sub_resource type="Resource" id="s_blockstun"]
+script = ExtResource("state")
+state_key = &"blockstun"
+animation_key = &"blockstun"
+[sub_resource type="Resource" id="s_thrown"]
+script = ExtResource("state")
+state_key = &"thrown"
+animation_key = &"thrown"
+[sub_resource type="Resource" id="s_knockdown"]
+script = ExtResource("state")
+state_key = &"knockdown"
+animation_key = &"knockdown"
+[sub_resource type="Resource" id="s_getup"]
+script = ExtResource("state")
+state_key = &"getup"
+animation_key = &"getup"
+[sub_resource type="Resource" id="s_ko"]
+script = ExtResource("state")
+state_key = &"ko"
+animation_key = &"ko"
+[sub_resource type="Resource" id="s_dash"]
+script = ExtResource("state")
+state_key = &"dash_forward"
+animation_key = &"dash_forward"
+[sub_resource type="Resource" id="s_backstep"]
+script = ExtResource("state")
+state_key = &"backstep"
+animation_key = &"backstep"
+
+[sub_resource type="Resource" id="m_light"]
+script = ExtResource("move")
+move_id = &"stand_light"
+animation_key = &"stand_light"
+[sub_resource type="Resource" id="m_heavy"]
+script = ExtResource("move")
+move_id = &"stand_heavy"
+animation_key = &"stand_heavy"
+[sub_resource type="Resource" id="m_low"]
+script = ExtResource("move")
+move_id = &"crouch_low"
+animation_key = &"crouch_low"
+[sub_resource type="Resource" id="m_air"]
+script = ExtResource("move")
+move_id = &"air_attack"
+animation_key = &"air_attack"
+[sub_resource type="Resource" id="m_throw"]
+script = ExtResource("move")
+move_id = &"ground_throw"
+animation_key = &"ground_throw"
+[sub_resource type="Resource" id="m_special"]
+script = ExtResource("move")
+move_id = &"special_neutral"
+animation_key = &"special_neutral"
+[sub_resource type="Resource" id="m_rush_1"]
+script = ExtResource("move")
+move_id = &"doge_rush_l1"
+animation_key = &"doge_rush_l1"
+[sub_resource type="Resource" id="m_rush_2"]
+script = ExtResource("move")
+move_id = &"doge_rush_l2"
+animation_key = &"doge_rush_l2"
+[sub_resource type="Resource" id="m_rush_3"]
+script = ExtResource("move")
+move_id = &"doge_rush_l3"
+animation_key = &"doge_rush_l3"
+[sub_resource type="Resource" id="m_ultimate"]
+script = ExtResource("move")
+move_id = &"ultimate"
+animation_key = &"ultimate"
+[sub_resource type="Resource" id="m_super_heavy"]
+script = ExtResource("move")
+move_id = &"doge_super_heavy"
+animation_key = &"doge_super_heavy"
+
+[sub_resource type="Resource" id="mode_super"]
+script = ExtResource("mode")
+mode_id = &"super_doge"
+fighter_visual_scene = ExtResource("super_visual")
+visual_scale = 1.0
+enter_animation = &"idle"
+required_animations = Array[StringName]([&"idle", &"stand_heavy", &"doge_super_heavy"])
+
+[resource]
+script = ExtResource("data")
+character_id = &"doge"
+display_name = "Doge"
+fighter_visual_scene = ExtResource("visual")
+visual_offset_pixels = Vector2(0, 0)
+visual_scale = 1.0
+placeholder_color = Color(0.95, 0.66, 0.19, 1)
+state_bindings = Array[ExtResource("state")]([SubResource("s_idle"), SubResource("s_walk_forward"), SubResource("s_walk_back"), SubResource("s_crouch"), SubResource("s_charge"), SubResource("s_jump"), SubResource("s_landing"), SubResource("s_guard_stand"), SubResource("s_guard_crouch"), SubResource("s_hitstun"), SubResource("s_blockstun"), SubResource("s_thrown"), SubResource("s_knockdown"), SubResource("s_getup"), SubResource("s_ko"), SubResource("s_dash"), SubResource("s_backstep")])
+move_bindings = Array[ExtResource("move")]([SubResource("m_light"), SubResource("m_heavy"), SubResource("m_low"), SubResource("m_air"), SubResource("m_throw"), SubResource("m_special"), SubResource("m_rush_1"), SubResource("m_rush_2"), SubResource("m_rush_3"), SubResource("m_ultimate"), SubResource("m_super_heavy")])
+mode_bindings = Array[ExtResource("mode")]([SubResource("mode_super")])

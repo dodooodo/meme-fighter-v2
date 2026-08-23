@@ -2,18 +2,31 @@
 set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SHARED_RUNTIME="$PROJECT_ROOT/../.godot_runtime/Godot.app/Contents/MacOS/Godot"
+RUNTIME_SUFFIX=".godot_runtime/Godot.app/Contents/MacOS/Godot"
+RUNTIME_CANDIDATES=(
+  "$PROJECT_ROOT/../$RUNTIME_SUFFIX"
+  "$PROJECT_ROOT/../../$RUNTIME_SUFFIX"
+)
+GODOT_BIN=""
 
-if [[ -x "$SHARED_RUNTIME" ]]; then
-  GODOT_BIN="$SHARED_RUNTIME"
-elif command -v godot >/dev/null 2>&1; then
-  GODOT_BIN="$(command -v godot)"
-elif command -v godot4 >/dev/null 2>&1; then
-  GODOT_BIN="$(command -v godot4)"
-else
-  echo "找不到 Godot。" >&2
-  echo "預期共用 runtime 位於：$SHARED_RUNTIME" >&2
-  exit 2
+for candidate in "${RUNTIME_CANDIDATES[@]}"; do
+  if [[ -x "$candidate" ]]; then
+    GODOT_BIN="$candidate"
+    break
+  fi
+done
+
+if [[ -z "$GODOT_BIN" ]]; then
+  if command -v godot >/dev/null 2>&1; then
+    GODOT_BIN="$(command -v godot)"
+  elif command -v godot4 >/dev/null 2>&1; then
+    GODOT_BIN="$(command -v godot4)"
+  else
+    echo "找不到 Godot。" >&2
+    echo "已檢查共用 runtime：" >&2
+    printf '  %s\n' "${RUNTIME_CANDIDATES[@]}" >&2
+    exit 2
+  fi
 fi
 
 COMMAND="${1:-play}"

@@ -6,7 +6,31 @@ extends RefCounted
 enum Mode {
     LOCAL_2P,
     VS_CPU,
+    TRAINING,
+    TUTORIAL,
 }
 
 static func display_name(mode: int) -> String:
-    return "1P VS CPU" if mode == Mode.VS_CPU else "2P LOCAL"
+    match mode:
+        Mode.VS_CPU:
+            return "1P VS CPU"
+        Mode.TRAINING:
+            return "TRAINING LAB"
+        Mode.TUTORIAL:
+            return "FIRST FIGHT"
+        _:
+            return "2P LOCAL"
+
+static func telemetry_name(mode: int) -> String:
+    match mode:
+        Mode.VS_CPU:
+            return "vs_cpu"
+        Mode.TRAINING:
+            return "training"
+        Mode.TUTORIAL:
+            return "tutorial"
+        _:
+            return "local_2p"
+
+static func uses_training_rules(mode: int) -> bool:
+    return mode in [Mode.TRAINING, Mode.TUTORIAL]

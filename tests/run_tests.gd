@@ -87,6 +87,9 @@ const LOCAL_TELEMETRY_SINK_SUITE := preload("res://tests/telemetry/test_local_te
 const MATCH_TELEMETRY_AGGREGATOR_SUITE := preload("res://tests/telemetry/test_match_telemetry_aggregator.gd")
 const PERFORMANCE_TELEMETRY_SUITE := preload("res://tests/telemetry/test_performance_telemetry.gd")
 const TELEMETRY_SERVICE_INTEGRATION_SUITE := preload("res://tests/telemetry/test_telemetry_service_integration.gd")
+const A5_DOGE_PACKAGE_SUITE := preload("res://tests/a5/test_doge_package.gd")
+const A5_CHARACTER_SELECT_TRAINING_SUITE := preload("res://tests/a5/test_character_select_and_training.gd")
+const A5_TUTORIAL_SUITE := preload("res://tests/a5/test_tutorial_model.gd")
 
 func _init() -> void:
     call_deferred("_run")
@@ -178,5 +181,8 @@ func _run() -> void:
     failures += MATCH_TELEMETRY_AGGREGATOR_SUITE.new().run_all()
     failures += PERFORMANCE_TELEMETRY_SUITE.new().run_all()
     failures += TELEMETRY_SERVICE_INTEGRATION_SUITE.new().run_all()
+    failures += A5_DOGE_PACKAGE_SUITE.new().run_all()
+    failures += A5_CHARACTER_SELECT_TRAINING_SUITE.new().run_all()
+    failures += A5_TUTORIAL_SUITE.new().run_all()
     failures += STRESS_SUITE.new().run_all()
     quit(failures)

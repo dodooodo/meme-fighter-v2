@@ -872,6 +872,10 @@ normalized InputFrame 走 replay stream，不走 analytics event row。
 
 ## 6.7 A5 — Third Character
 
+Implementation status: the seven A5 outcomes are present and automated checks
+are green. Final acceptance remains pending the human play checklist in
+`docs/stages/active/A5_MANUAL_VERIFICATION.md`.
+
 ### `A-MVP-001` Migrate Doge Package
 
 ### `A-MVP-002` Split Doge Moves
@@ -916,15 +920,15 @@ normalized InputFrame 走 replay stream，不走 analytics event row。
 
 - [ ] 3 fighters 可完整打完 match
 - [ ] Golden Pair production visuals 完整
-- [ ] Doge mechanic 不需 character-id branch
-- [ ] Character Package 已實際使用
-- [ ] MoveData 已拆檔
-- [ ] 新增角色不需修改中央 registry
+- [x] Doge mechanic 不需 character-id branch
+- [x] Character Package 已實際使用
+- [x] MoveData 已拆檔
+- [x] 新增角色不需修改中央 registry
 - [ ] CI 真跑 Godot runtime
-- [ ] replay determinism regression 綠
+- [x] replay determinism regression 綠
 - [x] local telemetry 可產生 match/move/performance data
-- [ ] 角色 package 可被單獨驗證
-- [ ] 4 類協作者 ownership boundary 已文件化
+- [x] 角色 package 可被單獨驗證
+- [x] 4 類協作者 ownership boundary 已文件化
 
 ---
 

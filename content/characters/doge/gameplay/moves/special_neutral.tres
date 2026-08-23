@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/moves/charge_special_data.gd" id="charge"]
+[sub_resource type="Resource" id="charge_data"]
+script = ExtResource("charge")
+level_2_threshold_frames = 24
+level_3_threshold_frames = 54
+level_1_move_id = &"doge_rush_l1"
+level_2_move_id = &"doge_rush_l2"
+level_3_move_id = &"doge_rush_l3"
+[resource]
+script = ExtResource("move")
+id = &"special_neutral"
+display_name = "肌肉衝撞 Charge"
+animation_id = &"special_neutral"
+startup_frames = 1
+active_frames = 0
+recovery_frames = 0
+damage = 0
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+charge_special_data = SubResource("charge_data")

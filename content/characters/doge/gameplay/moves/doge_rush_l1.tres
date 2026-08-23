@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[sub_resource type="Resource" id="hitbox"]
+script = ExtResource("box")
+offset = Vector2(42, -76)
+size = Vector2(89, 36)
+[resource]
+script = ExtResource("move")
+id = &"doge_rush_l1"
+display_name = "肌肉衝撞 Lv1"
+animation_id = &"doge_rush_l1"
+startup_frames = 7
+active_frames = 4
+recovery_frames = 14
+damage = 85
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 1400
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+travel_x_units_per_tick = 720
+travel_start_frame = 3
+travel_end_frame = 10
+hitbox = SubResource("hitbox")

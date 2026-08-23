@@ -4,10 +4,10 @@
 
 Most gameplay characters live in `data/characters/*.tres`; move sets in
 `data/move_sets/`; moves in `data/moves/`; presentation data in
-`presentation/characters/`. `data/roster_registry.gd` remains a frontend/test
-compatibility registry. `magic_orange_cat` and `salad_cat` are the first
-manifest-backed packages under `content/characters/`; the other twelve roster
-characters remain on central paths.
+`presentation/characters/`. `data/roster_registry.gd` remains a test and legacy
+compatibility registry. `magic_orange_cat`, `salad_cat`, and `doge` are
+manifest-backed packages under `content/characters/`; the other eleven formal
+roster characters remain on central paths.
 
 `CharacterData.id` is the stable gameplay identity. `CharacterData` owns base
 stats, movement, base boxes, `MoveSetData`, and optional typed mechanics.
@@ -17,7 +17,8 @@ stats, movement, base boxes, `MoveSetData`, and optional typed mechanics.
 ## TARGET
 
 A package has one manifest as its discovery/metadata boundary and separates
-gameplay, presentation, and visual assets. Planned shape (not current reality):
+gameplay, presentation, and visual assets. The three migrated packages use this
+shape:
 
 ```text
 content/characters/<id>/
@@ -45,6 +46,10 @@ MoveRegistry.
 `data/character_catalog.gd` provides this additive v1 boundary beside
 `RosterRegistry`. Pack registration is all-or-nothing and rejects invalid
 manifests, duplicate character IDs, and duplicate content-pack IDs.
+`discover_builtin()` scans non-reserved package directories in deterministic
+sorted order and commits the discovered set atomically. A5 Character Select
+uses this path directly, filters on manifest availability, and therefore does
+not need a new central character switch when a package is added.
 
 The Golden Pair package manifests reference package-owned gameplay,
 presentation, move-set, and per-move resources. Each package move set contains
@@ -52,6 +57,12 @@ ten external `MoveData` references and embeds no moves. `RosterRegistry`
 obtains those two entries through the manifests so existing consumers keep
 their compatibility API while package discovery becomes authoritative for the
 migrated pair.
+
+The Doge package applies the same boundary to a mechanic-diverse character. It
+owns eleven external moves, including all three charge releases and the Super
+Doge replacement Heavy, plus explicit base/mode presentation bindings. The
+former central Doge character, move set, and presentation resources are retired;
+the compatibility registry now routes its Doge entry through the package.
 
 `content/characters/_template/` is the inert, copyable authoring scaffold. Its
 reserved directory name is excluded from playable package discovery, its
@@ -83,6 +94,8 @@ stable identity and can fall back visibly when art is missing.
 5. `A-MOD-005` adds the inert package authoring template.
 6. `A-MOD-006` adds deterministic package validation and its headless command.
 7. `A-MOD-007` adds the focused per-character test command and contributor workflow.
+8. `A-MVP-001` through `A-MVP-004` migrate Doge, split its moves, bind production
+   presentation, and retain charge/snapshot/replay behavior through the package.
 
 Every package change needs ID/resource validation and focused character tests.
 Version manifest-compatible changes intentionally; incompatible formats require a

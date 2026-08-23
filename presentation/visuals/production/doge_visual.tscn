@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="Script" path="res://presentation/visuals/production/doge_production_fighter_visual.gd" id="1"]
+[ext_resource type="SpriteFrames" path="res://assets/characters/doge/animations/doge_sprite_frames.tres" id="2"]
+[node name="DogeVisual" type="Node2D"]
+script = ExtResource("1")
+sprite_frames = ExtResource("2")
+manifest_path = "res://assets/characters/doge/animations/manifest.json"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2")
+animation = &"idle"
+scale = Vector2(0.58, 0.58)

@@ -1,39 +1,36 @@
-[gd_resource type="Resource" load_steps=15 format=3]
+[gd_resource type="Resource" load_steps=12 format=3]
 
 [ext_resource type="Script" path="res://data/character_data.gd" id="char"]
 [ext_resource type="Script" path="res://data/box_data.gd" id="box"]
 [ext_resource type="Script" path="res://data/mechanics/character_mechanics_data.gd" id="mech"]
-[ext_resource type="Script" path="res://data/mechanics/fighter_resource_data.gd" id="res"]
-[ext_resource type="Script" path="res://data/mechanics/status_effect_data.gd" id="status"]
 [ext_resource type="Script" path="res://data/mechanics/mode_data.gd" id="mode"]
 [ext_resource type="Script" path="res://data/mechanics/mode_move_override_data.gd" id="override"]
-[ext_resource type="Script" path="res://data/mechanics/defense_modifier_data.gd" id="defense"]
-[ext_resource type="Resource" path="res://data/move_sets/roster/doge_move_set.tres" id="moveset"]
+[ext_resource type="Resource" path="res://content/characters/doge/gameplay/move_set.tres" id="moveset"]
 
-[sub_resource type="Resource" id="box_1"]
+[sub_resource type="Resource" id="pushbox"]
 script = ExtResource("box")
 offset = Vector2(0, -80)
 size = Vector2(64, 160)
 
-[sub_resource type="Resource" id="box_2"]
+[sub_resource type="Resource" id="hurtbox"]
 script = ExtResource("box")
 offset = Vector2(0, -82)
 size = Vector2(72, 164)
 
-[sub_resource type="Resource" id="override_1"]
+[sub_resource type="Resource" id="override_super_heavy"]
 script = ExtResource("override")
 canonical_move_id = &"stand_heavy"
 replacement_move_id = &"doge_super_heavy"
 
-[sub_resource type="Resource" id="mode_1"]
+[sub_resource type="Resource" id="mode_super_doge"]
 script = ExtResource("mode")
 mode_id = &"super_doge"
 duration_frames = 480
-move_overrides = Array[ExtResource("override")]([SubResource("override_1")])
+move_overrides = Array[ExtResource("override")]([SubResource("override_super_heavy")])
 
-[sub_resource type="Resource" id="mech_1"]
+[sub_resource type="Resource" id="mechanics"]
 script = ExtResource("mech")
-modes = Array[ExtResource("mode")]([SubResource("mode_1")])
+modes = Array[ExtResource("mode")]([SubResource("mode_super_doge")])
 
 [resource]
 script = ExtResource("char")
@@ -56,7 +53,7 @@ backstep_move_frames = 7
 backstep_speed_units_per_tick = 800
 backstep_recovery_frames = 6
 default_getup_frames = 18
-pushbox = SubResource("box_1")
-hurtbox = SubResource("box_2")
+pushbox = SubResource("pushbox")
+hurtbox = SubResource("hurtbox")
 move_set = ExtResource("moveset")
-mechanics = SubResource("mech_1")
+mechanics = SubResource("mechanics")

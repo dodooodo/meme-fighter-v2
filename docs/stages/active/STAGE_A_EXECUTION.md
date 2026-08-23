@@ -19,7 +19,11 @@ role PR contracts, read-only balance exports, a validation-first round-trip
 strategy, a manifest-driven art build entrypoint, mechanic authoring guidance,
 and repeatable merge-conflict simulation. A4 now provides local identity,
 versioned JSONL telemetry for match/move/mastery/performance evidence, bounded
-failure isolation, and replay correlation.
+failure isolation, and replay correlation. A5 now implements the third packaged
+fighter (Doge), a manifest-discovered three-fighter Character Select, Training
+minimum, and the six-step Tutorial that covers the seven roadmap controls.
+Automated runtime, determinism, package, and live-scene smoke evidence is green;
+the A5 human play checklist remains the release-acceptance boundary.
 
 ## Dependencies and workstreams
 
@@ -33,6 +37,7 @@ A-VS-001 ───────────────────────�
 A-MOD-001 ─> A-MOD-002 ─> A-MOD-003 ─> A-MOD-004 ─> A-MOD-005 ─> A-MOD-006 ─> A-MOD-007
 A-COL-003 ─> A-COL-004; A-COL-001/002/005/006/007 are independent
 A-DATA-001..008 ─> local Event Envelope v1 + replay-correlated JSONL
+A-MVP-001..004 ─> packaged Doge; A-MVP-005..007 ─> select/training/tutorial
 ```
 
 `A-RUN-001` through `A-RUN-004` may run in parallel when their path scopes do
@@ -74,6 +79,13 @@ runtime command and failure behavior are settled.
 | A-DATA-006 | Sample performance events | none | done |
 | A-DATA-007 | Persist bounded local JSONL | none | done |
 | A-DATA-008 | Correlate match summaries to replay files | none | done |
+| A-MVP-001 | Migrate Doge package | A-MOD-007, A-DATA-001 | in progress — implementation and automated checks complete; human play pending |
+| A-MVP-002 | Split Doge MoveData resources | A-MOD-007 | in progress — implementation and automated checks complete |
+| A-MVP-003 | Bind Doge production presentation | none | in progress — rendered select review complete; in-battle human review pending |
+| A-MVP-004 | Regress Doge charge behavior | none | in progress — focused snapshot/hash and global replay suites green |
+| A-MVP-005 | Add three-fighter Character Select | A-MOD-007 | in progress — live-scene smoke and rendered review green |
+| A-MVP-006 | Add Training minimum | none | in progress — automated checks green; human play pending |
+| A-MVP-007 | Add Tutorial minimum | none | in progress — automated checks green; human play pending |
 
 ## Integration points and risks
 
@@ -89,6 +101,8 @@ runtime command and failure behavior are settled.
 - Package paths are target architecture. Do not mass-move the existing roster.
 - A4 is local-only. Remote retention, consent/deletion, hard-crash capture,
   ingestion quality, and analytics storage remain later-stage work.
+- A5 automated evidence cannot certify animation timing, control feel, or the
+  clarity of prompts during play; use `A5_MANUAL_VERIFICATION.md` before release.
 
 ## Stage gate
 
@@ -108,4 +122,6 @@ implements the complete validation, preview, atomic apply, and rollback
 contract; this is the accepted A-COL-004 strategy, not a partial importer. A4
 local telemetry is complete; retain its envelope/ADR as authority and defer all
 HTTP, remote storage, consent, retention, and account identity work to B4 or an
-explicit platform/privacy task.
+explicit platform/privacy task. A5 implementation follows next: keep the seven
+packets active until the owner completes the manual checklist, then record that
+evidence before marking the aggregate done.

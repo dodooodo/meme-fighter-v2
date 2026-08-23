@@ -1,0 +1,34 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/27.webp" id="1"]
+[ext_resource type="Texture2D" path="res://assets/characters/doge/poses/28.webp" id="2"]
+[resource]
+animations = [
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": true, "name": &"idle", "speed": 4.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": true, "name": &"walk_forward", "speed": 6.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": true, "name": &"walk_back", "speed": 5.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}], "loop": true, "name": &"crouch", "speed": 1.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": true, "name": &"charge", "speed": 5.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"jump", "speed": 7.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("2")}, {"duration": 1.0, "texture": ExtResource("1")}], "loop": false, "name": &"landing", "speed": 7.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}], "loop": true, "name": &"guard_stand", "speed": 1.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}], "loop": true, "name": &"guard_crouch", "speed": 1.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"hitstun", "speed": 6.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}], "loop": false, "name": &"blockstun", "speed": 6.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"thrown", "speed": 6.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"knockdown", "speed": 6.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("2")}, {"duration": 1.0, "texture": ExtResource("1")}], "loop": false, "name": &"getup", "speed": 6.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"ko", "speed": 3.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"dash_forward", "speed": 9.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("2")}, {"duration": 1.0, "texture": ExtResource("1")}], "loop": false, "name": &"backstep", "speed": 9.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"stand_light", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"stand_heavy", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"crouch_low", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"air_attack", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"ground_throw", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"special_neutral", "speed": 8.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"doge_rush_l1", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"doge_rush_l2", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"doge_rush_l3", "speed": 10.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"ultimate", "speed": 7.0},
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}, {"duration": 1.0, "texture": ExtResource("2")}], "loop": false, "name": &"doge_super_heavy", "speed": 10.0}
+]

@@ -1,0 +1,34 @@
+[gd_resource type="Resource" load_steps=6 format=3]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/moves/cancel_window_data.gd" id="cancel"]
+[sub_resource type="Resource" id="hitbox"]
+script = ExtResource("box")
+offset = Vector2(55, -78)
+size = Vector2(100, 48)
+[sub_resource type="Resource" id="cancel_special"]
+script = ExtResource("cancel")
+start_frame = 10
+end_frame = 18
+condition = 1
+allowed_target_move_ids = Array[StringName]([&"special_neutral"])
+[resource]
+script = ExtResource("move")
+id = &"stand_heavy"
+display_name = "認真一拳"
+animation_id = &"stand_heavy"
+startup_frames = 11
+active_frames = 4
+recovery_frames = 19
+damage = 112
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 7
+hitstop_defender = 7
+hit_level = 1
+knockback_x_units = 1800
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_special")])
+hitbox = SubResource("hitbox")
+counter_hit_extra_knockback_x_units = 1800

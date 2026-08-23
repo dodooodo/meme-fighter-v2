@@ -10,4 +10,6 @@ static func create_p1_source() -> InputSource:
 static func create_p2_source(mode: int) -> InputSource:
     if mode == BattleMode.Mode.VS_CPU:
         return CpuInputSource.new()
+    if mode in [BattleMode.Mode.TRAINING, BattleMode.Mode.TUTORIAL]:
+        return TrainingDummyInputSource.new()
     return KeyboardInputSource.new(KEY_UP, KEY_LEFT, KEY_DOWN, KEY_RIGHT, KEY_M, KEY_COMMA, KEY_PERIOD, KEY_SLASH, KEY_SEMICOLON)
