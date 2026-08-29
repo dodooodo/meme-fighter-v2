@@ -56,7 +56,7 @@ func play_animation(animation_key: StringName) -> void:
         return
 
     _presentation_phase = &"preview" if _preview_mode else &"fps"
-    if _preview_mode or not ATTACK_KEYS.has(resolved):
+    if _preview_mode or not _is_move_driven(resolved):
         sprite.speed_scale = _preview_speed_scale if _preview_mode else 1.0
         if sprite.animation != resolved or not sprite.is_playing():
             sprite.play(resolved)
@@ -70,10 +70,16 @@ func play_animation(animation_key: StringName) -> void:
     _update_frame_pivot()
     queue_redraw()
 
+# Move-driven keys are the shared attack names plus any animation a character's
+# presentation data binds to a move, so resource-conditioned variants stay under
+# the read-only Move phase timeline.
+func _is_move_driven(animation_key: StringName) -> bool:
+    if ATTACK_KEYS.has(animation_key):
+        return true
+    return presentation_data != null and presentation_data.is_move_driven_animation(animation_key)
+
 func sync_move_timeline(move_id: StringName, move_frame: int, startup_frames: int, active_frames: int, recovery_frames: int) -> void:
     if _preview_mode or sprite == null or _greybox_fallback:
-        return
-    if not ATTACK_KEYS.has(current_animation_key):
         return
     if move_id == &"" or move_frame <= 0:
         return

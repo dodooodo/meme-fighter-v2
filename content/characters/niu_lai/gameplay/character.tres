@@ -1,0 +1,57 @@
+[gd_resource type="Resource" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://data/character_data.gd" id="char"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/mechanics/character_mechanics_data.gd" id="mech"]
+[ext_resource type="Script" path="res://data/mechanics/fighter_resource_data.gd" id="res"]
+[ext_resource type="Resource" path="res://content/characters/niu_lai/gameplay/move_set.tres" id="moveset"]
+
+[sub_resource type="Resource" id="pushbox"]
+script = ExtResource("box")
+offset = Vector2(0, -80)
+size = Vector2(64, 160)
+
+[sub_resource type="Resource" id="hurtbox"]
+script = ExtResource("box")
+offset = Vector2(0, -82)
+size = Vector2(72, 164)
+
+[sub_resource type="Resource" id="courage"]
+script = ExtResource("res")
+resource_id = &"courage"
+min_value = 0
+max_value = 3
+round_start_value = 0
+display_to_hud = true
+
+[sub_resource type="Resource" id="mechanics"]
+script = ExtResource("mech")
+resources = Array[ExtResource("res")]([SubResource("courage")])
+heavy_knockdown_resource_id = &"courage"
+heavy_knockdown_resource_loss = 1
+
+[resource]
+script = ExtResource("char")
+id = &"niu_lai"
+display_name = "牛來"
+max_hp = 5000
+max_meter = 100
+walk_forward_units_per_tick = 280
+walk_back_units_per_tick = 235
+jump_velocity_y_units_per_tick = -1400
+gravity_y_units_per_tick2 = 80
+max_fall_speed_y_units_per_tick = 1800
+air_forward_units_per_tick = 220
+air_back_units_per_tick = 200
+landing_recovery_frames = 3
+dash_move_frames = 8
+dash_speed_units_per_tick = 860
+dash_recovery_frames = 4
+backstep_move_frames = 7
+backstep_speed_units_per_tick = 800
+backstep_recovery_frames = 6
+default_getup_frames = 18
+pushbox = SubResource("pushbox")
+hurtbox = SubResource("hurtbox")
+move_set = ExtResource("moveset")
+mechanics = SubResource("mechanics")

@@ -5,9 +5,10 @@
 Most gameplay characters live in `data/characters/*.tres`; move sets in
 `data/move_sets/`; moves in `data/moves/`; presentation data in
 `presentation/characters/`. `data/roster_registry.gd` remains a test and legacy
-compatibility registry. `magic_orange_cat`, `salad_cat`, and `doge` are
-manifest-backed packages under `content/characters/`; the other eleven formal
-roster characters remain on central paths.
+compatibility registry. `magic_orange_cat`, `salad_cat`, `doge`, and `niu_lai`
+are manifest-backed packages under `content/characters/`; the other ten formal
+roster characters remain on central paths. Niu Lai keeps its existing Courage
+gameplay contract while owning split moves and production presentation assets.
 
 `CharacterData.id` is the stable gameplay identity. `CharacterData` owns base
 stats, movement, base boxes, `MoveSetData`, and optional typed mechanics.
@@ -17,7 +18,7 @@ stats, movement, base boxes, `MoveSetData`, and optional typed mechanics.
 ## TARGET
 
 A package has one manifest as its discovery/metadata boundary and separates
-gameplay, presentation, and visual assets. The three migrated packages use this
+gameplay, presentation, and visual assets. The migrated packages use this
 shape:
 
 ```text
@@ -96,7 +97,14 @@ stable identity and can fall back visibly when art is missing.
 7. `A-MOD-007` adds the focused per-character test command and contributor workflow.
 8. `A-MVP-001` through `A-MVP-004` migrate Doge, split its moves, bind production
    presentation, and retain charge/snapshot/replay behavior through the package.
+9. Niu Lai packages its Courage gameplay and recovered per-action production art.
 
 Every package change needs ID/resource validation and focused character tests.
 Version manifest-compatible changes intentionally; incompatible formats require a
 new version and explicit migration, never silent guessing.
+
+Niu Lai is the first package built from recovered per-action folders rather
+than the legacy ten-sheet grid. Its 112 transparent source frames are
+inventoried in one presentation manifest and composed into runtime animation
+keys. Generic resource-conditioned presentation bindings read authoritative
+Courage state but never write gameplay state.

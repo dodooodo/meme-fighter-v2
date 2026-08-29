@@ -23,9 +23,9 @@ func _run() -> void:
 
 func _smoke_character_select() -> void:
     var select := await _open_character_select()
-    _check(select.model.count() == 3, "Character Select loads exactly three manifest-backed fighters")
-    _check(select.p1_select.item_count == 3, "Original P1 picker lists exactly three manifest-backed fighters")
-    _check(select.p2_select.item_count == 3, "Original P2 picker lists exactly three manifest-backed fighters")
+    _check(select.model.count() == 4, "Character Select loads four manifest-backed fighters")
+    _check(select.p1_select.item_count == 4, "Original P1 picker lists four manifest-backed fighters")
+    _check(select.p2_select.item_count == 4, "Original P2 picker lists four manifest-backed fighters")
     _check(not select.vs_cpu_button.disabled, "Character Select actions are enabled after package discovery")
     await process_frame
     await process_frame

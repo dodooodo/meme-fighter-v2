@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://data/character_manifest.gd" id="manifest"]
+[ext_resource type="Resource" path="res://content/characters/niu_lai/gameplay/character.tres" id="gameplay"]
+[ext_resource type="Resource" path="res://content/characters/niu_lai/presentation/character_presentation.tres" id="presentation"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/12.webp" id="portrait"]
+
+[resource]
+script = ExtResource("manifest")
+id = &"niu_lai"
+display_name = "牛來"
+version = 1
+content_pack_id = &"production_niu_lai"
+available = true
+gameplay_resource = ExtResource("gameplay")
+presentation_resource = ExtResource("presentation")
+portrait = ExtResource("portrait")
+icon = ExtResource("portrait")

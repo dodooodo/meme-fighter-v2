@@ -58,7 +58,7 @@ func _test_package_and_catalog_discovery() -> void:
         if item.available:
             ids.append(item.id)
             t.that(item.portrait != null, "%s package has a character-select portrait" % String(item.id))
-    t.equal(ids, [&"doge", &"magic_orange_cat", &"salad_cat"], "A5 available package roster is sorted and contains exactly three fighters")
+    t.equal(ids, [&"doge", &"magic_orange_cat", &"niu_lai", &"salad_cat"], "Available package roster is sorted and includes Niu Lai")
 
 func _test_split_moves_and_production_presentation() -> void:
     var manifest := _manifest()

@@ -13,15 +13,18 @@ v2 has a fixed 60 Hz `BattleSimulation`, roster data/resources, presentation,
 snapshot/replay tests, `scripts/static_validate.py`, and fail-closed
 `scripts/verify.sh`. CI pins Godot 4.7.2. The Golden Pair now uses manifest-backed
 character packages with package-owned moves, validation, a safe contributor
-template, and focused test commands. The remaining twelve roster characters
-still use central resources. A3 contributor tooling provides domain ownership,
+template, and focused test commands. Niu Lai now also uses a manifest-backed
+package, package-owned moves, and recovered production action frames; the
+remaining ten roster characters still use central resources. A3 contributor
+tooling provides domain ownership,
 role PR contracts, read-only balance exports, a validation-first round-trip
 strategy, a manifest-driven art build entrypoint, mechanic authoring guidance,
 and repeatable merge-conflict simulation. A4 now provides local identity,
 versioned JSONL telemetry for match/move/mastery/performance evidence, bounded
 failure isolation, and replay correlation. A5 now implements the third packaged
-fighter (Doge), a manifest-discovered three-fighter Character Select, Training
-minimum, and the six-step Tutorial that covers the seven roadmap controls.
+fighter (Doge), a manifest-discovered four-fighter Character Select including
+Niu Lai, Training minimum, and the six-step Tutorial that covers the seven
+roadmap controls.
 Automated runtime, determinism, package, and live-scene smoke evidence is green;
 the A5 human play checklist remains the release-acceptance boundary.
 
@@ -83,9 +86,10 @@ runtime command and failure behavior are settled.
 | A-MVP-002 | Split Doge MoveData resources | A-MOD-007 | in progress — implementation and automated checks complete |
 | A-MVP-003 | Bind Doge production presentation | none | in progress — feet-pivot regression and rendered alignment review green; in-battle human review pending |
 | A-MVP-004 | Regress Doge charge behavior | none | in progress — focused snapshot/hash and global replay suites green |
-| A-MVP-005 | Add three-fighter Character Select | A-MOD-007 | in progress — original selector layout restored; live-scene smoke and rendered review green |
+| A-MVP-005 | Add manifest-backed Character Select | A-MOD-007 | in progress — original selector layout restored; Niu Lai expands the available roster to four; live-scene smoke and rendered review green |
 | A-MVP-006 | Add Training minimum | none | in progress — automated checks green; human play pending |
 | A-MVP-007 | Add Tutorial minimum | none | in progress — automated checks green; human play pending |
+| A-CHAR-001 | Add Niu Lai production character | A-MOD-007 | in progress — implementation/static checks complete; Godot runtime and human play pending |
 
 ## Integration points and risks
 

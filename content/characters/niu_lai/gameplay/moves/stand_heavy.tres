@@ -1,0 +1,108 @@
+[gd_resource type="Resource" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/moves/cancel_window_data.gd" id="cancel"]
+[ext_resource type="Script" path="res://data/mechanics/move_hit_data.gd" id="hit"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_condition_data.gd" id="cond"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_effect_data.gd" id="eff"]
+[ext_resource type="Script" path="res://data/mechanics/positioning_effect_data.gd" id="pos"]
+
+[sub_resource type="Resource" id="cancel_3"]
+script = ExtResource("cancel")
+start_frame = 9
+end_frame = 16
+condition = 1
+allowed_target_move_ids = Array[StringName]([&"special_neutral"])
+resource_condition_id = &"courage"
+resource_at_least = 1
+
+[sub_resource type="Resource" id="box_2"]
+script = ExtResource("box")
+offset = Vector2(42, -76)
+size = Vector2(89, 36)
+
+[sub_resource type="Resource" id="cond_1"]
+script = ExtResource("cond")
+type = 9
+id = &"courage"
+value = 3
+
+[sub_resource type="Resource" id="hit_1"]
+script = ExtResource("hit")
+hit_id = 0
+active_start_frame = 9
+active_end_frame = 12
+hitbox = SubResource("box_2")
+hit_level = 1
+damage = 92
+hitstun_frames = 11
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 1300
+counter_hit_reaction_type = 2
+counter_hit_extra_hitstun = 6
+counter_hit_extra_knockback_x_units = 1400
+conditions = Array[ExtResource("cond")]([SubResource("cond_1")])
+
+[sub_resource type="Resource" id="cond_2"]
+script = ExtResource("cond")
+type = 9
+id = &"courage"
+value = 3
+invert = true
+
+[sub_resource type="Resource" id="hit_2"]
+script = ExtResource("hit")
+hit_id = 1
+active_start_frame = 9
+active_end_frame = 12
+hitbox = SubResource("box_2")
+hit_level = 1
+damage = 82
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 1100
+conditions = Array[ExtResource("cond")]([SubResource("cond_2")])
+
+[sub_resource type="Resource" id="cond_3"]
+script = ExtResource("cond")
+type = 9
+id = &"courage"
+value = 2
+
+[sub_resource type="Resource" id="pos_1"]
+script = ExtResource("pos")
+type = 2
+distance_units = 900
+
+[sub_resource type="Resource" id="eff_1"]
+script = ExtResource("eff")
+type = 10
+target = 0
+conditions = Array[ExtResource("cond")]([SubResource("cond_3")])
+positioning = SubResource("pos_1")
+
+[resource]
+script = ExtResource("move")
+id = &"stand_heavy"
+display_name = "勇氣重拳"
+animation_id = &"stand_heavy"
+startup_frames = 8
+active_frames = 4
+recovery_frames = 16
+damage = 60
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_3")])
+hits = Array[ExtResource("hit")]([SubResource("hit_1"), SubResource("hit_2")])
+on_start_effects = Array[ExtResource("eff")]([SubResource("eff_1")])
