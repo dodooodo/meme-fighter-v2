@@ -81,9 +81,9 @@ runtime command and failure behavior are settled.
 | A-DATA-008 | Correlate match summaries to replay files | none | done |
 | A-MVP-001 | Migrate Doge package | A-MOD-007, A-DATA-001 | in progress — implementation and automated checks complete; human play pending |
 | A-MVP-002 | Split Doge MoveData resources | A-MOD-007 | in progress — implementation and automated checks complete |
-| A-MVP-003 | Bind Doge production presentation | none | in progress — rendered select review complete; in-battle human review pending |
+| A-MVP-003 | Bind Doge production presentation | none | in progress — feet-pivot regression and rendered alignment review green; in-battle human review pending |
 | A-MVP-004 | Regress Doge charge behavior | none | in progress — focused snapshot/hash and global replay suites green |
-| A-MVP-005 | Add three-fighter Character Select | A-MOD-007 | in progress — live-scene smoke and rendered review green |
+| A-MVP-005 | Add three-fighter Character Select | A-MOD-007 | in progress — original selector layout restored; live-scene smoke and rendered review green |
 | A-MVP-006 | Add Training minimum | none | in progress — automated checks green; human play pending |
 | A-MVP-007 | Add Tutorial minimum | none | in progress — automated checks green; human play pending |
 

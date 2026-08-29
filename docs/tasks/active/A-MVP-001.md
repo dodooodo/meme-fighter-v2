@@ -36,8 +36,8 @@ authority.
 
 Migrate Doge to a discoverable Character Package, split every Doge MoveData
 resource, bind production presentation, and prove charge behavior remains
-deterministic. Replace the development roster picker with a three-fighter
-portrait/name/availability selector supporting local and CPU battles. Add
+deterministic. Preserve the original mode-select layout while sourcing its
+three-fighter choices from package name/availability metadata. Add
 Training reset, dummy guard, box/frame toggles, input display, and a Tutorial
 covering only movement, guard, light/heavy, throw, special, and ultimate.
 
@@ -112,8 +112,8 @@ Affected docs:
 - Doge charge thresholds, release moves, interruption/reset, snapshot, replay,
   armor, mode, and replacement move behavior pass regression coverage.
 - Doge uses a production visual scene with explicit state/move/mode bindings.
-- Character Select shows exactly three available fighter cards with portraits
-  and names and launches local or CPU battles.
+- The original mode-select layout shows exactly three manifest-backed fighter
+  choices and launches local or CPU battles without a frontend restyle.
 - Training supports reset, standing/crouching dummy guard, frame/box debug, and
   canonical P1/P2 input display.
 - Tutorial teaches exactly the seven roadmap subjects and advances only from
