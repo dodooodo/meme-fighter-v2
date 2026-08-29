@@ -789,6 +789,23 @@ editor dock（A-COL-009）    → 人看的檢視介面
 
 注意：`MoveData.animation_id` 不是綁定路徑，runtime 不讀它。
 
+### `A-COL-009` Character Content Dock
+
+把 `A-COL-008` 的 index 搬進 Godot 編輯器（`addons/character_content_inspector`），
+唯讀。回答協作者最常問的兩個問題：
+
+```text
+這隻角色有哪些技能、各自綁哪支動畫？
+我改完之後，那支動畫實際會長什麼樣？
+```
+
+分頁：Moves / States / Animations / Issues，加上用角色真實 SpriteFrames
+播放的預覽（fps 與 loop 取自 build manifest）。
+
+嚴禁：任何寫入路徑。dock 與 CI 讀同一份 index，兩者不可能給出不同答案。
+
+`Import art pack` 按鈕保留位置但停用，實作屬於 `A-COL-010`。
+
 ---
 
 ## 6.6 A4 — Telemetry Foundation

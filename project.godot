@@ -28,3 +28,7 @@ gdscript/warnings/untyped_declaration=1
 
 [telemetry]
 content_version="stage-a-v1"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/character_content_inspector/plugin.cfg")

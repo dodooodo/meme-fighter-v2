@@ -63,6 +63,28 @@ the uncovered-gap case that check does not cover.
 `scripts/verify.sh` runs `--issues-only`. Errors fail the build; warnings never
 do.
 
+## The editor dock
+
+`addons/character_content_inspector` renders the same index inside Godot, under
+the **Characters** dock. It is read-only; nothing in it writes to disk.
+
+- **Characters** list — every non-template package, with its error count.
+- **Moves** — move id, bound animation, `startup/active/recovery`, damage, and
+  status (`ok`, `MISSING ANIMATION`, `UNBOUND`, `allowlisted`).
+- **States** — the same for state bindings, including resource-conditioned
+  variants shown as `animation [resource min-max]`.
+- **Animations** — every built animation with frame count, fps, loop, and
+  whether any binding references it.
+- **Issues** — the character's findings, using the same codes and wording CI
+  prints.
+
+Selecting a move, state, or animation plays it from the character's real
+`SpriteFrames` at the build manifest's fps and loop setting. Selecting a move
+with no usable binding says so rather than showing a stale frame.
+
+The **Import art pack** button is deliberately inert; the GUI import path is
+`A-COL-010`. Build art packs with `scripts/build_art_manifest.py` until then.
+
 ## The unbound-move allowlist
 
 `content/validation/unbound_moves_allowlist.json` declares moves knowingly

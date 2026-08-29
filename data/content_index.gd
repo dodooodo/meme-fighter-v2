@@ -71,6 +71,9 @@ func _index_character(manifest: CharacterManifest, allowlisted_unbound: Dictiona
     var base_keys := _animation_keys_from_scene(presentation.fighter_visual_scene)
     entry["animation_keys"] = base_keys
     entry["animations"] = _animation_details(presentation.fighter_visual_scene, base_keys)
+    # Carried so the editor dock can preview engine truth without a second copy
+    # of the scene-state walk. Null when a package has no visual scene.
+    entry["sprite_frames"] = _sprite_frames_from_scene(presentation.fighter_visual_scene)
 
     var allowlist: Dictionary = {}
     for move_id: Variant in allowlisted_unbound.get(String(character_id), []):
