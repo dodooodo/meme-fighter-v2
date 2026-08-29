@@ -17,7 +17,11 @@ the presentation binding does.
 
 The same index is available inside Godot as the **Characters** dock
 (`addons/character_content_inspector`), which also previews each animation from
-the character's real SpriteFrames.
+the character's real SpriteFrames and imports MODE_FIGHTER art packs.
+
+The art builders need Python 3.12+ and Pillow; the system `python3` on macOS is
+too old and fails with a `SyntaxError`. See
+[`CONTENT_INSPECTOR.md`](CONTENT_INSPECTOR.md).
 
 ## Balance review
 
