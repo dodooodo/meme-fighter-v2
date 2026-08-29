@@ -97,7 +97,11 @@ lookup, usage, and test failures as nonzero exits.
 
 Mechanics require typed, generic data/runtime contracts first. No package may
 introduce a `character_id` switch in generic gameplay. Presentation binds by
-stable identity and can fall back visibly when art is missing.
+stable identity, but the fallback is not visible: an unbound move resolves to
+`ATTACK_FALLBACK` (`attack`), no package builds that animation, and
+`ProductionFighterVisual._generic_fallback` then substitutes `stand_light`. The
+move plays a plausible, wrong animation behind one `push_warning`, which is why
+missing bindings are validated rather than left to playtesting.
 
 ## MIGRATION
 
