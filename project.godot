@@ -1,34 +1,46 @@
 ; Engine configuration file.
-; M3 Complete First Character. Combat runs in a custom fixed-step scheduler.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
 config_version=5
 
 [application]
+
 config/name="Two Box Fighting — M8 Solo Playtest + Charge"
 config/version="0.1.0-stage-a"
 run/main_scene="res://frontend/mode_select_scene.tscn"
+config/features=PackedStringArray("4.7")
 
 [autoload]
+
 Telemetry="*res://telemetry/telemetry_service.gd"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+
 [display]
+
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-window/handheld/orientation=0
-
-[rendering]
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.08, 0.08, 0.09, 1)
-
-[debug]
-gdscript/warnings/untyped_declaration=1
-
-[telemetry]
-content_version="stage-a-v1"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/character_content_inspector/plugin.cfg")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.08, 0.08, 0.09, 1)
+
+[telemetry]
+
+content_version="stage-a-v1"

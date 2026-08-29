@@ -86,10 +86,11 @@ func _index_character(manifest: CharacterManifest, allowlisted_unbound: Dictiona
     _index_fallbacks(entry, base_keys)
     return entry
 
-# V5: an unbound move/state resolves to a fallback key. If that key is not in
-# SpriteFrames the sprite cannot play anything -- the frame is left on whatever
-# was showing. Report it so "unbound" is never mistaken for "shows a generic
-# animation".
+# V5: an unbound move/state resolves to a fallback key. When that key is itself
+# absent from SpriteFrames, ProductionFighterVisual falls back a second time --
+# 'attack' becomes 'stand_light' -- so the move plays a plausible but wrong
+# animation behind a single push_warning. Report it, because that is far harder
+# to notice than a blank frame.
 func _index_fallbacks(entry: Dictionary, base_keys: Dictionary) -> void:
     entry["move_fallback_exists"] = base_keys.has(MOVE_FALLBACK_ANIMATION)
     entry["state_fallback_exists"] = base_keys.has(STATE_FALLBACK_ANIMATION)
@@ -97,7 +98,7 @@ func _index_fallbacks(entry: Dictionary, base_keys: Dictionary) -> void:
         if base_keys.has(fallback):
             continue
         _add_issue(entry, SEVERITY_WARNING, "animation.fallback_missing",
-            "fallback animation '%s' does not exist in SpriteFrames; anything unbound renders nothing" % String(fallback))
+            "fallback animation '%s' does not exist in SpriteFrames; unbound entries reach ProductionFighterVisual's generic fallback and play a wrong animation instead" % String(fallback))
 
 func _index_moves(
     entry: Dictionary,
@@ -133,9 +134,9 @@ func _index_moves(
         # V2: an unbound move resolves to MOVE_FALLBACK_ANIMATION, which may not
         # exist in this character's SpriteFrames at all.
         if bindings.is_empty():
-            var consequence := "falls back to '%s'" % String(MOVE_FALLBACK_ANIMATION)
+            var consequence := "resolves to '%s'" % String(MOVE_FALLBACK_ANIMATION)
             if not base_keys.has(MOVE_FALLBACK_ANIMATION):
-                consequence = "falls back to '%s', which this character does not have -- renders nothing" % String(MOVE_FALLBACK_ANIMATION)
+                consequence = "resolves to '%s', which this character does not build, so it plays a generic fallback animation instead" % String(MOVE_FALLBACK_ANIMATION)
             if allowlist.has(move.id):
                 _add_issue(entry, SEVERITY_WARNING, "move.unbound_allowlisted",
                     "move '%s' has no presentation binding (allowlisted); %s" % [String(move.id), consequence])

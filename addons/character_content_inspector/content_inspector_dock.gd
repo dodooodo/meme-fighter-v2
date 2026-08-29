@@ -275,7 +275,7 @@ func _binding_text(bindings: Array) -> String:
 
 func _move_status(row: Dictionary, entry: Dictionary) -> String:
     if not row["bound"]:
-        var consequence := "renders nothing" if not entry.get("move_fallback_exists", true) else "falls back"
+        var consequence := "wrong animation" if not entry.get("move_fallback_exists", true) else "falls back"
         return "allowlisted, %s" % consequence if row["allowlisted"] else "UNBOUND, %s" % consequence
     if _has_missing_binding(row["bindings"]):
         return "MISSING ANIMATION"
