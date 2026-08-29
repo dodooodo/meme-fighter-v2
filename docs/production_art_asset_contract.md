@@ -18,13 +18,19 @@ Only Gameplay Simulation decides combat. Presentation texture size, pivot, aspec
 Purpose: normal fighter body only.
 
 Contract:
-- 10 source sheets.
-- 5×5 each.
-- 250 frames total.
-- Existing deterministic grid/gutter crop pipeline remains authoritative.
+- Two accepted source layouts exist. `LEGACY_GRID` uses 10 source sheets, 5×5
+  each, and 250 frames total; the existing deterministic grid/gutter crop
+  pipeline remains authoritative for those packs.
+- `ACTION_FOLDERS` uses explicitly named per-action directories containing
+  transparent PNG/WebP frames. Its manifest must inventory every source frame,
+  declare every composite runtime animation, and may not infer animation order
+  from directory traversal.
+- `ACTION_FOLDERS` has no fixed sheet or frame count. It must still bind the
+  complete gameplay-visible base state and move set for the character.
 - Canonical facing RIGHT; mirror in Presentation when facing left.
 - FEET_CENTER pivot.
-- Shared runtime canvas remains allowed for backward compatibility.
+- Shared runtime canvas remains allowed for `LEGACY_GRID` backward
+  compatibility; tight transparent action frames retain authored dimensions.
 - `manifest_version = 3`, `pack_type = BASE_FIGHTER`, `mode_id = ""`.
 
 Body animation keys remain the current 23-key contract. `special_neutral` and `ultimate` remain body animation only.
@@ -123,6 +129,12 @@ BASE_FIGHTER stays backward compatible:
 
 ```bash
 python3 scripts/build_character_assets.py --character salad_cat --source <source.zip>
+```
+
+Recovered action-folder BASE_FIGHTER:
+
+```bash
+python3 scripts/build_split_character_assets.py --spec <action-pack-spec.json> --source-root <character-dir>
 ```
 
 MODE_FIGHTER:

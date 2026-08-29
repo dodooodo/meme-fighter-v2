@@ -1,0 +1,3663 @@
+{
+  "manifest_version": 3,
+  "asset_version": 1,
+  "character_id": "niu_lai",
+  "character_asset_key": "niu_lai",
+  "pack_type": "BASE_FIGHTER",
+  "source": "split_character_assets_recovered_v2_3_2_all_frames/牛來",
+  "source_layout": "ACTION_FOLDERS",
+  "pivot_convention": "FEET_CENTER",
+  "source_frame_count": 112,
+  "source_frames": [
+    {
+      "round": 1,
+      "action": 1,
+      "path": "res://assets/characters/niu_lai/source/round_1/11.webp",
+      "source_action": "01_待機_Courage_Lv0「膽小」",
+      "width": 242,
+      "height": 265,
+      "pivot_pixels": [
+        121.0,
+        265.0
+      ],
+      "sha256": "e61d3cec3ba7d87d48bcca9d34374affb9c9f278f615cfce5f45ae24b7109cd3"
+    },
+    {
+      "round": 1,
+      "action": 2,
+      "path": "res://assets/characters/niu_lai/source/round_1/12.webp",
+      "source_action": "02_待機_Courage_Lv3「夢的勇士」",
+      "width": 278,
+      "height": 258,
+      "pivot_pixels": [
+        139.0,
+        258.0
+      ],
+      "sha256": "f9d6b42faf5083dc42fc69e1e59ddc61bec56db4f0e7c924c7567c0b44d692fa"
+    },
+    {
+      "round": 1,
+      "action": 3,
+      "path": "res://assets/characters/niu_lai/source/round_1/13.webp",
+      "source_action": "03_前走_Lv0–1",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "e4e5b1e1d7268a123cffe4aaaf9dc43733655ef5453b7dc28a91c38e4e6cef8b"
+    },
+    {
+      "round": 1,
+      "action": 3,
+      "path": "res://assets/characters/niu_lai/source/round_1/14.webp",
+      "source_action": "03_前走_Lv0–1",
+      "width": 165,
+      "height": 245,
+      "pivot_pixels": [
+        82.5,
+        245.0
+      ],
+      "sha256": "5ba968c24fb71d0f11db7addf2433ce9b9ab8330a2598906c9078824f94d0e89"
+    },
+    {
+      "round": 1,
+      "action": 4,
+      "path": "res://assets/characters/niu_lai/source/round_1/15.webp",
+      "source_action": "04_強化前走_Lv2–3",
+      "width": 202,
+      "height": 241,
+      "pivot_pixels": [
+        101.0,
+        241.0
+      ],
+      "sha256": "5d078a744423f62571005d67c616495a8c634666386fbbfe9b0b425d40c8b742"
+    },
+    {
+      "round": 1,
+      "action": 4,
+      "path": "res://assets/characters/niu_lai/source/round_1/16.webp",
+      "source_action": "04_強化前走_Lv2–3",
+      "width": 228,
+      "height": 243,
+      "pivot_pixels": [
+        114.0,
+        243.0
+      ],
+      "sha256": "6a1cba6558a253a9286626c943c221eb60fb625a44480ba39cec3fba02e64d17"
+    },
+    {
+      "round": 1,
+      "action": 5,
+      "path": "res://assets/characters/niu_lai/source/round_1/17.webp",
+      "source_action": "05_後走",
+      "width": 256,
+      "height": 260,
+      "pivot_pixels": [
+        128.0,
+        260.0
+      ],
+      "sha256": "36836d252cd99f35fd04216ac213e8671e73210b1630c064d1c1e1dc2d736e4d"
+    },
+    {
+      "round": 1,
+      "action": 5,
+      "path": "res://assets/characters/niu_lai/source/round_1/18.webp",
+      "source_action": "05_後走",
+      "width": 255,
+      "height": 266,
+      "pivot_pixels": [
+        127.5,
+        266.0
+      ],
+      "sha256": "d5d1f4186a304ba5fc15ed89bf8e081785c3b9733e1fa4139ac80867633b6d1e"
+    },
+    {
+      "round": 1,
+      "action": 6,
+      "path": "res://assets/characters/niu_lai/source/round_1/19.webp",
+      "source_action": "06_蹲下",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "ab1b7cb6080277d8b36b6a4ce466bcc28ccabba40e3e877a26f7c99bfafa5d79"
+    },
+    {
+      "round": 1,
+      "action": 7,
+      "path": "res://assets/characters/niu_lai/source/round_1/21.webp",
+      "source_action": "07_跳躍",
+      "width": 286,
+      "height": 265,
+      "pivot_pixels": [
+        143.0,
+        265.0
+      ],
+      "sha256": "155e2086605b246e789b0ba682ffb99f6a3fb109400712abf8ac7abde5d33f05"
+    },
+    {
+      "round": 1,
+      "action": 7,
+      "path": "res://assets/characters/niu_lai/source/round_1/22.webp",
+      "source_action": "07_跳躍",
+      "width": 253,
+      "height": 260,
+      "pivot_pixels": [
+        126.5,
+        260.0
+      ],
+      "sha256": "e429669868ddeecc542fff882b63a95f403d104ecb69dac7573846642a655403"
+    },
+    {
+      "round": 1,
+      "action": 8,
+      "path": "res://assets/characters/niu_lai/source/round_1/23.webp",
+      "source_action": "08_落地",
+      "width": 238,
+      "height": 254,
+      "pivot_pixels": [
+        119.0,
+        254.0
+      ],
+      "sha256": "e7aba17c8be0a54d3ac2ea228025f6ef11da836a931044591461bcfba6c3ae53"
+    },
+    {
+      "round": 1,
+      "action": 9,
+      "path": "res://assets/characters/niu_lai/source/round_1/24.webp",
+      "source_action": "09_前衝",
+      "width": 251,
+      "height": 241,
+      "pivot_pixels": [
+        125.5,
+        241.0
+      ],
+      "sha256": "66b102563e80b2d09d49067f6590295a8124cf6c446b99c6a91f41cd02c2effe"
+    },
+    {
+      "round": 1,
+      "action": 9,
+      "path": "res://assets/characters/niu_lai/source/round_1/25.webp",
+      "source_action": "09_前衝",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "14d5adda3bfed76202948d248113e6323e670322001ea8b16733d48f2e45d155"
+    },
+    {
+      "round": 1,
+      "action": 10,
+      "path": "res://assets/characters/niu_lai/source/round_1/26.webp",
+      "source_action": "10_前衝收招_Lv0–1",
+      "width": 221,
+      "height": 258,
+      "pivot_pixels": [
+        110.5,
+        258.0
+      ],
+      "sha256": "aeed4b2e28739df47f1c937846bd0605974971b315184a9a341587b28da064cd"
+    },
+    {
+      "round": 1,
+      "action": 11,
+      "path": "res://assets/characters/niu_lai/source/round_1/27.webp",
+      "source_action": "11_強化前衝收招_Lv2–3",
+      "width": 272,
+      "height": 251,
+      "pivot_pixels": [
+        136.0,
+        251.0
+      ],
+      "sha256": "df9eda0e3aa4c1ac0c7a946535c1c2cf7311ba68d3d867046e03fb05cc86eca9"
+    },
+    {
+      "round": 1,
+      "action": 12,
+      "path": "res://assets/characters/niu_lai/source/round_1/28.webp",
+      "source_action": "12_後撤",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "d02cf5bfb59c4b75e0afc259ab5c636bf67056903b6b7781ca00a6c7b38a82b2"
+    },
+    {
+      "round": 1,
+      "action": 13,
+      "path": "res://assets/characters/niu_lai/source/round_1/29.webp",
+      "source_action": "13_後撤落地",
+      "width": 224,
+      "height": 237,
+      "pivot_pixels": [
+        112.0,
+        237.0
+      ],
+      "sha256": "4b7b06926415adc525c3a5f3670bf5e2fbe4ffd920dd16208c224969f71a2f89"
+    },
+    {
+      "round": 1,
+      "action": 14,
+      "path": "res://assets/characters/niu_lai/source/round_1/31.webp",
+      "source_action": "14_Lv0_輕攻「試探拳」",
+      "width": 189,
+      "height": 227,
+      "pivot_pixels": [
+        94.5,
+        227.0
+      ],
+      "sha256": "6214c2cdfa6e759c74b8b2d66df6343c8892ffafbef20c8da1c712e89e6a487d"
+    },
+    {
+      "round": 1,
+      "action": 14,
+      "path": "res://assets/characters/niu_lai/source/round_1/32.webp",
+      "source_action": "14_Lv0_輕攻「試探拳」",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "0376a57ef0f196de7af2aa2fe168f824cda269419c86aedea9e37e2fef0e3bed"
+    },
+    {
+      "round": 1,
+      "action": 14,
+      "path": "res://assets/characters/niu_lai/source/round_1/33.webp",
+      "source_action": "14_Lv0_輕攻「試探拳」",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "19223565e97590faf4f48aac9145650879abe0dd66201e38bf954ddae41fbc69"
+    },
+    {
+      "round": 1,
+      "action": 15,
+      "path": "res://assets/characters/niu_lai/source/round_1/34.webp",
+      "source_action": "15_Lv3_強化動作版「試探拳」",
+      "width": 226,
+      "height": 240,
+      "pivot_pixels": [
+        113.0,
+        240.0
+      ],
+      "sha256": "d278e21a98616684d7b8105315315142f5e9c57c4e7efa54552f1ed26c21b7a8"
+    },
+    {
+      "round": 1,
+      "action": 15,
+      "path": "res://assets/characters/niu_lai/source/round_1/35.webp",
+      "source_action": "15_Lv3_強化動作版「試探拳」",
+      "width": 280,
+      "height": 240,
+      "pivot_pixels": [
+        140.0,
+        240.0
+      ],
+      "sha256": "c5fa337f58c40d4e10e9587758bef25448134c8ba37e14d00c8768bc336b0de6"
+    },
+    {
+      "round": 1,
+      "action": 15,
+      "path": "res://assets/characters/niu_lai/source/round_1/36.webp",
+      "source_action": "15_Lv3_強化動作版「試探拳」",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "17cb9e4bc7ff021715581204e36abbcb9b750e4f429a64a866607c1010ae23b5"
+    },
+    {
+      "round": 1,
+      "action": 16,
+      "path": "res://assets/characters/niu_lai/source/round_1/41.webp",
+      "source_action": "16_Lv0–1_重攻「牛角重槌」",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "7ff5486305cd93ca7fa860575f3e1a083312fd9eed74c35924147db5c50b2f4e"
+    },
+    {
+      "round": 1,
+      "action": 16,
+      "path": "res://assets/characters/niu_lai/source/round_1/42.webp",
+      "source_action": "16_Lv0–1_重攻「牛角重槌」",
+      "width": 262,
+      "height": 244,
+      "pivot_pixels": [
+        131.0,
+        244.0
+      ],
+      "sha256": "dd980141fe9cc3ba609582da4d006fb7dc7cdb9ae9035dd83aba5da0c3f26577"
+    },
+    {
+      "round": 1,
+      "action": 16,
+      "path": "res://assets/characters/niu_lai/source/round_1/43.webp",
+      "source_action": "16_Lv0–1_重攻「牛角重槌」",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "53cc0d766605602d6774128d4d3c9f22b2ee0d5a4057be217550306e5969f305"
+    },
+    {
+      "round": 1,
+      "action": 17,
+      "path": "res://assets/characters/niu_lai/source/round_1/44.webp",
+      "source_action": "17_Lv2–3_前踏版「牛角重槌」",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "5f308b15087d42c89c5a0149812389e7b429b03a943b27f585f5a5120dbe895e"
+    },
+    {
+      "round": 1,
+      "action": 17,
+      "path": "res://assets/characters/niu_lai/source/round_1/45.webp",
+      "source_action": "17_Lv2–3_前踏版「牛角重槌」",
+      "width": 282,
+      "height": 218,
+      "pivot_pixels": [
+        141.0,
+        218.0
+      ],
+      "sha256": "881a8b23a423e38172f770d445342f14802855ac63de9052048bf2f1eb2e3977"
+    },
+    {
+      "round": 1,
+      "action": 17,
+      "path": "res://assets/characters/niu_lai/source/round_1/46.webp",
+      "source_action": "17_Lv2–3_前踏版「牛角重槌」",
+      "width": 231,
+      "height": 256,
+      "pivot_pixels": [
+        115.5,
+        256.0
+      ],
+      "sha256": "412bfec86f00505eb9efdc470d0e1e9f19132cb858022c810c497140f36b9693"
+    },
+    {
+      "round": 1,
+      "action": 18,
+      "path": "res://assets/characters/niu_lai/source/round_1/51.webp",
+      "source_action": "18_Lv0–1「怕歸怕還是要踢」",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "7ae14fd5d2fc2603c8fb08c786ea12508dd70fa13b4bf60eb67059d9c73e23a2"
+    },
+    {
+      "round": 1,
+      "action": 18,
+      "path": "res://assets/characters/niu_lai/source/round_1/52.webp",
+      "source_action": "18_Lv0–1「怕歸怕還是要踢」",
+      "width": 253,
+      "height": 222,
+      "pivot_pixels": [
+        126.5,
+        222.0
+      ],
+      "sha256": "072b29cb54192ddb6497ea79f58b0b34f700e834d56a2af56615e24d74d4ee69"
+    },
+    {
+      "round": 1,
+      "action": 18,
+      "path": "res://assets/characters/niu_lai/source/round_1/53.webp",
+      "source_action": "18_Lv0–1「怕歸怕還是要踢」",
+      "width": 245,
+      "height": 232,
+      "pivot_pixels": [
+        122.5,
+        232.0
+      ],
+      "sha256": "036228704ee70b57d29972231f87d0b83bd0c80519d9d8b8b605085cc94ac204"
+    },
+    {
+      "round": 1,
+      "action": 19,
+      "path": "res://assets/characters/niu_lai/source/round_1/54.webp",
+      "source_action": "19_Lv2_加長版",
+      "width": 227,
+      "height": 223,
+      "pivot_pixels": [
+        113.5,
+        223.0
+      ],
+      "sha256": "72b362e4518a13886afc5f6fd656eac22c3cbe6d2082c785017aa0c785c8d0b0"
+    },
+    {
+      "round": 1,
+      "action": 19,
+      "path": "res://assets/characters/niu_lai/source/round_1/55.webp",
+      "source_action": "19_Lv2_加長版",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "223a56b5e241f6e86ace23b04ccbf123dfb7a5cc856b0fc90a5848963703da39"
+    },
+    {
+      "round": 1,
+      "action": 19,
+      "path": "res://assets/characters/niu_lai/source/round_1/56.webp",
+      "source_action": "19_Lv2_加長版",
+      "width": 217,
+      "height": 243,
+      "pivot_pixels": [
+        108.5,
+        243.0
+      ],
+      "sha256": "98f234386c70387a847bfa0e46dcfc8e79f10d5ff775972e5f7c1bb8f1f554cf"
+    },
+    {
+      "round": 1,
+      "action": 20,
+      "path": "res://assets/characters/niu_lai/source/round_1/57.webp",
+      "source_action": "20_Lv3_下段攻擊",
+      "width": 253,
+      "height": 252,
+      "pivot_pixels": [
+        126.5,
+        252.0
+      ],
+      "sha256": "9ff4f4d912b79c04ee9ae9c29ec7e20c59c49de60e965503a809fadfe6b573e7"
+    },
+    {
+      "round": 1,
+      "action": 21,
+      "path": "res://assets/characters/niu_lai/source/round_1/58.webp",
+      "source_action": "21_Lv3_Counter_Hit_後向前確認",
+      "width": 232,
+      "height": 274,
+      "pivot_pixels": [
+        116.0,
+        274.0
+      ],
+      "sha256": "c312c6b06b17f959d45dee9b2c2c89f0085135b998b7a88c4c046334659771c9"
+    },
+    {
+      "round": 1,
+      "action": 22,
+      "path": "res://assets/characters/niu_lai/source/round_1/59.webp",
+      "source_action": "22_Lv3_接輕攻準備",
+      "width": 238,
+      "height": 267,
+      "pivot_pixels": [
+        119.0,
+        267.0
+      ],
+      "sha256": "4856132e3a9f0449be185372dc368e92a6a7eaae548b9bd007508793d4c856e7"
+    },
+    {
+      "round": 1,
+      "action": 23,
+      "path": "res://assets/characters/niu_lai/source/round_1/61.webp",
+      "source_action": "23_Lv0–1「閉眼勇氣飛踢」",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "d8e8b3fa31d772e5eace0e5b0719ccd9f6f04d4b7e4f1518226147334e66d4eb"
+    },
+    {
+      "round": 1,
+      "action": 23,
+      "path": "res://assets/characters/niu_lai/source/round_1/62.webp",
+      "source_action": "23_Lv0–1「閉眼勇氣飛踢」",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "58c38d067a3d3b785930d102a370b154846bb5ad7f333b1f7516c22f43ef6207"
+    },
+    {
+      "round": 1,
+      "action": 23,
+      "path": "res://assets/characters/niu_lai/source/round_1/63.webp",
+      "source_action": "23_Lv0–1「閉眼勇氣飛踢」",
+      "width": 233,
+      "height": 237,
+      "pivot_pixels": [
+        116.5,
+        237.0
+      ],
+      "sha256": "68338e7db58ed112b3d68e069127d20c0bbe183cc1e3262b06721fe34e6e894b"
+    },
+    {
+      "round": 1,
+      "action": 24,
+      "path": "res://assets/characters/niu_lai/source/round_1/64.webp",
+      "source_action": "24_Lv2_前進版",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "4e785d182ee95f9a7409ae5c8ee134e370476036ac6cb3c64dd83b1a99cde742"
+    },
+    {
+      "round": 1,
+      "action": 24,
+      "path": "res://assets/characters/niu_lai/source/round_1/65.webp",
+      "source_action": "24_Lv2_前進版",
+      "width": 254,
+      "height": 244,
+      "pivot_pixels": [
+        127.0,
+        244.0
+      ],
+      "sha256": "f63029265e0e494b8dd1849795d71986baf4da4cf08e654a1e59bad12e498a3d"
+    },
+    {
+      "round": 1,
+      "action": 24,
+      "path": "res://assets/characters/niu_lai/source/round_1/66.webp",
+      "source_action": "24_Lv2_前進版",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "1512a47771c506692c5b930d2b34abb026444a81a5685aed8e23eb35cbee15e5"
+    },
+    {
+      "round": 1,
+      "action": 25,
+      "path": "res://assets/characters/niu_lai/source/round_1/67.webp",
+      "source_action": "25_Lv3_完整_Jump-in_版",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "8e1c482072afabb7e8fbfd9f39f89ad736c99bebdd78660b073dcdd633158e78"
+    },
+    {
+      "round": 1,
+      "action": 25,
+      "path": "res://assets/characters/niu_lai/source/round_1/68.webp",
+      "source_action": "25_Lv3_完整_Jump-in_版",
+      "width": 268,
+      "height": 256,
+      "pivot_pixels": [
+        134.0,
+        256.0
+      ],
+      "sha256": "c316c4b6d00722be74737182d40431724d145db944e7e731a5567fdb390f2afe"
+    },
+    {
+      "round": 1,
+      "action": 25,
+      "path": "res://assets/characters/niu_lai/source/round_1/69.webp",
+      "source_action": "25_Lv3_完整_Jump-in_版",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "4fbbc674c52b6733dc202d30f48422afe3486096cc7750a599fca47bfdb9e7f8"
+    },
+    {
+      "round": 1,
+      "action": 26,
+      "path": "res://assets/characters/niu_lai/source/round_1/71.webp",
+      "source_action": "26_站防_Lv0",
+      "width": 259,
+      "height": 252,
+      "pivot_pixels": [
+        129.5,
+        252.0
+      ],
+      "sha256": "14b3a33b36dd6da0419b7f353dfdab53637519fec6b4e29611ee20b8e5f07f0b"
+    },
+    {
+      "round": 1,
+      "action": 27,
+      "path": "res://assets/characters/niu_lai/source/round_1/72.webp",
+      "source_action": "27_站防_Lv1",
+      "width": 236,
+      "height": 243,
+      "pivot_pixels": [
+        118.0,
+        243.0
+      ],
+      "sha256": "1d23c4ba15131f7c4bd31e948a1a6da459467b59d52a2418eb996dfa709de0f4"
+    },
+    {
+      "round": 1,
+      "action": 28,
+      "path": "res://assets/characters/niu_lai/source/round_1/73.webp",
+      "source_action": "28_站防_Lv2",
+      "width": 233,
+      "height": 246,
+      "pivot_pixels": [
+        116.5,
+        246.0
+      ],
+      "sha256": "085aa1c51819c1212a701e467f62ed2e99c1cfa8492e0da3f44aff09b41f2bc0"
+    },
+    {
+      "round": 1,
+      "action": 29,
+      "path": "res://assets/characters/niu_lai/source/round_1/74.webp",
+      "source_action": "29_站防_Lv3",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "3316092a077943e9d400e6f4f64621e5ab78933c0de6e07ee250d72dfa58c48b"
+    },
+    {
+      "round": 1,
+      "action": 30,
+      "path": "res://assets/characters/niu_lai/source/round_1/75.webp",
+      "source_action": "30_蹲防_Lv0",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "803581986388a15b8e0170777b3867b520410aa57cb1cb487349363bbdc25c3d"
+    },
+    {
+      "round": 1,
+      "action": 31,
+      "path": "res://assets/characters/niu_lai/source/round_1/76.webp",
+      "source_action": "31_蹲防_Lv1",
+      "width": 229,
+      "height": 204,
+      "pivot_pixels": [
+        114.5,
+        204.0
+      ],
+      "sha256": "e905fcd6a7a01f97d54f22e7fbc7ecebdf8801afbbd2cff01098a71684a9c616"
+    },
+    {
+      "round": 1,
+      "action": 32,
+      "path": "res://assets/characters/niu_lai/source/round_1/77.webp",
+      "source_action": "32_蹲防_Lv2",
+      "width": 230,
+      "height": 253,
+      "pivot_pixels": [
+        115.0,
+        253.0
+      ],
+      "sha256": "d0a594bb4055fd21138b6c83b70ecd3dc9b1fb3c51aa3924150555ffac5bf32a"
+    },
+    {
+      "round": 1,
+      "action": 33,
+      "path": "res://assets/characters/niu_lai/source/round_1/78.webp",
+      "source_action": "33_蹲防_Lv3",
+      "width": 295,
+      "height": 247,
+      "pivot_pixels": [
+        147.5,
+        247.0
+      ],
+      "sha256": "b549670e273f369a2be75a31735379bf6a45a20c31a4731e1bd9e5a0c8aaec25"
+    },
+    {
+      "round": 1,
+      "action": 34,
+      "path": "res://assets/characters/niu_lai/source/round_1/79.webp",
+      "source_action": "34_防禦解除_回待機",
+      "width": 195,
+      "height": 250,
+      "pivot_pixels": [
+        97.5,
+        250.0
+      ],
+      "sha256": "b34b48b3f973f96a570ba1c94f0497cec6640297cbc3526ad4cdfe20c7649129"
+    },
+    {
+      "round": 1,
+      "action": 35,
+      "path": "res://assets/characters/niu_lai/source/round_1/81.webp",
+      "source_action": "35_輕防禦硬直",
+      "width": 203,
+      "height": 220,
+      "pivot_pixels": [
+        101.5,
+        220.0
+      ],
+      "sha256": "25994b5f6b0f1e3c1ee93dccc219d793a2967d7a6ae66f4c22d3eca1f42afd4d"
+    },
+    {
+      "round": 1,
+      "action": 36,
+      "path": "res://assets/characters/niu_lai/source/round_1/82.webp",
+      "source_action": "36_重防禦硬直",
+      "width": 243,
+      "height": 205,
+      "pivot_pixels": [
+        121.5,
+        205.0
+      ],
+      "sha256": "e1aecc2d942d3d028cb1529f0522fca4088fbbf55743d38dbfe460b1cfff0c4f"
+    },
+    {
+      "round": 1,
+      "action": 37,
+      "path": "res://assets/characters/niu_lai/source/round_1/83.webp",
+      "source_action": "37_上段受擊",
+      "width": 253,
+      "height": 242,
+      "pivot_pixels": [
+        126.5,
+        242.0
+      ],
+      "sha256": "cc21d01f2301f064214765e2c5cac888d39555fe1d98b30c7d44faa032d403be"
+    },
+    {
+      "round": 1,
+      "action": 38,
+      "path": "res://assets/characters/niu_lai/source/round_1/84.webp",
+      "source_action": "38_下段受擊",
+      "width": 224,
+      "height": 242,
+      "pivot_pixels": [
+        112.0,
+        242.0
+      ],
+      "sha256": "d3d49d6303b7565fb6a8b03123e2d234f6eb786f9464319c49b41f858d5b5f10"
+    },
+    {
+      "round": 1,
+      "action": 39,
+      "path": "res://assets/characters/niu_lai/source/round_1/85.webp",
+      "source_action": "39_重受擊",
+      "width": 276,
+      "height": 253,
+      "pivot_pixels": [
+        138.0,
+        253.0
+      ],
+      "sha256": "8ee16cd971a74bf900510c8c16125bb51c55c433f0907cc5238d7e5df1cbaa3a"
+    },
+    {
+      "round": 1,
+      "action": 40,
+      "path": "res://assets/characters/niu_lai/source/round_1/86.webp",
+      "source_action": "40_空中受擊",
+      "width": 235,
+      "height": 235,
+      "pivot_pixels": [
+        117.5,
+        235.0
+      ],
+      "sha256": "caf351ddff64317d903e77d5c2d3b29c525ed80dedded658b54b15279393c9a9"
+    },
+    {
+      "round": 2,
+      "action": 1,
+      "path": "res://assets/characters/niu_lai/source/round_2/11.webp",
+      "source_action": "01_投技「友情抱摔」",
+      "width": 293,
+      "height": 238,
+      "pivot_pixels": [
+        146.5,
+        238.0
+      ],
+      "sha256": "755f1a221a53efec455778e8d0dad9e3d20a7b7369a8fcae2b87b7555cabc876"
+    },
+    {
+      "round": 2,
+      "action": 1,
+      "path": "res://assets/characters/niu_lai/source/round_2/12.webp",
+      "source_action": "01_投技「友情抱摔」",
+      "width": 212,
+      "height": 271,
+      "pivot_pixels": [
+        106.0,
+        271.0
+      ],
+      "sha256": "83a5cfa790040441e4b0a766399c55656a4306e3120c0645826cba281490f5cc"
+    },
+    {
+      "round": 2,
+      "action": 1,
+      "path": "res://assets/characters/niu_lai/source/round_2/13.webp",
+      "source_action": "01_投技「友情抱摔」",
+      "width": 235,
+      "height": 251,
+      "pivot_pixels": [
+        117.5,
+        251.0
+      ],
+      "sha256": "2ff1ce7faaab0fed73e0b7f04b1c5714e1a117ae634c2a9e107df606965c37ed"
+    },
+    {
+      "round": 2,
+      "action": 1,
+      "path": "res://assets/characters/niu_lai/source/round_2/14.webp",
+      "source_action": "01_投技「友情抱摔」",
+      "width": 195,
+      "height": 256,
+      "pivot_pixels": [
+        97.5,
+        256.0
+      ],
+      "sha256": "23eab28c216df8e6fe7507f308a107632f312f54533ae85002a88ac50d4e5bdf"
+    },
+    {
+      "round": 2,
+      "action": 1,
+      "path": "res://assets/characters/niu_lai/source/round_2/15.webp",
+      "source_action": "01_投技「友情抱摔」",
+      "width": 256,
+      "height": 225,
+      "pivot_pixels": [
+        128.0,
+        225.0
+      ],
+      "sha256": "6cf5bc4b5f34d5e056f2c4c664d231a958ce3f537046811c3d9bed66939b21af"
+    },
+    {
+      "round": 2,
+      "action": 1,
+      "path": "res://assets/characters/niu_lai/source/round_2/16.webp",
+      "source_action": "01_投技「友情抱摔」",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "12398090024ee13cfd70ff99ed6bb225f083a3748931da0c6049a08aa6a159a4"
+    },
+    {
+      "round": 2,
+      "action": 2,
+      "path": "res://assets/characters/niu_lai/source/round_2/21.webp",
+      "source_action": "02_被摔起飛",
+      "width": 272,
+      "height": 264,
+      "pivot_pixels": [
+        136.0,
+        264.0
+      ],
+      "sha256": "30f3acd4d338cd3822f3a0a54ffda5bd43dbe76256d2d9325d79a06a1ac9dd60"
+    },
+    {
+      "round": 2,
+      "action": 3,
+      "path": "res://assets/characters/niu_lai/source/round_2/22.webp",
+      "source_action": "03_空中翻滾",
+      "width": 238,
+      "height": 264,
+      "pivot_pixels": [
+        119.0,
+        264.0
+      ],
+      "sha256": "c0b724bf1ed6ef5e90cd287477a0e90a5575207fdb4a0fc18b9552f68316bc20"
+    },
+    {
+      "round": 2,
+      "action": 4,
+      "path": "res://assets/characters/niu_lai/source/round_2/23.webp",
+      "source_action": "04_Heavy_Knockdown_撞地",
+      "width": 258,
+      "height": 264,
+      "pivot_pixels": [
+        129.0,
+        264.0
+      ],
+      "sha256": "a09b9f2b987bd2bcd7c547920a9b8f40f7714e2cffd4260dd2010d18d3d22fe7"
+    },
+    {
+      "round": 2,
+      "action": 5,
+      "path": "res://assets/characters/niu_lai/source/round_2/24.webp",
+      "source_action": "05_Heavy_Knockdown_倒地",
+      "width": 272,
+      "height": 248,
+      "pivot_pixels": [
+        136.0,
+        248.0
+      ],
+      "sha256": "e7acd15bebfe3d85387516cece967bc066b85f65f5539f72b80a247d0fa6a767"
+    },
+    {
+      "round": 2,
+      "action": 6,
+      "path": "res://assets/characters/niu_lai/source/round_2/25.webp",
+      "source_action": "06_起身",
+      "width": 238,
+      "height": 248,
+      "pivot_pixels": [
+        119.0,
+        248.0
+      ],
+      "sha256": "6ef815bc59d36014d9028a99db086c0fdd49f4d8cb9a6c35b2717aa59b693006"
+    },
+    {
+      "round": 2,
+      "action": 7,
+      "path": "res://assets/characters/niu_lai/source/round_2/26.webp",
+      "source_action": "07_KO",
+      "width": 258,
+      "height": 248,
+      "pivot_pixels": [
+        129.0,
+        248.0
+      ],
+      "sha256": "3b05466414b09384e0ac191cac0426c5d9fc280a490b245340326e38312ec702"
+    },
+    {
+      "round": 2,
+      "action": 8,
+      "path": "res://assets/characters/niu_lai/source/round_2/31.webp",
+      "source_action": "08_開始蓄力_深呼吸",
+      "width": 254,
+      "height": 277,
+      "pivot_pixels": [
+        127.0,
+        277.0
+      ],
+      "sha256": "ef87e876343bd6b5331caed793c445fee7998e7baf0164547fcc0a859af92e68"
+    },
+    {
+      "round": 2,
+      "action": 9,
+      "path": "res://assets/characters/niu_lai/source/round_2/32.webp",
+      "source_action": "09_持續蓄力",
+      "width": 256,
+      "height": 256,
+      "pivot_pixels": [
+        128.0,
+        256.0
+      ],
+      "sha256": "d977896a11346dfd7c1328f1bf46cdfe871c917b63a4e12bcda011a74509d61f"
+    },
+    {
+      "round": 2,
+      "action": 9,
+      "path": "res://assets/characters/niu_lai/source/round_2/33.webp",
+      "source_action": "09_持續蓄力",
+      "width": 236,
+      "height": 256,
+      "pivot_pixels": [
+        118.0,
+        256.0
+      ],
+      "sha256": "6d256ef5c3f84b4c2ad4db835fe4568a16529fba000d8592492ccaab24520600"
+    },
+    {
+      "round": 2,
+      "action": 10,
+      "path": "res://assets/characters/niu_lai/source/round_2/34.webp",
+      "source_action": "10_Charge_Lv1「小聲打氣」",
+      "width": 194,
+      "height": 217,
+      "pivot_pixels": [
+        97.0,
+        217.0
+      ],
+      "sha256": "a915701e44b4c061675b8c3f0534fa6bdd86b8f74e16f50bcbda1068e1b2db21"
+    },
+    {
+      "round": 2,
+      "action": 11,
+      "path": "res://assets/characters/niu_lai/source/round_2/35.webp",
+      "source_action": "11_Lv1_尷尬後座_收招",
+      "width": 240,
+      "height": 234,
+      "pivot_pixels": [
+        120.0,
+        234.0
+      ],
+      "sha256": "5b6326adb88f7179c13bb20cc6e112ed1e400482ab3b75f4018e609695583060"
+    },
+    {
+      "round": 2,
+      "action": 12,
+      "path": "res://assets/characters/niu_lai/source/round_2/36.webp",
+      "source_action": "12_Charge_Lv2「站起來！」",
+      "width": 180,
+      "height": 260,
+      "pivot_pixels": [
+        90.0,
+        260.0
+      ],
+      "sha256": "0f1b1742e7bd483bc649131dcd81bc70ca8798b3864a5a55c4826b4c1a8ed4d0"
+    },
+    {
+      "round": 2,
+      "action": 13,
+      "path": "res://assets/characters/niu_lai/source/round_2/37.webp",
+      "source_action": "13_Lv2_勇氣提升後收招",
+      "width": 244,
+      "height": 266,
+      "pivot_pixels": [
+        122.0,
+        266.0
+      ],
+      "sha256": "fe9593774734ce97d937b6aa4a9659ce3546220487a7e3768f0b6f37f4021a6b"
+    },
+    {
+      "round": 2,
+      "action": 14,
+      "path": "res://assets/characters/niu_lai/source/round_2/38.webp",
+      "source_action": "14_Charge_Lv3「牛來，站起來！」",
+      "width": 209,
+      "height": 267,
+      "pivot_pixels": [
+        104.5,
+        267.0
+      ],
+      "sha256": "e6648bb6c12cbe4e7006408fb83e51c324f88b9b78a939d93d2ea5c56e26d70c"
+    },
+    {
+      "round": 2,
+      "action": 15,
+      "path": "res://assets/characters/niu_lai/source/round_2/39.webp",
+      "source_action": "15_Lv3_收招",
+      "width": 231,
+      "height": 260,
+      "pivot_pixels": [
+        115.5,
+        260.0
+      ],
+      "sha256": "ebc39f5fa5f5b7bf8dbd4095b577de7eae1c3bc88b2fd19bf1e851381ef0fb39"
+    },
+    {
+      "round": 2,
+      "action": 16,
+      "path": "res://assets/characters/niu_lai/source/round_2/41.webp",
+      "source_action": "16_牛角蓄力光_Lv1",
+      "width": 184,
+      "height": 123,
+      "pivot_pixels": [
+        92.0,
+        61.5
+      ],
+      "sha256": "699334af66962e372c873c81484ef33e9a9f9c5f890e2ec4f7b137a503226018"
+    },
+    {
+      "round": 2,
+      "action": 17,
+      "path": "res://assets/characters/niu_lai/source/round_2/42.webp",
+      "source_action": "17_牛角強蓄力光",
+      "width": 228,
+      "height": 204,
+      "pivot_pixels": [
+        114.0,
+        102.0
+      ],
+      "sha256": "1023a11b275ba93673b96ade5b670816eaacbcef7ecbf042081ae0c6424a432b"
+    },
+    {
+      "round": 2,
+      "action": 18,
+      "path": "res://assets/characters/niu_lai/source/round_2/43.webp",
+      "source_action": "18_Courage_+1_爆發",
+      "width": 192,
+      "height": 265,
+      "pivot_pixels": [
+        96.0,
+        132.5
+      ],
+      "sha256": "2b9931c46af9d95c56139b4865cc4524e62f93db59862cd4941f74bb1cf212fa"
+    },
+    {
+      "round": 2,
+      "action": 19,
+      "path": "res://assets/characters/niu_lai/source/round_2/44.webp",
+      "source_action": "19_Courage_+1_收束",
+      "width": 230,
+      "height": 200,
+      "pivot_pixels": [
+        115.0,
+        100.0
+      ],
+      "sha256": "00b492f7477427ad0b3eb116846e01b87dd7f32a982cd34cbc4bdebf6512ddac"
+    },
+    {
+      "round": 2,
+      "action": 20,
+      "path": "res://assets/characters/niu_lai/source/round_2/45.webp",
+      "source_action": "20_Lv1_咆哮推退_VFX",
+      "width": 214,
+      "height": 234,
+      "pivot_pixels": [
+        107.0,
+        117.0
+      ],
+      "sha256": "ab836dfb3f2b6036eb668540400b90450e0a81032b2473e226d4e17ca8082a34"
+    },
+    {
+      "round": 2,
+      "action": 21,
+      "path": "res://assets/characters/niu_lai/source/round_2/46.webp",
+      "source_action": "21_Lv3_咆哮推退_VFX",
+      "width": 233,
+      "height": 264,
+      "pivot_pixels": [
+        116.5,
+        132.0
+      ],
+      "sha256": "ddc2302990de63b30e329c48009810892909f8c3a12dda01a7cfb9603c4df34c"
+    },
+    {
+      "round": 2,
+      "action": 22,
+      "path": "res://assets/characters/niu_lai/source/round_2/47.webp",
+      "source_action": "22_Courage_-1_破裂",
+      "width": 248,
+      "height": 283,
+      "pivot_pixels": [
+        124.0,
+        141.5
+      ],
+      "sha256": "6d6fb2484513cff564e8a1049f144830be9c01ec5f98e600aa3253493bf00464"
+    },
+    {
+      "round": 2,
+      "action": 23,
+      "path": "res://assets/characters/niu_lai/source/round_2/48.webp",
+      "source_action": "23_Courage_-1_掉落粒子",
+      "width": 198,
+      "height": 211,
+      "pivot_pixels": [
+        99.0,
+        105.5
+      ],
+      "sha256": "8da43ec5d875fb0caf6db1a9752329ded132fc046b09cbb85af878723426b741"
+    },
+    {
+      "round": 2,
+      "action": 24,
+      "path": "res://assets/characters/niu_lai/source/round_2/49.webp",
+      "source_action": "24_Courage_Lv3_達成特效",
+      "width": 216,
+      "height": 223,
+      "pivot_pixels": [
+        108.0,
+        111.5
+      ],
+      "sha256": "4b709cbfa146fd5e0edf38d093268a5d457eba699162848077310e93b20e9136"
+    },
+    {
+      "round": 2,
+      "action": 25,
+      "path": "res://assets/characters/niu_lai/source/round_2/51.webp",
+      "source_action": "25_Ultimate_發動決意",
+      "width": 259,
+      "height": 263,
+      "pivot_pixels": [
+        129.5,
+        263.0
+      ],
+      "sha256": "41358092d9c8c11807bb99df8a3d9ca9fd74f6fbcdafc870cd5a2080da41dea4"
+    },
+    {
+      "round": 2,
+      "action": 26,
+      "path": "res://assets/characters/niu_lai/source/round_2/52.webp",
+      "source_action": "26_夢之牛角突進起手",
+      "width": 231,
+      "height": 243,
+      "pivot_pixels": [
+        115.5,
+        243.0
+      ],
+      "sha256": "8ef003b9c858ab646bf79f3213c3b1bfa00822f99fe5caf88e87a48a533e5286"
+    },
+    {
+      "round": 2,
+      "action": 27,
+      "path": "res://assets/characters/niu_lai/source/round_2/53.webp",
+      "source_action": "27_「夢之牛角撞擊」有效攻擊",
+      "width": 258,
+      "height": 256,
+      "pivot_pixels": [
+        129.0,
+        256.0
+      ],
+      "sha256": "4498d049d2a63107e1e9b89b1e0f7b4499a1f59ef7db373f65d82291c649d446"
+    },
+    {
+      "round": 2,
+      "action": 28,
+      "path": "res://assets/characters/niu_lai/source/round_2/54.webp",
+      "source_action": "28_Ultimate_揮空大硬直",
+      "width": 279,
+      "height": 191,
+      "pivot_pixels": [
+        139.5,
+        191.0
+      ],
+      "sha256": "34c74725648d4c400fdc8799e63439ed66183b4e69baee5f7069391fbef3b707"
+    },
+    {
+      "round": 2,
+      "action": 29,
+      "path": "res://assets/characters/niu_lai/source/round_2/55.webp",
+      "source_action": "29_命中確認_夢境啟動",
+      "width": 211,
+      "height": 253,
+      "pivot_pixels": [
+        105.5,
+        253.0
+      ],
+      "sha256": "7168e0a94dbb4c28ca38f5428d4dc706fff6c47701be2fedfe425644a2cd75a1"
+    },
+    {
+      "round": 2,
+      "action": 30,
+      "path": "res://assets/characters/niu_lai/source/round_2/56.webp",
+      "source_action": "30_Courage_Lv0～Lv2_共用「夢境覺醒」收尾",
+      "width": 260,
+      "height": 256,
+      "pivot_pixels": [
+        130.0,
+        256.0
+      ],
+      "sha256": "dc28b90ee792ab4496153495bb12579e616a58358cdfea884ac94421c825b3d3"
+    },
+    {
+      "round": 2,
+      "action": 31,
+      "path": "res://assets/characters/niu_lai/source/round_2/57.webp",
+      "source_action": "31_Courage_Lv3_夢境轉場",
+      "width": 206,
+      "height": 281,
+      "pivot_pixels": [
+        103.0,
+        281.0
+      ],
+      "sha256": "8745773c255ef6fcf7919ee1b3c2fdc4a813dcb031eee747537e8c805aa9744e"
+    },
+    {
+      "round": 2,
+      "action": 32,
+      "path": "res://assets/characters/niu_lai/source/round_2/58.webp",
+      "source_action": "32_Courage_Lv3_完整「夢境覺醒」衝鋒",
+      "width": 312,
+      "height": 234,
+      "pivot_pixels": [
+        156.0,
+        234.0
+      ],
+      "sha256": "e48ffcd6d8b1c6abc3d49d8dfeccf98ece9a99b7d0be6278968d2edfeb176c69"
+    },
+    {
+      "round": 2,
+      "action": 33,
+      "path": "res://assets/characters/niu_lai/source/round_2/59.webp",
+      "source_action": "33_Ultimate_結束toCourage_重置_Lv0",
+      "width": 208,
+      "height": 247,
+      "pivot_pixels": [
+        104.0,
+        247.0
+      ],
+      "sha256": "6d9889b27e5b7ff11d075c357b1e7b902e40f260532a6d86ecc4fa714aa1ae12"
+    },
+    {
+      "round": 2,
+      "action": 34,
+      "path": "res://assets/characters/niu_lai/source/round_2/61.webp",
+      "source_action": "34_「巨大夢之公牛幻影」",
+      "width": 956,
+      "height": 538,
+      "pivot_pixels": [
+        478.0,
+        538.0
+      ],
+      "sha256": "a415be6cf3c529eea72ef873504ddbb29622e65104a7c4f680bbd46402375578"
+    },
+    {
+      "round": 2,
+      "action": 35,
+      "path": "res://assets/characters/niu_lai/source/round_2/71.webp",
+      "source_action": "35_夢之牛角命中特效",
+      "width": 252,
+      "height": 214,
+      "pivot_pixels": [
+        126.0,
+        107.0
+      ],
+      "sha256": "0f326698ca32c3e3256f24b385bf7a1c9691474312f4bc938855aa921bdf8a06"
+    },
+    {
+      "round": 2,
+      "action": 36,
+      "path": "res://assets/characters/niu_lai/source/round_2/72.webp",
+      "source_action": "36_Hit_Confirm_夢境啟動",
+      "width": 248,
+      "height": 221,
+      "pivot_pixels": [
+        124.0,
+        221.0
+      ],
+      "sha256": "3e77ed93123b9c4a7768105d707a4a7228cbf6b7dc1f810f7759b2a3fb565d93"
+    },
+    {
+      "round": 2,
+      "action": 37,
+      "path": "res://assets/characters/niu_lai/source/round_2/73.webp",
+      "source_action": "37_Courage_Lv0_基礎終結撞擊",
+      "width": 236,
+      "height": 238,
+      "pivot_pixels": [
+        118.0,
+        238.0
+      ],
+      "sha256": "c0b448bbcbca3745a0d939b13eed62cea1064feb506a613ca6eb13aa9ee58a16"
+    },
+    {
+      "round": 2,
+      "action": 38,
+      "path": "res://assets/characters/niu_lai/source/round_2/74.webp",
+      "source_action": "38_Lv0_終結殘留",
+      "width": 226,
+      "height": 164,
+      "pivot_pixels": [
+        113.0,
+        82.0
+      ],
+      "sha256": "044a11c80c66d1be4031428cc4ceaee0eba459816d0532410fe589e8b14bfcff"
+    },
+    {
+      "round": 2,
+      "action": 39,
+      "path": "res://assets/characters/niu_lai/source/round_2/75.webp",
+      "source_action": "39_Courage_Lv1_Corner_Carry_軌跡",
+      "width": 267,
+      "height": 166,
+      "pivot_pixels": [
+        133.5,
+        83.0
+      ],
+      "sha256": "fb1e927539ce1148522a53d7ac4c0af0f4c9ea98f0b88cd07ba18247e9633630"
+    },
+    {
+      "round": 2,
+      "action": 40,
+      "path": "res://assets/characters/niu_lai/source/round_2/76.webp",
+      "source_action": "40_Courage_Lv1_Carry_撞擊",
+      "width": 264,
+      "height": 208,
+      "pivot_pixels": [
+        132.0,
+        208.0
+      ],
+      "sha256": "428a1b8e14577227e8d47a55bb9083a309fad599c0797c750b7a8d3d6399b4a2"
+    },
+    {
+      "round": 2,
+      "action": 41,
+      "path": "res://assets/characters/niu_lai/source/round_2/77.webp",
+      "source_action": "41_Courage_Lv2_強化位置獎勵撞擊",
+      "width": 235,
+      "height": 246,
+      "pivot_pixels": [
+        117.5,
+        246.0
+      ],
+      "sha256": "2cdea0629e7f98794fa6e9d1fa6c7ccd8e2803b8cc999651ca00279734d7583e"
+    },
+    {
+      "round": 2,
+      "action": 42,
+      "path": "res://assets/characters/niu_lai/source/round_2/78.webp",
+      "source_action": "42_Courage_Lv3_完整夢境衝鋒軌跡",
+      "width": 298,
+      "height": 225,
+      "pivot_pixels": [
+        149.0,
+        112.5
+      ],
+      "sha256": "c844a7391ce609c34af6ac701297f2599bdaba3b39caa7a112b72a125a8d1619"
+    },
+    {
+      "round": 2,
+      "action": 43,
+      "path": "res://assets/characters/niu_lai/source/round_2/79.webp",
+      "source_action": "43_Courage_Lv3_最終「夢境覺醒」撞擊",
+      "width": 252,
+      "height": 289,
+      "pivot_pixels": [
+        126.0,
+        289.0
+      ],
+      "sha256": "87623fdd752a8823217e4be742cc9a7b2f194afc991f20ed95aaf126fac6652c"
+    }
+  ],
+  "animations": [
+    {
+      "key": "idle",
+      "fps": 1.0,
+      "loop": true,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/11.webp",
+          "pivot_pixels": [
+            121.0,
+            265.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "idle_courage_3",
+      "fps": 1.0,
+      "loop": true,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/12.webp",
+          "pivot_pixels": [
+            139.0,
+            258.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "walk_forward",
+      "fps": 6.0,
+      "loop": true,
+      "frame_count": 2,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/13.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/14.webp",
+          "pivot_pixels": [
+            82.5,
+            245.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "walk_forward_courage_2",
+      "fps": 7.0,
+      "loop": true,
+      "frame_count": 2,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/15.webp",
+          "pivot_pixels": [
+            101.0,
+            241.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/16.webp",
+          "pivot_pixels": [
+            114.0,
+            243.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "walk_back",
+      "fps": 6.0,
+      "loop": true,
+      "frame_count": 2,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/17.webp",
+          "pivot_pixels": [
+            128.0,
+            260.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/18.webp",
+          "pivot_pixels": [
+            127.5,
+            266.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "crouch",
+      "fps": 1.0,
+      "loop": true,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/19.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "jump",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 2,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/21.webp",
+          "pivot_pixels": [
+            143.0,
+            265.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/22.webp",
+          "pivot_pixels": [
+            126.5,
+            260.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "landing",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/23.webp",
+          "pivot_pixels": [
+            119.0,
+            254.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "dash_start",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 2,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/24.webp",
+          "pivot_pixels": [
+            125.5,
+            241.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/25.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "dash_recovery",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/26.webp",
+          "pivot_pixels": [
+            110.5,
+            258.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "dash_recovery_courage_2",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/27.webp",
+          "pivot_pixels": [
+            136.0,
+            251.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "backstep_start",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/28.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "backstep_landing",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/29.webp",
+          "pivot_pixels": [
+            112.0,
+            237.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "stand_light",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 3,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/31.webp",
+          "pivot_pixels": [
+            94.5,
+            227.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/32.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_1/33.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "stand_light_courage_3",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 3,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/34.webp",
+          "pivot_pixels": [
+            113.0,
+            240.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/35.webp",
+          "pivot_pixels": [
+            140.0,
+            240.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_1/36.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "stand_heavy",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 3,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/41.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/42.webp",
+          "pivot_pixels": [
+            131.0,
+            244.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_1/43.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "stand_heavy_courage_2",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 3,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/44.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/45.webp",
+          "pivot_pixels": [
+            141.0,
+            218.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_1/46.webp",
+          "pivot_pixels": [
+            115.5,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "crouch_low",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 3,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/51.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/52.webp",
+          "pivot_pixels": [
+            126.5,
+            222.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_1/53.webp",
+          "pivot_pixels": [
+            122.5,
+            232.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "crouch_low_courage_2",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 3,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/54.webp",
+          "pivot_pixels": [
+            113.5,
+            223.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/55.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_1/56.webp",
+          "pivot_pixels": [
+            108.5,
+            243.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "crouch_low_courage_3",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/57.webp",
+          "pivot_pixels": [
+            126.5,
+            252.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "crouch_low_courage_3_counter",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/58.webp",
+          "pivot_pixels": [
+            116.0,
+            274.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "crouch_low_courage_3_followup",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/59.webp",
+          "pivot_pixels": [
+            119.0,
+            267.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "air_attack",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 3,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/61.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/62.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_1/63.webp",
+          "pivot_pixels": [
+            116.5,
+            237.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "air_attack_courage_2",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 3,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/64.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/65.webp",
+          "pivot_pixels": [
+            127.0,
+            244.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_1/66.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "air_attack_courage_3",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 3,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/67.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/68.webp",
+          "pivot_pixels": [
+            134.0,
+            256.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_1/69.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "guard_stand",
+      "fps": 1.0,
+      "loop": true,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/71.webp",
+          "pivot_pixels": [
+            129.5,
+            252.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "guard_stand_courage_1",
+      "fps": 1.0,
+      "loop": true,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/72.webp",
+          "pivot_pixels": [
+            118.0,
+            243.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "guard_stand_courage_2",
+      "fps": 1.0,
+      "loop": true,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/73.webp",
+          "pivot_pixels": [
+            116.5,
+            246.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "guard_stand_courage_3",
+      "fps": 1.0,
+      "loop": true,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/74.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "guard_crouch",
+      "fps": 1.0,
+      "loop": true,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/75.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "guard_crouch_courage_1",
+      "fps": 1.0,
+      "loop": true,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/76.webp",
+          "pivot_pixels": [
+            114.5,
+            204.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "guard_crouch_courage_2",
+      "fps": 1.0,
+      "loop": true,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/77.webp",
+          "pivot_pixels": [
+            115.0,
+            253.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "guard_crouch_courage_3",
+      "fps": 1.0,
+      "loop": true,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/78.webp",
+          "pivot_pixels": [
+            147.5,
+            247.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "guard_release",
+      "fps": 7.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/79.webp",
+          "pivot_pixels": [
+            97.5,
+            250.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "blockstun",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/81.webp",
+          "pivot_pixels": [
+            101.5,
+            220.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "blockstun_heavy",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/82.webp",
+          "pivot_pixels": [
+            121.5,
+            205.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "hitstun",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/83.webp",
+          "pivot_pixels": [
+            126.5,
+            242.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "hitstun_low",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/84.webp",
+          "pivot_pixels": [
+            112.0,
+            242.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "hitstun_heavy",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/85.webp",
+          "pivot_pixels": [
+            138.0,
+            253.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "hitstun_air",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/86.webp",
+          "pivot_pixels": [
+            117.5,
+            235.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ground_throw",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 6,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/11.webp",
+          "pivot_pixels": [
+            146.5,
+            238.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_2/12.webp",
+          "pivot_pixels": [
+            106.0,
+            271.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_2/13.webp",
+          "pivot_pixels": [
+            117.5,
+            251.0
+          ]
+        },
+        {
+          "index": 4,
+          "path": "res://assets/characters/niu_lai/source/round_2/14.webp",
+          "pivot_pixels": [
+            97.5,
+            256.0
+          ]
+        },
+        {
+          "index": 5,
+          "path": "res://assets/characters/niu_lai/source/round_2/15.webp",
+          "pivot_pixels": [
+            128.0,
+            225.0
+          ]
+        },
+        {
+          "index": 6,
+          "path": "res://assets/characters/niu_lai/source/round_2/16.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "thrown",
+      "fps": 7.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/21.webp",
+          "pivot_pixels": [
+            136.0,
+            264.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "thrown_air_roll",
+      "fps": 7.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/22.webp",
+          "pivot_pixels": [
+            119.0,
+            264.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "knockdown_impact",
+      "fps": 6.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/23.webp",
+          "pivot_pixels": [
+            129.0,
+            264.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "knockdown_hold",
+      "fps": 1.0,
+      "loop": true,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/24.webp",
+          "pivot_pixels": [
+            136.0,
+            248.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "getup",
+      "fps": 7.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/25.webp",
+          "pivot_pixels": [
+            119.0,
+            248.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ko",
+      "fps": 3.0,
+      "loop": true,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/26.webp",
+          "pivot_pixels": [
+            129.0,
+            248.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "charge_start",
+      "fps": 6.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/31.webp",
+          "pivot_pixels": [
+            127.0,
+            277.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "charge_loop",
+      "fps": 5.0,
+      "loop": true,
+      "frame_count": 2,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/32.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_2/33.webp",
+          "pivot_pixels": [
+            118.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "niu_special_l1_release",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/34.webp",
+          "pivot_pixels": [
+            97.0,
+            217.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "niu_special_l1_recovery",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/35.webp",
+          "pivot_pixels": [
+            120.0,
+            234.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "niu_special_l2_release",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/36.webp",
+          "pivot_pixels": [
+            90.0,
+            260.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "niu_special_l2_recovery",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/37.webp",
+          "pivot_pixels": [
+            122.0,
+            266.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "niu_special_l3_release",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/38.webp",
+          "pivot_pixels": [
+            104.5,
+            267.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "niu_special_l3_recovery",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/39.webp",
+          "pivot_pixels": [
+            115.5,
+            260.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "courage_charge_vfx_l1",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/41.webp",
+          "pivot_pixels": [
+            92.0,
+            61.5
+          ]
+        }
+      ]
+    },
+    {
+      "key": "courage_charge_vfx_strong",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/42.webp",
+          "pivot_pixels": [
+            114.0,
+            102.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "courage_gain_burst",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/43.webp",
+          "pivot_pixels": [
+            96.0,
+            132.5
+          ]
+        }
+      ]
+    },
+    {
+      "key": "courage_gain_settle",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/44.webp",
+          "pivot_pixels": [
+            115.0,
+            100.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "courage_roar_vfx_l1",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/45.webp",
+          "pivot_pixels": [
+            107.0,
+            117.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "courage_roar_vfx_l3",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/46.webp",
+          "pivot_pixels": [
+            116.5,
+            132.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "courage_loss_break",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/47.webp",
+          "pivot_pixels": [
+            124.0,
+            141.5
+          ]
+        }
+      ]
+    },
+    {
+      "key": "courage_loss_particles",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/48.webp",
+          "pivot_pixels": [
+            99.0,
+            105.5
+          ]
+        }
+      ]
+    },
+    {
+      "key": "courage_max_vfx",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/49.webp",
+          "pivot_pixels": [
+            108.0,
+            111.5
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_start",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/51.webp",
+          "pivot_pixels": [
+            129.5,
+            263.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_rush_start",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/52.webp",
+          "pivot_pixels": [
+            115.5,
+            243.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_rush_hit",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/53.webp",
+          "pivot_pixels": [
+            129.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_whiff_recovery",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/54.webp",
+          "pivot_pixels": [
+            139.5,
+            191.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_hit_confirm",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/55.webp",
+          "pivot_pixels": [
+            105.5,
+            253.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_finish_courage_0_2",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/56.webp",
+          "pivot_pixels": [
+            130.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_courage_3_transition",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/57.webp",
+          "pivot_pixels": [
+            103.0,
+            281.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_courage_3_charge",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/58.webp",
+          "pivot_pixels": [
+            156.0,
+            234.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_reset",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/59.webp",
+          "pivot_pixels": [
+            104.0,
+            247.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_bull_illusion",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/61.webp",
+          "pivot_pixels": [
+            478.0,
+            538.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_hit_vfx",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/71.webp",
+          "pivot_pixels": [
+            126.0,
+            107.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_dream_start",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/72.webp",
+          "pivot_pixels": [
+            124.0,
+            221.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_finish_courage_0",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/73.webp",
+          "pivot_pixels": [
+            118.0,
+            238.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_residue_courage_0",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/74.webp",
+          "pivot_pixels": [
+            113.0,
+            82.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_carry_courage_1",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/75.webp",
+          "pivot_pixels": [
+            133.5,
+            83.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_impact_courage_1",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/76.webp",
+          "pivot_pixels": [
+            132.0,
+            208.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_impact_courage_2",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/77.webp",
+          "pivot_pixels": [
+            117.5,
+            246.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_rush_courage_3",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/78.webp",
+          "pivot_pixels": [
+            149.0,
+            112.5
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_impact_courage_3",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 1,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/79.webp",
+          "pivot_pixels": [
+            126.0,
+            289.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "dash_forward",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 3,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/24.webp",
+          "pivot_pixels": [
+            125.5,
+            241.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/25.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_1/26.webp",
+          "pivot_pixels": [
+            110.5,
+            258.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "dash_forward_courage_2",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 3,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/24.webp",
+          "pivot_pixels": [
+            125.5,
+            241.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/25.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_1/27.webp",
+          "pivot_pixels": [
+            136.0,
+            251.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "backstep",
+      "fps": 10.0,
+      "loop": false,
+      "frame_count": 2,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_1/28.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_1/29.webp",
+          "pivot_pixels": [
+            112.0,
+            237.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "knockdown",
+      "fps": 6.0,
+      "loop": false,
+      "frame_count": 2,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/23.webp",
+          "pivot_pixels": [
+            129.0,
+            264.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_2/24.webp",
+          "pivot_pixels": [
+            136.0,
+            248.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "charge",
+      "fps": 5.0,
+      "loop": true,
+      "frame_count": 3,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/31.webp",
+          "pivot_pixels": [
+            127.0,
+            277.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_2/32.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_2/33.webp",
+          "pivot_pixels": [
+            118.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "special_neutral",
+      "fps": 6.0,
+      "loop": false,
+      "frame_count": 3,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/31.webp",
+          "pivot_pixels": [
+            127.0,
+            277.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_2/32.webp",
+          "pivot_pixels": [
+            128.0,
+            256.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_2/33.webp",
+          "pivot_pixels": [
+            118.0,
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "niu_special_l1",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 2,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/34.webp",
+          "pivot_pixels": [
+            97.0,
+            217.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_2/35.webp",
+          "pivot_pixels": [
+            120.0,
+            234.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "niu_special_l2",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 2,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/36.webp",
+          "pivot_pixels": [
+            90.0,
+            260.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_2/37.webp",
+          "pivot_pixels": [
+            122.0,
+            266.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "niu_special_l3",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 2,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/38.webp",
+          "pivot_pixels": [
+            104.5,
+            267.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_2/39.webp",
+          "pivot_pixels": [
+            115.5,
+            260.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 11,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/51.webp",
+          "pivot_pixels": [
+            129.5,
+            263.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_2/52.webp",
+          "pivot_pixels": [
+            115.5,
+            243.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_2/53.webp",
+          "pivot_pixels": [
+            129.0,
+            256.0
+          ]
+        },
+        {
+          "index": 4,
+          "path": "res://assets/characters/niu_lai/source/round_2/55.webp",
+          "pivot_pixels": [
+            105.5,
+            253.0
+          ]
+        },
+        {
+          "index": 5,
+          "path": "res://assets/characters/niu_lai/source/round_2/56.webp",
+          "pivot_pixels": [
+            130.0,
+            256.0
+          ]
+        },
+        {
+          "index": 6,
+          "path": "res://assets/characters/niu_lai/source/round_2/59.webp",
+          "pivot_pixels": [
+            104.0,
+            247.0
+          ]
+        },
+        {
+          "index": 7,
+          "path": "res://assets/characters/niu_lai/source/round_2/61.webp",
+          "pivot_pixels": [
+            478.0,
+            538.0
+          ]
+        },
+        {
+          "index": 8,
+          "path": "res://assets/characters/niu_lai/source/round_2/71.webp",
+          "pivot_pixels": [
+            126.0,
+            107.0
+          ]
+        },
+        {
+          "index": 9,
+          "path": "res://assets/characters/niu_lai/source/round_2/72.webp",
+          "pivot_pixels": [
+            124.0,
+            221.0
+          ]
+        },
+        {
+          "index": 10,
+          "path": "res://assets/characters/niu_lai/source/round_2/73.webp",
+          "pivot_pixels": [
+            118.0,
+            238.0
+          ]
+        },
+        {
+          "index": 11,
+          "path": "res://assets/characters/niu_lai/source/round_2/74.webp",
+          "pivot_pixels": [
+            113.0,
+            82.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_courage_1",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 11,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/51.webp",
+          "pivot_pixels": [
+            129.5,
+            263.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_2/52.webp",
+          "pivot_pixels": [
+            115.5,
+            243.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_2/53.webp",
+          "pivot_pixels": [
+            129.0,
+            256.0
+          ]
+        },
+        {
+          "index": 4,
+          "path": "res://assets/characters/niu_lai/source/round_2/55.webp",
+          "pivot_pixels": [
+            105.5,
+            253.0
+          ]
+        },
+        {
+          "index": 5,
+          "path": "res://assets/characters/niu_lai/source/round_2/56.webp",
+          "pivot_pixels": [
+            130.0,
+            256.0
+          ]
+        },
+        {
+          "index": 6,
+          "path": "res://assets/characters/niu_lai/source/round_2/59.webp",
+          "pivot_pixels": [
+            104.0,
+            247.0
+          ]
+        },
+        {
+          "index": 7,
+          "path": "res://assets/characters/niu_lai/source/round_2/61.webp",
+          "pivot_pixels": [
+            478.0,
+            538.0
+          ]
+        },
+        {
+          "index": 8,
+          "path": "res://assets/characters/niu_lai/source/round_2/71.webp",
+          "pivot_pixels": [
+            126.0,
+            107.0
+          ]
+        },
+        {
+          "index": 9,
+          "path": "res://assets/characters/niu_lai/source/round_2/72.webp",
+          "pivot_pixels": [
+            124.0,
+            221.0
+          ]
+        },
+        {
+          "index": 10,
+          "path": "res://assets/characters/niu_lai/source/round_2/75.webp",
+          "pivot_pixels": [
+            133.5,
+            83.0
+          ]
+        },
+        {
+          "index": 11,
+          "path": "res://assets/characters/niu_lai/source/round_2/76.webp",
+          "pivot_pixels": [
+            132.0,
+            208.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_courage_2",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 10,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/51.webp",
+          "pivot_pixels": [
+            129.5,
+            263.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_2/52.webp",
+          "pivot_pixels": [
+            115.5,
+            243.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_2/53.webp",
+          "pivot_pixels": [
+            129.0,
+            256.0
+          ]
+        },
+        {
+          "index": 4,
+          "path": "res://assets/characters/niu_lai/source/round_2/55.webp",
+          "pivot_pixels": [
+            105.5,
+            253.0
+          ]
+        },
+        {
+          "index": 5,
+          "path": "res://assets/characters/niu_lai/source/round_2/56.webp",
+          "pivot_pixels": [
+            130.0,
+            256.0
+          ]
+        },
+        {
+          "index": 6,
+          "path": "res://assets/characters/niu_lai/source/round_2/59.webp",
+          "pivot_pixels": [
+            104.0,
+            247.0
+          ]
+        },
+        {
+          "index": 7,
+          "path": "res://assets/characters/niu_lai/source/round_2/61.webp",
+          "pivot_pixels": [
+            478.0,
+            538.0
+          ]
+        },
+        {
+          "index": 8,
+          "path": "res://assets/characters/niu_lai/source/round_2/71.webp",
+          "pivot_pixels": [
+            126.0,
+            107.0
+          ]
+        },
+        {
+          "index": 9,
+          "path": "res://assets/characters/niu_lai/source/round_2/72.webp",
+          "pivot_pixels": [
+            124.0,
+            221.0
+          ]
+        },
+        {
+          "index": 10,
+          "path": "res://assets/characters/niu_lai/source/round_2/77.webp",
+          "pivot_pixels": [
+            117.5,
+            246.0
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ultimate_courage_3",
+      "fps": 8.0,
+      "loop": false,
+      "frame_count": 12,
+      "frames": [
+        {
+          "index": 1,
+          "path": "res://assets/characters/niu_lai/source/round_2/51.webp",
+          "pivot_pixels": [
+            129.5,
+            263.0
+          ]
+        },
+        {
+          "index": 2,
+          "path": "res://assets/characters/niu_lai/source/round_2/52.webp",
+          "pivot_pixels": [
+            115.5,
+            243.0
+          ]
+        },
+        {
+          "index": 3,
+          "path": "res://assets/characters/niu_lai/source/round_2/53.webp",
+          "pivot_pixels": [
+            129.0,
+            256.0
+          ]
+        },
+        {
+          "index": 4,
+          "path": "res://assets/characters/niu_lai/source/round_2/55.webp",
+          "pivot_pixels": [
+            105.5,
+            253.0
+          ]
+        },
+        {
+          "index": 5,
+          "path": "res://assets/characters/niu_lai/source/round_2/57.webp",
+          "pivot_pixels": [
+            103.0,
+            281.0
+          ]
+        },
+        {
+          "index": 6,
+          "path": "res://assets/characters/niu_lai/source/round_2/58.webp",
+          "pivot_pixels": [
+            156.0,
+            234.0
+          ]
+        },
+        {
+          "index": 7,
+          "path": "res://assets/characters/niu_lai/source/round_2/59.webp",
+          "pivot_pixels": [
+            104.0,
+            247.0
+          ]
+        },
+        {
+          "index": 8,
+          "path": "res://assets/characters/niu_lai/source/round_2/61.webp",
+          "pivot_pixels": [
+            478.0,
+            538.0
+          ]
+        },
+        {
+          "index": 9,
+          "path": "res://assets/characters/niu_lai/source/round_2/71.webp",
+          "pivot_pixels": [
+            126.0,
+            107.0
+          ]
+        },
+        {
+          "index": 10,
+          "path": "res://assets/characters/niu_lai/source/round_2/72.webp",
+          "pivot_pixels": [
+            124.0,
+            221.0
+          ]
+        },
+        {
+          "index": 11,
+          "path": "res://assets/characters/niu_lai/source/round_2/78.webp",
+          "pivot_pixels": [
+            149.0,
+            112.5
+          ]
+        },
+        {
+          "index": 12,
+          "path": "res://assets/characters/niu_lai/source/round_2/79.webp",
+          "pivot_pixels": [
+            126.0,
+            289.0
+          ]
+        }
+      ]
+    }
+  ]
+}

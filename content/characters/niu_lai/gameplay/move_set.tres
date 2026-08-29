@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://data/move_set_data.gd" id="set"]
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Resource" path="res://content/characters/niu_lai/gameplay/moves/stand_light.tres" id="move_1"]
+[ext_resource type="Resource" path="res://content/characters/niu_lai/gameplay/moves/stand_heavy.tres" id="move_2"]
+[ext_resource type="Resource" path="res://content/characters/niu_lai/gameplay/moves/crouch_low.tres" id="move_3"]
+[ext_resource type="Resource" path="res://content/characters/niu_lai/gameplay/moves/air_attack.tres" id="move_4"]
+[ext_resource type="Resource" path="res://content/characters/niu_lai/gameplay/moves/ground_throw.tres" id="move_5"]
+[ext_resource type="Resource" path="res://content/characters/niu_lai/gameplay/moves/special_neutral.tres" id="move_6"]
+[ext_resource type="Resource" path="res://content/characters/niu_lai/gameplay/moves/niu_special_l1.tres" id="move_7"]
+[ext_resource type="Resource" path="res://content/characters/niu_lai/gameplay/moves/niu_special_l2.tres" id="move_8"]
+[ext_resource type="Resource" path="res://content/characters/niu_lai/gameplay/moves/niu_special_l3.tres" id="move_9"]
+[ext_resource type="Resource" path="res://content/characters/niu_lai/gameplay/moves/ultimate.tres" id="move_10"]
+
+[resource]
+script = ExtResource("set")
+moves = Array[ExtResource("move")]([ExtResource("move_1"), ExtResource("move_2"), ExtResource("move_3"), ExtResource("move_4"), ExtResource("move_5"), ExtResource("move_6"), ExtResource("move_7"), ExtResource("move_8"), ExtResource("move_9"), ExtResource("move_10")])

@@ -840,7 +840,8 @@ A fighter is not represented by one universal sprite sheet.
 
 Presentation domains:
 
-1. `BASE_FIGHTER` — backward-compatible 10×5×5 / 250-frame normal body pack.
+1. `BASE_FIGHTER` — normal body pack using either the backward-compatible
+   10×5×5 / 250-frame grid or an explicit manifest-driven action-folder source.
 2. `MODE_FIGHTER` — manifest-driven complete alternate body such as SUPER_DOGE / TRUE_FACE; frame count and texture aspect ratio are unrestricted.
 3. `WORLD_EFFECT` / `PROJECTILE` / `HAZARD` — arbitrary-aspect detached world art.
 4. `ULTIMATE_SCREEN` — CanvasLayer/Control screen-space 16:9 art, canonical runtime 1280×720.

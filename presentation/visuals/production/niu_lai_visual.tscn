@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://presentation/visuals/production/production_fighter_visual.gd" id="1"]
+[ext_resource type="SpriteFrames" path="res://assets/characters/niu_lai/animations/niu_lai_sprite_frames.tres" id="2"]
+
+[node name="NiuLaiVisual" type="Node2D"]
+script = ExtResource("1")
+sprite_frames = ExtResource("2")
+manifest_path = "res://assets/characters/niu_lai/animations/manifest.json"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2")
+animation = &"idle"
+centered = false
+scale = Vector2(0.65, 0.65)

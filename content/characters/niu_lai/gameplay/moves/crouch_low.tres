@@ -1,0 +1,79 @@
+[gd_resource type="Resource" load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/mechanics/move_hit_data.gd" id="hit"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_condition_data.gd" id="cond"]
+
+[sub_resource type="Resource" id="box_6"]
+script = ExtResource("box")
+offset = Vector2(55, -25)
+size = Vector2(110, 28)
+
+[sub_resource type="Resource" id="cond_4"]
+script = ExtResource("cond")
+type = 9
+id = &"courage"
+value = 2
+
+[sub_resource type="Resource" id="hit_3"]
+script = ExtResource("hit")
+hit_id = 0
+active_start_frame = 6
+active_end_frame = 8
+hitbox = SubResource("box_6")
+hit_level = 2
+damage = 48
+hitstun_frames = 9
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 600
+counter_hit_extra_hitstun = 5
+conditions = Array[ExtResource("cond")]([SubResource("cond_4")])
+
+[sub_resource type="Resource" id="box_3"]
+script = ExtResource("box")
+offset = Vector2(40, -25)
+size = Vector2(91, 25)
+
+[sub_resource type="Resource" id="cond_5"]
+script = ExtResource("cond")
+type = 9
+id = &"courage"
+value = 2
+invert = true
+
+[sub_resource type="Resource" id="hit_4"]
+script = ExtResource("hit")
+hit_id = 1
+active_start_frame = 6
+active_end_frame = 8
+hitbox = SubResource("box_3")
+hit_level = 2
+damage = 42
+hitstun_frames = 8
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 450
+conditions = Array[ExtResource("cond")]([SubResource("cond_5")])
+
+[resource]
+script = ExtResource("move")
+id = &"crouch_low"
+display_name = "勇氣踏地"
+animation_id = &"crouch_low"
+startup_frames = 5
+active_frames = 3
+recovery_frames = 12
+damage = 60
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hits = Array[ExtResource("hit")]([SubResource("hit_3"), SubResource("hit_4")])

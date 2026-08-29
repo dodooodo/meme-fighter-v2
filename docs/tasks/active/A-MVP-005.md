@@ -14,7 +14,7 @@ required_checks: [godot --headless --path . -s res://tests/a5/run_a5_tests.gd, b
 
 ## Goal
 
-Provide a player-facing selector for the three Stage A fighters.
+Provide a player-facing selector for available packaged fighters, including Niu Lai.
 
 ## Context
 
@@ -28,7 +28,7 @@ Local two-player and deterministic CPU launch remain available.
 ## Required Change
 
 Keep the original title, P1/P2 dropdowns, local/CPU actions, and control guide.
-Limit the dropdowns to exactly three available manifest-backed fighters and add
+Limit the dropdowns to the four available manifest-backed fighters and add
 Training/Tutorial as a quiet second action row rather than redesigning the page.
 
 ## Public/API Contract
@@ -63,7 +63,7 @@ Affected docs: A5 manual verification checklist.
 
 ## Acceptance Criteria
 
-The original selector layout exposes exactly three available manifest-backed
+The original selector layout exposes exactly four available manifest-backed
 fighters and can launch both requested versus modes, Training, and Tutorial.
 
 ## Rollback / Recovery Notes
@@ -72,4 +72,4 @@ Restore the former mode-select scene.
 
 ## Out of Scope
 
-Unlock progression, more fighters, controller remapping, or online matchmaking.
+Unlock progression, fighters beyond Niu Lai, controller remapping, or online matchmaking.

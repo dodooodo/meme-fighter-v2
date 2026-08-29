@@ -9,8 +9,8 @@ static func resolve_animation(fighter: Fighter, data: CharacterPresentationData)
     if state in [FighterStateMachine.State.GROUND_ATTACK, FighterStateMachine.State.AIR_ATTACK, FighterStateMachine.State.THROW]:
         var move_id := fighter.move_runner.current_move_id()
         if move_id != &"":
-            return data.animation_for_move(move_id, PresentationAnimationIds.ATTACK_FALLBACK)
-    return data.animation_for_state(state_key_for_fighter(fighter), PresentationAnimationIds.IDLE)
+            return data.animation_for_move(move_id, PresentationAnimationIds.ATTACK_FALLBACK, fighter.resources)
+    return data.animation_for_state(state_key_for_fighter(fighter), PresentationAnimationIds.IDLE, fighter.resources)
 
 static func state_key_for_fighter(fighter: Fighter) -> StringName:
     if fighter == null:

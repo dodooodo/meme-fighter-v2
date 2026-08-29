@@ -25,6 +25,7 @@ var _mode_lookup: Dictionary = {}
 var _ultimate_lookup: Dictionary = {}
 var _effect_lookup: Dictionary = {}
 var _attachment_lookup: Dictionary = {}
+var _move_animation_keys: Dictionary = {}
 var _cache_ready: bool = false
 
 func validate(expected_character_id: StringName = &"") -> PackedStringArray:
@@ -51,10 +52,16 @@ func rebuild_cache() -> bool:
     _ultimate_lookup.clear()
     _effect_lookup.clear()
     _attachment_lookup.clear()
+    _move_animation_keys.clear()
     for binding: StatePresentationBinding in state_bindings:
-        _state_lookup[binding.state_key] = binding.animation_key
+        if not _state_lookup.has(binding.state_key):
+            _state_lookup[binding.state_key] = []
+        (_state_lookup[binding.state_key] as Array).append(binding)
     for binding: MovePresentationBinding in move_bindings:
-        _move_lookup[binding.move_id] = binding.animation_key
+        if not _move_lookup.has(binding.move_id):
+            _move_lookup[binding.move_id] = []
+        (_move_lookup[binding.move_id] as Array).append(binding)
+        _move_animation_keys[binding.animation_key] = true
     for binding: ProjectilePresentationBinding in projectile_bindings:
         _projectile_lookup[binding.projectile_id] = binding
     for binding: ModePresentationBinding in mode_bindings:
@@ -68,13 +75,20 @@ func rebuild_cache() -> bool:
     _cache_ready = true
     return true
 
-func animation_for_state(state_key: StringName, fallback: StringName = &"idle") -> StringName:
+func animation_for_state(state_key: StringName, fallback: StringName = &"idle", resources: FighterResourceComponent = null) -> StringName:
     _ensure_cache()
-    return StringName(_state_lookup.get(state_key, fallback))
+    return _resolve_resource_variant(_state_lookup.get(state_key, []), fallback, resources)
 
-func animation_for_move(move_id: StringName, fallback: StringName = &"attack") -> StringName:
+func animation_for_move(move_id: StringName, fallback: StringName = &"attack", resources: FighterResourceComponent = null) -> StringName:
     _ensure_cache()
-    return StringName(_move_lookup.get(move_id, fallback))
+    return _resolve_resource_variant(_move_lookup.get(move_id, []), fallback, resources)
+
+# True when an animation key is driven by a Move phase timeline rather than by
+# animation playback. Data-driven so Courage-style variants stay timeline-driven
+# without adding character-ID or animation-name branching.
+func is_move_driven_animation(animation_key: StringName) -> bool:
+    _ensure_cache()
+    return _move_animation_keys.has(animation_key)
 
 func projectile_binding(projectile_id: StringName) -> ProjectilePresentationBinding:
     _ensure_cache()
@@ -121,24 +135,60 @@ func _validate_bindings(errors: PackedStringArray) -> void:
     _validate_attachment_bindings(errors)
 
 func _validate_state_bindings(errors: PackedStringArray) -> void:
-    var seen: Dictionary = {}
+    var grouped: Dictionary = {}
     for binding: StatePresentationBinding in state_bindings:
         if binding == null or not binding.is_valid():
             errors.append("invalid state presentation binding")
             continue
-        if seen.has(binding.state_key):
-            errors.append("duplicate state binding: %s" % String(binding.state_key))
-        seen[binding.state_key] = true
+        if not grouped.has(binding.state_key):
+            grouped[binding.state_key] = []
+        (grouped[binding.state_key] as Array).append(binding)
+    _validate_resource_variant_groups(grouped, "state", "duplicate state binding", errors)
 
 func _validate_move_bindings(errors: PackedStringArray) -> void:
-    var seen: Dictionary = {}
+    var grouped: Dictionary = {}
     for binding: MovePresentationBinding in move_bindings:
         if binding == null or not binding.is_valid():
             errors.append("invalid move presentation binding")
             continue
-        if seen.has(binding.move_id):
-            errors.append("duplicate move binding: %s" % String(binding.move_id))
-        seen[binding.move_id] = true
+        if not grouped.has(binding.move_id):
+            grouped[binding.move_id] = []
+        (grouped[binding.move_id] as Array).append(binding)
+    _validate_resource_variant_groups(grouped, "move", "duplicate move binding", errors)
+
+func _validate_resource_variant_groups(grouped: Dictionary, binding_kind: String, duplicate_error: String, errors: PackedStringArray) -> void:
+    for key: StringName in grouped:
+        var bindings: Array = grouped[key]
+        var fallback_count := 0
+        var conditioned: Array = []
+        for binding: Variant in bindings:
+            if not binding.has_resource_condition():
+                fallback_count += 1
+            else:
+                conditioned.append(binding)
+        if fallback_count > 1:
+            errors.append("%s: %s" % [duplicate_error, String(key)])
+        for index in range(conditioned.size()):
+            var current: Variant = conditioned[index]
+            for other_index in range(index + 1, conditioned.size()):
+                var other: Variant = conditioned[other_index]
+                if current.resource_id != other.resource_id:
+                    errors.append("ambiguous %s resource bindings: %s" % [binding_kind, String(key)])
+                    continue
+                if current.resource_min_value <= other.resource_max_value and other.resource_min_value <= current.resource_max_value:
+                    errors.append("overlapping %s resource bindings: %s" % [binding_kind, String(key)])
+
+func _resolve_resource_variant(bindings_value: Variant, fallback: StringName, resources: FighterResourceComponent) -> StringName:
+    if not (bindings_value is Array):
+        return fallback
+    var unconditional: Variant = null
+    for binding: Variant in bindings_value:
+        if binding.has_resource_condition():
+            if binding.matches_resources(resources):
+                return binding.animation_key
+        else:
+            unconditional = binding
+    return unconditional.animation_key if unconditional != null else fallback
 
 func _validate_projectile_bindings(errors: PackedStringArray) -> void:
     var seen: Dictionary = {}

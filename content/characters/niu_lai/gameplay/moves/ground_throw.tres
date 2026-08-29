@@ -1,0 +1,52 @@
+[gd_resource type="Resource" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_condition_data.gd" id="cond"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_effect_data.gd" id="eff"]
+[ext_resource type="Script" path="res://data/mechanics/positioning_effect_data.gd" id="pos"]
+
+[sub_resource type="Resource" id="box_5"]
+script = ExtResource("box")
+offset = Vector2(34, -70)
+size = Vector2(48, 80)
+
+[sub_resource type="Resource" id="cond_4"]
+script = ExtResource("cond")
+type = 9
+id = &"courage"
+value = 2
+
+[sub_resource type="Resource" id="pos_2"]
+script = ExtResource("pos")
+type = 5
+distance_units = 5000
+
+[sub_resource type="Resource" id="eff_2"]
+script = ExtResource("eff")
+type = 10
+conditions = Array[ExtResource("cond")]([SubResource("cond_4")])
+positioning = SubResource("pos_2")
+
+[resource]
+script = ExtResource("move")
+id = &"ground_throw"
+display_name = "勇氣摔"
+animation_id = &"ground_throw"
+startup_frames = 5
+active_frames = 2
+recovery_frames = 15
+damage = 88
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+throw_box = SubResource("box_5")
+throw_hold_frames = 7
+knockdown_frames = 22
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+reaction_type = 4
+on_hit_effects = Array[ExtResource("eff")]([SubResource("eff_2")])

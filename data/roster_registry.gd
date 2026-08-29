@@ -6,6 +6,7 @@ extends RefCounted
 const SALAD_CAT_MANIFEST: CharacterManifest = preload("res://content/characters/salad_cat/character_manifest.tres")
 const MAGIC_ORANGE_CAT_MANIFEST: CharacterManifest = preload("res://content/characters/magic_orange_cat/character_manifest.tres")
 const DOGE_MANIFEST: CharacterManifest = preload("res://content/characters/doge/character_manifest.tres")
+const NIU_LAI_MANIFEST: CharacterManifest = preload("res://content/characters/niu_lai/character_manifest.tres")
 
 const ENTRIES: Array[Dictionary] = [
     {"id": &"alien_meow", "name": "Alien Meow", "character": preload("res://data/characters/alien_meow.tres"), "presentation": preload("res://presentation/characters/alien_meow_presentation.tres")},
@@ -20,7 +21,7 @@ const ENTRIES: Array[Dictionary] = [
     {"id": &"sauce_stubble_dog", "name": "蘸醬胡渣狗", "character": preload("res://data/characters/sauce_stubble_dog.tres"), "presentation": preload("res://presentation/characters/sauce_stubble_dog_presentation.tres")},
     {"id": &"scared_cat", "name": "驚嚇小貓", "character": preload("res://data/characters/scared_cat.tres"), "presentation": preload("res://presentation/characters/scared_cat_presentation.tres")},
     {"id": &"ok_meow_boss", "name": "OK喵老大", "character": preload("res://data/characters/ok_meow_boss.tres"), "presentation": preload("res://presentation/characters/ok_meow_boss_presentation.tres")},
-    {"id": &"niu_lai", "name": "牛來", "character": preload("res://data/characters/niu_lai.tres"), "presentation": preload("res://presentation/characters/niu_lai_presentation.tres")},
+    {"id": NIU_LAI_MANIFEST.id, "name": NIU_LAI_MANIFEST.display_name, "character": NIU_LAI_MANIFEST.gameplay_resource, "presentation": NIU_LAI_MANIFEST.presentation_resource},
     {"id": &"bao_la", "name": "豹拉", "character": preload("res://data/characters/bao_la.tres"), "presentation": preload("res://presentation/characters/bao_la_presentation.tres")},
 ]
 

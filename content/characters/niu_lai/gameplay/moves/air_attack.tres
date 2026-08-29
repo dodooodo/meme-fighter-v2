@@ -1,0 +1,78 @@
+[gd_resource type="Resource" load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/mechanics/move_hit_data.gd" id="hit"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_condition_data.gd" id="cond"]
+
+[sub_resource type="Resource" id="box_7"]
+script = ExtResource("box")
+offset = Vector2(50, -55)
+size = Vector2(100, 45)
+
+[sub_resource type="Resource" id="cond_4"]
+script = ExtResource("cond")
+type = 9
+id = &"courage"
+value = 2
+
+[sub_resource type="Resource" id="hit_5"]
+script = ExtResource("hit")
+hit_id = 0
+active_start_frame = 5
+active_end_frame = 8
+hitbox = SubResource("box_7")
+hit_level = 1
+damage = 72
+hitstun_frames = 12
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 800
+conditions = Array[ExtResource("cond")]([SubResource("cond_4")])
+
+[sub_resource type="Resource" id="box_4"]
+script = ExtResource("box")
+offset = Vector2(38, -56)
+size = Vector2(98, 40)
+
+[sub_resource type="Resource" id="cond_5"]
+script = ExtResource("cond")
+type = 9
+id = &"courage"
+value = 2
+invert = true
+
+[sub_resource type="Resource" id="hit_6"]
+script = ExtResource("hit")
+hit_id = 1
+active_start_frame = 5
+active_end_frame = 8
+hitbox = SubResource("box_4")
+hit_level = 1
+damage = 58
+hitstun_frames = 9
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+knockback_x_units = 650
+conditions = Array[ExtResource("cond")]([SubResource("cond_5")])
+
+[resource]
+script = ExtResource("move")
+id = &"air_attack"
+display_name = "牛來飛撞"
+animation_id = &"air_attack"
+startup_frames = 4
+active_frames = 4
+recovery_frames = 11
+damage = 60
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 900
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+hits = Array[ExtResource("hit")]([SubResource("hit_5"), SubResource("hit_6")])

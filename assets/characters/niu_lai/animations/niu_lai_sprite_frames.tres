@@ -1,0 +1,214 @@
+[gd_resource type="SpriteFrames" load_steps=113 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/11.webp" id="1"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/12.webp" id="2"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/13.webp" id="3"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/14.webp" id="4"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/15.webp" id="5"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/16.webp" id="6"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/17.webp" id="7"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/18.webp" id="8"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/19.webp" id="9"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/21.webp" id="10"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/22.webp" id="11"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/23.webp" id="12"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/24.webp" id="13"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/25.webp" id="14"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/26.webp" id="15"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/27.webp" id="16"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/28.webp" id="17"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/29.webp" id="18"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/31.webp" id="19"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/32.webp" id="20"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/33.webp" id="21"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/34.webp" id="22"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/35.webp" id="23"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/36.webp" id="24"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/41.webp" id="25"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/42.webp" id="26"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/43.webp" id="27"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/44.webp" id="28"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/45.webp" id="29"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/46.webp" id="30"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/51.webp" id="31"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/52.webp" id="32"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/53.webp" id="33"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/54.webp" id="34"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/55.webp" id="35"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/56.webp" id="36"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/57.webp" id="37"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/58.webp" id="38"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/59.webp" id="39"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/61.webp" id="40"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/62.webp" id="41"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/63.webp" id="42"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/64.webp" id="43"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/65.webp" id="44"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/66.webp" id="45"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/67.webp" id="46"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/68.webp" id="47"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/69.webp" id="48"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/71.webp" id="49"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/72.webp" id="50"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/73.webp" id="51"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/74.webp" id="52"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/75.webp" id="53"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/76.webp" id="54"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/77.webp" id="55"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/78.webp" id="56"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/79.webp" id="57"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/81.webp" id="58"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/82.webp" id="59"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/83.webp" id="60"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/84.webp" id="61"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/85.webp" id="62"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_1/86.webp" id="63"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/11.webp" id="64"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/12.webp" id="65"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/13.webp" id="66"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/14.webp" id="67"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/15.webp" id="68"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/16.webp" id="69"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/21.webp" id="70"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/22.webp" id="71"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/23.webp" id="72"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/24.webp" id="73"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/25.webp" id="74"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/26.webp" id="75"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/31.webp" id="76"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/32.webp" id="77"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/33.webp" id="78"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/34.webp" id="79"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/35.webp" id="80"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/36.webp" id="81"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/37.webp" id="82"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/38.webp" id="83"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/39.webp" id="84"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/41.webp" id="85"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/42.webp" id="86"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/43.webp" id="87"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/44.webp" id="88"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/45.webp" id="89"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/46.webp" id="90"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/47.webp" id="91"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/48.webp" id="92"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/49.webp" id="93"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/51.webp" id="94"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/52.webp" id="95"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/53.webp" id="96"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/54.webp" id="97"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/55.webp" id="98"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/56.webp" id="99"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/57.webp" id="100"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/58.webp" id="101"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/59.webp" id="102"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/61.webp" id="103"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/71.webp" id="104"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/72.webp" id="105"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/73.webp" id="106"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/74.webp" id="107"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/75.webp" id="108"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/76.webp" id="109"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/77.webp" id="110"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/78.webp" id="111"]
+[ext_resource type="Texture2D" path="res://assets/characters/niu_lai/source/round_2/79.webp" id="112"]
+
+[resource]
+animations = [
+{"frames": [{"duration": 1.0, "texture": ExtResource("1")}], "loop": true, "name": &"idle", "speed": 1.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("2")}], "loop": true, "name": &"idle_courage_3", "speed": 1.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("3")}, {"duration": 1.0, "texture": ExtResource("4")}], "loop": true, "name": &"walk_forward", "speed": 6.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("5")}, {"duration": 1.0, "texture": ExtResource("6")}], "loop": true, "name": &"walk_forward_courage_2", "speed": 7.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("7")}, {"duration": 1.0, "texture": ExtResource("8")}], "loop": true, "name": &"walk_back", "speed": 6.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("9")}], "loop": true, "name": &"crouch", "speed": 1.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("10")}, {"duration": 1.0, "texture": ExtResource("11")}], "loop": false, "name": &"jump", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("12")}], "loop": false, "name": &"landing", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("13")}, {"duration": 1.0, "texture": ExtResource("14")}], "loop": false, "name": &"dash_start", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("15")}], "loop": false, "name": &"dash_recovery", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("16")}], "loop": false, "name": &"dash_recovery_courage_2", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("17")}], "loop": false, "name": &"backstep_start", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("18")}], "loop": false, "name": &"backstep_landing", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("19")}, {"duration": 1.0, "texture": ExtResource("20")}, {"duration": 1.0, "texture": ExtResource("21")}], "loop": false, "name": &"stand_light", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("22")}, {"duration": 1.0, "texture": ExtResource("23")}, {"duration": 1.0, "texture": ExtResource("24")}], "loop": false, "name": &"stand_light_courage_3", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("25")}, {"duration": 1.0, "texture": ExtResource("26")}, {"duration": 1.0, "texture": ExtResource("27")}], "loop": false, "name": &"stand_heavy", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("28")}, {"duration": 1.0, "texture": ExtResource("29")}, {"duration": 1.0, "texture": ExtResource("30")}], "loop": false, "name": &"stand_heavy_courage_2", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("31")}, {"duration": 1.0, "texture": ExtResource("32")}, {"duration": 1.0, "texture": ExtResource("33")}], "loop": false, "name": &"crouch_low", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("34")}, {"duration": 1.0, "texture": ExtResource("35")}, {"duration": 1.0, "texture": ExtResource("36")}], "loop": false, "name": &"crouch_low_courage_2", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("37")}], "loop": false, "name": &"crouch_low_courage_3", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("38")}], "loop": false, "name": &"crouch_low_courage_3_counter", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("39")}], "loop": false, "name": &"crouch_low_courage_3_followup", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("40")}, {"duration": 1.0, "texture": ExtResource("41")}, {"duration": 1.0, "texture": ExtResource("42")}], "loop": false, "name": &"air_attack", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("43")}, {"duration": 1.0, "texture": ExtResource("44")}, {"duration": 1.0, "texture": ExtResource("45")}], "loop": false, "name": &"air_attack_courage_2", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("46")}, {"duration": 1.0, "texture": ExtResource("47")}, {"duration": 1.0, "texture": ExtResource("48")}], "loop": false, "name": &"air_attack_courage_3", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("49")}], "loop": true, "name": &"guard_stand", "speed": 1.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("50")}], "loop": true, "name": &"guard_stand_courage_1", "speed": 1.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("51")}], "loop": true, "name": &"guard_stand_courage_2", "speed": 1.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("52")}], "loop": true, "name": &"guard_stand_courage_3", "speed": 1.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("53")}], "loop": true, "name": &"guard_crouch", "speed": 1.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("54")}], "loop": true, "name": &"guard_crouch_courage_1", "speed": 1.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("55")}], "loop": true, "name": &"guard_crouch_courage_2", "speed": 1.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("56")}], "loop": true, "name": &"guard_crouch_courage_3", "speed": 1.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("57")}], "loop": false, "name": &"guard_release", "speed": 7.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("58")}], "loop": false, "name": &"blockstun", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("59")}], "loop": false, "name": &"blockstun_heavy", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("60")}], "loop": false, "name": &"hitstun", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("61")}], "loop": false, "name": &"hitstun_low", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("62")}], "loop": false, "name": &"hitstun_heavy", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("63")}], "loop": false, "name": &"hitstun_air", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("64")}, {"duration": 1.0, "texture": ExtResource("65")}, {"duration": 1.0, "texture": ExtResource("66")}, {"duration": 1.0, "texture": ExtResource("67")}, {"duration": 1.0, "texture": ExtResource("68")}, {"duration": 1.0, "texture": ExtResource("69")}], "loop": false, "name": &"ground_throw", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("70")}], "loop": false, "name": &"thrown", "speed": 7.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("71")}], "loop": false, "name": &"thrown_air_roll", "speed": 7.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("72")}], "loop": false, "name": &"knockdown_impact", "speed": 6.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("73")}], "loop": true, "name": &"knockdown_hold", "speed": 1.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("74")}], "loop": false, "name": &"getup", "speed": 7.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("75")}], "loop": true, "name": &"ko", "speed": 3.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("76")}], "loop": false, "name": &"charge_start", "speed": 6.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("77")}, {"duration": 1.0, "texture": ExtResource("78")}], "loop": true, "name": &"charge_loop", "speed": 5.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("79")}], "loop": false, "name": &"niu_special_l1_release", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("80")}], "loop": false, "name": &"niu_special_l1_recovery", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("81")}], "loop": false, "name": &"niu_special_l2_release", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("82")}], "loop": false, "name": &"niu_special_l2_recovery", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("83")}], "loop": false, "name": &"niu_special_l3_release", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("84")}], "loop": false, "name": &"niu_special_l3_recovery", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("85")}], "loop": false, "name": &"courage_charge_vfx_l1", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("86")}], "loop": false, "name": &"courage_charge_vfx_strong", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("87")}], "loop": false, "name": &"courage_gain_burst", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("88")}], "loop": false, "name": &"courage_gain_settle", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("89")}], "loop": false, "name": &"courage_roar_vfx_l1", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("90")}], "loop": false, "name": &"courage_roar_vfx_l3", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("91")}], "loop": false, "name": &"courage_loss_break", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("92")}], "loop": false, "name": &"courage_loss_particles", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("93")}], "loop": false, "name": &"courage_max_vfx", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("94")}], "loop": false, "name": &"ultimate_start", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("95")}], "loop": false, "name": &"ultimate_rush_start", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("96")}], "loop": false, "name": &"ultimate_rush_hit", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("97")}], "loop": false, "name": &"ultimate_whiff_recovery", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("98")}], "loop": false, "name": &"ultimate_hit_confirm", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("99")}], "loop": false, "name": &"ultimate_finish_courage_0_2", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("100")}], "loop": false, "name": &"ultimate_courage_3_transition", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("101")}], "loop": false, "name": &"ultimate_courage_3_charge", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("102")}], "loop": false, "name": &"ultimate_reset", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("103")}], "loop": false, "name": &"ultimate_bull_illusion", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("104")}], "loop": false, "name": &"ultimate_hit_vfx", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("105")}], "loop": false, "name": &"ultimate_dream_start", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("106")}], "loop": false, "name": &"ultimate_finish_courage_0", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("107")}], "loop": false, "name": &"ultimate_residue_courage_0", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("108")}], "loop": false, "name": &"ultimate_carry_courage_1", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("109")}], "loop": false, "name": &"ultimate_impact_courage_1", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("110")}], "loop": false, "name": &"ultimate_impact_courage_2", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("111")}], "loop": false, "name": &"ultimate_rush_courage_3", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("112")}], "loop": false, "name": &"ultimate_impact_courage_3", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("13")}, {"duration": 1.0, "texture": ExtResource("14")}, {"duration": 1.0, "texture": ExtResource("15")}], "loop": false, "name": &"dash_forward", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("13")}, {"duration": 1.0, "texture": ExtResource("14")}, {"duration": 1.0, "texture": ExtResource("16")}], "loop": false, "name": &"dash_forward_courage_2", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("17")}, {"duration": 1.0, "texture": ExtResource("18")}], "loop": false, "name": &"backstep", "speed": 10.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("72")}, {"duration": 1.0, "texture": ExtResource("73")}], "loop": false, "name": &"knockdown", "speed": 6.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("76")}, {"duration": 1.0, "texture": ExtResource("77")}, {"duration": 1.0, "texture": ExtResource("78")}], "loop": true, "name": &"charge", "speed": 5.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("76")}, {"duration": 1.0, "texture": ExtResource("77")}, {"duration": 1.0, "texture": ExtResource("78")}], "loop": false, "name": &"special_neutral", "speed": 6.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("79")}, {"duration": 1.0, "texture": ExtResource("80")}], "loop": false, "name": &"niu_special_l1", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("81")}, {"duration": 1.0, "texture": ExtResource("82")}], "loop": false, "name": &"niu_special_l2", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("83")}, {"duration": 1.0, "texture": ExtResource("84")}], "loop": false, "name": &"niu_special_l3", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("94")}, {"duration": 1.0, "texture": ExtResource("95")}, {"duration": 1.0, "texture": ExtResource("96")}, {"duration": 1.0, "texture": ExtResource("98")}, {"duration": 1.0, "texture": ExtResource("99")}, {"duration": 1.0, "texture": ExtResource("102")}, {"duration": 1.0, "texture": ExtResource("103")}, {"duration": 1.0, "texture": ExtResource("104")}, {"duration": 1.0, "texture": ExtResource("105")}, {"duration": 1.0, "texture": ExtResource("106")}, {"duration": 1.0, "texture": ExtResource("107")}], "loop": false, "name": &"ultimate", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("94")}, {"duration": 1.0, "texture": ExtResource("95")}, {"duration": 1.0, "texture": ExtResource("96")}, {"duration": 1.0, "texture": ExtResource("98")}, {"duration": 1.0, "texture": ExtResource("99")}, {"duration": 1.0, "texture": ExtResource("102")}, {"duration": 1.0, "texture": ExtResource("103")}, {"duration": 1.0, "texture": ExtResource("104")}, {"duration": 1.0, "texture": ExtResource("105")}, {"duration": 1.0, "texture": ExtResource("108")}, {"duration": 1.0, "texture": ExtResource("109")}], "loop": false, "name": &"ultimate_courage_1", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("94")}, {"duration": 1.0, "texture": ExtResource("95")}, {"duration": 1.0, "texture": ExtResource("96")}, {"duration": 1.0, "texture": ExtResource("98")}, {"duration": 1.0, "texture": ExtResource("99")}, {"duration": 1.0, "texture": ExtResource("102")}, {"duration": 1.0, "texture": ExtResource("103")}, {"duration": 1.0, "texture": ExtResource("104")}, {"duration": 1.0, "texture": ExtResource("105")}, {"duration": 1.0, "texture": ExtResource("110")}], "loop": false, "name": &"ultimate_courage_2", "speed": 8.000},
+{"frames": [{"duration": 1.0, "texture": ExtResource("94")}, {"duration": 1.0, "texture": ExtResource("95")}, {"duration": 1.0, "texture": ExtResource("96")}, {"duration": 1.0, "texture": ExtResource("98")}, {"duration": 1.0, "texture": ExtResource("100")}, {"duration": 1.0, "texture": ExtResource("101")}, {"duration": 1.0, "texture": ExtResource("102")}, {"duration": 1.0, "texture": ExtResource("103")}, {"duration": 1.0, "texture": ExtResource("104")}, {"duration": 1.0, "texture": ExtResource("105")}, {"duration": 1.0, "texture": ExtResource("111")}, {"duration": 1.0, "texture": ExtResource("112")}], "loop": false, "name": &"ultimate_courage_3", "speed": 8.000}
+]

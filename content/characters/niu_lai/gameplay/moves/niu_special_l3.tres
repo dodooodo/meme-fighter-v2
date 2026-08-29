@@ -1,0 +1,40 @@
+[gd_resource type="Resource" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://data/box_data.gd" id="box"]
+[ext_resource type="Script" path="res://data/mechanics/gameplay_effect_data.gd" id="eff"]
+
+[sub_resource type="Resource" id="box_8"]
+script = ExtResource("box")
+offset = Vector2(62, -76)
+size = Vector2(120, 48)
+
+[sub_resource type="Resource" id="eff_4"]
+script = ExtResource("eff")
+type = 3
+target = 0
+id = &"courage"
+value = 1
+
+[resource]
+script = ExtResource("move")
+id = &"niu_special_l3"
+display_name = "勇氣蓄進 Lv3"
+animation_id = &"niu_special_l3"
+startup_frames = 10
+active_frames = 5
+recovery_frames = 18
+damage = 92
+hitstun_frames = 10
+blockstun_frames = 7
+hitstop_attacker = 4
+hitstop_defender = 4
+hit_level = 1
+knockback_x_units = 3000
+meter_gain_on_hit = 3
+meter_gain_on_block = 1
+travel_x_units_per_tick = 1150
+travel_start_frame = 2
+travel_end_frame = 14
+hitbox = SubResource("box_8")
+on_complete_effects = Array[ExtResource("eff")]([SubResource("eff_4")])

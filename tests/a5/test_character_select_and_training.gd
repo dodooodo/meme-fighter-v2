@@ -22,14 +22,14 @@ func _test_character_select_model() -> void:
     var model: Variant = load(SELECT_MODEL_PATH).new()
     t.that(bool(model.call("load_builtin_roster")), "Character Select loads manifest-backed built-in roster")
     var manifests: Array = model.call("manifests")
-    t.equal(manifests.size(), 3, "Character Select exposes exactly three available fighters")
+    t.equal(manifests.size(), 4, "Character Select exposes four available fighters")
     var ids: Array[StringName] = []
     for manifest: CharacterManifest in manifests:
         ids.append(manifest.id)
         t.that(not manifest.display_name.is_empty(), "%s manifest has a display name" % String(manifest.id))
         t.that(manifest.portrait != null, "%s manifest retains a portrait asset" % String(manifest.id))
         t.that(manifest.available, "%s manifest exposes available state" % String(manifest.id))
-    t.equal(ids, [&"doge", &"magic_orange_cat", &"salad_cat"], "Character Select ordering is deterministic")
+    t.equal(ids, [&"doge", &"magic_orange_cat", &"niu_lai", &"salad_cat"], "Character Select ordering is deterministic")
 
 func _test_mode_and_scene_contract() -> void:
     t.that("TRAINING" in BattleMode.Mode, "BattleMode exposes Training")
