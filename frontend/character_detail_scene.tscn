@@ -84,6 +84,10 @@ custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
 text = "▶"
 
+[node name="Speed" type="OptionButton" parent="Root/Body/PreviewPanel/Transport"]
+custom_minimum_size = Vector2(96, 40)
+layout_mode = 2
+
 [node name="FrameCounter" type="Label" parent="Root/Body/PreviewPanel/Transport"]
 layout_mode = 2
 size_flags_horizontal = 3

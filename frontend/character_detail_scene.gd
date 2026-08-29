@@ -6,7 +6,9 @@
 extends Control
 
 const MODE_SELECT_SCENE := "res://frontend/mode_select_scene.tscn"
-const PREVIEW_SPEED_SCALE := 1.0
+# ProductionFighterVisual clamps preview speed to 0.05-4.0; these sit inside it.
+const SPEED_CHOICES: Array[float] = [0.1, 0.25, 0.5, 1.0, 2.0, 4.0]
+const DEFAULT_SPEED_INDEX := 3
 const PREVIEW_FILL := 0.86
 const THUMBNAIL_SIZE := Vector2(76, 76)
 const THUMBNAIL_IDLE := Color(0.62, 0.62, 0.62, 1.0)
@@ -22,6 +24,7 @@ const THUMBNAIL_CURRENT := Color(1.0, 1.0, 1.0, 1.0)
 @onready var play_pause_button: Button = $Root/Body/PreviewPanel/Transport/PlayPause
 @onready var prev_frame_button: Button = $Root/Body/PreviewPanel/Transport/PrevFrame
 @onready var next_frame_button: Button = $Root/Body/PreviewPanel/Transport/NextFrame
+@onready var speed_select: OptionButton = $Root/Body/PreviewPanel/Transport/Speed
 @onready var frame_counter: Label = $Root/Body/PreviewPanel/Transport/FrameCounter
 @onready var frame_strip: HBoxContainer = $Root/Body/PreviewPanel/FrameStrip/Frames
 
@@ -41,6 +44,10 @@ func _ready() -> void:
     play_pause_button.pressed.connect(_on_play_pause)
     prev_frame_button.pressed.connect(_step_frame.bind(-1))
     next_frame_button.pressed.connect(_step_frame.bind(1))
+    for index in range(SPEED_CHOICES.size()):
+        speed_select.add_item(_speed_label(SPEED_CHOICES[index]), index)
+    speed_select.select(DEFAULT_SPEED_INDEX)
+    speed_select.item_selected.connect(_on_speed_selected)
 
     if not roster.load_builtin_roster() or roster.count() == 0:
         move_notice.text = "No character packages available."
@@ -107,7 +114,7 @@ func _mount_visual() -> void:
     _visual.set_character_presentation_data(detail.presentation())
     preview_host.add_child(_visual)
     if _visual.has_method("set_preview_mode"):
-        _visual.set_preview_mode(true, PREVIEW_SPEED_SCALE)
+        _visual.set_preview_mode(true, _preview_speed())
     var sprite := _animation_sprite()
     if sprite == null:
         return
@@ -123,7 +130,7 @@ func _play(animation_key: StringName) -> void:
     if _visual == null:
         return
     if _visual.has_method("set_preview_mode"):
-        _visual.set_preview_mode(true, PREVIEW_SPEED_SCALE)
+        _visual.set_preview_mode(true, _preview_speed())
     _visual.play_animation(animation_key)
     _rebuild_frame_strip()
     _fit_preview()
@@ -294,6 +301,24 @@ func _rebuild_frame_strip() -> void:
         frame_strip.add_child(button)
         _frame_buttons.append(button)
 
+func _preview_speed() -> float:
+    if speed_select == null or speed_select.selected < 0:
+        return SPEED_CHOICES[DEFAULT_SPEED_INDEX]
+    return SPEED_CHOICES[speed_select.selected]
+
+func _speed_label(speed: float) -> String:
+    return ("%.2f" % speed).rstrip("0").rstrip(".") + "x"
+
+# set_preview_mode restarts playback, which would silently un-pause a preview
+# somebody paused to look at a frame. Drive speed_scale directly so changing
+# speed keeps whatever play state the preview is in.
+func _on_speed_selected(_index: int) -> void:
+    var sprite := _animation_sprite()
+    if sprite == null:
+        return
+    sprite.speed_scale = _preview_speed()
+    _sync_transport()
+
 func _on_play_pause() -> void:
     var sprite := _animation_sprite()
     if sprite == null:
@@ -332,7 +357,8 @@ func _sync_transport() -> void:
     if sprite == null or frames == 0:
         frame_counter.text = ""
         return
-    frame_counter.text = "Frame %d / %d   ·   %s" % [sprite.frame + 1, frames, String(sprite.animation)]
+    frame_counter.text = "Frame %d / %d   ·   %s   ·   %s" % [
+        sprite.frame + 1, frames, String(sprite.animation), _speed_label(_preview_speed())]
     for index in range(_frame_buttons.size()):
         _frame_buttons[index].modulate = THUMBNAIL_CURRENT if index == sprite.frame else THUMBNAIL_IDLE
 
