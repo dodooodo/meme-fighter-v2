@@ -4,8 +4,8 @@ stage: A
 type: tooling
 status: done
 dependencies: [A-COL-008]
-allowed_paths: [addons/, project.godot, data/content_index.gd, docs/]
-forbidden_paths: [battle/, fighter/, frontend/, presentation/, content/, assets/, scripts/, tests/]
+allowed_paths: [addons/, project.godot, data/content_index.gd, content/validation/unbound_moves_allowlist.json, docs/]
+forbidden_paths: [battle/, fighter/, frontend/, presentation/, content/characters/, assets/, scripts/, tests/]
 required_specs: [AGENTS.md, docs/contributors/CONTENT_INSPECTOR.md, docs/roadmap/PRODUCTION_ROADMAP.md]
 required_checks: [python3 scripts/static_validate.py, bash scripts/verify.sh]
 ---
