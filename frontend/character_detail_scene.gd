@@ -94,13 +94,34 @@ func _mount_visual() -> void:
     _visual.position = Vector2(preview_host.size.x * 0.5, preview_host.size.y * 0.92)
     if _visual.has_method("set_preview_mode"):
         _visual.set_preview_mode(true, PREVIEW_SPEED_SCALE)
+    var sprite := _animation_sprite()
+    if sprite != null and not sprite.animation_finished.is_connected(_on_preview_animation_finished):
+        sprite.animation_finished.connect(_on_preview_animation_finished)
 
 func _play(animation_key: StringName) -> void:
     if _visual == null:
         return
-    _visual.play_animation(animation_key)
     if _visual.has_method("set_preview_mode"):
         _visual.set_preview_mode(true, PREVIEW_SPEED_SCALE)
+    _visual.play_animation(animation_key)
+
+# Attack animations are authored non-looping because a match drives their frames
+# from the move timeline. This screen has no match to drive them, so a move would
+# otherwise play once and freeze on its last frame. Replaying on finish loops
+# every move without editing the shared SpriteFrames, which the game also uses.
+func _on_preview_animation_finished() -> void:
+    var sprite := _animation_sprite()
+    if sprite == null or sprite.animation == &"":
+        return
+    sprite.frame = 0
+    sprite.play(sprite.animation)
+
+# Read through get() so any FighterVisual implementation without an
+# AnimatedSprite2D simply does not loop rather than breaking the screen.
+func _animation_sprite() -> AnimatedSprite2D:
+    if _visual == null:
+        return null
+    return _visual.get("sprite") as AnimatedSprite2D
 
 func _clear_preview() -> void:
     if _visual == null:

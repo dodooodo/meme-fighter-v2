@@ -50,8 +50,9 @@ Affected docs:
 3. The detail scene previews the selected move using the character's own `fighter_visual_scene` in preview mode.
 4. The mode select screen reaches the detail page without changing the P1/P2 selector layout or any existing entry point.
 5. Switching character or move stops the previous preview before starting the next.
-6. `bash scripts/verify.sh` passes.
-7. MANUAL, OUTSTANDING: a human opens the screen and confirms the preview is framed and scaled sensibly, the movelist is readable, and the flow back to mode select behaves. Headless probes cover data and node wiring only; nobody has looked at this screen.
+6. The preview loops continuously. Attack animations are authored non-looping because a match drives their frames from the move timeline, so the screen replays them on `animation_finished` rather than editing the `SpriteFrames` the game shares.
+7. `bash scripts/verify.sh` passes.
+8. MANUAL, OUTSTANDING: a human opens the screen and confirms the preview is framed and scaled sensibly, the movelist is readable, and the flow back to mode select behaves. Headless probes cover data and node wiring only; nobody has looked at this screen.
 
 ## Rollback / Recovery Notes
 Revert the branch. The model and scene are additive; removing the `MOVE LIST` button restores the previous mode select screen exactly.
