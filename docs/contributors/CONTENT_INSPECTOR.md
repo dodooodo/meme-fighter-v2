@@ -89,6 +89,44 @@ with no usable binding says so rather than showing a stale frame.
 The **Import art pack** button is deliberately inert; the GUI import path is
 `A-COL-010`. Build art packs with `scripts/build_art_manifest.py` until then.
 
+## Binding a move to an animation
+
+The dock reports which moves are unbound or point at art that does not exist.
+The **Bind selected move to** row closes that gap: pick a move in the Moves tab,
+pick an animation from the dropdown, press Apply. Only animations the character
+actually has are offered, which is the point — a hand-typed `StringName` is how
+a move ends up bound to art that was never built.
+
+### Why it edits the file as text
+
+`ResourceSaver.save()` is not used. Saving a presentation resource *unchanged*
+rewrites all 139 lines: every `ext_resource` id is randomised, entries appear
+for binding types the file does not use, and the document is reordered. A
+one-line change would arrive as an unreviewable diff whose ids differ again on
+the next save, in the file art, balance, skill, and frontend contributors all
+share.
+
+So `binding_writer.gd` performs two narrow text transforms and nothing else:
+
+| Operation | Diff |
+| --- | --- |
+| Rebind an existing move | one changed line |
+| Add a binding for an unbound move | four inserted lines, plus the array and `load_steps` lines |
+
+Adding a binding produces `6 insertions(+), 2 deletions(-)`.
+
+It refuses rather than guesses: no `move_presentation_binding.gd` ext_resource,
+no `move_bindings` array, a move that is already bound, a taken sub-resource id,
+or a move bound through resource-conditioned variants. Courage-style variants
+are edited by hand, because changing one block in isolation silently changes
+which variant wins.
+
+### The engine is the check
+
+After writing, the resource is reloaded with `CACHE_MODE_IGNORE` and the
+character re-indexed. If it no longer loads, or the character's error count
+rose, the original file content is put back and the dock says so.
+
 ## Importing an art pack
 
 The dock's **Import art pack** button imports a MODE_FIGHTER pack from a folder

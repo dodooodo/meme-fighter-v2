@@ -830,6 +830,28 @@ PEP 701 才允許）。目前沒有任何 CI job 執行 builders，所以這條�
 
 `base_fighter` / `effect` / `ultimate_screen` 仍為 CLI 專用。
 
+### `A-COL-011` Binding Editor
+
+Dock 報出「未綁定」與「綁到不存在的動畫」之後，要能就地修好，而不是回頭手改 `.tres`。
+下拉選單只列出該角色 SpriteFrames 真的有的動畫。
+
+嚴禁使用 `ResourceSaver.save()`：對 presentation resource 原樣存檔會重寫全部 139 行，
+把 `ext_resource` id 隨機化、加入檔案未使用的 binding 型別、並重排文件。
+一行改動會變成無法 review 且每次存檔 id 都不同的 diff——而那是四種協作者共用的檔案。
+
+改用最小文字編輯：
+
+```text
+rebind      → 1 行變更
+add binding → 插入 4 行 + 陣列 1 行 + load_steps 1 行（6 insertions, 2 deletions）
+```
+
+不符預期形狀就拒絕，不猜。條件式 variant（courage）一律拒絕，需手動編輯。
+
+安全網：寫入後以 `CACHE_MODE_IGNORE` 重新載入並重建 index，
+載入失敗或錯誤數上升就還原檔案內容。
+
+
 
 ---
 
