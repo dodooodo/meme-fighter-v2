@@ -18,7 +18,8 @@ Provide a player-facing selector for the three Stage A fighters.
 
 ## Context
 
-The current screen is a 14-entry development dropdown.
+The original screen is a 14-entry development dropdown. The owner requires its
+established layout and selection interaction to remain visually unchanged.
 
 ## Existing Behavior To Preserve
 
@@ -26,8 +27,9 @@ Local two-player and deterministic CPU launch remain available.
 
 ## Required Change
 
-Show exactly three cards with portrait, name, availability, P1/P2 choice, and
-local/CPU start actions derived from manifests.
+Keep the original title, P1/P2 dropdowns, local/CPU actions, and control guide.
+Limit the dropdowns to exactly three available manifest-backed fighters and add
+Training/Tutorial as a quiet second action row rather than redesigning the page.
 
 ## Public/API Contract
 
@@ -48,6 +50,8 @@ Change type: feature
 Expected test levels: component, integration, smoke, e2e, visual regression
 
 Pre-change expected failure / characterization: frontend has dropdowns and 14 entries.
+The first A5 implementation replaced that established layout with fighter cards;
+the owner rejected that visual change.
 
 Post-change required checks: focused A5, global verification, manual flow review.
 
@@ -59,7 +63,8 @@ Affected docs: A5 manual verification checklist.
 
 ## Acceptance Criteria
 
-Exactly three available fighters can launch both requested versus modes.
+The original selector layout exposes exactly three available manifest-backed
+fighters and can launch both requested versus modes, Training, and Tutorial.
 
 ## Rollback / Recovery Notes
 

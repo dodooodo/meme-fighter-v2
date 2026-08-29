@@ -4,7 +4,7 @@
 
 Automated A5 package, charge, tutorial-model, full-regression, and live-scene
 smoke checks pass on Godot 4.7.2. A 1440×900 Character Select render was also
-reviewed for clipping, overlap, card identity, and action readability. Those
+reviewed for clipping, overlap, selector identity, and action readability. Those
 checks do not replace a person playing the build; leave the A5 task packets
 `in_progress` until the checklist below is performed and evidence is recorded.
 
@@ -13,10 +13,10 @@ each failed or deferred item. Do not convert an unperformed item into a pass.
 
 ## Character Select and match launch
 
-- [ ] Exactly Doge, Magic Orange Cat, and Salad Cat appear with recognizable
-  portraits, names, and `READY` state.
-- [ ] P1 and P2 selection borders and labels remain obvious with every pairing,
-  including a same-character match.
+- [ ] Exactly Doge, Magic Orange Cat, and Salad Cat appear in the original P1
+  and P2 selectors with recognizable names.
+- [ ] P1 and P2 selected values remain obvious with every pairing, including a
+  same-character match.
 - [ ] `1P VS CPU` starts and can finish a match with the selected fighters.
 - [ ] `2P LOCAL` starts and can finish a match with the selected fighters.
 - [ ] Keyboard focus and all four launch buttons remain legible at the target

@@ -3,6 +3,8 @@ extends RefCounted
 
 const ASSERT_HELPER := preload("res://tests/test_assert.gd")
 const DOGE_MANIFEST_PATH := "res://content/characters/doge/character_manifest.tres"
+const DOGE_ANIMATION_MANIFEST_PATH := "res://assets/characters/doge/animations/manifest.json"
+const DOGE_SUPER_ANIMATION_MANIFEST_PATH := "res://assets/characters/doge/animations/doge_super_manifest.json"
 const DOGE_MOVE_ROOT := "res://content/characters/doge/gameplay/moves/"
 const EXPECTED_MOVE_IDS: Array[StringName] = [
     &"stand_light",
@@ -23,6 +25,7 @@ var t = ASSERT_HELPER.new()
 func run_all() -> int:
     _test_package_and_catalog_discovery()
     _test_split_moves_and_production_presentation()
+    _test_production_presentation_feet_pivots()
     _test_packaged_charge_regression()
     _test_packaged_charge_interruption_reset_cancel_armor_and_mode()
     _test_packaged_charge_replay()
@@ -87,6 +90,54 @@ func _test_split_moves_and_production_presentation() -> void:
     t.that(presentation.state_bindings.size() >= 17, "Doge binds the full authored state presentation set")
     t.equal(presentation.move_bindings.size(), EXPECTED_MOVE_IDS.size(), "Doge binds every authored move presentation")
     t.that(presentation.mode_binding(&"super_doge") != null, "Doge binds its authoritative Super Doge mode visual")
+
+func _test_production_presentation_feet_pivots() -> void:
+    var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(DOGE_ANIMATION_MANIFEST_PATH))
+    t.that(parsed is Dictionary, "Doge animation manifest is valid JSON")
+    if not (parsed is Dictionary):
+        return
+    t.equal(String(parsed.get("pivot_convention", "")), "FEET_CENTER", "Doge declares the shared feet-center pivot contract")
+    var animations: Variant = parsed.get("animations", [])
+    t.that(animations is Array and not animations.is_empty(), "Doge manifest carries per-animation frame metadata")
+    if not (animations is Array) or animations.is_empty():
+        return
+    var keys: Dictionary = {}
+    for animation: Variant in animations:
+        t.that(animation is Dictionary, "Doge animation metadata entry is structured")
+        if not (animation is Dictionary):
+            continue
+        var key := StringName(String(animation.get("key", "")))
+        keys[key] = true
+        var frames: Variant = animation.get("frames", [])
+        t.that(frames is Array and not frames.is_empty(), "%s exposes frame pivot metadata" % String(key))
+        if not (frames is Array):
+            continue
+        for frame: Variant in frames:
+            var pivot: Variant = frame.get("pivot_pixels", []) if frame is Dictionary else []
+            t.that(pivot is Array and pivot.size() == 2, "%s frame anchors its authored feet center" % String(key))
+
+    var presentation := _manifest().presentation_resource
+    var visual := presentation.fighter_visual_scene.instantiate()
+    var sprite := visual.get_node_or_null("AnimatedSprite2D") as AnimatedSprite2D
+    t.that(sprite != null and not sprite.centered, "Doge visual uses the top-left sprite anchor required by per-frame pivots")
+    t.equal(visual.get_script().resource_path, "res://presentation/visuals/production/production_fighter_visual.gd", "Doge uses the shared production visual adapter without a character-specific pivot exception")
+    if sprite != null and sprite.sprite_frames != null:
+        for animation_name: StringName in sprite.sprite_frames.get_animation_names():
+            t.that(keys.has(animation_name), "Doge manifest covers SpriteFrames animation %s" % String(animation_name))
+    visual.free()
+
+    var super_parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(DOGE_SUPER_ANIMATION_MANIFEST_PATH))
+    t.that(super_parsed is Dictionary, "Super Doge animation manifest is valid JSON")
+    if super_parsed is Dictionary:
+        t.equal(String(super_parsed.get("pivot_convention", "")), "FEET_CENTER", "Super Doge declares the shared feet-center pivot contract")
+        var super_animations: Variant = super_parsed.get("animations", [])
+        t.that(super_animations is Array and not super_animations.is_empty(), "Super Doge manifest carries per-animation frame metadata")
+    var mode_binding := presentation.mode_binding(&"super_doge")
+    var super_visual := mode_binding.fighter_visual_scene.instantiate()
+    var super_sprite := super_visual.get_node_or_null("AnimatedSprite2D") as AnimatedSprite2D
+    t.that(super_sprite != null and not super_sprite.centered, "Super Doge uses top-left per-frame pivot coordinates")
+    t.equal(super_visual.get_script().resource_path, "res://presentation/visuals/production/production_fighter_visual.gd", "Super Doge also uses the shared production visual adapter")
+    super_visual.free()
 
 func _test_packaged_charge_regression() -> void:
     var manifest := _manifest()

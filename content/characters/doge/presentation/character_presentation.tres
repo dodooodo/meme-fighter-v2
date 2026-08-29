@@ -125,6 +125,7 @@ script = ExtResource("mode")
 mode_id = &"super_doge"
 fighter_visual_scene = ExtResource("super_visual")
 visual_scale = 1.0
+pack_manifest_path = "res://assets/characters/doge/animations/doge_super_manifest.json"
 enter_animation = &"idle"
 required_animations = Array[StringName]([&"idle", &"stand_heavy", &"doge_super_heavy"])
 

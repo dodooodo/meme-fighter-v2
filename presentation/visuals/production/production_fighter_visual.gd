@@ -261,8 +261,13 @@ func _update_frame_pivot() -> void:
         return
     var pivot: Variant = frame_meta.get("pivot_pixels", [])
     if pivot is Array and pivot.size() == 2:
-        # Sprite is top-left anchored. Shared animation-level feet baseline maps to local (0,0).
-        sprite.position = Vector2(-float(pivot[0]), -float(pivot[1]))
+        # Sprite is top-left anchored. Child sprite scale does not scale its own
+        # position, so include it explicitly when mapping the authored feet
+        # pivot to this visual's local origin.
+        sprite.position = Vector2(
+            -float(pivot[0]) * sprite.scale.x,
+            -float(pivot[1]) * sprite.scale.y
+        )
 
 func _draw() -> void:
     if not _greybox_fallback:

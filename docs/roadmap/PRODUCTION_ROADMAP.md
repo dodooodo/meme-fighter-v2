@@ -889,10 +889,11 @@ are green. Final acceptance remains pending the human play checklist in
 只需要：
 
 - 3 fighters
-- portrait
 - name
 - available state
 - local/CPU start
+- preserve the established P1/P2 selector layout; portrait remains package
+  metadata for later art/UI work
 
 ### `A-MVP-006` Training Minimum
 

@@ -23,8 +23,9 @@ func _run() -> void:
 
 func _smoke_character_select() -> void:
     var select := await _open_character_select()
-    _check(select.model.count() == 3, "Character Select builds exactly three manifest-backed cards")
-    _check(select.roster_container.get_child_count() == 3, "Character Select card nodes enter the live scene tree")
+    _check(select.model.count() == 3, "Character Select loads exactly three manifest-backed fighters")
+    _check(select.p1_select.item_count == 3, "Original P1 picker lists exactly three manifest-backed fighters")
+    _check(select.p2_select.item_count == 3, "Original P2 picker lists exactly three manifest-backed fighters")
     _check(not select.vs_cpu_button.disabled, "Character Select actions are enabled after package discovery")
     await process_frame
     await process_frame
@@ -38,7 +39,8 @@ func _smoke_character_select() -> void:
 
 func _smoke_launch(button_name: String, mode: int, expected_source_type: Variant) -> void:
     var select := await _open_character_select()
-    var button := select.get_node("Margin/Layout/Actions/%s" % button_name) as Button
+    var group := "ExtraModes" if button_name in ["Training", "Tutorial"] else "Buttons"
+    var button := select.get_node("Center/VBox/%s/%s" % [group, button_name]) as Button
     _check(button != null, "%s launch action exists" % BattleMode.display_name(mode))
     if button == null:
         await _dispose_current_scene()
@@ -58,7 +60,33 @@ func _smoke_launch(button_name: String, mode: int, expected_source_type: Variant
     _check(is_instance_of(battle.simulation.fighter_b.input_source, expected_source_type), "%s wires the expected P2 InputSource" % BattleMode.display_name(mode))
     _check(battle.training_overlay.visible == BattleMode.uses_training_rules(mode), "%s sets Training overlay visibility" % BattleMode.display_name(mode))
     _check(battle.tutorial_overlay.visible == (mode == BattleMode.Mode.TUTORIAL), "%s sets Tutorial overlay visibility" % BattleMode.display_name(mode))
+    if mode == BattleMode.Mode.VS_CPU:
+        _check_doge_feet_pivot(battle)
     await _dispose_current_scene()
+
+
+func _check_doge_feet_pivot(battle: BattleScene) -> void:
+    var visual := battle.presentation_controller.p1_controller.visual as ProductionFighterVisual
+    _check(visual != null, "Doge uses the shared production visual adapter")
+    if visual == null:
+        return
+    var sprite := visual.get_node_or_null("AnimatedSprite2D") as AnimatedSprite2D
+    _check(sprite != null and not sprite.centered, "Doge runtime sprite uses top-left pivot coordinates")
+    var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://assets/characters/doge/animations/manifest.json"))
+    var animations: Variant = parsed.get("animations", []) if parsed is Dictionary else []
+    _check(animations is Array and not animations.is_empty(), "Doge runtime has authored feet-center frame metadata")
+    if sprite == null or not (animations is Array) or animations.is_empty():
+        return
+    var frames: Variant = animations[0].get("frames", []) if animations[0] is Dictionary else []
+    if not (frames is Array) or frames.is_empty() or not (frames[0] is Dictionary):
+        _check(false, "Doge idle frame exposes a feet-center pivot")
+        return
+    var pivot: Variant = frames[0].get("pivot_pixels", [])
+    _check(pivot is Array and pivot.size() == 2, "Doge idle frame exposes a feet-center pivot")
+    if not (pivot is Array) or pivot.size() != 2:
+        return
+    var pivot_in_visual := sprite.transform * Vector2(float(pivot[0]), float(pivot[1]))
+    _check(pivot_in_visual.length() <= 0.01, "Doge authored feet pivot maps to the fighter visual origin")
 
 
 func _open_character_select() -> ModeSelectScene:

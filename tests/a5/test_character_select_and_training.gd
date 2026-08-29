@@ -26,9 +26,9 @@ func _test_character_select_model() -> void:
     var ids: Array[StringName] = []
     for manifest: CharacterManifest in manifests:
         ids.append(manifest.id)
-        t.that(not manifest.display_name.is_empty(), "%s card has a display name" % String(manifest.id))
-        t.that(manifest.portrait != null, "%s card has a portrait" % String(manifest.id))
-        t.that(manifest.available, "%s card exposes available state" % String(manifest.id))
+        t.that(not manifest.display_name.is_empty(), "%s manifest has a display name" % String(manifest.id))
+        t.that(manifest.portrait != null, "%s manifest retains a portrait asset" % String(manifest.id))
+        t.that(manifest.available, "%s manifest exposes available state" % String(manifest.id))
     t.equal(ids, [&"doge", &"magic_orange_cat", &"salad_cat"], "Character Select ordering is deterministic")
 
 func _test_mode_and_scene_contract() -> void:
@@ -39,11 +39,14 @@ func _test_mode_and_scene_contract() -> void:
     if scene == null:
         return
     var instance := scene.instantiate()
-    t.that(instance.get_node_or_null("Margin/Layout/Roster") != null, "Character Select scene owns a three-card roster container")
-    t.that(instance.get_node_or_null("Margin/Layout/Actions/VsCpu") != null, "Character Select exposes CPU start")
-    t.that(instance.get_node_or_null("Margin/Layout/Actions/Local2P") != null, "Character Select exposes local start")
-    t.that(instance.get_node_or_null("Margin/Layout/Actions/Training") != null, "Character Select exposes Training start")
-    t.that(instance.get_node_or_null("Margin/Layout/Actions/Tutorial") != null, "Character Select exposes Tutorial start")
+    var title := instance.get_node_or_null("Center/VBox/Title") as Label
+    t.that(title != null and title.text == "Two Box Fighting", "Character Select preserves the original home title")
+    t.that(instance.get_node_or_null("Center/VBox/CharacterSelectors/P1Select") is OptionButton, "Character Select preserves the original P1 picker")
+    t.that(instance.get_node_or_null("Center/VBox/CharacterSelectors/P2Select") is OptionButton, "Character Select preserves the original P2 picker")
+    t.that(instance.get_node_or_null("Center/VBox/Buttons/VsCpu") != null, "Character Select preserves the original CPU start")
+    t.that(instance.get_node_or_null("Center/VBox/Buttons/Local2P") != null, "Character Select preserves the original local start")
+    t.that(instance.get_node_or_null("Center/VBox/ExtraModes/Training") != null, "Character Select exposes Training without replacing the original controls")
+    t.that(instance.get_node_or_null("Center/VBox/ExtraModes/Tutorial") != null, "Character Select exposes Tutorial without replacing the original controls")
     instance.free()
 
 func _test_training_dummy_and_input_display() -> void:
