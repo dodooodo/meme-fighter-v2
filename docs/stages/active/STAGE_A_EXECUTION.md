@@ -67,6 +67,7 @@ runtime command and failure behavior are settled.
 | A-MOD-005 | Add the character package template | A-MOD-004 | done |
 | A-MOD-006 | Add package validation | A-MOD-005 | done |
 | A-MOD-007 | Add per-character test command | A-MOD-006 | done |
+| A-RUN-007 | Make the art pipeline run on Python 3.9 | none | done — output-neutral; a MODE_FIGHTER pack builds on both 3.9 and 3.13 |
 | A-COL-001 | Add domain-separated CODEOWNERS | none | done |
 | A-COL-002 | Add five role-based PR templates | none | done |
 | A-COL-003 | Export balance tables as CSV/Markdown | none | done |
