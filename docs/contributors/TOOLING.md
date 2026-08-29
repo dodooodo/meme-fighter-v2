@@ -18,6 +18,16 @@ Every PR template separates actual evidence into `PASS`, `FAIL`, `NOT EXECUTED`,
 or `N/A`. Choose `NOT EXECUTED` whenever a required runtime or human check did
 not happen; source inspection is not a substitute.
 
+## Art pipeline requirements
+
+The builders need Python 3.9+ and Pillow. Pillow is not declared as a project
+dependency and no CI job runs the builders, so a missing or too-old interpreter
+surfaces only when you try to build.
+
+Note that different Pillow versions re-encode frames to different bytes, and the
+build manifest records a sha256 per frame, so rebuilding on a different Pillow
+produces a real diff even when nothing else changed.
+
 ## One-command art build
 
 Create one versioned JSON manifest and validate the complete batch before any
