@@ -78,6 +78,11 @@ custom_minimum_size = Vector2(240, 48)
 layout_mode = 2
 text = "FIRST FIGHT"
 
+[node name="MoveList" type="Button" parent="Center/VBox/ExtraModes"]
+custom_minimum_size = Vector2(240, 48)
+layout_mode = 2
+text = "MOVE LIST"
+
 [node name="Controls" type="Label" parent="Center/VBox"]
 layout_mode = 2
 text = "P1  WASD | U Light | I Heavy | J Guard | K Special | L Ultimate\nP2 LOCAL  Arrow Keys | M Light | , Heavy | . Guard | / Special | ; Ultimate\n\n1P VS CPU: P1 = Human, P2 = deterministic CPU\nBattle: R = Reset | ESC = Mode Select | F1-F5 = Debug"

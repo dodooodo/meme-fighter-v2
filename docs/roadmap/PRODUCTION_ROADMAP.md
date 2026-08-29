@@ -959,6 +959,31 @@ are green. Final acceptance remains pending the human play checklist in
 
 ---
 
+### `A-MVP-008` Character Detail / Movelist
+
+玩家選角前需要知道每隻角色的招式長什麼樣。同一頁依揭露層級服務三種人：
+
+```text
+玩家        招式名 / 幀數 / 動畫預覽
+平衡・美術  加上 animation key 與完整 frame data
+管理員      加上 ContentIndex 診斷（尚未實作，須先解決 export 排除）
+```
+
+必須走 runtime 解析路徑：
+
+```text
+CharacterPresentationData.animation_for_move()
+```
+
+也就是 `FighterPresentationResolver` 用的同一支。這樣頁面顯示的就是遊戲真正會播的東西，包含 fallback。
+
+嚴禁：`ContentIndex` 進 runtime 場景。它是工具層，走 `PackedScene.get_state()`
+與 build manifest。「沒有綁定動畫」改由 `animation_for_move(id, &"")` 回空值判斷。
+
+只載入當前選取角色的 package，與 `B-WEB-004` 每角色 PCK 相容。
+
+不改動 `A-MVP-005` 既定的 P1/P2 selector 版面，以新增入口進入。
+
 ## 6.8 Stage A Gate
 
 全部成立才進 Stage B：
