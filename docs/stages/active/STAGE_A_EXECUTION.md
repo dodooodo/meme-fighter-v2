@@ -74,6 +74,7 @@ runtime command and failure behavior are settled.
 | A-COL-005 | Add one-command art manifest build | none | done |
 | A-COL-006 | Add mechanic authoring guide | none | done |
 | A-COL-007 | Simulate four contributor branches | none | done |
+| A-COL-008 | Join gameplay, presentation, and built art into one validated index | none | done — validation, markdown report, and CI gate green |
 | A-DATA-001 | Add local identity vocabulary | none | done |
 | A-DATA-002 | Add Event Envelope v1 | none | done |
 | A-DATA-003 | Emit match summaries | none | done |

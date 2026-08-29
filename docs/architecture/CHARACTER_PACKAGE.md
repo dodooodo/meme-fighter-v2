@@ -73,7 +73,21 @@ moves, presentation bindings, and asset-placement guidance.
 
 `CharacterValidator` performs deterministic, read-only package validation for
 manifest identity, required resources and moves, frame/cancel rules, projectile
-identity and spawn rules, and presentation art bindings. Run
+identity and spawn rules, and presentation art bindings.
+
+`ContentIndex` extends that to the art a package actually ships, joining the
+move set, the presentation bindings, and the `SpriteFrames` reached through the
+visual scene. It fails a package when a binding names an animation the
+`SpriteFrames` does not contain, when a move has no presentation binding, when
+resource-conditioned variants leave a value uncovered with no unconditional
+fallback, or when a mode pack lacks an animation it declares as required.
+Orphaned built art and partial mode packs are reported but never fail CI.
+
+Moves knowingly shipped without a binding are declared in
+`content/validation/unbound_moves_allowlist.json`, each with a reason and what
+it is blocked on. Any unbound move absent from that file fails validation.
+Note that `MoveData.animation_id` is not the binding path and is read by no
+runtime code; the presentation binding is what decides the animation. Run
 `scripts/validate_characters.sh`; it discovers non-reserved package directories
 in sorted order and exits nonzero on any missing manifest or validation error.
 For a faster authoring loop, `scripts/test_character.sh <character_id>` validates
