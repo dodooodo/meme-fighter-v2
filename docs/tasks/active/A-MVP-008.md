@@ -53,8 +53,9 @@ Affected docs:
 6. The preview loops continuously. Attack animations are authored non-looping because a match drives their frames from the move timeline, so the screen replays them on `animation_finished` rather than editing the `SpriteFrames` the game shares.
 7. Every built frame of the selected animation is shown as a thumbnail, and clicking one jumps the preview to it.
 8. Playback can be paused and advanced one frame at a time in both directions, wrapping at either end, with the current frame numbered and highlighted in the strip.
-9. `bash scripts/verify.sh` passes.
-10. MANUAL, OUTSTANDING: a human opens the screen and confirms the preview is framed and scaled sensibly, the movelist is readable, and the flow back to mode select behaves. Headless probes cover data and node wiring only; nobody has looked at this screen.
+9. The preview is framed automatically: one scale per character taken from its largest drawn frame, centred on the selected animation, filling the preview without the character floating in empty space.
+10. `bash scripts/verify.sh` passes.
+11. MANUAL, OUTSTANDING: a human opens the screen and confirms the preview is framed and scaled sensibly, the movelist is readable, and the flow back to mode select behaves. Headless probes cover data and node wiring only; nobody has looked at this screen.
 
 ## Rollback / Recovery Notes
 Revert the branch. The model and scene are additive; removing the `MOVE LIST` button restores the previous mode select screen exactly.

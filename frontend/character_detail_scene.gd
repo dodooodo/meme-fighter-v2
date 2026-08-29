@@ -7,6 +7,7 @@ extends Control
 
 const MODE_SELECT_SCENE := "res://frontend/mode_select_scene.tscn"
 const PREVIEW_SPEED_SCALE := 1.0
+const PREVIEW_FILL := 0.86
 const THUMBNAIL_SIZE := Vector2(76, 76)
 const THUMBNAIL_IDLE := Color(0.62, 0.62, 0.62, 1.0)
 const THUMBNAIL_CURRENT := Color(1.0, 1.0, 1.0, 1.0)
@@ -30,6 +31,8 @@ var detail := CharacterDetailModel.new()
 var _visual: FighterVisual = null
 var _selected_move: int = -1
 var _frame_buttons: Array[Button] = []
+var _content_rects: Dictionary = {}
+var _preview_extent := Vector2.ZERO
 
 func _ready() -> void:
     back_button.pressed.connect(_on_back)
@@ -103,7 +106,6 @@ func _mount_visual() -> void:
         return
     _visual.set_character_presentation_data(detail.presentation())
     preview_host.add_child(_visual)
-    _visual.position = Vector2(preview_host.size.x * 0.5, preview_host.size.y * 0.92)
     if _visual.has_method("set_preview_mode"):
         _visual.set_preview_mode(true, PREVIEW_SPEED_SCALE)
     var sprite := _animation_sprite()
@@ -113,6 +115,9 @@ func _mount_visual() -> void:
         sprite.animation_finished.connect(_on_preview_animation_finished)
     if not sprite.frame_changed.is_connected(_sync_transport):
         sprite.frame_changed.connect(_sync_transport)
+    if not preview_host.size_changed.is_connected(_fit_preview):
+        preview_host.size_changed.connect(_fit_preview)
+    _preview_extent = _character_extent(sprite)
 
 func _play(animation_key: StringName) -> void:
     if _visual == null:
@@ -121,6 +126,7 @@ func _play(animation_key: StringName) -> void:
         _visual.set_preview_mode(true, PREVIEW_SPEED_SCALE)
     _visual.play_animation(animation_key)
     _rebuild_frame_strip()
+    _fit_preview()
     _sync_transport()
 
 # Attack animations are authored non-looping because a match drives their frames
@@ -141,6 +147,127 @@ func _animation_sprite() -> AnimatedSprite2D:
         return null
     return _visual.get("sprite") as AnimatedSprite2D
 
+
+
+# --- framing -----------------------------------------------------------------
+
+# Characters are authored at wildly different pixel sizes and anchored at the
+# feet, so a fixed placement leaves some floating in empty space and crops
+# others. Measure the animation's own extent and scale it to fill the preview.
+#
+# Measured in the visual's local space, which excludes the visual's own scale,
+# so the fit does not compound across calls.
+func _fit_preview() -> void:
+    var sprite := _animation_sprite()
+    if _visual == null or sprite == null:
+        return
+    var viewport_size := Vector2(preview_host.size)
+    if _preview_extent.x <= 0.0 or _preview_extent.y <= 0.0:
+        return
+    if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
+        return
+
+    var base_scale := 1.0
+    var presentation_data := detail.presentation()
+    if presentation_data != null:
+        base_scale = maxf(0.001, presentation_data.visual_scale)
+    var available := viewport_size * PREVIEW_FILL
+    var fit := minf(
+        available.x / (_preview_extent.x * base_scale),
+        available.y / (_preview_extent.y * base_scale)
+    )
+    _visual.set_visual_scale_multiplier(fit)
+
+    # The visual's origin is the authored feet pivot, not the middle of the art,
+    # so centring means offsetting by where this animation actually sits around
+    # it. Frames drift from the pivot by different amounts per animation.
+    var bounds := _animation_bounds(sprite)
+    if bounds.size.x <= 0.0 or bounds.size.y <= 0.0:
+        return
+    _visual.position = viewport_size * 0.5 - bounds.get_center() * base_scale * fit
+
+# Scale is taken from the character's largest drawn frame rather than from each
+# animation, so one character keeps one scale across its whole movelist: a jab
+# still reads as smaller than an ultimate, and selecting a move does not resize
+# the character. Needs no pivot, so it never disturbs playback.
+func _character_extent(sprite: AnimatedSprite2D) -> Vector2:
+    var sprite_frames := sprite.sprite_frames
+    if sprite_frames == null:
+        return Vector2.ZERO
+    var extent := Vector2.ZERO
+    var frame_scale := sprite.scale.abs()
+    for key: StringName in sprite_frames.get_animation_names():
+        for index in range(sprite_frames.get_frame_count(key)):
+            var texture := sprite_frames.get_frame_texture(key, index)
+            if texture != null:
+                # A blank frame measures zero and simply contributes nothing.
+                extent = extent.max(_content_rect(texture).size * frame_scale)
+    return extent
+
+# Union across the selected animation's frames, used for centring only.
+func _animation_bounds(sprite: AnimatedSprite2D) -> Rect2:
+    var frames := _frame_count()
+    if frames == 0:
+        return Rect2()
+    var restore_frame := sprite.frame
+    var was_playing := sprite.is_playing()
+    var bounds := Rect2()
+    var measured := false
+    for index in range(frames):
+        # Assigning the frame fires frame_changed, which repositions the sprite
+        # on that frame's authored pivot; frame 0 was already positioned by the
+        # play_animation call that preceded this.
+        if sprite.frame != index:
+            sprite.frame = index
+        var rect := sprite.transform * _frame_rect(sprite, index)
+        if rect.size.x <= 0.0 or rect.size.y <= 0.0:
+            continue  # blank frame: nothing drawn, nothing to frame around
+        bounds = rect if not measured else bounds.merge(rect)
+        measured = true
+    if sprite.frame != restore_frame:
+        sprite.frame = restore_frame
+    if was_playing:
+        sprite.play()
+    else:
+        sprite.pause()
+    return bounds
+
+# AnimatedSprite2D has no get_rect(); derive it the way it draws, honouring the
+# top-left anchoring the production visual relies on.
+#
+# Frames are built on a square canvas and a character can fill as little as 43%
+# of it, so framing by canvas would leave most characters half the size they
+# could be. Measure the drawn pixels instead.
+func _frame_rect(sprite: AnimatedSprite2D, index: int) -> Rect2:
+    var texture := sprite.sprite_frames.get_frame_texture(sprite.animation, index)
+    if texture == null:
+        return Rect2()
+    var origin := sprite.offset
+    if sprite.centered:
+        origin -= Vector2(texture.get_size()) * 0.5
+    var content := _content_rect(texture)
+    return Rect2(origin + content.position, content.size)
+
+# Decoding a texture is not free and packages reuse the same frame image across
+# animations, so cache by resource path.
+#
+# A fully transparent frame returns an empty rect and callers skip it. Treating
+# it as the full canvas instead would let one blank frame dictate the framing for
+# the whole character, which is how salad_cat's blank walk_back frames were
+# found. An unreadable image still falls back to the canvas, since that is a
+# measurement failure rather than an empty frame.
+func _content_rect(texture: Texture2D) -> Rect2:
+    var key := texture.resource_path
+    if key.is_empty():
+        return Rect2(Vector2.ZERO, Vector2(texture.get_size()))
+    if _content_rects.has(key):
+        return _content_rects[key]
+    var image := texture.get_image()
+    var rect := Rect2(Vector2.ZERO, Vector2(texture.get_size()))
+    if image != null:
+        rect = Rect2(image.get_used_rect())
+    _content_rects[key] = rect
+    return rect
 
 # --- frame inspection --------------------------------------------------------
 
