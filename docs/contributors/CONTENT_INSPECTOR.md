@@ -1,0 +1,77 @@
+# Character Content Index
+
+One read-only join across the three files that decide what a character actually
+does on screen. `CharacterValidator`, the CLI report, and (later) the editor dock
+all read the same index, so a red CI check and a red row in the report always
+mean the same thing.
+
+## What gets joined
+
+```
+character_manifest.tres
+├─ gameplay/move_set.tres → moves/*.tres      move id, frame data, damage
+├─ presentation/character_presentation.tres   move_id ⇄ animation_key
+│                                             state_key ⇄ animation_key
+└─ presentation → fighter_visual_scene
+   ├─ SpriteFrames                            which animations can actually play
+   └─ manifest.json                           fps, loop, pivot, source frames
+```
+
+`SpriteFrames` is the truth for whether an animation can play. The build
+manifest supplies fps/loop/source metadata for display and is allowed to be
+missing without failing the index.
+
+## Two facts worth knowing before you edit bindings
+
+**`MoveData.animation_id` is not read at runtime.** Nothing outside the
+validator reads that field. The animation a move plays comes from the
+presentation binding resolved by `CharacterPresentationData.animation_for_move`.
+Setting `animation_id` on a move does not bind anything.
+
+**An unbound move does not fall back to something sensible.** It resolves to
+`PresentationAnimationIds.ATTACK_FALLBACK` (`attack`), and no character package
+currently builds an `attack` animation. An unbound move therefore renders
+nothing and leaves the previous frame on screen.
+
+## Checks
+
+| Code | Severity | Meaning |
+| --- | --- | --- |
+| `move.unbound` | error | Move has no presentation binding and is not allowlisted |
+| `move.unbound_allowlisted` | warning | Known unbound move declared in the allowlist |
+| `move.animation_missing` | error | Binding names an animation absent from SpriteFrames |
+| `state.animation_missing` | error | Same, for a state binding |
+| `move.variant_gap` | error | Conditioned bindings leave a resource value uncovered and there is no unconditional fallback |
+| `move.unknown_resource` | error | Binding conditions on a resource the character does not declare |
+| `mode.required_animation_missing` | error | A mode pack lacks an animation it declares as required |
+| `mode.partial_pack` | warning | A mode pack covers only part of the base animation set |
+| `animation.orphan` | warning | Built animation no binding references |
+| `animation.fallback_missing` | warning | The fallback animation itself is absent from SpriteFrames |
+
+Overlapping and ambiguous resource variants are already rejected by
+`CharacterPresentationData._validate_resource_variant_groups`; this index adds
+the uncovered-gap case that check does not cover.
+
+## Running it
+
+```bash
+./scripts/content_report.sh                      # full markdown to stdout
+./scripts/content_report.sh --output report.md   # write to a file
+./scripts/content_report.sh --issues-only        # verdict only, used by verify.sh
+```
+
+`scripts/verify.sh` runs `--issues-only`. Errors fail the build; warnings never
+do.
+
+## The unbound-move allowlist
+
+`content/validation/unbound_moves_allowlist.json` declares moves knowingly
+shipped without a binding. It is a shrinking debt list, not a mute button:
+
+- Delete an entry in the same PR that adds the move's binding.
+- Every entry needs a `reason` and a `blocked_on`.
+- Adding an entry to make CI green without both is a review failure.
+
+Current entries are the Golden Pair's charge-special tiers
+(`magic_circle_l1/l2/l3`, `salad_wave_l1/l2/l3`). Those animations have never
+been built, so the moves currently render nothing when they fire.
