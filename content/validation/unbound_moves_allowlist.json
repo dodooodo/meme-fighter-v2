@@ -2,7 +2,7 @@
   "schema_version": 1,
   "purpose": "Moves knowingly shipped without a presentation binding. CI fails on any unbound move NOT listed here, so this file is a shrinking debt list, never a place to silence new gaps.",
   "removal_rule": "Delete the entry in the same PR that adds the move's presentation binding. Never add an entry to make CI green without an owner and a reason.",
-  "runtime_consequence": "An unbound move resolves to PresentationAnimationIds.ATTACK_FALLBACK ('attack'). No character package currently builds an 'attack' animation, so an unbound move renders nothing and leaves the previous frame on screen.",
+  "runtime_consequence": "An unbound move resolves to PresentationAnimationIds.ATTACK_FALLBACK ('attack'). No character package builds an 'attack' animation, so ProductionFighterVisual._generic_fallback substitutes 'stand_light' and the move plays the light-attack animation behind a single push_warning. It looks plausible and is wrong, which is harder to notice than a blank frame.",
   "allowlist": {
     "magic_orange_cat": [
       {

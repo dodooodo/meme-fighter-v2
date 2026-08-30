@@ -28,10 +28,14 @@ validator reads that field. The animation a move plays comes from the
 presentation binding resolved by `CharacterPresentationData.animation_for_move`.
 Setting `animation_id` on a move does not bind anything.
 
-**An unbound move does not fall back to something sensible.** It resolves to
-`PresentationAnimationIds.ATTACK_FALLBACK` (`attack`), and no character package
-currently builds an `attack` animation. An unbound move therefore renders
-nothing and leaves the previous frame on screen.
+**An unbound move plays the wrong animation, not no animation.** It resolves to
+`PresentationAnimationIds.ATTACK_FALLBACK` (`attack`); no character package
+builds an `attack` animation, so `ProductionFighterVisual._generic_fallback`
+catches it and substitutes `stand_light`. Verified on salad_cat: an unbound
+`salad_wave_l1` plays the light-attack animation with `visible = true` behind a
+single `push_warning`. A charge special that looks like a jab is much harder to
+spot than a blank frame, which is why this is checked rather than left to
+playtesting.
 
 ## Checks
 
@@ -63,6 +67,28 @@ the uncovered-gap case that check does not cover.
 `scripts/verify.sh` runs `--issues-only`. Errors fail the build; warnings never
 do.
 
+## The editor dock
+
+`addons/character_content_inspector` renders the same index inside Godot, under
+the **Characters** dock. It is read-only; nothing in it writes to disk.
+
+- **Characters** list — every non-template package, with its error count.
+- **Moves** — move id, bound animation, `startup/active/recovery`, damage, and
+  status (`ok`, `MISSING ANIMATION`, `UNBOUND`, `allowlisted`).
+- **States** — the same for state bindings, including resource-conditioned
+  variants shown as `animation [resource min-max]`.
+- **Animations** — every built animation with frame count, fps, loop, and
+  whether any binding references it.
+- **Issues** — the character's findings, using the same codes and wording CI
+  prints.
+
+Selecting a move, state, or animation plays it from the character's real
+`SpriteFrames` at the build manifest's fps and loop setting. Selecting a move
+with no usable binding says so rather than showing a stale frame.
+
+The **Import art pack** button is deliberately inert; the GUI import path is
+`A-COL-010`. Build art packs with `scripts/build_art_manifest.py` until then.
+
 ## The unbound-move allowlist
 
 `content/validation/unbound_moves_allowlist.json` declares moves knowingly
@@ -74,4 +100,5 @@ shipped without a binding. It is a shrinking debt list, not a mute button:
 
 Current entries are the Golden Pair's charge-special tiers
 (`magic_circle_l1/l2/l3`, `salad_wave_l1/l2/l3`). Those animations have never
-been built, so the moves currently render nothing when they fire.
+been built, so all six currently play the light-attack animation when they
+fire.
