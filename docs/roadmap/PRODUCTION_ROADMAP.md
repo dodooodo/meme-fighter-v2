@@ -762,6 +762,33 @@ range approximation
 
 驗證是否能在同一角色工作但不碰相同中央檔案。
 
+### `A-COL-008` Character Content Index
+
+一份 read-only join，串起 move data、presentation binding、與 build 出來的
+SpriteFrames，同時餵給三個消費者：
+
+```text
+CharacterValidator          → CI 硬錯誤
+scripts/content_report.gd   → 協作者可讀的 markdown 報告
+editor dock（A-COL-009）    → 人看的檢視介面
+```
+
+必須擋下的靜默失敗：
+
+- binding 指向 SpriteFrames 裡不存在的 animation
+- move 完全沒有 presentation binding
+- 條件式 variant 沒有覆蓋整個 resource 範圍且無 unconditional fallback
+
+必須可見但不擋 CI：
+
+- 已 build 但沒有任何 binding 引用的 animation
+- 只覆蓋部分 base animation 的 mode pack
+
+已知未綁定的 move 寫在 `content/validation/unbound_moves_allowlist.json`，
+每筆需要 reason 與 blocked_on，並在補上 binding 的同一個 PR 移除。
+
+注意：`MoveData.animation_id` 不是綁定路徑，runtime 不讀它。
+
 ---
 
 ## 6.6 A4 — Telemetry Foundation

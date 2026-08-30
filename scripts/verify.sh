@@ -17,3 +17,7 @@ echo "Verification: Godot editor import"
 "$GODOT_BIN" --headless --path . --editor --quit
 echo "Verification: Godot runtime tests"
 "$GODOT_BIN" --headless --path . -s res://tests/run_tests.gd
+echo "Verification: character validation"
+"$GODOT_BIN" --headless --path . -s res://scripts/validate_characters.gd
+echo "Verification: character content index"
+"$GODOT_BIN" --headless --path . -s res://scripts/content_report.gd -- --issues-only

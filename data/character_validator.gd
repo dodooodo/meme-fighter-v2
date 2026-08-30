@@ -2,6 +2,8 @@
 class_name CharacterValidator
 extends RefCounted
 
+const UNBOUND_ALLOWLIST_PATH := "res://content/validation/unbound_moves_allowlist.json"
+
 const REQUIRED_MOVE_IDS: Array[StringName] = [
     &"stand_light",
     &"stand_heavy",
@@ -59,6 +61,7 @@ func validate_manifest(manifest: CharacterManifest) -> PackedStringArray:
 
 func validate_manifests(manifests: Array[CharacterManifest]) -> PackedStringArray:
     var errors := PackedStringArray()
+    _append_content_index_errors(manifests, errors)
     var manifest_ids: Dictionary = {}
     var content_pack_ids: Dictionary = {}
     var projectile_ids: Dictionary = {}
@@ -155,3 +158,28 @@ func _validate_art_bindings(
         var move := moves_by_id[move_id] as MoveData
         if move != null and move.animation_id == &"":
             errors.append("missing art binding for move animation: %s" % String(move_id))
+
+# Joins gameplay, presentation, and built art so that a binding pointing at a
+# non-existent animation, or a move with no binding at all, fails CI instead of
+# breaking silently in the running game. Warnings are surfaced by
+# scripts/content_report.gd and the editor dock, not here.
+func _append_content_index_errors(manifests: Array[CharacterManifest], errors: PackedStringArray) -> void:
+    var index := ContentIndex.new()
+    index.build(manifests, load_unbound_allowlist())
+    for issue: Dictionary in index.issues(ContentIndex.SEVERITY_ERROR):
+        errors.append("%s: %s" % [String(issue["character_id"]), issue["message"]])
+
+static func load_unbound_allowlist(path: String = UNBOUND_ALLOWLIST_PATH) -> Dictionary:
+    if not FileAccess.file_exists(path):
+        return {}
+    var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+    if not (parsed is Dictionary):
+        return {}
+    var out: Dictionary = {}
+    for character_id: Variant in (parsed as Dictionary).get("allowlist", {}):
+        var move_ids: Array[StringName] = []
+        for entry: Variant in (parsed as Dictionary)["allowlist"][character_id]:
+            if entry is Dictionary and (entry as Dictionary).has("move_id"):
+                move_ids.append(StringName((entry as Dictionary)["move_id"]))
+        out[String(character_id)] = move_ids
+    return out

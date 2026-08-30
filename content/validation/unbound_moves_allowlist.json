@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "purpose": "Moves knowingly shipped without a presentation binding. CI fails on any unbound move NOT listed here, so this file is a shrinking debt list, never a place to silence new gaps.",
+  "removal_rule": "Delete the entry in the same PR that adds the move's presentation binding. Never add an entry to make CI green without an owner and a reason.",
+  "runtime_consequence": "An unbound move resolves to PresentationAnimationIds.ATTACK_FALLBACK ('attack'). No character package currently builds an 'attack' animation, so an unbound move renders nothing and leaves the previous frame on screen.",
+  "allowlist": {
+    "magic_orange_cat": [
+      {
+        "move_id": "magic_circle_l1",
+        "reason": "Charge special level 1 has no built animation; magic_circle_* is absent from the character SpriteFrames.",
+        "blocked_on": "art"
+      },
+      {
+        "move_id": "magic_circle_l2",
+        "reason": "Charge special level 2 has no built animation; magic_circle_* is absent from the character SpriteFrames.",
+        "blocked_on": "art"
+      },
+      {
+        "move_id": "magic_circle_l3",
+        "reason": "Charge special level 3 has no built animation; magic_circle_* is absent from the character SpriteFrames.",
+        "blocked_on": "art"
+      }
+    ],
+    "salad_cat": [
+      {
+        "move_id": "salad_wave_l1",
+        "reason": "Charge special level 1 has no built animation; salad_wave_* is absent from the character SpriteFrames.",
+        "blocked_on": "art"
+      },
+      {
+        "move_id": "salad_wave_l2",
+        "reason": "Charge special level 2 has no built animation; salad_wave_* is absent from the character SpriteFrames.",
+        "blocked_on": "art"
+      },
+      {
+        "move_id": "salad_wave_l3",
+        "reason": "Charge special level 3 has no built animation; salad_wave_* is absent from the character SpriteFrames.",
+        "blocked_on": "art"
+      }
+    ]
+  }
+}

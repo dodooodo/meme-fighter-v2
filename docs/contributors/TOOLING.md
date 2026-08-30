@@ -1,5 +1,20 @@
 # Contributor Tooling
 
+## Character content index
+
+See [`CONTENT_INSPECTOR.md`](CONTENT_INSPECTOR.md). One read-only join over move
+data, presentation bindings, and the built SpriteFrames answers "what does this
+character have, and what will actually play".
+
+```bash
+./scripts/content_report.sh                      # full markdown report
+./scripts/content_report.sh --issues-only        # verdict only, used by verify.sh
+```
+
+A binding naming an animation that is absent from SpriteFrames, or a move with
+no binding at all, now fails CI. `MoveData.animation_id` does not bind anything;
+the presentation binding does.
+
 ## Balance review
 
 Use the read-only balance exporter described in
