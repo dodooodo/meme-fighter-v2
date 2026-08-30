@@ -89,6 +89,26 @@ with no usable binding says so rather than showing a stale frame.
 The **Import art pack** button is deliberately inert; the GUI import path is
 `A-COL-010`. Build art packs with `scripts/build_art_manifest.py` until then.
 
+## Not checked yet: blank frames
+
+The index checks that an animation *exists*, not that its frames draw anything.
+Building the movelist screen's auto-framing surfaced the gap: `salad_cat`'s
+`walk_back` frames 1-3 are fully transparent, so the character disappears for
+the first three frames of walking backwards. Nothing in validation, the report,
+or the dock reports this today.
+
+It is a natural `animation.blank_frame` check for the index, but it needs an
+image decode per frame rather than a resource read, so it belongs with a
+follow-up that decides where that cost is acceptable.
+
+Current count across shipped packages, for whoever picks it up:
+
+| Character | Blank frames |
+| --- | --- |
+| doge | 0 / 65 |
+| magic_orange_cat | 0 / 250 |
+| salad_cat | **3 / 250** (`walk_back` frames 1-3 of 13) |
+
 ## The unbound-move allowlist
 
 `content/validation/unbound_moves_allowlist.json` declares moves knowingly
