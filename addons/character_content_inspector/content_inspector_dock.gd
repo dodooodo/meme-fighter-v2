@@ -7,6 +7,7 @@ extends VBoxContainer
 
 const PACKAGE_ROOT := "res://content/characters"
 const IMPORT_DIALOG := preload("res://addons/character_content_inspector/art_import_dialog.gd")
+const BINDING_WRITER := preload("res://addons/character_content_inspector/binding_writer.gd")
 
 const COLOR_ERROR := Color(0.93, 0.42, 0.42)
 const COLOR_WARNING := Color(0.95, 0.76, 0.36)
@@ -23,6 +24,9 @@ var _preview_frame: TextureRect
 var _preview_label: Label
 var _preview_timer: Timer
 var _import_dialog: Window
+var _bind_select: OptionButton
+var _bind_button: Button
+var _bind_status: Label
 
 var _preview_frames: Array[Texture2D] = []
 var _preview_loop: bool = true
@@ -98,7 +102,32 @@ func _build_ui() -> void:
     _issues_tree.name = "Issues"
     tabs.add_child(_issues_tree)
 
+    right.add_child(_build_bind_row())
     right.add_child(_build_preview())
+
+# The dock reports which moves are unbound or bound to a missing animation; this
+# is how it closes that gap without anyone hand-editing a .tres.
+func _build_bind_row() -> Control:
+    var row := HBoxContainer.new()
+    row.add_theme_constant_override("separation", 8)
+
+    var label := Label.new()
+    label.text = "Bind selected move to"
+    row.add_child(label)
+
+    _bind_select = OptionButton.new()
+    _bind_select.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    row.add_child(_bind_select)
+
+    _bind_button = Button.new()
+    _bind_button.text = "Apply"
+    _bind_button.pressed.connect(_on_bind_pressed)
+    row.add_child(_bind_button)
+
+    _bind_status = Label.new()
+    _bind_status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    row.add_child(_bind_status)
+    return row
 
 func _build_preview() -> Control:
     var panel := VBoxContainer.new()
@@ -215,6 +244,7 @@ func _on_character_selected(_row: int) -> void:
     _fill_states(entry)
     _fill_animations(entry)
     _fill_issues(entry)
+    _fill_bind_options(entry)
 
 func _fill_moves(entry: Dictionary) -> void:
     _moves_tree.clear()
@@ -256,6 +286,95 @@ func _fill_animations(entry: Dictionary) -> void:
         item.set_metadata(0, row["animation_key"])
         if not row["referenced"]:
             item.set_custom_color(4, COLOR_WARNING)
+
+# Only animations the character actually has are offered, which is the whole
+# point: a hand-typed StringName is how a move ends up bound to art that was
+# never built.
+func _fill_bind_options(entry: Dictionary) -> void:
+    if _bind_select == null:
+        return
+    _bind_select.clear()
+    for row: Dictionary in entry.get("animations", []):
+        _bind_select.add_item(String(row["animation_key"]))
+    _bind_status.text = ""
+    _bind_button.disabled = _bind_select.item_count == 0
+
+func _on_bind_pressed() -> void:
+    var item := _moves_tree.get_selected()
+    if item == null:
+        _bind_status.text = "Select a move first."
+        return
+    if _bind_select.selected < 0:
+        _bind_status.text = "No animation selected."
+        return
+    var move_id := StringName(item.get_text(0))
+    var animation_key := StringName(_bind_select.get_item_text(_bind_select.selected))
+    var character_id := _selected_character_id()
+    var path := _presentation_path(character_id)
+    if path.is_empty():
+        _bind_status.text = "No presentation resource for %s." % String(character_id)
+        return
+
+    var original := FileAccess.get_file_as_string(path)
+    if original.is_empty():
+        _bind_status.text = "Cannot read %s" % path
+        return
+    var bound := _is_bound(move_id)
+    var result: Dictionary = BINDING_WRITER.rebind(original, move_id, animation_key) if bound \
+        else BINDING_WRITER.add_binding(original, move_id, animation_key)
+    if not result["ok"]:
+        _bind_status.text = String(result["error"])
+        return
+    if not _write(path, result["text"]):
+        _bind_status.text = "Cannot write %s" % path
+        return
+
+    # The engine is the check: if the edited resource will not load, or the
+    # character now has more errors than before, put the file back.
+    var before_errors := _count(_current_entry(), ContentIndex.SEVERITY_ERROR)
+    var restored := _verify_or_restore(path, original, character_id, before_errors)
+    refresh()
+    _bind_status.text = restored if not restored.is_empty() \
+        else "Bound %s to %s." % [String(move_id), String(animation_key)]
+
+func _verify_or_restore(path: String, original: String, character_id: StringName, before_errors: int) -> String:
+    var reloaded := ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
+    if reloaded == null:
+        _write(path, original)
+        return "Edit reverted: the resource no longer loads."
+    var manifest_path := "%s/%s/character_manifest.tres" % [PACKAGE_ROOT, String(character_id)]
+    var manifest := ResourceLoader.load(manifest_path, "", ResourceLoader.CACHE_MODE_IGNORE) as CharacterManifest
+    if manifest == null:
+        _write(path, original)
+        return "Edit reverted: the character package no longer loads."
+    var probe := ContentIndex.new()
+    probe.build([manifest], CharacterValidator.load_unbound_allowlist())
+    var after_errors := probe.issues(ContentIndex.SEVERITY_ERROR).size()
+    if after_errors > before_errors:
+        _write(path, original)
+        return "Edit reverted: it would have added %d validation error(s)." % (after_errors - before_errors)
+    return ""
+
+func _is_bound(move_id: StringName) -> bool:
+    for row: Dictionary in _current_entry().get("moves", []):
+        if row["move_id"] == move_id:
+            return row["bound"]
+    return false
+
+func _presentation_path(character_id: StringName) -> String:
+    var manifest_path := "%s/%s/character_manifest.tres" % [PACKAGE_ROOT, String(character_id)]
+    var manifest := load(manifest_path) as CharacterManifest
+    if manifest == null or manifest.presentation_resource == null:
+        return ""
+    return manifest.presentation_resource.resource_path
+
+func _write(path: String, text: String) -> bool:
+    var file := FileAccess.open(path, FileAccess.WRITE)
+    if file == null:
+        return false
+    file.store_string(text)
+    file.close()
+    return true
 
 func _fill_issues(entry: Dictionary) -> void:
     _issues_tree.clear()
