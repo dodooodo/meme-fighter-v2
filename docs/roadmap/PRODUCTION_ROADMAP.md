@@ -806,6 +806,31 @@ editor dock（A-COL-009）    → 人看的檢視介面
 
 `Import art pack` 按鈕保留位置但停用，實作屬於 `A-COL-010`。
 
+### `A-COL-010` GUI Art Pack Import
+
+從編輯器把一資料夾的技能圖匯入成 MODE_FIGHTER pack。一個子資料夾一支動畫，
+檔名決定順序，fps 與 loop 可逐支調整。
+
+嚴禁：在 GDScript 裡做任何影像處理。dialog 只產出既有工具吃得下的兩個檔案
+
+```text
+assets/presentation/specs/<character>_<mode_id>.json
+assets/presentation/specs/<character>_<mode_id>.art_manifest.json
+```
+
+再呼叫 `scripts/build_art_manifest.py`。crop / pivot / 幀序 / alpha / 輸出命名
+維持唯一定義，留在 Python。
+
+強制順序：**檢查直譯器 → 驗證 → 確認 → 建置 → 回報差異**。
+驗證通過前不得建置；任何輸入變動都會使建置重新失效。
+
+已知環境限制：builders 需要 Python 3.12+ 與 Pillow
+（`presentation_asset_pipeline/common.py` 在 f-string 運算式內使用反斜線，
+PEP 701 才允許）。目前沒有任何 CI job 執行 builders，所以這條限制不會被自動抓到。
+
+`base_fighter` / `effect` / `ultimate_screen` 仍為 CLI 專用。
+
+
 ---
 
 ## 6.6 A4 — Telemetry Foundation

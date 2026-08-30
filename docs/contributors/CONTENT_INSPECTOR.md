@@ -89,6 +89,47 @@ with no usable binding says so rather than showing a stale frame.
 The **Import art pack** button is deliberately inert; the GUI import path is
 `A-COL-010`. Build art packs with `scripts/build_art_manifest.py` until then.
 
+## Importing an art pack
+
+The dock's **Import art pack** button imports a MODE_FIGHTER pack from a folder
+of frames. One subfolder per animation; images inside are ordered by filename.
+fps and loop are editable per animation.
+
+The dialog never touches images. It writes two files, both meant to be
+committed with the build:
+
+```text
+assets/presentation/specs/<character>_<mode_id>.json                # pack spec
+assets/presentation/specs/<character>_<mode_id>.art_manifest.json   # one-job manifest
+```
+
+then runs `scripts/build_art_manifest.py`, so crop, pivot, frame ordering,
+alpha, and output naming keep exactly one definition, in Python.
+
+The order is enforced: **check the interpreter, validate, confirm, build,
+report**. Build stays disabled until validation passes, and any edit disables it
+again. After a build the dialog lists every file added, changed, or removed
+under the character's asset directory.
+
+`base_fighter`, `effect`, and `ultimate_screen` packs are not offered here and
+stay on the CLI.
+
+### The builders need Python 3.12+ and Pillow
+
+`scripts/presentation_asset_pipeline/common.py` puts a backslash inside an
+f-string expression, which only parses from Python 3.12 (PEP 701). No CI job
+runs the builders, so nothing catches this: on macOS's system `python3` (3.9)
+every build fails with a bare `SyntaxError` far from its cause.
+
+The dialog checks the interpreter first and says so plainly. Its **Python**
+field takes a full command, so a wrapper works when the default interpreter is
+too old:
+
+```text
+python3                              # fine on 3.12+ with Pillow installed
+uv run --python 3.13 --with pillow python
+```
+
 ## Not checked yet: blank frames
 
 The index checks that an animation *exists*, not that its frames draw anything.

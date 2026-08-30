@@ -77,6 +77,7 @@ runtime command and failure behavior are settled.
 | A-COL-008 | Join gameplay, presentation, and built art into one validated index | none | done — validation, markdown report, and CI gate green |
 | A-COL-009 | Add the read-only character content dock | A-COL-008 | in progress — automated checks green; nobody has opened the dock |
 | A-MVP-008 | Add the character detail / movelist screen | A-MVP-005 | in progress — automated checks green; nobody has opened the screen |
+| A-COL-010 | Import MODE_FIGHTER art packs from the dock | A-COL-009 | in progress — automated checks green; nobody has used the dialog |
 | A-DATA-001 | Add local identity vocabulary | none | done |
 | A-DATA-002 | Add Event Envelope v1 | none | done |
 | A-DATA-003 | Emit match summaries | none | done |

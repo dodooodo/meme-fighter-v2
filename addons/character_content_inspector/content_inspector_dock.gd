@@ -6,6 +6,7 @@ extends VBoxContainer
 # mean the same thing. Nothing here writes to disk.
 
 const PACKAGE_ROOT := "res://content/characters"
+const IMPORT_DIALOG := preload("res://addons/character_content_inspector/art_import_dialog.gd")
 
 const COLOR_ERROR := Color(0.93, 0.42, 0.42)
 const COLOR_WARNING := Color(0.95, 0.76, 0.36)
@@ -21,6 +22,7 @@ var _issues_tree: Tree
 var _preview_frame: TextureRect
 var _preview_label: Label
 var _preview_timer: Timer
+var _import_dialog: Window
 
 var _preview_frames: Array[Texture2D] = []
 var _preview_loop: bool = true
@@ -47,12 +49,10 @@ func _build_ui() -> void:
     refresh_button.pressed.connect(refresh)
     toolbar.add_child(refresh_button)
 
-    # Reserved for A-COL-010. Present so the entry point has a settled home;
-    # deliberately inert until the import path exists.
     var import_button := Button.new()
     import_button.text = "Import art pack"
-    import_button.disabled = true
-    import_button.tooltip_text = "Not implemented yet (A-COL-010). Build art packs with scripts/build_art_manifest.py."
+    import_button.tooltip_text = "Import a MODE_FIGHTER pack from a folder of frames"
+    import_button.pressed.connect(_on_import_pressed)
     toolbar.add_child(import_button)
 
     _summary_label = Label.new()
@@ -164,6 +164,18 @@ func refresh() -> void:
     var select := restore_row if restore_row >= 0 else 0
     _character_list.select(select)
     _on_character_selected(select)
+
+# The dialog is the addon's only write path, so it stays behind an explicit
+# action and refreshes the index itself once a build actually lands.
+func _on_import_pressed() -> void:
+    if _import_dialog == null:
+        _import_dialog = IMPORT_DIALOG.new()
+        _import_dialog.build_completed.connect(refresh)
+        add_child(_import_dialog)
+    var character_ids: Array[StringName] = []
+    for entry: Dictionary in _index.characters:
+        character_ids.append(entry["character_id"])
+    _import_dialog.open_for(character_ids, _selected_character_id())
 
 func _load_manifests() -> Array[CharacterManifest]:
     var manifests: Array[CharacterManifest] = []
