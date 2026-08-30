@@ -102,7 +102,14 @@ def write_sprite_frames(project_root: Path, output_path: Path, animations: list[
     texture_id = 1
     for anim_index, (key, fps, loop, frames) in enumerate(frame_records):
         lines.append("{")
-        lines.append(f'"frames": [{", ".join("{\"duration\": 1.0, \"texture\": ExtResource(\"%d\")}" % (texture_id + i) for i in range(len(frames))) }],')
+        # Built outside the f-string: a backslash inside an f-string expression
+        # only parses from Python 3.12 (PEP 701), and nothing else in the asset
+        # pipeline needs an interpreter that new.
+        frame_entries = ", ".join(
+            '{"duration": 1.0, "texture": ExtResource("%d")}' % (texture_id + i)
+            for i in range(len(frames))
+        )
+        lines.append(f'"frames": [{frame_entries}],')
         lines.append(f'"loop": {str(loop).lower()},')
         lines.append(f'"name": &"{key}",')
         lines.append(f'"speed": {fps}')
