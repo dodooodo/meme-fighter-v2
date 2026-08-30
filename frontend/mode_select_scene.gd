@@ -4,6 +4,7 @@ class_name ModeSelectScene
 extends Control
 
 const BATTLE_SCENE := preload("res://battle/battle_scene.tscn")
+const CHARACTER_DETAIL_SCENE := preload("res://frontend/character_detail_scene.tscn")
 
 @onready var p1_select: OptionButton = $Center/VBox/CharacterSelectors/P1Select
 @onready var p2_select: OptionButton = $Center/VBox/CharacterSelectors/P2Select
@@ -11,6 +12,7 @@ const BATTLE_SCENE := preload("res://battle/battle_scene.tscn")
 @onready var local_button: Button = $Center/VBox/Buttons/Local2P
 @onready var training_button: Button = $Center/VBox/ExtraModes/Training
 @onready var tutorial_button: Button = $Center/VBox/ExtraModes/Tutorial
+@onready var move_list_button: Button = $Center/VBox/ExtraModes/MoveList
 
 var model := CharacterSelectModel.new()
 
@@ -25,6 +27,7 @@ func _ready() -> void:
     local_button.pressed.connect(_start_battle.bind(BattleMode.Mode.LOCAL_2P))
     training_button.pressed.connect(_start_battle.bind(BattleMode.Mode.TRAINING))
     tutorial_button.pressed.connect(_start_battle.bind(BattleMode.Mode.TUTORIAL))
+    move_list_button.pressed.connect(_open_move_list)
     vs_cpu_button.grab_focus()
 
 func _populate_roster() -> void:
@@ -59,8 +62,23 @@ func _start_battle(mode: int) -> void:
     tree.current_scene = battle
     queue_free()
 
+# Opens the movelist on whichever character P1 currently has selected.
+func _open_move_list() -> void:
+    var selected := model.manifest(p1_select.get_selected_id())
+    var detail := CHARACTER_DETAIL_SCENE.instantiate()
+    if detail == null:
+        push_error("Character detail scene could not be instantiated")
+        return
+    var tree := get_tree()
+    tree.root.add_child(detail)
+    tree.current_scene = detail
+    if selected != null and detail.has_method("focus_character"):
+        detail.focus_character(selected.id)
+    queue_free()
+
 func _set_actions_enabled(enabled: bool) -> void:
     vs_cpu_button.disabled = not enabled
     local_button.disabled = not enabled
     training_button.disabled = not enabled
     tutorial_button.disabled = not enabled
+    move_list_button.disabled = not enabled

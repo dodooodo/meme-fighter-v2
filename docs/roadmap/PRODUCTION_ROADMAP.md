@@ -789,6 +789,70 @@ editor dock（A-COL-009）    → 人看的檢視介面
 
 注意：`MoveData.animation_id` 不是綁定路徑，runtime 不讀它。
 
+### `A-COL-009` Character Content Dock
+
+把 `A-COL-008` 的 index 搬進 Godot 編輯器（`addons/character_content_inspector`），
+唯讀。回答協作者最常問的兩個問題：
+
+```text
+這隻角色有哪些技能、各自綁哪支動畫？
+我改完之後，那支動畫實際會長什麼樣？
+```
+
+分頁：Moves / States / Animations / Issues，加上用角色真實 SpriteFrames
+播放的預覽（fps 與 loop 取自 build manifest）。
+
+嚴禁：任何寫入路徑。dock 與 CI 讀同一份 index，兩者不可能給出不同答案。
+
+`Import art pack` 按鈕保留位置但停用，實作屬於 `A-COL-010`。
+
+### `A-COL-010` GUI Art Pack Import
+
+從編輯器把一資料夾的技能圖匯入成 MODE_FIGHTER pack。一個子資料夾一支動畫，
+檔名決定順序，fps 與 loop 可逐支調整。
+
+嚴禁：在 GDScript 裡做任何影像處理。dialog 只產出既有工具吃得下的兩個檔案
+
+```text
+assets/presentation/specs/<character>_<mode_id>.json
+assets/presentation/specs/<character>_<mode_id>.art_manifest.json
+```
+
+再呼叫 `scripts/build_art_manifest.py`。crop / pivot / 幀序 / alpha / 輸出命名
+維持唯一定義，留在 Python。
+
+強制順序：**檢查直譯器 → 驗證 → 確認 → 建置 → 回報差異**。
+驗證通過前不得建置；任何輸入變動都會使建置重新失效。
+
+已知環境限制：builders 需要 Python 3.12+ 與 Pillow
+（`presentation_asset_pipeline/common.py` 在 f-string 運算式內使用反斜線，
+PEP 701 才允許）。目前沒有任何 CI job 執行 builders，所以這條限制不會被自動抓到。
+
+`base_fighter` / `effect` / `ultimate_screen` 仍為 CLI 專用。
+
+### `A-COL-011` Binding Editor
+
+Dock 報出「未綁定」與「綁到不存在的動畫」之後，要能就地修好，而不是回頭手改 `.tres`。
+下拉選單只列出該角色 SpriteFrames 真的有的動畫。
+
+嚴禁使用 `ResourceSaver.save()`：對 presentation resource 原樣存檔會重寫全部 139 行，
+把 `ext_resource` id 隨機化、加入檔案未使用的 binding 型別、並重排文件。
+一行改動會變成無法 review 且每次存檔 id 都不同的 diff——而那是四種協作者共用的檔案。
+
+改用最小文字編輯：
+
+```text
+rebind      → 1 行變更
+add binding → 插入 4 行 + 陣列 1 行 + load_steps 1 行（6 insertions, 2 deletions）
+```
+
+不符預期形狀就拒絕，不猜。條件式 variant（courage）一律拒絕，需手動編輯。
+
+安全網：寫入後以 `CACHE_MODE_IGNORE` 重新載入並重建 index，
+載入失敗或錯誤數上升就還原檔案內容。
+
+
+
 ---
 
 ## 6.6 A4 — Telemetry Foundation
@@ -941,6 +1005,31 @@ are green. Final acceptance remains pending the human play checklist in
 - ultimate
 
 ---
+
+### `A-MVP-008` Character Detail / Movelist
+
+玩家選角前需要知道每隻角色的招式長什麼樣。同一頁依揭露層級服務三種人：
+
+```text
+玩家        招式名 / 幀數 / 動畫預覽
+平衡・美術  加上 animation key 與完整 frame data
+管理員      加上 ContentIndex 診斷（尚未實作，須先解決 export 排除）
+```
+
+必須走 runtime 解析路徑：
+
+```text
+CharacterPresentationData.animation_for_move()
+```
+
+也就是 `FighterPresentationResolver` 用的同一支。這樣頁面顯示的就是遊戲真正會播的東西，包含 fallback。
+
+嚴禁：`ContentIndex` 進 runtime 場景。它是工具層，走 `PackedScene.get_state()`
+與 build manifest。「沒有綁定動畫」改由 `animation_for_move(id, &"")` 回空值判斷。
+
+只載入當前選取角色的 package，與 `B-WEB-004` 每角色 PCK 相容。
+
+不改動 `A-MVP-005` 既定的 P1/P2 selector 版面，以新增入口進入。
 
 ## 6.8 Stage A Gate
 
