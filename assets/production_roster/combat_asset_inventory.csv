@@ -1,0 +1,967 @@
+﻿character,round,action_folder,frame_ids,frame_count
+Alien Meow,ROUND_1,01_待機_天線掃描呼吸,11.webp;12.webp;13.webp,3
+Alien Meow,ROUND_1,02_前走,14.webp;15.webp;16.webp,3
+Alien Meow,ROUND_1,03_後走,17.webp;18.webp;19.webp,3
+Alien Meow,ROUND_1,04_蹲下,21.webp,1
+Alien Meow,ROUND_1,05_跳躍預備,22.webp,1
+Alien Meow,ROUND_1,06_起跳,23.webp,1
+Alien Meow,ROUND_1,07_空中上升_頂點,24.webp,1
+Alien Meow,ROUND_1,08_下降,25.webp,1
+Alien Meow,ROUND_1,09_落地,26.webp,1
+Alien Meow,ROUND_1,10_前衝蓄勢,31.webp,1
+Alien Meow,ROUND_1,11_前衝爆發,32.webp,1
+Alien Meow,ROUND_1,12_前衝煞停,33.webp,1
+Alien Meow,ROUND_1,13_後撤起手,34.webp,1
+Alien Meow,ROUND_1,14_後撤空中,35.webp,1
+Alien Meow,ROUND_1,15_後撤落地,36.webp,1
+Alien Meow,ROUND_1,16_輕攻「訊號校正」,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp,6
+Alien Meow,ROUND_1,17_重攻「水平掃描」,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+Alien Meow,ROUND_1,18_下段「地表斷訊脈衝」,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+Alien Meow,ROUND_1,19_空中攻擊「空域掃描墜擊」,71.webp;72.webp;73.webp;74.webp;75.webp;76.webp,6
+Alien Meow,ROUND_1,20_站防「訊號屏障」,81.webp,1
+Alien Meow,ROUND_1,21_站防硬直,82.webp,1
+Alien Meow,ROUND_1,22_站防恢復,83.webp,1
+Alien Meow,ROUND_1,23_蹲防「訊號屏障」,84.webp,1
+Alien Meow,ROUND_1,24_蹲防硬直,85.webp,1
+Alien Meow,ROUND_1,25_蹲防恢復,86.webp,1
+Alien Meow,ROUND_1,26_上段受擊,87.webp,1
+Alien Meow,ROUND_1,27_中段受擊,88.webp,1
+Alien Meow,ROUND_1,28_下段受擊,89.webp,1
+Alien Meow,ROUND_1,29_輕攻天線命中火花,91.webp,1
+Alien Meow,ROUND_1,30_輕攻_Pushback_特效,92.webp,1
+Alien Meow,ROUND_1,31_重攻掃描發射閘,93.webp,1
+Alien Meow,ROUND_1,32_「水平掃描」主掃描波,94.webp,1
+Alien Meow,ROUND_1,33_重攻命中爆訊號,95.webp,1
+Alien Meow,ROUND_1,34_「地表斷訊脈衝」地面波,96.webp,1
+Alien Meow,ROUND_1,35_地面波_Counter_Hit_推退特效,97.webp,1
+Alien Meow,ROUND_1,36_空域掃描前向扇形波,98.webp,1
+Alien Meow,ROUND_1,37_空域掃描斜下扇形波,99.webp,1
+Alien Meow,ROUND_2,01_投技「UFO_回收程序」,11.webp;12.webp;13.webp;14.webp;15.webp;16.webp,6
+Alien Meow,ROUND_2,02_被抓反應,21.webp,1
+Alien Meow,ROUND_2,03_被摔飛,22.webp,1
+Alien Meow,ROUND_2,04_倒地撞擊,23.webp,1
+Alien Meow,ROUND_2,05_倒地_Hold,24.webp,1
+Alien Meow,ROUND_2,06_起身開始,25.webp,1
+Alien Meow,ROUND_2,07_低姿起身,26.webp,1
+Alien Meow,ROUND_2,08_完全起身,27.webp,1
+Alien Meow,ROUND_2,09_KO_倒下,28.webp,1
+Alien Meow,ROUND_2,10_KO_Hold,29.webp,1
+Alien Meow,ROUND_2,11_開始蓄力,31.webp,1
+Alien Meow,ROUND_2,12_蓄力維持,32.webp,1
+Alien Meow,ROUND_2,13_高蓄力,33.webp,1
+Alien Meow,ROUND_2,14_掃描波釋放,34.webp,1
+Alien Meow,ROUND_2,15_發射後座,35.webp,1
+Alien Meow,ROUND_2,16_收招,36.webp,1
+Alien Meow,ROUND_2,17_Lv1「局部掃描」,41.webp;42.webp;43.webp,3
+Alien Meow,ROUND_2,18_Lv2「廣域掃描」,44.webp;45.webp;46.webp,3
+Alien Meow,ROUND_2,19_Lv3「全頻率斷訊」,47.webp;48.webp,2
+Alien Meow,ROUND_2,20_Signal_Mark,49.webp,1
+Alien Meow,ROUND_2,21_UFO_進場,51.webp,1
+Alien Meow,ROUND_2,22_Tractor_Beam_鎖定,52.webp,1
+Alien Meow,ROUND_2,23_把對手吸起,53.webp,1
+Alien Meow,ROUND_2,24_UFO_往另一側移動,54.webp,1
+Alien Meow,ROUND_2,25_後方釋放對手,55.webp,1
+Alien Meow,ROUND_2,26_UFO_離場,56.webp,1
+Alien Meow,ROUND_2,27_Ultimate_啟動,61.webp,1
+Alien Meow,ROUND_2,28_系統啟動_天線升頻,62.webp,1
+Alien Meow,ROUND_2,29_初始掃描命令,63.webp,1
+Alien Meow,ROUND_2,30_記錄對手當下位置,64.webp,1
+Alien Meow,ROUND_2,31_固定座標轟炸命令,65.webp,1
+Alien Meow,ROUND_2,32_Alien_恢復戰鬥姿勢,66.webp,1
+Alien Meow,ROUND_2,33_初始大範圍掃描,71.webp,1
+Alien Meow,ROUND_2,34_Acquisition_掃描,72.webp,1
+Alien Meow,ROUND_2,35_記錄位置脈衝,73.webp,1
+Alien Meow,ROUND_2,36_Position_Lock_淡色地面圈,74.webp,1
+Alien Meow,ROUND_2,37_Position_Lock_啟動,75.webp,1
+Alien Meow,ROUND_2,38_Position_Lock_即將轟炸警告,76.webp,1
+Alien Meow,ROUND_2,39_Signal_Mark_快速鎖定特效,77.webp,1
+Alien Meow,ROUND_2,40_座標鎖定確認,78.webp,1
+Alien Meow,ROUND_2,41_Lock_消散,79.webp,1
+Alien Meow,ROUND_2,42_轟炸前垂直訊號線,81.webp,1
+Alien Meow,ROUND_2,43_能量柱開始下降,82.webp,1
+Alien Meow,ROUND_2,44_主能量柱下降,83.webp,1
+Alien Meow,ROUND_2,45_地面接觸閃光,84.webp,1
+Alien Meow,ROUND_2,46_固定位置轟炸_Active,85.webp,1
+Alien Meow,ROUND_2,47_轟炸持續,86.webp,1
+Alien Meow,ROUND_2,48_能量柱收縮,87.webp,1
+Alien Meow,ROUND_2,49_命中殘留訊號,88.webp,1
+Alien Meow,ROUND_2,50_完全消散,89.webp,1
+Alien Meow,ROUND_2,51_最終「全頻率收尾_Full-Frequency_Battlefield_Scan_Sweep」,91.webp,1
+Doge,ROUND_1,01_Idle,11.webp;12.webp;13.webp,3
+Doge,ROUND_1,02_Walk_Forward,14.webp;15.webp;16.webp,3
+Doge,ROUND_1,03_Walk_Backward,21.webp;22.webp;23.webp,3
+Doge,ROUND_1,04_Crouch,24.webp,1
+Doge,ROUND_1,05_Jump,25.webp;26.webp;27.webp;28.webp,4
+Doge,ROUND_1,06_Landing,29.webp,1
+Doge,ROUND_1,07_Light_Paw_Slap,31.webp;32.webp;33.webp;34.webp;35.webp;36.webp,6
+Doge,ROUND_1,08_Heavy_Serious_Punch,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp,6
+Doge,ROUND_1,09_Low_Lazy_Trip,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+Doge,ROUND_1,10_Air_Body_Splash,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+Doge,ROUND_1,11_Guard_Standing,71.webp;72.webp;73.webp,3
+Doge,ROUND_1,12_Guard_Crouching,74.webp;75.webp;76.webp,3
+Doge,ROUND_1,13_Hitstun,81.webp;82.webp;83.webp;84.webp;85.webp;86.webp,6
+Doge,ROUND_1,14_Dash_Forward,91.webp;92.webp;93.webp,3
+Doge,ROUND_1,15_Backstep,94.webp;95.webp;96.webp,3
+Doge,ROUND_2,01_Throw_Come_Here,11.webp;12.webp;13.webp;14.webp;15.webp;16.webp,6
+Doge,ROUND_2,02_Thrown_Knockdown_Getup_KO,21.webp;22.webp;23.webp;24.webp;25.webp;26.webp;27.webp;28.webp;29.webp,9
+Doge,ROUND_2,03_Special_Muscle_Rush,31.webp;32.webp;33.webp;34.webp;35.webp;36.webp,6
+Doge,ROUND_2,04_Special_Armor_VFX,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp;47.webp;48.webp;49.webp,9
+Doge,ROUND_2,05_Ultimate_Super_Doge_Transformation,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+Doge,ROUND_2,06_Super_Idle,61.webp,1
+Doge,ROUND_2,07_Super_Walk_Forward,62.webp,1
+Doge,ROUND_2,08_Super_Walk_Backward,63.webp,1
+Doge,ROUND_2,09_Super_Dash_Forward,64.webp,1
+Doge,ROUND_2,10_Super_Backstep,65.webp,1
+Doge,ROUND_2,11_Super_Crouch,66.webp,1
+Doge,ROUND_2,12_Super_Jump,67.webp,1
+Doge,ROUND_2,13_Super_Landing,68.webp,1
+Doge,ROUND_2,14_Super_Hitstun,69.webp,1
+Doge,ROUND_2,15_Super_Light,71.webp;72.webp;73.webp,3
+Doge,ROUND_2,16_Super_Heavy,74.webp;75.webp;76.webp;77.webp;78.webp,5
+Doge,ROUND_2,17_Super_Low,79.webp,1
+Doge,ROUND_2,18_Super_Guard_Standing,81.webp;82.webp,2
+Doge,ROUND_2,19_Super_Guard_Crouching,83.webp,1
+Doge,ROUND_2,20_Super_Air_Attack,84.webp;85.webp;86.webp,3
+Doge,ROUND_2,21_Super_Throw,87.webp;88.webp;89.webp,3
+Doge,ROUND_2,22_Super_Special_Muscle_Rush,91.webp;92.webp;93.webp;94.webp;95.webp;96.webp;97.webp,7
+Doge,ROUND_2,23_Super_Install_Aura,98.webp,1
+Doge,ROUND_2,24_Super_Heavy_Armor_Overlay,99.webp,1
+OK喵老大,ROUND_1,01_待機,11.webp;12.webp;13.webp,3
+OK喵老大,ROUND_1,02_前走,14.webp;15.webp;16.webp,3
+OK喵老大,ROUND_1,03_後走,17.webp;18.webp;19.webp,3
+OK喵老大,ROUND_1,04_蹲下,21.webp,1
+OK喵老大,ROUND_1,05_跳躍,22.webp;23.webp;24.webp;25.webp,4
+OK喵老大,ROUND_1,06_落地,26.webp,1
+OK喵老大,ROUND_1,07_前衝,31.webp;32.webp;33.webp,3
+OK喵老大,ROUND_1,08_後撤,34.webp;35.webp;36.webp,3
+OK喵老大,ROUND_1,09_輕攻「OK_指示」,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp,6
+OK喵老大,ROUND_1,10_重攻「老大上勾」,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+OK喵老大,ROUND_1,11_下段「這個不OK」,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+OK喵老大,ROUND_1,12_空中攻擊「老大巡場」,71.webp;72.webp;73.webp;74.webp;75.webp;76.webp,6
+OK喵老大,ROUND_1,13_站防,81.webp,1
+OK喵老大,ROUND_1,14_站防硬直,82.webp,1
+OK喵老大,ROUND_1,15_站防恢復,83.webp,1
+OK喵老大,ROUND_1,16_蹲防,84.webp,1
+OK喵老大,ROUND_1,17_蹲防硬直,85.webp,1
+OK喵老大,ROUND_1,18_蹲防恢復,86.webp,1
+OK喵老大,ROUND_1,19_上段受擊,87.webp,1
+OK喵老大,ROUND_1,20_中段受擊,88.webp,1
+OK喵老大,ROUND_1,21_下段受擊,89.webp,1
+OK喵老大,ROUND_2,01_前衝,11.webp;12.webp;13.webp,3
+OK喵老大,ROUND_2,02_後撤,14.webp;15.webp;16.webp,3
+OK喵老大,ROUND_2,03_投技「過來談一下」,21.webp;22.webp;23.webp;24.webp;25.webp;26.webp,6
+OK喵老大,ROUND_2,04_上段受擊,31.webp,1
+OK喵老大,ROUND_2,05_下段受擊,32.webp,1
+OK喵老大,ROUND_2,06_Heavy_Counter_Hit_大後仰,33.webp,1
+OK喵老大,ROUND_2,07_被摔空中,34.webp,1
+OK喵老大,ROUND_2,08_倒地撞擊,35.webp,1
+OK喵老大,ROUND_2,09_倒地_Hold,36.webp,1
+OK喵老大,ROUND_2,10_起身前段,37.webp,1
+OK喵老大,ROUND_2,11_起身後段,38.webp,1
+OK喵老大,ROUND_2,12_KO,39.webp,1
+OK喵老大,ROUND_2,13_開始蓄力,41.webp,1
+OK喵老大,ROUND_2,14_蓄力維持,42.webp,1
+OK喵老大,ROUND_2,15_最大蓄力,43.webp,1
+OK喵老大,ROUND_2,16_放招準備,44.webp,1
+OK喵老大,ROUND_2,17_判決波發射,45.webp,1
+OK喵老大,ROUND_2,18_後座_收招,46.webp,1
+OK喵老大,ROUND_2,19_判決波蓄力核心,51.webp,1
+OK喵老大,ROUND_2,20_Lv1「OK」,52.webp;53.webp,2
+OK喵老大,ROUND_2,21_Lv2「你確定？」,54.webp;55.webp;56.webp,3
+OK喵老大,ROUND_2,22_Lv3「這不OK」,57.webp;58.webp;59.webp,3
+OK喵老大,ROUND_2,23_Capture_Ultimate_發動,61.webp,1
+OK喵老大,ROUND_2,24_向前抓取判定,62.webp,1
+OK喵老大,ROUND_2,25_抓空_Whiff,63.webp,1
+OK喵老大,ROUND_2,26_超大破綻收招,64.webp,1
+OK喵老大,ROUND_2,27_成功抓到_老大確認,65.webp,1
+OK喵老大,ROUND_2,28_老大慢慢走向對手,66.webp,1
+OK喵老大,ROUND_2,29_拿出重機槍,67.webp,1
+OK喵老大,ROUND_2,30_持續機槍掃射,68.webp,1
+OK喵老大,ROUND_2,31_最後重火力爆發_後座,69.webp,1
+OK喵老大,ROUND_2,32_小弟_A_衝入準備,71.webp,1
+OK喵老大,ROUND_2,33_高速衝入,72.webp,1
+OK喵老大,ROUND_2,34_抓上半身,73.webp,1
+OK喵老大,ROUND_2,35_鎖住上半身,74.webp,1
+OK喵老大,ROUND_2,36_持續壓制,75.webp,1
+OK喵老大,ROUND_2,37_放開_退場,76.webp,1
+OK喵老大,ROUND_2,38_小弟_B_衝入,81.webp,1
+OK喵老大,ROUND_2,39_低位攔截衝刺,82.webp,1
+OK喵老大,ROUND_2,40_抓下半身,83.webp,1
+OK喵老大,ROUND_2,41_雙掌固定,84.webp,1
+OK喵老大,ROUND_2,42_持續壓住下半身,85.webp,1
+OK喵老大,ROUND_2,43_放開_退場,86.webp,1
+OK喵老大,ROUND_2,44_重機槍本體素材,91.webp,1
+OK喵老大,ROUND_2,45_槍口火光,92.webp,1
+OK喵老大,ROUND_2,46_持續掃射槍口火焰,93.webp,1
+OK喵老大,ROUND_2,47_子彈曳光群,94.webp,1
+OK喵老大,ROUND_2,48_密集自動射擊彈道,95.webp,1
+OK喵老大,ROUND_2,49_子彈命中火花,96.webp,1
+OK喵老大,ROUND_2,50_持續命中煙霧_火花,97.webp,1
+OK喵老大,ROUND_2,51_處決階段大型命中爆發,98.webp,1
+OK喵老大,ROUND_2,52_FINAL_LAUNCH_IMPACT,99.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,01_待機,11.webp;12.webp;13.webp,3
+Oh fuxking 天婦羅尬哩涼,ROUND_1,02_前走,14.webp;15.webp;16.webp,3
+Oh fuxking 天婦羅尬哩涼,ROUND_1,03_後走,21.webp;22.webp;23.webp,3
+Oh fuxking 天婦羅尬哩涼,ROUND_1,04_蹲下,24.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,05_跳躍,25.webp;26.webp;27.webp;28.webp,4
+Oh fuxking 天婦羅尬哩涼,ROUND_1,06_落地,29.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,07_輕攻「企鵝啄啄」,31.webp;32.webp;33.webp;34.webp;35.webp;36.webp,6
+Oh fuxking 天婦羅尬哩涼,ROUND_1,08_重攻「天婦羅鐵頭功」,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp,6
+Oh fuxking 天婦羅尬哩涼,ROUND_1,09_下段「冰面肚皮滑行」,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+Oh fuxking 天婦羅尬哩涼,ROUND_1,10_空中攻擊「企鵝炸彈」,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+Oh fuxking 天婦羅尬哩涼,ROUND_1,11_站防,71.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,12_站防_Impact,72.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,13_站防硬直,73.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,14_蹲防,74.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,15_蹲防_Impact,75.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,16_蹲防硬直,76.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,17_上段受擊,81.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,18_中段受擊,82.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,19_下段受擊,83.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,20_Heavy_Reel,84.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,21_Counter_Hit_Reel,85.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,22_恢復,86.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_1,23_前衝,91.webp;92.webp;93.webp,3
+Oh fuxking 天婦羅尬哩涼,ROUND_1,24_後撤,94.webp;95.webp;96.webp,3
+Oh fuxking 天婦羅尬哩涼,ROUND_2,01_投技「一起摔啦！」,11.webp;12.webp;13.webp;14.webp;15.webp;16.webp,6
+Oh fuxking 天婦羅尬哩涼,ROUND_2,02_強擊起飛,21.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,03_被摔空中,22.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,04_下墜,23.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,05_Knockdown_Impact,24.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,06_Knockdown_Hold,25.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,07_Soft_KD_Recovery,26.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,08_起身前段,27.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,09_起身後段,28.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,10_KO,29.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,11_Charge_Start,31.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,12_Charge_Loop,32.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,13_Maximum_Charge,33.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,14_短衝_Release,34.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,15_Full_Rush_Push_Through,35.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,16_煞停_Recovery,36.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,17_Lv1「小隊出發」,41.webp;42.webp;43.webp,3
+Oh fuxking 天婦羅尬哩涼,ROUND_2,18_Lv2「全速前進」,44.webp;45.webp;46.webp,3
+Oh fuxking 天婦羅尬哩涼,ROUND_2,19_Lv3「企鵝不要停！」,47.webp;48.webp;49.webp,3
+Oh fuxking 天婦羅尬哩涼,ROUND_2,20_Ultimate_啟動,51.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,21_召喚蓄勢,52.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,22_大聲召喚,53.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,23_指揮企鵝群往前,54.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,24_快速_Recovery,55.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,25_玩家恢復正常操作,56.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,26_Minion_1_Deadpan,61.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,27_Minion_1,62.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,28_Minion_1,63.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,29_Minion_2_Angry,64.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,30_Minion_2,65.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,31_Minion_2,66.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,32_Minion_3_Nervous,67.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,33_Minion_3,68.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,34_Minion_3,69.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,35_Minion_4_Smug,71.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,36_Body_Check,72.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,37_Hit_Defeat,73.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,38_Minion_5_Excited,74.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,39_Body_Check,75.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,40_Hit_Defeat,76.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,41_Minion_6_Confused,77.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,42_Body_Check,78.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,43_Hit_Defeat,79.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,44_Minion_7_Sleepy,81.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,45_Body_Check,82.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,46_Hit_Defeat,83.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,47_Minion_8_Shocked,84.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,48_Body_Check,85.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,49_Hit_Defeat,86.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,50_Minion_9_Determined,87.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,51_Body_Check,88.webp,1
+Oh fuxking 天婦羅尬哩涼,ROUND_2,52_Hit_Defeat,89.webp,1
+YA鼠,ROUND_1,01_待機_緊張_看手機,11.webp;12.webp;13.webp,3
+YA鼠,ROUND_1,02_前走,14.webp;15.webp;16.webp,3
+YA鼠,ROUND_1,03_後走,21.webp;22.webp;23.webp,3
+YA鼠,ROUND_1,04_蹲下,24.webp,1
+YA鼠,ROUND_1,05_跳躍,25.webp;26.webp;27.webp;28.webp,4
+YA鼠,ROUND_1,06_落地,29.webp,1
+YA鼠,ROUND_1,07_輕攻「那個...不好意思」,31.webp;32.webp;33.webp;34.webp;35.webp;36.webp,6
+YA鼠,ROUND_1,08_重攻「不好意思借過！」,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp,6
+YA鼠,ROUND_1,09_下段「假裝綁鞋帶」,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+YA鼠,ROUND_1,10_空中攻擊「我只是想跳過去！」,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+YA鼠,ROUND_1,11_站防,71.webp,1
+YA鼠,ROUND_1,12_站防_Impact,72.webp,1
+YA鼠,ROUND_1,13_站防硬直,73.webp,1
+YA鼠,ROUND_1,14_蹲防,74.webp,1
+YA鼠,ROUND_1,15_蹲防_Impact,75.webp,1
+YA鼠,ROUND_1,16_蹲防硬直,76.webp,1
+YA鼠,ROUND_1,17_上段受擊,81.webp,1
+YA鼠,ROUND_1,18_中段受擊,82.webp,1
+YA鼠,ROUND_1,19_下段受擊,83.webp,1
+YA鼠,ROUND_1,20_Heavy_Reel,84.webp,1
+YA鼠,ROUND_1,21_Counter_Hit_Panic,85.webp,1
+YA鼠,ROUND_1,22_恢復_扶正眼鏡,86.webp,1
+YA鼠,ROUND_1,23_標準圓眼鏡,91.webp,1
+YA鼠,ROUND_1,24_歪掉的眼鏡,92.webp,1
+YA鼠,ROUND_1,25_手機正面,93.webp,1
+YA鼠,ROUND_1,26_手機相機面,94.webp,1
+YA鼠,ROUND_1,27_汗滴素材,95.webp,1
+YA鼠,ROUND_1,28_緊張抖動素材,96.webp,1
+YA鼠,ROUND_2,01_前衝,11.webp;12.webp;13.webp,3
+YA鼠,ROUND_2,02_後撤,14.webp;15.webp;16.webp,3
+YA鼠,ROUND_2,03_投技「你離我太近了！」,21.webp;22.webp;23.webp;24.webp;25.webp;26.webp,6
+YA鼠,ROUND_2,04_強擊失衡,31.webp,1
+YA鼠,ROUND_2,05_被摔空中,32.webp,1
+YA鼠,ROUND_2,06_下墜,33.webp,1
+YA鼠,ROUND_2,07_Knockdown_Impact,34.webp,1
+YA鼠,ROUND_2,08_Knockdown_Hold,35.webp,1
+YA鼠,ROUND_2,09_翻身恢復,36.webp,1
+YA鼠,ROUND_2,10_起身前段,37.webp,1
+YA鼠,ROUND_2,11_起身後段_扶眼鏡,38.webp,1
+YA鼠,ROUND_2,12_KO,39.webp,1
+YA鼠,ROUND_2,13_Charge_Start,41.webp,1
+YA鼠,ROUND_2,14_Charge_Loop,42.webp,1
+YA鼠,ROUND_2,15_Maximum_Charge,43.webp,1
+YA鼠,ROUND_2,16_Release_Anticipation,44.webp,1
+YA鼠,ROUND_2,17_招呼波_Release,45.webp,1
+YA鼠,ROUND_2,18_尷尬後退恢復,46.webp,1
+YA鼠,ROUND_2,19_短距離尷尬波,51.webp,1
+YA鼠,ROUND_2,20_命中_Slow_Ripple,52.webp,1
+YA鼠,ROUND_2,21_Movement_Delay_Module,53.webp,1
+YA鼠,ROUND_2,22_Lv2_Zone_Core,54.webp,1
+YA鼠,ROUND_2,23_Persistent_Social-Pressure_Zone,55.webp,1
+YA鼠,ROUND_2,24_Lv2_Slow_Overlay,56.webp,1
+YA鼠,ROUND_2,25_Large_Social-Death_Zone,57.webp,1
+YA鼠,ROUND_2,26_Zone_Interior_Distortion,58.webp,1
+YA鼠,ROUND_2,27_Strong_Movement-Hesitation_Overlay,59.webp,1
+YA鼠,ROUND_2,28_偷偷拿手機,61.webp,1
+YA鼠,ROUND_2,29_手機相機準備,62.webp,1
+YA鼠,ROUND_2,30_CAMERA_FLASH_ACTIVE,63.webp,1
+YA鼠,ROUND_2,31_Flash_命中確認,64.webp,1
+YA鼠,ROUND_2,32_Block_Whiff_Failure,65.webp,1
+YA鼠,ROUND_2,33_Catastrophic_Recovery,66.webp,1
+YA鼠,ROUND_2,34_Camera_Flash_Core,71.webp,1
+YA鼠,ROUND_2,35_前方_Camera_Flash_Cone,72.webp,1
+YA鼠,ROUND_2,36_Flash_Hit_Freeze,73.webp,1
+YA鼠,ROUND_2,37_拍立得照片框,74.webp,1
+YA鼠,ROUND_2,38_Photographization_Overlay,75.webp,1
+YA鼠,ROUND_2,39_巨型「社死大頭貼」框,76.webp,1
+YA鼠,ROUND_2,40_Embarrassment_Pressure_Burst,77.webp,1
+YA鼠,ROUND_2,41_Photo_Shake_Cringe,78.webp,1
+YA鼠,ROUND_2,42_照片開始產生撕裂裂痕,79.webp,1
+YA鼠,ROUND_2,43_上半張撕裂照片,81.webp,1
+YA鼠,ROUND_2,44_下半張撕裂照片,82.webp,1
+YA鼠,ROUND_2,45_左側碎片,83.webp,1
+YA鼠,ROUND_2,46_右側碎片,84.webp,1
+YA鼠,ROUND_2,47_中央撕裂爆發,85.webp,1
+YA鼠,ROUND_2,48_多碎片照片爆裂,86.webp,1
+YA鼠,ROUND_2,49_Social-Death_Impact,87.webp,1
+YA鼠,ROUND_2,50_Hard_Knockdown_Finish,88.webp,1
+YA鼠,ROUND_2,51_照片碎片消散,89.webp,1
+哥布林也想談戀愛,ROUND_1,01_待機_害羞_緊張準備,11.webp;12.webp;13.webp,3
+哥布林也想談戀愛,ROUND_1,02_前走,14.webp;15.webp;16.webp,3
+哥布林也想談戀愛,ROUND_1,03_後走,17.webp;18.webp;19.webp,3
+哥布林也想談戀愛,ROUND_1,04_蹲下,21.webp,1
+哥布林也想談戀愛,ROUND_1,05_跳躍,22.webp;23.webp,2
+哥布林也想談戀愛,ROUND_1,06_落地,24.webp,1
+哥布林也想談戀愛,ROUND_1,07_前衝,25.webp;26.webp,2
+哥布林也想談戀愛,ROUND_1,08_後撤,27.webp;28.webp;29.webp,3
+哥布林也想談戀愛,ROUND_1,09_站防,31.webp,1
+哥布林也想談戀愛,ROUND_1,10_站防_Impact,32.webp,1
+哥布林也想談戀愛,ROUND_1,11_站防硬直,33.webp,1
+哥布林也想談戀愛,ROUND_1,12_蹲防,34.webp,1
+哥布林也想談戀愛,ROUND_1,13_蹲防_Impact,35.webp,1
+哥布林也想談戀愛,ROUND_1,14_蹲防硬直,36.webp,1
+哥布林也想談戀愛,ROUND_1,15_Light_Hitstun,37.webp,1
+哥布林也想談戀愛,ROUND_1,16_Medium_Hitstun,38.webp,1
+哥布林也想談戀愛,ROUND_1,17_Heavy_Stagger,39.webp,1
+哥布林也想談戀愛,ROUND_1,18_輕攻「那個...妳好」,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp,6
+哥布林也想談戀愛,ROUND_1,19_重攻「戀愛頭槌」,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+哥布林也想談戀愛,ROUND_1,20_下段「卑微求愛掃腿」,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+哥布林也想談戀愛,ROUND_1,21_空中攻擊「從天而降的告白」,71.webp;72.webp;73.webp;74.webp;75.webp;76.webp,6
+哥布林也想談戀愛,ROUND_1,22_普通投技「不要走！」,81.webp;82.webp;83.webp;84.webp;85.webp;86.webp,6
+哥布林也想談戀愛,ROUND_1,23_Charge_Start,91.webp,1
+哥布林也想談戀愛,ROUND_1,24_Charge_Loop,92.webp,1
+哥布林也想談戀愛,ROUND_1,25_Lv1「抱一下就好」,93.webp,1
+哥布林也想談戀愛,ROUND_1,26_Lv2「真的一下就好」Step-In,94.webp,1
+哥布林也想談戀愛,ROUND_1,27_Lv3「我會對妳負責的！」Rush_Grab,95.webp,1
+哥布林也想談戀愛,ROUND_1,28_成功抱住,96.webp,1
+哥布林也想談戀愛,ROUND_1,29_Lv1_Whiff_Recovery,97.webp,1
+哥布林也想談戀愛,ROUND_1,30_Lv2_Whiff_Recovery,98.webp,1
+哥布林也想談戀愛,ROUND_1,31_Lv3_Catastrophic_Whiff_Recovery,99.webp,1
+哥布林也想談戀愛,ROUND_1,32_Thrown_Start,101.webp,1
+哥布林也想談戀愛,ROUND_1,33_空中被摔,102.webp,1
+哥布林也想談戀愛,ROUND_1,34_撞地,103.webp,1
+哥布林也想談戀愛,ROUND_1,35_Knockdown_Hold,104.webp,1
+哥布林也想談戀愛,ROUND_1,36_起身開始,105.webp,1
+哥布林也想談戀愛,ROUND_1,37_起身中段,106.webp,1
+哥布林也想談戀愛,ROUND_1,38_起身完成,107.webp,1
+哥布林也想談戀愛,ROUND_1,39_KO_Collapse,108.webp,1
+哥布林也想談戀愛,ROUND_1,40_KO_Hold,109.webp,1
+哥布林也想談戀愛,ROUND_2,01_Ultimate_決意,11.webp,1
+哥布林也想談戀愛,ROUND_2,02_「長老您保重」自我生命犧牲,12.webp,1
+哥布林也想談戀愛,ROUND_2,03_變身臨界,13.webp,1
+哥布林也想談戀愛,ROUND_2,04_戀愛覺醒_Reveal,14.webp,1
+哥布林也想談戀愛,ROUND_2,05_覺醒後第一步,15.webp,1
+哥布林也想談戀愛,ROUND_2,06_Mode_Handoff,16.webp,1
+哥布林也想談戀愛,ROUND_2,07_覺醒_Idle,21.webp;22.webp;23.webp,3
+哥布林也想談戀愛,ROUND_2,08_強化前走,24.webp;25.webp;26.webp,3
+哥布林也想談戀愛,ROUND_2,09_後走,27.webp;28.webp;29.webp,3
+哥布林也想談戀愛,ROUND_2,10_蹲下,31.webp,1
+哥布林也想談戀愛,ROUND_2,11_跳躍,32.webp;33.webp,2
+哥布林也想談戀愛,ROUND_2,12_落地,34.webp,1
+哥布林也想談戀愛,ROUND_2,13_前衝,35.webp;36.webp,2
+哥布林也想談戀愛,ROUND_2,14_後撤,37.webp;38.webp;39.webp,3
+哥布林也想談戀愛,ROUND_2,15_站防,41.webp,1
+哥布林也想談戀愛,ROUND_2,16_站防_Impact,42.webp,1
+哥布林也想談戀愛,ROUND_2,17_站防硬直,43.webp,1
+哥布林也想談戀愛,ROUND_2,18_蹲防,44.webp,1
+哥布林也想談戀愛,ROUND_2,19_蹲防_Impact,45.webp,1
+哥布林也想談戀愛,ROUND_2,20_蹲防硬直,46.webp,1
+哥布林也想談戀愛,ROUND_2,21_Light_Hitstun,47.webp,1
+哥布林也想談戀愛,ROUND_2,22_Medium_Hitstun,48.webp,1
+哥布林也想談戀愛,ROUND_2,23_Heavy_Stagger,49.webp,1
+哥布林也想談戀愛,ROUND_2,24_Light「那個...妳好」,51.webp;52.webp;53.webp,3
+哥布林也想談戀愛,ROUND_2,25_Low「卑微求愛掃腿」,54.webp;55.webp;56.webp;57.webp;58.webp;59.webp,6
+哥布林也想談戀愛,ROUND_2,26_覺醒_Heavy「戀愛頭槌」,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+哥布林也想談戀愛,ROUND_2,27_「從天而降的告白」,71.webp;72.webp;73.webp,3
+哥布林也想談戀愛,ROUND_2,28_強化普通投技「不要走！」,74.webp;75.webp;76.webp;77.webp;78.webp;79.webp,6
+哥布林也想談戀愛,ROUND_2,29_Charge_Start,81.webp,1
+哥布林也想談戀愛,ROUND_2,30_Charge_Hold,82.webp,1
+哥布林也想談戀愛,ROUND_2,31_強化_Lv1「抱一下就好」,83.webp,1
+哥布林也想談戀愛,ROUND_2,32_強化_Lv2「真的一下就好」,84.webp,1
+哥布林也想談戀愛,ROUND_2,33_強化_Lv3「我會對妳負責的！」,85.webp,1
+哥布林也想談戀愛,ROUND_2,34_成功擁抱,86.webp,1
+哥布林也想談戀愛,ROUND_2,35_Lv1_Lv2_正常後續,87.webp,1
+哥布林也想談戀愛,ROUND_2,36_Lv2_Whiff,88.webp,1
+哥布林也想談戀愛,ROUND_2,37_Lv3_Catastrophic_Whiff,89.webp,1
+哥布林也想談戀愛,ROUND_2,38_Mode_Thrown_Start,91.webp,1
+哥布林也想談戀愛,ROUND_2,39_空中翻滾,92.webp,1
+哥布林也想談戀愛,ROUND_2,40_撞地,93.webp,1
+哥布林也想談戀愛,ROUND_2,41_Knockdown_Hold,94.webp,1
+哥布林也想談戀愛,ROUND_2,42_起身開始,95.webp,1
+哥布林也想談戀愛,ROUND_2,43_起身中段,96.webp,1
+哥布林也想談戀愛,ROUND_2,44_起身完成,97.webp,1
+哥布林也想談戀愛,ROUND_2,45_KO_Collapse,98.webp,1
+哥布林也想談戀愛,ROUND_2,46_KO_Hold,99.webp,1
+我的刀盾,ROUND_1,01_待機,11.webp;12.webp,2
+我的刀盾,ROUND_1,02_前走,13.webp;14.webp,2
+我的刀盾,ROUND_1,03_後走,15.webp;16.webp,2
+我的刀盾,ROUND_1,04_蹲下,17.webp,1
+我的刀盾,ROUND_1,05_跳躍,18.webp,1
+我的刀盾,ROUND_1,06_落地,19.webp,1
+我的刀盾,ROUND_1,07_前衝,21.webp;22.webp;23.webp,3
+我的刀盾,ROUND_1,08_後撤,24.webp;25.webp;26.webp,3
+我的刀盾,ROUND_1,09_輕攻「鈍刀試砍」,31.webp;32.webp;33.webp;34.webp;35.webp;36.webp,6
+我的刀盾,ROUND_1,10_重攻「盾開路」＝盾擊to大鈍刀斬,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp;47.webp;48.webp;49.webp,9
+我的刀盾,ROUND_1,11_下段「盾底掃腿」,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+我的刀盾,ROUND_1,12_空中攻擊「盾牌墜擊」,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+我的刀盾,ROUND_1,13_站防「不動如盾」,71.webp,1
+我的刀盾,ROUND_1,14_蹲防,72.webp,1
+我的刀盾,ROUND_1,15_各類防禦硬直,73.webp;74.webp;75.webp;76.webp,4
+我的刀盾,ROUND_1,16_各類受擊,77.webp;78.webp;79.webp,3
+我的刀盾,ROUND_1,17_投技「盾牌請你出去」,81.webp;82.webp;83.webp;84.webp;85.webp;86.webp,6
+我的刀盾,ROUND_2,01_被摔_翻滾_倒地_起身_KO,11.webp;12.webp;13.webp;14.webp;15.webp;16.webp,6
+我的刀盾,ROUND_2,02_「鈍刀蓄斬」蓄力,21.webp;22.webp;23.webp,3
+我的刀盾,ROUND_2,03_Lv1「鈍斬」,24.webp;25.webp,2
+我的刀盾,ROUND_2,04_Lv2「重鈍斬」,26.webp;27.webp,2
+我的刀盾,ROUND_2,05_Lv3「超級鈍刀蓄斬」,28.webp;29.webp,2
+我的刀盾,ROUND_2,06_Lv1～Lv3_鈍刀斬_VFX,31.webp;32.webp;33.webp;34.webp;35.webp;36.webp;37.webp;38.webp;39.webp,9
+我的刀盾,ROUND_2,07_Ultimate「汪爆氣流斬」,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp;47.webp;48.webp;49.webp,9
+我的刀盾,ROUND_2,08_雙刀待機,51.webp;52.webp,2
+我的刀盾,ROUND_2,09_雙刀前走,53.webp;54.webp,2
+我的刀盾,ROUND_2,10_雙刀後走,55.webp;56.webp,2
+我的刀盾,ROUND_2,11_雙刀蹲下,57.webp,1
+我的刀盾,ROUND_2,12_雙刀跳躍,58.webp,1
+我的刀盾,ROUND_2,13_雙刀落地,59.webp,1
+我的刀盾,ROUND_2,14_雙刀前衝,61.webp;62.webp;63.webp,3
+我的刀盾,ROUND_2,15_雙刀後撤,64.webp;65.webp;66.webp,3
+我的刀盾,ROUND_2,16_雙刀輕攻,71.webp;72.webp;73.webp;74.webp;75.webp;76.webp,6
+我的刀盾,ROUND_2,17_雙刀重攻,81.webp;82.webp;83.webp;84.webp;85.webp;86.webp,6
+我的刀盾,ROUND_2,18_雙刀下段「雙刃剪腳」,91.webp;92.webp;93.webp;94.webp;95.webp;96.webp,6
+我的刀盾,ROUND_2,19_雙刀空中攻擊「交叉落月斬」,101.webp;102.webp;103.webp;104.webp;105.webp;106.webp,6
+沙拉貓貓,ROUND_1,01_待機,11.webp;12.webp;13.webp,3
+沙拉貓貓,ROUND_1,02_前走,14.webp;15.webp;16.webp,3
+沙拉貓貓,ROUND_1,03_後走,21.webp;22.webp;23.webp,3
+沙拉貓貓,ROUND_1,04_蹲下,24.webp,1
+沙拉貓貓,ROUND_1,05_跳躍,25.webp;26.webp;27.webp;28.webp,4
+沙拉貓貓,ROUND_1,06_落地,29.webp,1
+沙拉貓貓,ROUND_1,07_輕攻「菜葉甩臉」,31.webp;32.webp;33.webp;34.webp;35.webp;36.webp,6
+沙拉貓貓,ROUND_1,08_重攻「整盆不要！」,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp,6
+沙拉貓貓,ROUND_1,09_下段「菜梗掃地」,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+沙拉貓貓,ROUND_1,10_空中攻擊「空投沙拉盆」,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+沙拉貓貓,ROUND_1,11_站防「拿盆擋一下」,71.webp,1
+沙拉貓貓,ROUND_1,12_站防命中,72.webp,1
+沙拉貓貓,ROUND_1,13_站防硬直,73.webp,1
+沙拉貓貓,ROUND_1,14_蹲防,74.webp,1
+沙拉貓貓,ROUND_1,15_蹲防命中,75.webp,1
+沙拉貓貓,ROUND_1,16_蹲防硬直,76.webp,1
+沙拉貓貓,ROUND_1,17_上段輕受擊,81.webp,1
+沙拉貓貓,ROUND_1,18_中段受擊,82.webp,1
+沙拉貓貓,ROUND_1,19_下段受擊,83.webp,1
+沙拉貓貓,ROUND_1,20_重擊後仰,84.webp,1
+沙拉貓貓,ROUND_1,21_Counter_Hit_大後仰,85.webp,1
+沙拉貓貓,ROUND_1,22_受擊恢復,86.webp,1
+沙拉貓貓,ROUND_1,23_普通空沙拉盆,91.webp,1
+沙拉貓貓,ROUND_1,24_裝滿沙拉的標準沙拉盆,92.webp,1
+沙拉貓貓,ROUND_1,25_「菜葉甩臉」菜葉,93.webp,1
+沙拉貓貓,ROUND_1,26_「菜梗掃地」長菜梗,94.webp,1
+沙拉貓貓,ROUND_1,27_小型沙拉碎片,95.webp,1
+沙拉貓貓,ROUND_1,28_沙拉盆震動_命中粒子,96.webp,1
+沙拉貓貓,ROUND_2,01_前衝,11.webp;12.webp;13.webp,3
+沙拉貓貓,ROUND_2,02_後撤,14.webp;15.webp;16.webp,3
+沙拉貓貓,ROUND_2,03_投技「你吃掉！」,21.webp;22.webp;23.webp;24.webp;25.webp;26.webp,6
+沙拉貓貓,ROUND_2,04_重擊起飛,31.webp,1
+沙拉貓貓,ROUND_2,05_空中被摔,32.webp,1
+沙拉貓貓,ROUND_2,06_落地前,33.webp,1
+沙拉貓貓,ROUND_2,07_倒地撞擊,34.webp,1
+沙拉貓貓,ROUND_2,08_倒地,35.webp,1
+沙拉貓貓,ROUND_2,09_Soft_Knockdown_恢復,36.webp,1
+沙拉貓貓,ROUND_2,10_起身前段,37.webp,1
+沙拉貓貓,ROUND_2,11_起身後段,38.webp,1
+沙拉貓貓,ROUND_2,12_KO,39.webp,1
+沙拉貓貓,ROUND_2,13_開始蓄力,41.webp,1
+沙拉貓貓,ROUND_2,14_蓄力維持,42.webp,1
+沙拉貓貓,ROUND_2,15_最大蓄力,43.webp,1
+沙拉貓貓,ROUND_2,16_放招準備,44.webp,1
+沙拉貓貓,ROUND_2,17_「拒吃震波」釋放,45.webp,1
+沙拉貓貓,ROUND_2,18_後座_恢復,46.webp,1
+沙拉貓貓,ROUND_2,19_蓄力壓力核心,51.webp,1
+沙拉貓貓,ROUND_2,20_Lv1「不要」短震波,52.webp,1
+沙拉貓貓,ROUND_2,21_Lv1_Pushback_命中特效,53.webp,1
+沙拉貓貓,ROUND_2,22_Lv2「我說不要」大型震波,54.webp;55.webp,2
+沙拉貓貓,ROUND_2,23_Lv2_Soft_Knockdown_命中特效,56.webp,1
+沙拉貓貓,ROUND_2,24_Lv3「我真的不吃！」巨大拒絕震波,57.webp;58.webp,2
+沙拉貓貓,ROUND_2,25_Lv3_Neutral_Reset_Corner_Escape_爆發,59.webp,1
+沙拉貓貓,ROUND_2,26_Ultimate_發動,61.webp,1
+沙拉貓貓,ROUND_2,27_確認對手位置,62.webp,1
+沙拉貓貓,ROUND_2,28_呼叫巨大沙拉盆,63.webp,1
+沙拉貓貓,ROUND_2,29_Overhead_階段準備,64.webp,1
+沙拉貓貓,ROUND_2,30_Low_Shockwave_階段後座,65.webp,1
+沙拉貓貓,ROUND_2,31_Ultimate_收招_退回中距離,66.webp,1
+沙拉貓貓,ROUND_2,32_巨大沙拉盆本體,71.webp,1
+沙拉貓貓,ROUND_2,33_高空落下,72.webp,1
+沙拉貓貓,ROUND_2,34_高速下降,73.webp,1
+沙拉貓貓,ROUND_2,35_Overhead_Active,74.webp,1
+沙拉貓貓,ROUND_2,36_撞擊地面,75.webp,1
+沙拉貓貓,ROUND_2,37_沙拉盆留在地面_銜接第二段,76.webp,1
+沙拉貓貓,ROUND_2,38_沙拉盆下降風壓,81.webp,1
+沙拉貓貓,ROUND_2,39_Overhead_命中特效,82.webp,1
+沙拉貓貓,ROUND_2,40_Overhead_沙拉飛散,83.webp,1
+沙拉貓貓,ROUND_2,41_地面撞擊核心,84.webp,1
+沙拉貓貓,ROUND_2,42_第二段_LOW_Shockwave_起始,85.webp,1
+沙拉貓貓,ROUND_2,43_LOW_大範圍震波,86.webp,1
+沙拉貓貓,ROUND_2,44_Low_左側震波,87.webp,1
+沙拉貓貓,ROUND_2,45_Low_右側震波,88.webp,1
+沙拉貓貓,ROUND_2,46_Neutral_Reset_最終爆發,89.webp,1
+牛來,ROUND_1,01_待機_Courage_Lv0「膽小」,11.webp,1
+牛來,ROUND_1,02_待機_Courage_Lv3「夢的勇士」,12.webp,1
+牛來,ROUND_1,03_前走_Lv0–1,13.webp;14.webp,2
+牛來,ROUND_1,04_強化前走_Lv2–3,15.webp;16.webp,2
+牛來,ROUND_1,05_後走,17.webp;18.webp,2
+牛來,ROUND_1,06_蹲下,19.webp,1
+牛來,ROUND_1,07_跳躍,21.webp;22.webp,2
+牛來,ROUND_1,08_落地,23.webp,1
+牛來,ROUND_1,09_前衝,24.webp;25.webp,2
+牛來,ROUND_1,10_前衝收招_Lv0–1,26.webp,1
+牛來,ROUND_1,11_強化前衝收招_Lv2–3,27.webp,1
+牛來,ROUND_1,12_後撤,28.webp,1
+牛來,ROUND_1,13_後撤落地,29.webp,1
+牛來,ROUND_1,14_Lv0_輕攻「試探拳」,31.webp;32.webp;33.webp,3
+牛來,ROUND_1,15_Lv3_強化動作版「試探拳」,34.webp;35.webp;36.webp,3
+牛來,ROUND_1,16_Lv0–1_重攻「牛角重槌」,41.webp;42.webp;43.webp,3
+牛來,ROUND_1,17_Lv2–3_前踏版「牛角重槌」,44.webp;45.webp;46.webp,3
+牛來,ROUND_1,18_Lv0–1「怕歸怕還是要踢」,51.webp;52.webp;53.webp,3
+牛來,ROUND_1,19_Lv2_加長版,54.webp;55.webp;56.webp,3
+牛來,ROUND_1,20_Lv3_下段攻擊,57.webp,1
+牛來,ROUND_1,21_Lv3_Counter_Hit_後向前確認,58.webp,1
+牛來,ROUND_1,22_Lv3_接輕攻準備,59.webp,1
+牛來,ROUND_1,23_Lv0–1「閉眼勇氣飛踢」,61.webp;62.webp;63.webp,3
+牛來,ROUND_1,24_Lv2_前進版,64.webp;65.webp;66.webp,3
+牛來,ROUND_1,25_Lv3_完整_Jump-in_版,67.webp;68.webp;69.webp,3
+牛來,ROUND_1,26_站防_Lv0,71.webp,1
+牛來,ROUND_1,27_站防_Lv1,72.webp,1
+牛來,ROUND_1,28_站防_Lv2,73.webp,1
+牛來,ROUND_1,29_站防_Lv3,74.webp,1
+牛來,ROUND_1,30_蹲防_Lv0,75.webp,1
+牛來,ROUND_1,31_蹲防_Lv1,76.webp,1
+牛來,ROUND_1,32_蹲防_Lv2,77.webp,1
+牛來,ROUND_1,33_蹲防_Lv3,78.webp,1
+牛來,ROUND_1,34_防禦解除_回待機,79.webp,1
+牛來,ROUND_1,35_輕防禦硬直,81.webp,1
+牛來,ROUND_1,36_重防禦硬直,82.webp,1
+牛來,ROUND_1,37_上段受擊,83.webp,1
+牛來,ROUND_1,38_下段受擊,84.webp,1
+牛來,ROUND_1,39_重受擊,85.webp,1
+牛來,ROUND_1,40_空中受擊,86.webp,1
+牛來,ROUND_2,01_投技「友情抱摔」,11.webp;12.webp;13.webp;14.webp;15.webp;16.webp,6
+牛來,ROUND_2,02_被摔起飛,21.webp,1
+牛來,ROUND_2,03_空中翻滾,22.webp,1
+牛來,ROUND_2,04_Heavy_Knockdown_撞地,23.webp,1
+牛來,ROUND_2,05_Heavy_Knockdown_倒地,24.webp,1
+牛來,ROUND_2,06_起身,25.webp,1
+牛來,ROUND_2,07_KO,26.webp,1
+牛來,ROUND_2,08_開始蓄力_深呼吸,31.webp,1
+牛來,ROUND_2,09_持續蓄力,32.webp;33.webp,2
+牛來,ROUND_2,10_Charge_Lv1「小聲打氣」,34.webp,1
+牛來,ROUND_2,11_Lv1_尷尬後座_收招,35.webp,1
+牛來,ROUND_2,12_Charge_Lv2「站起來！」,36.webp,1
+牛來,ROUND_2,13_Lv2_勇氣提升後收招,37.webp,1
+牛來,ROUND_2,14_Charge_Lv3「牛來，站起來！」,38.webp,1
+牛來,ROUND_2,15_Lv3_收招,39.webp,1
+牛來,ROUND_2,16_牛角蓄力光_Lv1,41.webp,1
+牛來,ROUND_2,17_牛角強蓄力光,42.webp,1
+牛來,ROUND_2,18_Courage_+1_爆發,43.webp,1
+牛來,ROUND_2,19_Courage_+1_收束,44.webp,1
+牛來,ROUND_2,20_Lv1_咆哮推退_VFX,45.webp,1
+牛來,ROUND_2,21_Lv3_咆哮推退_VFX,46.webp,1
+牛來,ROUND_2,22_Courage_-1_破裂,47.webp,1
+牛來,ROUND_2,23_Courage_-1_掉落粒子,48.webp,1
+牛來,ROUND_2,24_Courage_Lv3_達成特效,49.webp,1
+牛來,ROUND_2,25_Ultimate_發動決意,51.webp,1
+牛來,ROUND_2,26_夢之牛角突進起手,52.webp,1
+牛來,ROUND_2,27_「夢之牛角撞擊」有效攻擊,53.webp,1
+牛來,ROUND_2,28_Ultimate_揮空大硬直,54.webp,1
+牛來,ROUND_2,29_命中確認_夢境啟動,55.webp,1
+牛來,ROUND_2,30_Courage_Lv0～Lv2_共用「夢境覺醒」收尾,56.webp,1
+牛來,ROUND_2,31_Courage_Lv3_夢境轉場,57.webp,1
+牛來,ROUND_2,32_Courage_Lv3_完整「夢境覺醒」衝鋒,58.webp,1
+牛來,ROUND_2,33_Ultimate_結束toCourage_重置_Lv0,59.webp,1
+牛來,ROUND_2,34_「巨大夢之公牛幻影」,61.webp,1
+牛來,ROUND_2,35_夢之牛角命中特效,71.webp,1
+牛來,ROUND_2,36_Hit_Confirm_夢境啟動,72.webp,1
+牛來,ROUND_2,37_Courage_Lv0_基礎終結撞擊,73.webp,1
+牛來,ROUND_2,38_Lv0_終結殘留,74.webp,1
+牛來,ROUND_2,39_Courage_Lv1_Corner_Carry_軌跡,75.webp,1
+牛來,ROUND_2,40_Courage_Lv1_Carry_撞擊,76.webp,1
+牛來,ROUND_2,41_Courage_Lv2_強化位置獎勵撞擊,77.webp,1
+牛來,ROUND_2,42_Courage_Lv3_完整夢境衝鋒軌跡,78.webp,1
+牛來,ROUND_2,43_Courage_Lv3_最終「夢境覺醒」撞擊,79.webp,1
+粉藍星星,ROUND_1,01_待機,11.webp;12.webp;13.webp,3
+粉藍星星,ROUND_1,02_前走,14.webp;15.webp;16.webp,3
+粉藍星星,ROUND_1,03_後走,17.webp;18.webp;19.webp,3
+粉藍星星,ROUND_1,04_蹲下,21.webp,1
+粉藍星星,ROUND_1,05_跳躍,22.webp;23.webp;24.webp,3
+粉藍星星,ROUND_1,06_落地,25.webp,1
+粉藍星星,ROUND_1,07_前衝,26.webp;27.webp,2
+粉藍星星,ROUND_1,08_後撤,28.webp;29.webp,2
+粉藍星星,ROUND_1,09_站防,31.webp,1
+粉藍星星,ROUND_1,10_站防硬直,32.webp;33.webp,2
+粉藍星星,ROUND_1,11_蹲防,34.webp,1
+粉藍星星,ROUND_1,12_蹲防硬直,35.webp;36.webp,2
+粉藍星星,ROUND_1,13_輕_中_重受擊,37.webp;38.webp;39.webp,3
+粉藍星星,ROUND_1,14_輕攻「甜心拍拍」,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp,6
+粉藍星星,ROUND_1,15_重攻「星星頭槌」,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+粉藍星星,ROUND_1,16_下段「星角鏟地」,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+粉藍星星,ROUND_1,17_空中攻擊「尖叫星落」,71.webp;72.webp;73.webp;74.webp;75.webp;76.webp,6
+粉藍星星,ROUND_1,18_投技「不要抱我！」,81.webp;82.webp;83.webp;84.webp;85.webp,5
+粉藍星星,ROUND_1,19_被摔飛,86.webp,1
+粉藍星星,ROUND_1,20_倒地,87.webp,1
+粉藍星星,ROUND_1,21_起身,88.webp,1
+粉藍星星,ROUND_1,22_KO,89.webp,1
+粉藍星星,ROUND_1,23_「尖叫爆震」蓄力,91.webp;92.webp;93.webp,3
+粉藍星星,ROUND_1,24_「尖叫爆震」釋放_後座_收招,94.webp;95.webp;96.webp,3
+粉藍星星,ROUND_1,25_Lv1～Lv3_蓄力_VFX,101.webp;102.webp;103.webp,3
+粉藍星星,ROUND_1,26_Lv1「短尖叫」VFX,104.webp,1
+粉藍星星,ROUND_1,27_Lv2「爆震」VFX,105.webp,1
+粉藍星星,ROUND_1,28_Lv3「超音量尖叫」VFX,106.webp,1
+粉藍星星,ROUND_1,29_「尖叫星落」聲波_VFX,107.webp,1
+粉藍星星,ROUND_1,30_聲波命中_Pushback_VFX,108.webp;109.webp,2
+粉藍星星,ROUND_2,01_Ultimate「派甜心假面...露出」變身,11.webp;12.webp;13.webp;14.webp;15.webp;16.webp;17.webp;18.webp;19.webp,9
+粉藍星星,ROUND_2,02_TRUE_FACE_待機,21.webp;22.webp,2
+粉藍星星,ROUND_2,03_前走,23.webp;24.webp,2
+粉藍星星,ROUND_2,04_強化前衝,25.webp,1
+粉藍星星,ROUND_2,05_Dash_Cancel,26.webp,1
+粉藍星星,ROUND_2,06_後走,27.webp,1
+粉藍星星,ROUND_2,07_蹲下,28.webp,1
+粉藍星星,ROUND_2,08_跳躍,29.webp,1
+粉藍星星,ROUND_2,09_站防,31.webp,1
+粉藍星星,ROUND_2,10_站防硬直,32.webp,1
+粉藍星星,ROUND_2,11_蹲防,33.webp,1
+粉藍星星,ROUND_2,12_蹲防硬直,34.webp,1
+粉藍星星,ROUND_2,13_受擊_被摔_倒地_起身_KO,35.webp;36.webp;37.webp;38.webp;39.webp,5
+粉藍星星,ROUND_2,14_輕攻「瘋狂連抓」,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp,6
+粉藍星星,ROUND_2,15_重攻「捕食」,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+粉藍星星,ROUND_2,16_下段「匍匐咬腳」,61.webp;62.webp;63.webp;64.webp;65.webp,5
+粉藍星星,ROUND_2,17_空中攻擊「捕食墜落」,66.webp;67.webp;68.webp;69.webp,4
+粉藍星星,ROUND_2,18_TRUE_FACE_投技,71.webp;72.webp;73.webp;74.webp;75.webp;76.webp,6
+粉藍星星,ROUND_2,19_「貼臉尖叫」蓄力,81.webp;82.webp;83.webp,3
+粉藍星星,ROUND_2,20_「貼臉尖叫」釋放_收招,84.webp;85.webp;86.webp,3
+粉藍星星,ROUND_2,21_變身_VFX,91.webp;92.webp;93.webp,3
+粉藍星星,ROUND_2,22_Lv1_貼臉聲波,94.webp,1
+粉藍星星,ROUND_2,23_Lv2_貼臉聲波,95.webp,1
+粉藍星星,ROUND_2,24_Lv3_恐怖尖叫,96.webp,1
+粉藍星星,ROUND_2,25_Finisher_地面震波_覺醒_VFX,97.webp;98.webp;99.webp,3
+粉藍星星,ROUND_2,26_TRUE_FACE_最終_Finisher,101.webp;102.webp;103.webp;104.webp;105.webp,5
+粉藍星星,ROUND_2,27_TRUE_FACE_力竭,106.webp,1
+粉藍星星,ROUND_2,28_「假面崩潰」逆變身,107.webp;108.webp,2
+粉藍星星,ROUND_2,29_回到普通粉藍星星,109.webp,1
+蘸醬胡渣狗,ROUND_1,01_待機_看碗_聞飯,11.webp;12.webp;13.webp,3
+蘸醬胡渣狗,ROUND_1,02_前走,14.webp;15.webp;16.webp,3
+蘸醬胡渣狗,ROUND_1,03_後走,21.webp;22.webp;23.webp,3
+蘸醬胡渣狗,ROUND_1,04_蹲下,24.webp,1
+蘸醬胡渣狗,ROUND_1,05_跳躍,25.webp;26.webp;27.webp;28.webp,4
+蘸醬胡渣狗,ROUND_1,06_落地,29.webp,1
+蘸醬胡渣狗,ROUND_1,07_輕攻「討飯小爪」,31.webp;32.webp;33.webp;34.webp;35.webp;36.webp,6
+蘸醬胡渣狗,ROUND_1,08_重攻「破碗敲頭」,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp,6
+蘸醬胡渣狗,ROUND_1,09_下段「低頭撿飯」,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+蘸醬胡渣狗,ROUND_1,10_空中攻擊「搶飯飛撲」,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+蘸醬胡渣狗,ROUND_1,11_站防「破碗遮臉」,71.webp,1
+蘸醬胡渣狗,ROUND_1,12_站防_Impact,72.webp,1
+蘸醬胡渣狗,ROUND_1,13_站防硬直,73.webp,1
+蘸醬胡渣狗,ROUND_1,14_蹲防,74.webp,1
+蘸醬胡渣狗,ROUND_1,15_蹲防_Impact,75.webp,1
+蘸醬胡渣狗,ROUND_1,16_蹲防硬直,76.webp,1
+蘸醬胡渣狗,ROUND_1,17_上段受擊,81.webp,1
+蘸醬胡渣狗,ROUND_1,18_臉部受擊,82.webp,1
+蘸醬胡渣狗,ROUND_1,19_中段受擊,83.webp,1
+蘸醬胡渣狗,ROUND_1,20_下段受擊,84.webp,1
+蘸醬胡渣狗,ROUND_1,21_Heavy_Hit_Reel,85.webp,1
+蘸醬胡渣狗,ROUND_1,22_受擊恢復,86.webp,1
+蘸醬胡渣狗,ROUND_1,23_空破碗_Master,91.webp,1
+蘸醬胡渣狗,ROUND_1,24_裝滿醬的破碗_Master,92.webp,1
+蘸醬胡渣狗,ROUND_1,25_標準黏醬材質,93.webp,1
+蘸醬胡渣狗,ROUND_1,26_小型醬汁滴落群,94.webp,1
+蘸醬胡渣狗,ROUND_1,27_「低頭撿飯」小食物碎屑,95.webp,1
+蘸醬胡渣狗,ROUND_1,28_破碗震動_局部醬汁灑出模組,96.webp,1
+蘸醬胡渣狗,ROUND_2,01_前衝,11.webp;12.webp;13.webp,3
+蘸醬胡渣狗,ROUND_2,02_後撤,14.webp;15.webp;16.webp,3
+蘸醬胡渣狗,ROUND_2,03_投技「有飯一起滾」,21.webp;22.webp;23.webp;24.webp;25.webp;26.webp,6
+蘸醬胡渣狗,ROUND_2,04_強擊後仰,31.webp,1
+蘸醬胡渣狗,ROUND_2,05_被摔空中,32.webp,1
+蘸醬胡渣狗,ROUND_2,06_落地前,33.webp,1
+蘸醬胡渣狗,ROUND_2,07_Knockdown_Impact,34.webp,1
+蘸醬胡渣狗,ROUND_2,08_Knockdown_Hold,35.webp,1
+蘸醬胡渣狗,ROUND_2,09_Soft_Knockdown_Recovery,36.webp,1
+蘸醬胡渣狗,ROUND_2,10_起身前段,37.webp,1
+蘸醬胡渣狗,ROUND_2,11_起身後段,38.webp,1
+蘸醬胡渣狗,ROUND_2,12_KO「沒飯了」,39.webp,1
+蘸醬胡渣狗,ROUND_2,13_Charge_Start,41.webp,1
+蘸醬胡渣狗,ROUND_2,14_Charge_Loop,42.webp,1
+蘸醬胡渣狗,ROUND_2,15_Maximum_Charge,43.webp,1
+蘸醬胡渣狗,ROUND_2,16_放招準備,44.webp,1
+蘸醬胡渣狗,ROUND_2,17_黏醬飛射,45.webp,1
+蘸醬胡渣狗,ROUND_2,18_後座_Recovery,46.webp,1
+蘸醬胡渣狗,ROUND_2,19_Lv1「剩醬一甩」,51.webp;52.webp;53.webp,3
+蘸醬胡渣狗,ROUND_2,20_Lv2「整碗潑出去」,54.webp;55.webp;56.webp,3
+蘸醬胡渣狗,ROUND_2,21_Lv3「陳年老醬」,57.webp;58.webp;59.webp,3
+蘸醬胡渣狗,ROUND_2,22_Ultimate_啟動,61.webp,1
+蘸醬胡渣狗,ROUND_2,23_Blink_Rush_起跑準備,62.webp,1
+蘸醬胡渣狗,ROUND_2,24_Rush_Pass_1,63.webp,1
+蘸醬胡渣狗,ROUND_2,25_Rush_Pass_2,64.webp,1
+蘸醬胡渣狗,ROUND_2,26_Rush_Pass_3,65.webp,1
+蘸醬胡渣狗,ROUND_2,27_Rush_Pass_4,66.webp,1
+蘸醬胡渣狗,ROUND_2,28_第四次衝刺後煞停,67.webp,1
+蘸醬胡渣狗,ROUND_2,29_SAUCE_EXPLOSION_蓄爆,68.webp,1
+蘸醬胡渣狗,ROUND_2,30_爆炸後座_Ultimate_Recovery,69.webp,1
+蘸醬胡渣狗,ROUND_2,31_短醬汁路徑預告,71.webp,1
+蘸醬胡渣狗,ROUND_2,32_中距離_Rush_Warning,72.webp,1
+蘸醬胡渣狗,ROUND_2,33_Blink_Entry_Puff,73.webp,1
+蘸醬胡渣狗,ROUND_2,34_Rush_Pass_1_水平軌跡,74.webp,1
+蘸醬胡渣狗,ROUND_2,35_後續較高位置_Rush_軌跡,75.webp,1
+蘸醬胡渣狗,ROUND_2,36_Pass_3_空中_弧形軌跡,76.webp,1
+蘸醬胡渣狗,ROUND_2,37_Pass_4_最密集_Rush_軌跡,77.webp,1
+蘸醬胡渣狗,ROUND_2,38_Blink_Exit_Residue,78.webp,1
+蘸醬胡渣狗,ROUND_2,39_四段衝刺後殘留醬汁視覺,79.webp,1
+蘸醬胡渣狗,ROUND_2,40_普通爆炸核心,81.webp,1
+蘸醬胡渣狗,ROUND_2,41_普通外圈醬汁飛濺,82.webp,1
+蘸醬胡渣狗,ROUND_2,42_普通爆炸消散,83.webp,1
+蘸醬胡渣狗,ROUND_2,43_Cashout_強化爆炸核心,84.webp,1
+蘸醬胡渣狗,ROUND_2,44_大型放射狀醬汁爆發,85.webp,1
+蘸醬胡渣狗,ROUND_2,45_強化_Knockdown_衝擊,86.webp,1
+蘸醬胡渣狗,ROUND_2,46_Sticky_Consumption_Implosion,87.webp,1
+蘸醬胡渣狗,ROUND_2,47_Cashout_Detonation_Transition,88.webp,1
+蘸醬胡渣狗,ROUND_2,48_最終_Sauce_Disaster_Residue,89.webp,1
+豹拉,ROUND_1,01_待機,11.webp;12.webp,2
+豹拉,ROUND_1,02_前走,13.webp;14.webp,2
+豹拉,ROUND_1,03_後走,15.webp;16.webp,2
+豹拉,ROUND_1,04_蹲下,17.webp,1
+豹拉,ROUND_1,05_跳躍,18.webp,1
+豹拉,ROUND_1,06_落地,19.webp,1
+豹拉,ROUND_1,07_前衝,21.webp;22.webp;23.webp,3
+豹拉,ROUND_1,08_後撤,24.webp;25.webp;26.webp,3
+豹拉,ROUND_1,09_輕攻「豹爪」,31.webp;32.webp;33.webp;34.webp;35.webp;36.webp,6
+豹拉,ROUND_1,10_重攻「裂痕重爪」,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp,6
+豹拉,ROUND_1,11_下段「守線截踝」,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+豹拉,ROUND_1,12_空中攻擊「回身斷後爪」,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+豹拉,ROUND_1,13_站防「我不走」,71.webp,1
+豹拉,ROUND_1,14_蹲防,72.webp,1
+豹拉,ROUND_1,15_輕防禦硬直,73.webp,1
+豹拉,ROUND_1,16_重防禦硬直,74.webp,1
+豹拉,ROUND_1,17_上段受擊,75.webp,1
+豹拉,ROUND_1,18_下段受擊,76.webp,1
+豹拉,ROUND_2,01_投技「斷後摔」,11.webp;12.webp;13.webp;14.webp;15.webp;16.webp,6
+豹拉,ROUND_2,02_被摔起飛,21.webp,1
+豹拉,ROUND_2,03_空中翻滾,22.webp,1
+豹拉,ROUND_2,04_倒地撞擊,23.webp,1
+豹拉,ROUND_2,05_倒地,24.webp,1
+豹拉,ROUND_2,06_起身,25.webp,1
+豹拉,ROUND_2,07_KO,26.webp,1
+豹拉,ROUND_2,08_開始蓄力,31.webp,1
+豹拉,ROUND_2,09_蓄力維持,32.webp;33.webp,2
+豹拉,ROUND_2,10_放開_進入反擊準備,34.webp,1
+豹拉,ROUND_2,11_Counter_有效窗口,35.webp,1
+豹拉,ROUND_2,12_反擊失敗收招,36.webp,1
+豹拉,ROUND_2,13_Lv1「護身」成功,41.webp;42.webp;43.webp,3
+豹拉,ROUND_2,14_Lv2「斷後反擊」成功,44.webp;45.webp;46.webp,3
+豹拉,ROUND_2,15_Lv3_對_Strike_反擊,51.webp;52.webp;53.webp;54.webp;55.webp,5
+豹拉,ROUND_2,16_Lv3_對_Projectile_反擊,56.webp;57.webp;58.webp;59.webp,4
+豹拉,ROUND_2,17_Ultimate_啟動_深吸氣,61.webp,1
+豹拉,ROUND_2,18_啟動咆哮,62.webp,1
+豹拉,ROUND_2,19_進入_LAST_STAND,63.webp,1
+豹拉,ROUND_2,20_LAST_STAND_等待,64.webp,1
+豹拉,ROUND_2,21_吸收敵人攻擊,65.webp;66.webp,2
+豹拉,ROUND_2,22_Resolve_≥1，準備反擊,67.webp,1
+豹拉,ROUND_2,23_反擊咆哮本體,68.webp,1
+豹拉,ROUND_2,24_0_Hit_失敗_巨大硬直,69.webp,1
+豹拉,ROUND_2,25_Resolve_●,71.webp,1
+豹拉,ROUND_2,26_Resolve_●●,72.webp,1
+豹拉,ROUND_2,27_Resolve_●●●,73.webp,1
+豹拉,ROUND_2,28_LAST_STAND_吸收命中特效,74.webp,1
+豹拉,ROUND_2,29_最大_Resolve_特效,75.webp,1
+豹拉,ROUND_2,30_0_Hit_失敗消散特效,76.webp,1
+豹拉,ROUND_2,31_「巨大記憶怪物幻影」,81.webp,1
+豹拉,ROUND_2,32_1_Resolve「短距離咆哮」,91.webp;92.webp;93.webp,3
+豹拉,ROUND_2,33_2_Resolve「大型咆哮」,94.webp;95.webp;96.webp,3
+豹拉,ROUND_2,34_3_Resolve_完整「怪物前的咆哮」,97.webp;98.webp;99.webp,3
+驚嚇小貓,ROUND_1,01_Panic_Idle_緊張待機,11.webp;12.webp;13.webp;14.webp;15.webp;16.webp,6
+驚嚇小貓,ROUND_1,02_前走,21.webp;22.webp;23.webp,3
+驚嚇小貓,ROUND_1,03_後走,24.webp;25.webp;26.webp,3
+驚嚇小貓,ROUND_1,04_蹲下,31.webp,1
+驚嚇小貓,ROUND_1,05_跳躍,32.webp;33.webp;34.webp;35.webp,4
+驚嚇小貓,ROUND_1,06_Landing,36.webp,1
+驚嚇小貓,ROUND_1,07_輕攻「不要過來拳」,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp,6
+驚嚇小貓,ROUND_1,08_重攻「救命亂抓」,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+驚嚇小貓,ROUND_1,09_下段「尾巴被踩到了！」,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+驚嚇小貓,ROUND_1,10_空中攻擊「空中炸毛亂抓」,71.webp;72.webp;73.webp;74.webp;75.webp;76.webp,6
+驚嚇小貓,ROUND_1,11_站防,81.webp,1
+驚嚇小貓,ROUND_1,12_Standing_Guard_Impact,82.webp,1
+驚嚇小貓,ROUND_1,13_Standing_Blockstun,83.webp,1
+驚嚇小貓,ROUND_1,14_蹲防_縮毛球,84.webp,1
+驚嚇小貓,ROUND_1,15_Crouching_Guard_Impact,85.webp,1
+驚嚇小貓,ROUND_1,16_Crouching_Blockstun,86.webp,1
+驚嚇小貓,ROUND_1,17_Light_High_Hit,91.webp,1
+驚嚇小貓,ROUND_1,18_Light_Body_Hit,92.webp,1
+驚嚇小貓,ROUND_1,19_Medium_High_Hit,93.webp,1
+驚嚇小貓,ROUND_1,20_Medium_Body_Hit,94.webp,1
+驚嚇小貓,ROUND_1,21_Low_Hit,95.webp,1
+驚嚇小貓,ROUND_1,22_Heavy_Stagger,96.webp,1
+驚嚇小貓,ROUND_1,23_前衝,101.webp;102.webp;103.webp,3
+驚嚇小貓,ROUND_1,24_普通後撤,104.webp;105.webp;106.webp,3
+驚嚇小貓,ROUND_1,25_Panic_Exit_強化後撤,107.webp;108.webp;109.webp,3
+驚嚇小貓,ROUND_2,01_投技「啊啊啊不是你！」,11.webp;12.webp;13.webp;14.webp;15.webp;16.webp,6
+驚嚇小貓,ROUND_2,02_Thrown_Start,21.webp,1
+驚嚇小貓,ROUND_2,03_Airborne_Tumble,22.webp,1
+驚嚇小貓,ROUND_2,04_Ground_Impact,23.webp,1
+驚嚇小貓,ROUND_2,05_Knockdown_Hold,24.webp,1
+驚嚇小貓,ROUND_2,06_Getup_Start,25.webp,1
+驚嚇小貓,ROUND_2,07_Getup_Middle,26.webp,1
+驚嚇小貓,ROUND_2,08_Getup_Finish,27.webp,1
+驚嚇小貓,ROUND_2,09_KO_Collapse,28.webp,1
+驚嚇小貓,ROUND_2,10_KO_Hold,29.webp,1
+驚嚇小貓,ROUND_2,11_Charge_Start,31.webp,1
+驚嚇小貓,ROUND_2,12_Charge_Hold,32.webp,1
+驚嚇小貓,ROUND_2,13_Release_Anticipation,33.webp,1
+驚嚇小貓,ROUND_2,14_Panic_Rush_Active,34.webp,1
+驚嚇小貓,ROUND_2,15_撞到後自己反彈,35.webp,1
+驚嚇小貓,ROUND_2,16_Recovery_距離重設,36.webp,1
+驚嚇小貓,ROUND_2,17_Lv1_Charge_Pulse,41.webp,1
+驚嚇小貓,ROUND_2,18_Lv2_Charge_Pulse,42.webp,1
+驚嚇小貓,ROUND_2,19_Lv3_Maximum_Charge,43.webp,1
+驚嚇小貓,ROUND_2,20_Lv1_Short_Rush_Streak,44.webp,1
+驚嚇小貓,ROUND_2,21_Lv2_Rush_Streak,45.webp,1
+驚嚇小貓,ROUND_2,22_Lv3_High-Speed_Rush,46.webp,1
+驚嚇小貓,ROUND_2,23_Lv1_Impact,47.webp,1
+驚嚇小貓,ROUND_2,24_Lv2_強_Knockback_Shockwave,48.webp,1
+驚嚇小貓,ROUND_2,25_Lv3_Extreme_Separation_Shockwave,49.webp,1
+驚嚇小貓,ROUND_2,26_突然警報,51.webp,1
+驚嚇小貓,ROUND_2,27_超巨大吸氣,52.webp,1
+驚嚇小貓,ROUND_2,28_開始尖叫,53.webp,1
+驚嚇小貓,ROUND_2,29_Ultimate_Peak_Scream,54.webp,1
+驚嚇小貓,ROUND_2,30_尖叫後驚恐,55.webp,1
+驚嚇小貓,ROUND_2,31_恢復正常操作_哈士奇持續在場,56.webp,1
+驚嚇小貓,ROUND_2,32_Neutral_Arrival,61.webp,1
+驚嚇小貓,ROUND_2,33_Chase_Start,62.webp,1
+驚嚇小貓,ROUND_2,34_Low_Chase_Gallop,63.webp,1
+驚嚇小貓,ROUND_2,35_Chase_Passing,64.webp,1
+驚嚇小貓,ROUND_2,36_Fast_Open-Mouth_Sprint,65.webp,1
+驚嚇小貓,ROUND_2,37_Bark_Warning,66.webp,1
+驚嚇小貓,ROUND_2,38_Target_Point_「就是你」警告,67.webp,1
+驚嚇小貓,ROUND_2,39_Tongue-Out_Cooldown,68.webp,1
+驚嚇小貓,ROUND_2,40_Cooldown_to_Chase_Recovery,69.webp,1
+驚嚇小貓,ROUND_2,41_Pounce_Anticipation,71.webp,1
+驚嚇小貓,ROUND_2,42_前爪飛撲_Active,72.webp,1
+驚嚇小貓,ROUND_2,43_Pounce_Landing_Recovery,73.webp,1
+驚嚇小貓,ROUND_2,44_Bite_Windup,74.webp,1
+驚嚇小貓,ROUND_2,45_張嘴飛咬_Active,75.webp,1
+驚嚇小貓,ROUND_2,46_Bite_Recovery,76.webp,1
+驚嚇小貓,ROUND_2,47_Hit_Reaction,77.webp,1
+驚嚇小貓,ROUND_2,48_Heavy_Hit_Forced_Back,78.webp,1
+驚嚇小貓,ROUND_2,49_Defeated_Disengage_Despawn,79.webp,1
+驚嚇小貓,ROUND_2,50_主要_Paw_Bite_Impact,81.webp,1
+驚嚇小貓,ROUND_2,51_小型_Contact_Impact,82.webp,1
+驚嚇小貓,ROUND_2,52_Heavy_Companion_Impact,83.webp,1
+驚嚇小貓,ROUND_2,53_Horizontal_Speed_Smear,84.webp,1
+驚嚇小貓,ROUND_2,54_Pounce_Directional_Streak,85.webp,1
+驚嚇小貓,ROUND_2,55_Bite_Lunge_Directional_Streak,86.webp,1
+魔法胖橘貓,ROUND_1,01_待機,11.webp;12.webp;13.webp,3
+魔法胖橘貓,ROUND_1,02_前走,14.webp;15.webp;16.webp,3
+魔法胖橘貓,ROUND_1,03_後走,17.webp;18.webp;19.webp,3
+魔法胖橘貓,ROUND_1,04_蹲下,21.webp,1
+魔法胖橘貓,ROUND_1,05_跳躍,22.webp;23.webp;24.webp;25.webp,4
+魔法胖橘貓,ROUND_1,06_落地,26.webp,1
+魔法胖橘貓,ROUND_1,07_前衝,31.webp;32.webp;33.webp,3
+魔法胖橘貓,ROUND_1,08_後撤,34.webp;35.webp;36.webp,3
+魔法胖橘貓,ROUND_1,09_輕攻「見習杖戳」,41.webp;42.webp;43.webp;44.webp;45.webp;46.webp,6
+魔法胖橘貓,ROUND_1,10_重攻「大法師橫掃」,51.webp;52.webp;53.webp;54.webp;55.webp;56.webp,6
+魔法胖橘貓,ROUND_1,11_下段「法杖畫圈」,61.webp;62.webp;63.webp;64.webp;65.webp;66.webp,6
+魔法胖橘貓,ROUND_1,12_空中攻擊「帽子掉了！」,71.webp;72.webp;73.webp;74.webp;75.webp;76.webp,6
+魔法胖橘貓,ROUND_1,13_站防,81.webp,1
+魔法胖橘貓,ROUND_1,14_Standing_Blockstun,82.webp,1
+魔法胖橘貓,ROUND_1,15_Standing_Guard_Recovery,83.webp,1
+魔法胖橘貓,ROUND_1,16_蹲防,84.webp,1
+魔法胖橘貓,ROUND_1,17_Crouching_Blockstun,85.webp,1
+魔法胖橘貓,ROUND_1,18_Crouching_Guard_Recovery,86.webp,1
+魔法胖橘貓,ROUND_1,19_High_Hitstun,87.webp,1
+魔法胖橘貓,ROUND_1,20_Mid_Hitstun,88.webp,1
+魔法胖橘貓,ROUND_1,21_Low_Hitstun,89.webp,1
+魔法胖橘貓,ROUND_2,01_投技「杖子勾腳」,11.webp;12.webp;13.webp;14.webp;15.webp;16.webp,6
+魔法胖橘貓,ROUND_2,02_Throw_Reaction,21.webp,1
+魔法胖橘貓,ROUND_2,03_Airborne_Thrown,22.webp,1
+魔法胖橘貓,ROUND_2,04_Ground_Impact,23.webp,1
+魔法胖橘貓,ROUND_2,05_Knockdown_Hold,24.webp,1
+魔法胖橘貓,ROUND_2,06_Getup_Brace,25.webp,1
+魔法胖橘貓,ROUND_2,07_Heavy_Rise,26.webp,1
+魔法胖橘貓,ROUND_2,08_Getup_Return,27.webp,1
+魔法胖橘貓,ROUND_2,09_KO_Collapse,28.webp,1
+魔法胖橘貓,ROUND_2,10_KO_Hold,29.webp,1
+魔法胖橘貓,ROUND_2,11_Cast_Start,31.webp,1
+魔法胖橘貓,ROUND_2,12_Staff_Lift,32.webp,1
+魔法胖橘貓,ROUND_2,13_Ground_Placement,33.webp,1
+魔法胖橘貓,ROUND_2,14_Channel_Hold,34.webp,1
+魔法胖橘貓,ROUND_2,15_Placement_Confirmation,35.webp,1
+魔法胖橘貓,ROUND_2,16_Recovery,36.webp,1
+魔法胖橘貓,ROUND_2,17_Dormant_Arming,41.webp,1
+魔法胖橘貓,ROUND_2,18_Armed,42.webp,1
+魔法胖橘貓,ROUND_2,19_Trigger_Burst,43.webp,1
+魔法胖橘貓,ROUND_2,20_Dormant_Arming,44.webp,1
+魔法胖橘貓,ROUND_2,21_Armed+Entry_Warning,45.webp,1
+魔法胖橘貓,ROUND_2,22_Delayed_Burst,46.webp,1
+魔法胖橘貓,ROUND_2,23_Large_Armed_Base,47.webp,1
+魔法胖橘貓,ROUND_2,24_Large_Trigger_Warning,48.webp,1
+魔法胖橘貓,ROUND_2,25_Complete_Burst,49.webp,1
+魔法胖橘貓,ROUND_2,26_Ultimate_Startup,51.webp,1
+魔法胖橘貓,ROUND_2,27_Staff_Raise,52.webp,1
+魔法胖橘貓,ROUND_2,28_Invocation_Peak,53.webp,1
+魔法胖橘貓,ROUND_2,29_Summon_Command,54.webp,1
+魔法胖橘貓,ROUND_2,30_Early_Recovery,55.webp,1
+魔法胖橘貓,ROUND_2,31_Gameplay_Return,56.webp,1
+魔法胖橘貓,ROUND_2,32_Tentacle_Warning_Faint,61.webp,1
+魔法胖橘貓,ROUND_2,33_Warning_Active,62.webp,1
+魔法胖橘貓,ROUND_2,34_Warning_Imminent,63.webp,1
+魔法胖橘貓,ROUND_2,35_Safe_Zone_Appearance,64.webp,1
+魔法胖橘貓,ROUND_2,36_Safe_Zone_Active,65.webp,1
+魔法胖橘貓,ROUND_2,37_Safe_Zone_Dissipation,66.webp,1
+魔法胖橘貓,ROUND_2,38_Emergence_Tip,71.webp,1
+魔法胖橘貓,ROUND_2,39_Rapid_Rise,72.webp,1
+魔法胖橘貓,ROUND_2,40_Full_Eruption_Active,73.webp,1
+魔法胖橘貓,ROUND_2,41_Whip_Peak_Active,74.webp,1
+魔法胖橘貓,ROUND_2,42_Retraction,75.webp,1
+魔法胖橘貓,ROUND_2,43_Portal_Residue,76.webp,1
+魔法胖橘貓,ROUND_2,44_=_一整張獨立_16_9_CTHULHU_PULSE_VFX,81.webp,1

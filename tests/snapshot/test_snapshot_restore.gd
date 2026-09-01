@@ -120,23 +120,19 @@ func _test_mid_move_and_reaction_restore_cases() -> void:
     _assert_restore_next(thrown, "Thrown")
 
     var knockdown := _make_thrown_battle()
-    knockdown.fighter_a.combatant.hitstop_remaining = 0
-    knockdown.fighter_b.combatant.hitstop_remaining = 0
-    for _i in range(10):
+    while knockdown.fighter_b.state_machine.state == FighterStateMachine.State.THROWN:
         _tick(knockdown)
     t.equal(knockdown.fighter_b.state_machine.state, FighterStateMachine.State.KNOCKDOWN, "Setup reaches Knockdown")
     _assert_restore_next(knockdown, "Knockdown")
 
     var getup := _make_thrown_battle()
-    getup.fighter_a.combatant.hitstop_remaining = 0
-    getup.fighter_b.combatant.hitstop_remaining = 0
-    for _i in range(40):
+    while getup.fighter_b.state_machine.state != FighterStateMachine.State.GETUP:
         _tick(getup)
     t.equal(getup.fighter_b.state_machine.state, FighterStateMachine.State.GETUP, "Setup reaches GetUp")
     _assert_restore_next(getup, "GetUp")
 
 func _test_duplicate_hit_registry_restore() -> void:
-    var battle := _battle(50000, 58000)
+    var battle := _battle(50000, 54000)
     _tick(battle, InputFrame.with_light_press(1))
     for _i in range(5):
         _tick(battle)
@@ -186,12 +182,14 @@ func _test_buffered_action_intent_restore() -> void:
     t.equal(restored.back_held, before.back_held, "Buffered ActionIntent back_held restores")
 
 func _make_thrown_battle() -> BattleSimulation:
-    var battle := _battle(50000, 58000)
+    var battle := _battle(50000, 54000)
     var guard_bit := InputFrame.InputButton.GUARD
     _tick(battle, InputFrame.with_heavy_press(1, 1), InputFrame.new(1, 0, 0, guard_bit, guard_bit, 0))
     for _i in range(5):
         var f := battle.frame_number + 1
         _tick(battle, InputFrame.neutral(f), InputFrame.new(f, 0, 0, guard_bit, 0, 0))
+    for _i in range(6):
+        _tick(battle, null, InputFrame.new(battle.frame_number + 1, 0, 0, guard_bit, 0, 0))
     return battle
 
 func _assert_restore_next(battle: BattleSimulation, label: String, next_a: InputFrame = null, next_b: InputFrame = null) -> void:

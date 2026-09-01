@@ -41,8 +41,6 @@ func resolve_world_result(result: HitResult, attacker: Fighter, defender: Fighte
     if defender.mechanics_runtime.counter_active(defender.move_runner, result.attack_source_kind):
         result.result_type = HitResult.ResultType.COUNTERED
         result.counter_success_move_id = defender.mechanics_runtime.counter_success_move_id(defender.move_runner)
-    elif defender.mechanics_runtime.last_stand_active:
-        result.result_type = HitResult.ResultType.ARMOR
     elif defender.mechanics_runtime.armor_active(defender.move_runner, result.attack_source_kind):
         result.result_type = HitResult.ResultType.ARMOR
     elif _is_guarding(defender) and _can_guard_hit_level(defender.state_machine.guard_posture, result.hit_level):
@@ -57,14 +55,27 @@ func resolve_throw_contact(contact: ThrowContact, attacker: Fighter, defender: F
     if move == null or move.throw_box == null: return null
     var flags := GameplayConditionEvaluator.contact_flags(defender)
     if not GameplayConditionEvaluator.matches_all(move.throw_conditions, attacker, defender, flags, temporary_entities): return null
+    return resolve_confirmed_throw(contact, attacker, defender, flags)
+
+# Used after a Normal Throw has passed its F7 capture check and survived the 7F tech window.
+# Eligibility is intentionally not re-queried: the capture was authoritative at the original tick.
+func resolve_confirmed_throw(contact: ThrowContact, attacker: Fighter, defender: Fighter, captured_flags: int = -1) -> HitResult:
+    if contact == null or attacker == null or defender == null: return null
+    var move := attacker.move_registry.get_move(contact.move_id)
+    if move == null or move.throw_box == null: return null
+    var flags := captured_flags if captured_flags >= 0 else GameplayConditionEvaluator.contact_flags(defender)
     var result := HitResult.new()
     result.result_type = HitResult.ResultType.THROW; result.attacker_id = contact.attacker_id; result.defender_id = contact.defender_id
-    result.move_id = contact.move_id; result.attack_instance_id = contact.attack_instance_id; result.damage = move.damage
+    result.move_id = contact.move_id; result.attack_instance_id = contact.attack_instance_id; result.damage = move.damage; result.raw_damage = move.damage
     result.hitstop_attacker = move.hitstop_attacker; result.hitstop_defender = move.hitstop_defender
     result.knockback_x_units = move.knockback_x_units * attacker.movement_motor.facing; result.knockback_y_units = move.knockback_y_units
     result.hit_position = contact.hit_position; result.causes_knockdown = move.causes_knockdown
     result.reaction_type = move.reaction_type if move.reaction_type != CombatReaction.Type.NONE else (CombatReaction.Type.HARD_KNOCKDOWN if move.causes_knockdown else CombatReaction.Type.NONE)
     result.throw_hold_frames = move.throw_hold_frames; result.knockdown_frames = move.knockdown_frames; result.getup_frames = defender.data.default_getup_frames
+    if result.reaction_type == CombatReaction.Type.SOFT_KNOCKDOWN:
+        result.knockdown_frames = 12; result.getup_frames = 16
+    elif result.reaction_type in [CombatReaction.Type.HARD_KNOCKDOWN, CombatReaction.Type.HEAVY_KNOCKDOWN]:
+        result.knockdown_frames = 28; result.getup_frames = 18
     result.meter_gain_on_throw = move.meter_gain_on_throw; result.contact_flags = flags
     _copy_observation_facts(result, attacker, defender, flags)
     result.on_hit_effects = move.on_hit_effects.duplicate()
@@ -85,16 +96,19 @@ func apply_throw_result(frame_number: int, result: HitResult, attacker: Fighter,
     var hp_before := defender.combatant.hp
     if defender.mechanics_runtime.last_stand_active:
         defender.mode.exit_mode()
+        if defender.data.mechanics != null:
+            defender.resources.set_value(defender.data.mechanics.last_stand_resolve_resource_id, 0)
         defender.sync_mechanics_from_mode()
     defender.move_runner.interrupt(); defender.mechanics_runtime.armor_remaining_hits = 0; defender.mechanics_runtime.counter_attack_instance_id = 0
+    _apply_combo_scaling(result, attacker, defender)
     defender.combatant.receive_throw_damage(result.damage, result.hitstop_defender); defender.combatant.last_result_type = HitResult.ResultType.THROW
     attacker.combatant.apply_attacker_hitstop(result.hitstop_attacker); attacker.hitbox_owner.record_hit(result.attack_instance_id, defender.fighter_id, result.hit_id)
-    _award_attacker_meter(result, attacker)
+    _award_attacker_meter(result, attacker); _award_defender_meter(result, defender)
     effect_executor.execute_all(result.on_hit_effects, attacker, defender, temporary_entities, result.contact_flags, stage_left_units, stage_right_units)
     var move := attacker.move_registry.get_move(result.move_id)
     if move != null and move.throw_positioning != null: positioning_system.apply(move.throw_positioning, attacker, defender, stage_left_units, stage_right_units)
     event_queue.append(CombatEvent.throw_event(frame_number, result, hp_before, defender.combatant.hp))
-    if defender.combatant.is_ko: event_queue.append(CombatEvent.ko(frame_number, result)); return
+    if defender.combatant.is_ko: event_queue.append(CombatEvent.ko(frame_number, result, hp_before, defender.combatant.hp)); return
     defender.state_machine.enter_thrown(result.throw_hold_frames, result.knockdown_frames, result.getup_frames, defender.input_buffer)
 
 func _resolve_strike_payload(contact: StrikeContact, payload, move: MoveData, attacker: Fighter, defender: Fighter, source_kind: int, source_runtime_id: int, projectile_id: StringName, flags: int) -> HitResult:
@@ -103,8 +117,6 @@ func _resolve_strike_payload(contact: StrikeContact, payload, move: MoveData, at
     # Counter and Last Stand intercept before ordinary damage/guard. Throws use a separate path and therefore always beat these.
     if defender.mechanics_runtime.counter_active(defender.move_runner, source_kind):
         result.result_type = HitResult.ResultType.COUNTERED; result.damage = 0; result.counter_success_move_id = defender.mechanics_runtime.counter_success_move_id(defender.move_runner); return result
-    if defender.mechanics_runtime.last_stand_active:
-        result.result_type = HitResult.ResultType.ARMOR; return result
     if _is_guarding(defender) and _is_attack_from_front(contact, defender) and _can_guard_hit_level(defender.state_machine.guard_posture, result.hit_level):
         result.result_type = HitResult.ResultType.BLOCK; result.damage = 0; result.hitstun_frames = 0; result.knockback_x_units = 0; result.knockback_y_units = 0; return result
     if defender.mechanics_runtime.armor_active(defender.move_runner, source_kind):
@@ -122,12 +134,18 @@ func _resolve_strike_payload(contact: StrikeContact, payload, move: MoveData, at
 
 func _base_result(contact: StrikeContact, payload, move: MoveData, attacker: Fighter, defender: Fighter) -> HitResult:
     var result := HitResult.new(); result.attacker_id = contact.attacker_id; result.defender_id = contact.defender_id; result.move_id = contact.move_id
-    result.attack_instance_id = contact.attack_instance_id; result.hit_id = contact.hit_id; result.damage = payload.damage; result.chip_damage = payload.chip_damage
+    result.attack_instance_id = contact.attack_instance_id; result.hit_id = contact.hit_id; result.damage = payload.damage; result.raw_damage = payload.damage; result.chip_damage = payload.chip_damage
     result.hitstun_frames = payload.hitstun_frames; result.blockstun_frames = payload.blockstun_frames; result.hitstop_attacker = payload.hitstop_attacker; result.hitstop_defender = payload.hitstop_defender
     result.knockback_x_units = payload.knockback_x_units * attacker_facing_for_knockback(contact); result.knockback_y_units = payload.knockback_y_units
     result.hit_position = contact.hit_position; result.hit_level = payload.hit_level; result.incoming_direction_x = contact.incoming_direction_x
-    result.meter_gain_on_hit = payload.meter_gain_on_hit if payload.get("meter_gain_on_hit") != null else (move.meter_gain_on_hit if move != null else 0)
-    result.meter_gain_on_block = payload.meter_gain_on_block if payload.get("meter_gain_on_block") != null else (move.meter_gain_on_block if move != null else 0)
+    if payload is MoveHitData:
+        result.meter_gain_on_hit = payload.meter_gain_on_hit if payload.meter_gain_on_hit >= 0 else (move.meter_gain_on_hit if move != null else 0)
+        result.meter_gain_on_block = payload.meter_gain_on_block if payload.meter_gain_on_block >= 0 else (move.meter_gain_on_block if move != null else 0)
+    else:
+        result.meter_gain_on_hit = payload.meter_gain_on_hit if payload.get("meter_gain_on_hit") != null else (move.meter_gain_on_hit if move != null else 0)
+        result.meter_gain_on_block = payload.meter_gain_on_block if payload.get("meter_gain_on_block") != null else (move.meter_gain_on_block if move != null else 0)
+    result.repeated_light_scaling = move != null and move.repeated_light_scaling
+    result.ultimate_proration = move != null and move.meter_cost >= 100
     result.reaction_type = payload.reaction_type if payload.get("reaction_type") != null else (move.reaction_type if move != null else CombatReaction.Type.NONE)
     result.defender_block_pushback_units = payload.defender_block_pushback_units if payload.get("defender_block_pushback_units") != null else (move.defender_block_pushback_units if move != null else 0)
     result.attacker_block_recoil_units = payload.attacker_block_recoil_units if payload.get("attacker_block_recoil_units") != null else (move.attacker_block_recoil_units if move != null else 0)
@@ -166,13 +184,21 @@ func _can_guard_hit_level(posture: int, hit_level: int) -> bool:
 
 func _apply_hit(frame_number: int, result: HitResult, attacker: Fighter, defender: Fighter, event_queue: Array[CombatEvent]) -> void:
     var hp_before := defender.combatant.hp; defender.move_runner.interrupt()
+    defender.state_machine.clear_pending_knockdown()
+    _canonicalize_knockdown_timing(result)
+    _apply_combo_scaling(result, attacker, defender)
     defender.combatant.receive_hit(result.damage, result.hitstun_frames, result.hitstop_defender, result.knockback_x_units, result.knockback_y_units); defender.combatant.last_result_type = HitResult.ResultType.HIT
-    attacker.combatant.apply_attacker_hitstop(result.hitstop_attacker); _record_connection(result, attacker, defender, true); _award_attacker_meter(result, attacker)
+    attacker.combatant.apply_attacker_hitstop(result.hitstop_attacker); _record_connection(result, attacker, defender, true); _award_attacker_meter(result, attacker); _award_defender_meter(result, defender)
     effect_executor.execute_all(result.on_hit_effects, attacker, defender, temporary_entities, result.contact_flags, stage_left_units, stage_right_units)
     _apply_reaction(result, defender)
+    if defender.mechanics_runtime.can_gain_last_stand_resolve() and defender.data.mechanics != null:
+        var resolve_id := defender.data.mechanics.last_stand_resolve_resource_id
+        if resolve_id != &"":
+            defender.resources.gain(resolve_id, 1)
+            defender.mechanics_runtime.record_last_stand_resolve_gain()
     _grant_successful_hit_status(attacker)
     event_queue.append(CombatEvent.hit(frame_number, result, hp_before, defender.combatant.hp));
-    if defender.combatant.is_ko: event_queue.append(CombatEvent.ko(frame_number, result))
+    if defender.combatant.is_ko: event_queue.append(CombatEvent.ko(frame_number, result, hp_before, defender.combatant.hp))
 
 func _apply_block(frame_number: int, result: HitResult, attacker: Fighter, defender: Fighter, event_queue: Array[CombatEvent]) -> void:
     var hp_before := defender.combatant.hp
@@ -181,22 +207,19 @@ func _apply_block(frame_number: int, result: HitResult, attacker: Fighter, defen
     positioning_system.apply_block_pushback(result, attacker, defender, stage_left_units, stage_right_units)
     effect_executor.execute_all(result.on_block_effects, attacker, defender, temporary_entities, result.contact_flags, stage_left_units, stage_right_units)
     event_queue.append(CombatEvent.block(frame_number, result, hp_before, defender.combatant.hp))
-    if defender.combatant.is_ko: event_queue.append(CombatEvent.ko(frame_number, result))
+    if defender.combatant.is_ko: event_queue.append(CombatEvent.ko(frame_number, result, hp_before, defender.combatant.hp))
 
 func _apply_armor(frame_number: int, result: HitResult, attacker: Fighter, defender: Fighter, event_queue: Array[CombatEvent]) -> void:
     var hp_before := defender.combatant.hp
     # Armor/Last Stand takes damage and hitstop but suppresses ordinary hitstun/interruption if alive.
+    _apply_combo_scaling(result, attacker, defender)
     defender.combatant.hp = clampi(defender.combatant.hp - maxi(0, result.damage), 0, defender.combatant.max_hp)
     defender.combatant.hitstop_remaining = maxi(defender.combatant.hitstop_remaining, result.hitstop_defender)
     defender.combatant.last_result_type = HitResult.ResultType.ARMOR
-    attacker.combatant.apply_attacker_hitstop(result.hitstop_attacker); _record_connection(result, attacker, defender, true); _award_attacker_meter(result, attacker)
+    attacker.combatant.apply_attacker_hitstop(result.hitstop_attacker); _record_connection(result, attacker, defender, true); _award_attacker_meter(result, attacker); _award_defender_meter(result, defender)
     if defender.combatant.hp <= 0:
-        defender.combatant.is_ko = true; defender.move_runner.interrupt(); event_queue.append(CombatEvent.hit(frame_number, result, hp_before, 0)); event_queue.append(CombatEvent.ko(frame_number, result)); return
-    if defender.mechanics_runtime.last_stand_active and defender.data.mechanics != null:
-        var rid := defender.data.mechanics.last_stand_resolve_resource_id
-        if rid != &"": defender.resources.gain(rid, 1)
-    else:
-        defender.mechanics_runtime.consume_armor()
+        defender.combatant.is_ko = true; defender.move_runner.interrupt(); event_queue.append(CombatEvent.hit(frame_number, result, hp_before, 0)); event_queue.append(CombatEvent.ko(frame_number, result, hp_before, defender.combatant.hp)); return
+    defender.mechanics_runtime.consume_armor()
     event_queue.append(CombatEvent.hit(frame_number, result, hp_before, defender.combatant.hp))
 
 func _apply_countered(result: HitResult, attacker: Fighter, defender: Fighter) -> void:
@@ -211,12 +234,23 @@ func _record_connection(result: HitResult, attacker: Fighter, defender: Fighter,
     if hit: attacker.move_runner.mark_connected_hit(result.attack_instance_id)
     else: attacker.move_runner.mark_connected_block(result.attack_instance_id)
 
+func _canonicalize_knockdown_timing(result: HitResult) -> void:
+    if result == null:
+        return
+    if result.reaction_type == CombatReaction.Type.SOFT_KNOCKDOWN:
+        result.hitstun_frames = 12
+        result.knockdown_frames = 12
+        result.getup_frames = 16
+    elif result.reaction_type in [CombatReaction.Type.HARD_KNOCKDOWN, CombatReaction.Type.HEAVY_KNOCKDOWN]:
+        result.hitstun_frames = 16
+        result.knockdown_frames = 28
+        result.getup_frames = 18
+
 func _apply_reaction(result: HitResult, defender: Fighter) -> void:
     if defender.combatant.is_ko: return
     match result.reaction_type:
         CombatReaction.Type.SOFT_KNOCKDOWN, CombatReaction.Type.HARD_KNOCKDOWN, CombatReaction.Type.HEAVY_KNOCKDOWN:
-            var kd := result.knockdown_frames if result.knockdown_frames > 0 else (12 if result.reaction_type == CombatReaction.Type.SOFT_KNOCKDOWN else 24)
-            defender.state_machine.enter_knockdown(kd, result.getup_frames if result.getup_frames > 0 else defender.data.default_getup_frames, defender.input_buffer)
+            defender.state_machine.schedule_knockdown_after_hitstun(result.knockdown_frames, result.getup_frames)
             if result.reaction_type == CombatReaction.Type.HEAVY_KNOCKDOWN and defender.data.mechanics != null and defender.data.mechanics.heavy_knockdown_resource_id != &"":
                 defender.resources.gain(defender.data.mechanics.heavy_knockdown_resource_id, -defender.data.mechanics.heavy_knockdown_resource_loss)
         CombatReaction.Type.WALL_BOUNCE:
@@ -230,6 +264,21 @@ func _grant_successful_hit_status(attacker: Fighter) -> void:
     if attacker.data.mechanics == null: return
     var id := attacker.data.mechanics.successful_hit_grants_status_id
     if id != &"": attacker.statuses.apply_defined(id)
+
+func _apply_combo_scaling(result: HitResult, attacker: Fighter, defender: Fighter) -> void:
+    if result == null or attacker == null or defender == null:
+        return
+    result.raw_damage = result.damage if result.raw_damage <= 0 else result.raw_damage
+    var combo_ultimate := result.ultimate_proration and attacker.combo_scaling.hit_count > 0
+    result.damage_scale_percent = attacker.combo_scaling.preview_scale_percent(defender.fighter_id, result.repeated_light_scaling, combo_ultimate)
+    result.damage = attacker.combo_scaling.scaled_damage(result.raw_damage, defender.fighter_id, result.repeated_light_scaling, combo_ultimate)
+    attacker.combo_scaling.register_confirmed_hit(defender.fighter_id, result.damage, result.repeated_light_scaling, combo_ultimate)
+
+func _award_defender_meter(result: HitResult, defender: Fighter) -> void:
+    if result == null or defender == null or result.raw_damage <= 0:
+        return
+    # Canonical defender reward uses authored raw pre-scaling damage and is capped per confirmed hit.
+    defender.meter.gain(mini(4, result.raw_damage / 45))
 
 func _award_attacker_meter(result: HitResult, attacker: Fighter) -> void:
     var amount := 0

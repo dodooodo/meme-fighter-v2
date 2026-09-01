@@ -39,6 +39,9 @@ func _guard(frame: int, pressed: bool = false) -> InputFrame:
 func _action_frame(frame: int, button: int) -> InputFrame:
     return InputFrame.new(frame, 0, 0, button, button, 0)
 
+func _release_special_frame(frame: int) -> InputFrame:
+    return InputFrame.new(frame, 0, 0, 0, 0, InputFrame.InputButton.SPECIAL)
+
 func _setup_light_contact(blocked: bool) -> BattleSimulation:
     var battle := _battle(true)
     _tick(battle, InputFrame.with_light_press(1), _guard(1, true) if blocked else null)
@@ -75,14 +78,19 @@ func _finish_heavy_special_cancel(battle: BattleSimulation, blocked: bool) -> vo
         _tick(battle, null, _guard(f) if blocked else null)
     var f := battle.frame_number + 1
     _tick(battle, InputFrame.with_special_press(f), _guard(f) if blocked else null)
-    f = battle.frame_number + 1
-    _tick(battle, null, _guard(f) if blocked else null)
+    for _i in range(2):
+        f = battle.frame_number + 1
+        _tick(battle, _release_special_frame(f), _guard(f) if blocked else null)
 
 func _setup_special_contact(blocked: bool, starting_meter: int) -> BattleSimulation:
     var battle := _battle(true)
     battle.fighter_a.meter.set_value(starting_meter)
-    _tick(battle, InputFrame.with_special_press(1), _guard(1, true) if blocked else null)
-    for _i in range(11):
+    var first := battle.frame_number + 1
+    _tick(battle, InputFrame.with_special_press(first), _guard(first, true) if blocked else null)
+    for _i in range(2):
+        var release := battle.frame_number + 1
+        _tick(battle, _release_special_frame(release), _guard(release) if blocked else null)
+    while not (battle.fighter_a.move_runner.connected_block if blocked else battle.fighter_a.move_runner.connected_hit):
         var f := battle.frame_number + 1
         _tick(battle, null, _guard(f) if blocked else null)
     t.that(battle.fighter_a.move_runner.connected_block if blocked else battle.fighter_a.move_runner.connected_hit, "Special setup records resolved connection fact")
@@ -172,13 +180,13 @@ func _test_heavy_whiff_and_early_buffer_expiry() -> void:
     t.that(not early.fighter_a.input_buffer.has_pending(early.frame_number), "Early Special buffer is expired/cleared by the time Heavy cancel window arrives")
 
 func _test_special_hit_to_ultimate_meter_gate() -> void:
-    var success := _setup_special_contact(false, 10)
+    var success := _setup_special_contact(false, 82)
     t.equal(success.fighter_a.meter.get_value(), 100, "Tuned Special HIT raises 10 meter to 100 before later cancel decision")
     _finish_special_ultimate_attempt(success, false)
     t.equal(success.fighter_a.move_runner.current_move_id(), MoveIds.ULTIMATE, "Special HIT -> Ultimate works at 100 meter")
     t.equal(success.fighter_a.meter.get_value(), 0, "Special -> Ultimate cancel spends 100 immediately")
 
-    var denied := _setup_special_contact(false, 9)
+    var denied := _setup_special_contact(false, 81)
     t.equal(denied.fighter_a.meter.get_value(), 99, "Tuned Special HIT raises 9 meter to exactly 99")
     _finish_special_ultimate_attempt(denied, false)
     t.that(denied.fighter_a.move_runner.current_move_id() != MoveIds.ULTIMATE, "Special HIT -> Ultimate denied at 99 meter")
@@ -193,6 +201,8 @@ func _test_special_block_and_whiff_ultimate_denial() -> void:
     var whiff := _battle(false)
     whiff.fighter_a.meter.gain(100)
     _tick(whiff, InputFrame.with_special_press(1))
+    _tick(whiff, _release_special_frame(2))
+    _tick(whiff, _release_special_frame(3))
     for _i in range(10):
         _tick(whiff)
     _tick(whiff, InputFrame.with_ultimate_press(12))

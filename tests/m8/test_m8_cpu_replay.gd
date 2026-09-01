@@ -13,14 +13,16 @@ func run_all() -> int:
 
 func _test_cpu_replay_records_input_not_decisions() -> void:
     var generic := load("res://data/characters/generic_fighter.tres") as CharacterData
-    var zone := load("res://data/characters/zone_fighter.tres") as CharacterData
+    var doge := RosterRegistry.character_by_id(&"doge")
     var cpu := CpuInputSource.new()
     cpu.set_fixed_seed(20260820)
     var live := BattleSimulation.new()
-    live.configure(generic, zone, null, cpu)
-    t.that(cpu.bind_context(live.fighter_b, live.fighter_a, live), "CPU replay setup binds context")
+    live.configure(generic, doge, null, cpu)
+    # This low-level simulation fixture explicitly establishes the CPU's read-only
+    # context before sampling; the normal BattleScene integration does this itself.
+    t.that(cpu.bind_context(live.fighter_b, live.fighter_a, live), "CPU replay setup binds the profile-backed P2 character context")
     var recorder := ReplayRecorder.new()
-    t.that(recorder.begin_recording(&"versus", generic.id, zone.id), "ReplayRecorder begins canonical CPU match recording")
+    t.that(recorder.begin_recording(&"versus", generic.id, doge.id), "ReplayRecorder begins canonical CPU match recording")
     live.set_replay_recorder(recorder)
     for _i in range(600):
         live.sample_and_simulate_frame()
@@ -36,7 +38,7 @@ func _test_cpu_replay_records_input_not_decisions() -> void:
     var p2 := ReplayInputSource.new()
     t.that(p1.configure(replay, 1) and p2.configure(replay, 2), "ReplayInputSource configures both recorded participants")
     var playback := BattleSimulation.new()
-    playback.configure(generic, zone, p1, p2)
+    playback.configure(generic, doge, p1, p2)
     for _i in range(replay.frame_count()):
         playback.sample_and_simulate_frame()
     t.equal(playback.state_signature(), live_hash, "Recorded CPU canonical InputFrames reproduce identical BattleStateHasher signature without rerunning AI")

@@ -38,6 +38,10 @@ enum HitLevel {
 @export_range(0, 120, 1) var throw_hold_frames: int = 0
 @export_range(0, 600, 1) var knockdown_frames: int = 0
 
+@export_group("Combo Scaling")
+# Apply repeated-Light proration when this hit is confirmed. Data-authored; no character-ID branching.
+@export var repeated_light_scaling: bool = false
+
 @export_group("Meter / Future")
 @export_range(0, 1000, 1) var meter_cost: int = 0
 @export_range(0, 1000, 1) var meter_gain_on_hit: int = 0
@@ -91,6 +95,9 @@ enum ThrowKind { NORMAL_THROW, COMMAND_GRAB, GROUND_CAPTURE_SUPER }
 @export_group("Resource / Mode Costs")
 @export var resource_cost_id: StringName = &""
 @export var resource_cost_amount: int = 0
+# Optional activation cashout. The starting value is captured by MoveRunner before
+# this resource is cleared, so data-authored hit tiers can remain deterministic.
+@export var activation_resource_cashout_id: StringName = &""
 
 @export_group("Presentation IDs")
 @export var sfx_ids: Array[StringName] = []

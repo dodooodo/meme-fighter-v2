@@ -11,6 +11,8 @@ var t = ASSERT_HELPER.new()
 
 func run_all() -> int:
     _test_shipped_packages_have_no_errors()
+    _test_inventory_renderer_fallback_is_treated_as_renderable()
+    _test_inventory_mode_pack_is_treated_as_renderable()
     _test_allowlist_downgrades_unbound_moves()
     _test_missing_animation_key_is_an_error()
     _test_orphan_animations_are_warnings_only()
@@ -24,13 +26,38 @@ func _test_shipped_packages_have_no_errors() -> void:
     t.equal(index.issues(ContentIndex.SEVERITY_ERROR).size(), 0,
         "Shipped Golden Pair packages produce no error-severity content issues")
 
+func _test_inventory_renderer_fallback_is_treated_as_renderable() -> void:
+    var manifest := load("res://content/characters/doge/character_manifest.tres") as CharacterManifest
+    var presentation := manifest.presentation_resource
+    var index := ContentIndex.new()
+    t.that(presentation.production_asset_binding != null,
+        "Doge package exposes an inventory-backed production binding")
+    t.that(presentation.production_asset_binding.bindings.size() > 0,
+        "Doge production binding catalog contains authored inventory entries")
+    t.that(index._animation_is_renderable(presentation, {}, &"doge_rush_l1"),
+        "Inventory renderer's Special fallback makes Doge Rush renderable")
+
+func _test_inventory_mode_pack_is_treated_as_renderable() -> void:
+    var manifest := load("res://content/characters/doge/character_manifest.tres") as CharacterManifest
+    var index := _index([manifest], CharacterValidator.load_unbound_allowlist())
+    t.equal(_issues_with_code(index, "mode.partial_pack").size(), 0,
+        "Inventory-backed mode packs are not falsely reported as partial SpriteFrames packs")
+
 func _test_allowlist_downgrades_unbound_moves() -> void:
-    var without_allowlist := _index(_golden_pair(), {})
+    # Keep this contract probe independent of the shipped package's current
+    # binding completeness: Beta Phase 1 deliberately bound its former gaps.
+    var magic := _duplicated_manifest("res://content/characters/magic_orange_cat/character_manifest.tres")
+    var retained: Array[MovePresentationBinding] = []
+    for binding: MovePresentationBinding in magic.presentation_resource.move_bindings:
+        if binding.move_id != &"magic_circle_l1":
+            retained.append(binding)
+    magic.presentation_resource.move_bindings = retained
+    var without_allowlist := _index([magic], {})
     var unbound := _issues_with_code(without_allowlist, "move.unbound")
     t.that(unbound.size() > 0,
         "Unbound moves are errors when absent from the allowlist")
 
-    var with_allowlist := _index(_golden_pair(), CharacterValidator.load_unbound_allowlist())
+    var with_allowlist := _index([magic], CharacterValidator.load_unbound_allowlist())
     t.equal(_issues_with_code(with_allowlist, "move.unbound").size(), 0,
         "Allowlisted unbound moves raise no error")
     t.equal(_issues_with_code(with_allowlist, "move.unbound_allowlisted").size(), unbound.size(),
@@ -38,10 +65,14 @@ func _test_allowlist_downgrades_unbound_moves() -> void:
 
 func _test_missing_animation_key_is_an_error() -> void:
     var manifest := _duplicated_manifest("res://content/characters/salad_cat/character_manifest.tres")
+    # InventoryBoundFighterVisual intentionally resolves absent keys through its
+    # production attack fallback. Remove that renderer contract for this probe
+    # so it still proves the validator rejects a genuinely unrenderable key.
+    manifest.presentation_resource.production_asset_binding = null
     manifest.presentation_resource.move_bindings[0].animation_key = &"animation_that_does_not_exist"
     var index := _index([manifest], CharacterValidator.load_unbound_allowlist())
     t.that(_issues_with_code(index, "move.animation_missing").size() > 0,
-        "A binding pointing at an absent SpriteFrames animation is an error")
+        "A binding pointing at an absent production animation key is an error")
 
 func _test_orphan_animations_are_warnings_only() -> void:
     var manifest := _duplicated_manifest("res://content/characters/salad_cat/character_manifest.tres")

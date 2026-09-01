@@ -33,7 +33,7 @@ func begin_jump(data: CharacterData) -> void:
         return
     velocity_units.y = data.jump_velocity_y_units_per_tick
 
-func tick(state_machine: FighterStateMachine, combatant: Combatant, data: CharacterData, parser: InputParser, runner: MoveRunner = null, statuses: StatusEffectComponent = null, mode: ModeComponent = null, mechanics_runtime: FighterMechanicsRuntime = null) -> void:
+func tick(state_machine: FighterStateMachine, combatant: Combatant, data: CharacterData, parser: InputParser, runner: MoveRunner = null, statuses: StatusEffectComponent = null, mode: ModeComponent = null, mechanics_runtime: FighterMechanicsRuntime = null, resources: FighterResourceComponent = null) -> void:
     landed_this_frame = false
 
     # Hitstop freezes integration only. Velocity is intentionally preserved for airborne rollback-friendly semantics.
@@ -81,7 +81,9 @@ func tick(state_machine: FighterStateMachine, combatant: Combatant, data: Charac
         FighterStateMachine.State.CHARGE:
             _ground_horizontal(0)
         FighterStateMachine.State.WALK_FORWARD:
-            _ground_horizontal(facing * data.walk_forward_units_per_tick * _movement_permille(statuses, mode, &"walk", &"walk_forward") / 1000)
+            var forward_permille := _movement_permille(statuses, mode, &"walk", &"walk_forward")
+            if resources != null: forward_permille = forward_permille * resources.movement_permille(&"walk_forward") / 1000
+            _ground_horizontal(facing * data.walk_forward_units_per_tick * forward_permille / 1000)
         FighterStateMachine.State.WALK_BACK:
             _ground_horizontal(-facing * data.walk_back_units_per_tick * _movement_permille(statuses, mode, &"walk", &"walk_back") / 1000)
         _:

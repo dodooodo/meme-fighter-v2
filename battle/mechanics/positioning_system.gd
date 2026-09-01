@@ -12,6 +12,8 @@ func apply(effect: PositioningEffectData, attacker: Fighter, defender: Fighter, 
             attacker.movement_motor.translate_x_units(-attacker.movement_motor.facing * effect.distance_units)
         PositioningEffectData.Type.SET_TARGET_SEPARATION, PositioningEffectData.Type.KEEP_CLOSE, PositioningEffectData.Type.RESET_TO_MID_RANGE:
             _set_separation(attacker, defender, absi(effect.distance_units), stage_left, stage_right)
+        PositioningEffectData.Type.PUSH_TO_MINIMUM_SEPARATION:
+            _push_to_minimum_separation(attacker, defender, absi(effect.distance_units), stage_left, stage_right)
         PositioningEffectData.Type.SIDE_SWITCH:
             _side_switch(attacker, defender, stage_left, stage_right)
         PositioningEffectData.Type.PUSH_BOTH_APART, PositioningEffectData.Type.CORNER_SAFE_RESET:
@@ -38,6 +40,19 @@ func _set_separation(attacker: Fighter, defender: Fighter, distance_units: int, 
     defender.movement_motor.sim_position.x = clampi(desired_defender_x, stage_left, stage_right)
     var actual := absi(defender.movement_motor.sim_position.x - attacker.movement_motor.sim_position.x)
     if actual < distance_units:
+        attacker.movement_motor.sim_position.x = clampi(defender.movement_motor.sim_position.x - sign * distance_units, stage_left, stage_right)
+
+func _push_to_minimum_separation(attacker: Fighter, defender: Fighter, distance_units: int, stage_left: int, stage_right: int) -> void:
+    var attacker_x := attacker.movement_motor.sim_position.x
+    var defender_x := defender.movement_motor.sim_position.x
+    var current_distance := absi(defender_x - attacker_x)
+    if current_distance >= distance_units:
+        return
+    # Geometry, rather than world direction or a character ID, defines "outward".
+    var sign := 1 if defender_x >= attacker_x else -1
+    defender.movement_motor.sim_position.x = clampi(attacker_x + sign * distance_units, stage_left, stage_right)
+    var achieved_distance := absi(defender.movement_motor.sim_position.x - attacker_x)
+    if achieved_distance < distance_units:
         attacker.movement_motor.sim_position.x = clampi(defender.movement_motor.sim_position.x - sign * distance_units, stage_left, stage_right)
 
 func _side_switch(attacker: Fighter, defender: Fighter, stage_left: int, stage_right: int) -> void:

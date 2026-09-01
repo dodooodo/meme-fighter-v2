@@ -3,7 +3,9 @@
 config_version=5
 
 [application]
-config/name="Two Box Fighting — M8 Solo Playtest + Charge"
+; Beta Phase 4 product name. The prior internal Stage A title was
+; "Two Box Fighting — M8 Solo Playtest + Charge".
+config/name="Meme Fighter V2"
 config/version="0.1.0-stage-a"
 run/main_scene="res://frontend/mode_select_scene.tscn"
 
@@ -22,13 +24,12 @@ window/handheld/orientation=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.08, 0.08, 0.09, 1)
+; Beta Phase 4B: generate ETC2/ASTC texture variants required by the official
+; Universal macOS export template. Gameplay assets and source textures remain unchanged.
+textures/vram_compression/import_etc2_astc=true
 
 [debug]
 gdscript/warnings/untyped_declaration=1
 
 [telemetry]
 content_version="stage-a-v1"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/character_content_inspector/plugin.cfg")

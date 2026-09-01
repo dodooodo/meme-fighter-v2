@@ -1,0 +1,1437 @@
+[gd_resource type="Resource" load_steps=78 format=3]
+
+[ext_resource type="Script" path="res://presentation/data/production_animation_binding.gd" id="anim"]
+[ext_resource type="Script" path="res://presentation/data/production_character_asset_binding.gd" id="catalog"]
+
+[sub_resource type="Resource" id="b000"]
+script = ExtResource("anim")
+animation_id = &"idle"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "01_待機"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/01_待機/11.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/01_待機/12.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/01_待機/13.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b001"]
+script = ExtResource("anim")
+animation_id = &"walk_forward"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "02_前走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/02_前走/14.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/02_前走/15.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/02_前走/16.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b002"]
+script = ExtResource("anim")
+animation_id = &"walk_back"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "03_後走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/03_後走/21.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/03_後走/22.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/03_後走/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b003"]
+script = ExtResource("anim")
+animation_id = &"crouch"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "04_蹲下"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/04_蹲下/24.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b004"]
+script = ExtResource("anim")
+animation_id = &"jump"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "05_跳躍"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/05_跳躍/25.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/05_跳躍/26.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/05_跳躍/27.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/05_跳躍/28.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b005"]
+script = ExtResource("anim")
+animation_id = &"landing"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "06_落地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/06_落地/29.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b006"]
+script = ExtResource("anim")
+animation_id = &"stand_light"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "07_輕攻「菜葉甩臉」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/07_輕攻「菜葉甩臉」/31.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/07_輕攻「菜葉甩臉」/32.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/07_輕攻「菜葉甩臉」/33.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/07_輕攻「菜葉甩臉」/34.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/07_輕攻「菜葉甩臉」/35.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/07_輕攻「菜葉甩臉」/36.webp")
+mode_id = &""
+move_id = &"stand_light"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b007"]
+script = ExtResource("anim")
+animation_id = &"stand_heavy"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "08_重攻「整盆不要！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/08_重攻「整盆不要！」/41.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/08_重攻「整盆不要！」/42.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/08_重攻「整盆不要！」/43.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/08_重攻「整盆不要！」/44.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/08_重攻「整盆不要！」/45.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/08_重攻「整盆不要！」/46.webp")
+mode_id = &""
+move_id = &"stand_heavy"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b008"]
+script = ExtResource("anim")
+animation_id = &"crouch_low"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "09_下段「菜梗掃地」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/09_下段「菜梗掃地」/51.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/09_下段「菜梗掃地」/52.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/09_下段「菜梗掃地」/53.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/09_下段「菜梗掃地」/54.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/09_下段「菜梗掃地」/55.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/09_下段「菜梗掃地」/56.webp")
+mode_id = &""
+move_id = &"crouch_low"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b009"]
+script = ExtResource("anim")
+animation_id = &"air_attack"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "10_空中攻擊「空投沙拉盆」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/10_空中攻擊「空投沙拉盆」/61.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/10_空中攻擊「空投沙拉盆」/62.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/10_空中攻擊「空投沙拉盆」/63.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/10_空中攻擊「空投沙拉盆」/64.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/10_空中攻擊「空投沙拉盆」/65.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_1/10_空中攻擊「空投沙拉盆」/66.webp")
+mode_id = &""
+move_id = &"air_attack"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b010"]
+script = ExtResource("anim")
+animation_id = &"guard_stand"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "11_站防「拿盆擋一下」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/11_站防「拿盆擋一下」/71.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b011"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a12"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "12_站防命中"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/12_站防命中/72.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b012"]
+script = ExtResource("anim")
+animation_id = &"blockstun"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "13_站防硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/13_站防硬直/73.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b013"]
+script = ExtResource("anim")
+animation_id = &"guard_crouch"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "14_蹲防"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/14_蹲防/74.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b014"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a15"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "15_蹲防命中"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/15_蹲防命中/75.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b015"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a16"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "16_蹲防硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/16_蹲防硬直/76.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b016"]
+script = ExtResource("anim")
+animation_id = &"hitstun"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "17_上段輕受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/17_上段輕受擊/81.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b017"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a18"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "18_中段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/18_中段受擊/82.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b018"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a19"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "19_下段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/19_下段受擊/83.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b019"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a20"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "20_重擊後仰"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/20_重擊後仰/84.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b020"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a21"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "21_Counter_Hit_大後仰"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/21_Counter_Hit_大後仰/85.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b021"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a22"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "22_受擊恢復"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/22_受擊恢復/86.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b022"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a23"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "23_普通空沙拉盆"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/23_普通空沙拉盆/91.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b023"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a24"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "24_裝滿沙拉的標準沙拉盆"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/24_裝滿沙拉的標準沙拉盆/92.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b024"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a25"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "25_「菜葉甩臉」菜葉"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/25_「菜葉甩臉」菜葉/93.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b025"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a26"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "26_「菜梗掃地」長菜梗"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/26_「菜梗掃地」長菜梗/94.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b026"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a27"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "27_小型沙拉碎片"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/27_小型沙拉碎片/95.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b027"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a28"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_1"
+action_folder = "28_沙拉盆震動_命中粒子"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_1/28_沙拉盆震動_命中粒子/96.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b028"]
+script = ExtResource("anim")
+animation_id = &"dash_forward"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "01_前衝"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/01_前衝/11.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_2/01_前衝/12.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_2/01_前衝/13.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b029"]
+script = ExtResource("anim")
+animation_id = &"backstep"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "02_後撤"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/02_後撤/14.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_2/02_後撤/15.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_2/02_後撤/16.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b030"]
+script = ExtResource("anim")
+animation_id = &"ground_throw"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "03_投技「你吃掉！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/03_投技「你吃掉！」/21.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_2/03_投技「你吃掉！」/22.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_2/03_投技「你吃掉！」/23.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_2/03_投技「你吃掉！」/24.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_2/03_投技「你吃掉！」/25.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_2/03_投技「你吃掉！」/26.webp")
+mode_id = &""
+move_id = &"ground_throw"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b031"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a04"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "04_重擊起飛"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/04_重擊起飛/31.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b032"]
+script = ExtResource("anim")
+animation_id = &"thrown"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "05_空中被摔"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/05_空中被摔/32.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b033"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a06"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "06_落地前"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/06_落地前/33.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b034"]
+script = ExtResource("anim")
+animation_id = &"knockdown"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "07_倒地撞擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/07_倒地撞擊/34.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b035"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a08"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "08_倒地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/08_倒地/35.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b036"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a09"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "09_Soft_Knockdown_恢復"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/09_Soft_Knockdown_恢復/36.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b037"]
+script = ExtResource("anim")
+animation_id = &"getup"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "10_起身前段"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/10_起身前段/37.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b038"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a11"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "11_起身後段"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/11_起身後段/38.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b039"]
+script = ExtResource("anim")
+animation_id = &"ko"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "12_KO"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/12_KO/39.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b040"]
+script = ExtResource("anim")
+animation_id = &"charge"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "13_開始蓄力"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/13_開始蓄力/41.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b041"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a14"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "14_蓄力維持"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/14_蓄力維持/42.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b042"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a15"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "15_最大蓄力"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/15_最大蓄力/43.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b043"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a16"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "16_放招準備"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/16_放招準備/44.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b044"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a17"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "17_「拒吃震波」釋放"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/17_「拒吃震波」釋放/45.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b045"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a18"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "18_後座_恢復"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/18_後座_恢復/46.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b046"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a19"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "19_蓄力壓力核心"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/19_蓄力壓力核心/51.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b047"]
+script = ExtResource("anim")
+animation_id = &"salad_wave_l1"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "20_Lv1「不要」短震波"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/20_Lv1「不要」短震波/52.webp")
+mode_id = &""
+move_id = &"salad_wave_l1"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b048"]
+script = ExtResource("anim")
+animation_id = &"salad_wave_l1"
+domain = 5
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "21_Lv1_Pushback_命中特效"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/21_Lv1_Pushback_命中特效/53.webp")
+mode_id = &""
+move_id = &"salad_wave_l1"
+entity_id = &""
+trigger_event = &"HIT"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b049"]
+script = ExtResource("anim")
+animation_id = &"salad_wave_l2"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "22_Lv2「我說不要」大型震波"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/22_Lv2「我說不要」大型震波/54.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_2/22_Lv2「我說不要」大型震波/55.webp")
+mode_id = &""
+move_id = &"salad_wave_l2"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b050"]
+script = ExtResource("anim")
+animation_id = &"knockdown"
+domain = 5
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "23_Lv2_Soft_Knockdown_命中特效"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/23_Lv2_Soft_Knockdown_命中特效/56.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b051"]
+script = ExtResource("anim")
+animation_id = &"salad_wave_l3"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "24_Lv3「我真的不吃！」巨大拒絕震波"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/24_Lv3「我真的不吃！」巨大拒絕震波/57.webp", "res://assets/production_roster/source/沙拉貓貓/ROUND_2/24_Lv3「我真的不吃！」巨大拒絕震波/58.webp")
+mode_id = &""
+move_id = &"salad_wave_l3"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b052"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a25"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "25_Lv3_Neutral_Reset_Corner_Escape_爆發"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/25_Lv3_Neutral_Reset_Corner_Escape_爆發/59.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b053"]
+script = ExtResource("anim")
+animation_id = &"ultimate"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "26_Ultimate_發動"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/26_Ultimate_發動/61.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b054"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a27"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "27_確認對手位置"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/27_確認對手位置/62.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b055"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a28"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "28_呼叫巨大沙拉盆"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/28_呼叫巨大沙拉盆/63.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b056"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a29"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "29_Overhead_階段準備"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/29_Overhead_階段準備/64.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b057"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a30"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "30_Low_Shockwave_階段後座"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/30_Low_Shockwave_階段後座/65.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b058"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a31"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "31_Ultimate_收招_退回中距離"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/31_Ultimate_收招_退回中距離/66.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b059"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a32"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "32_巨大沙拉盆本體"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/32_巨大沙拉盆本體/71.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b060"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a33"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "33_高空落下"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/33_高空落下/72.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b061"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a34"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "34_高速下降"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/34_高速下降/73.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b062"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a35"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "35_Overhead_Active"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/35_Overhead_Active/74.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b063"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a36"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "36_撞擊地面"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/36_撞擊地面/75.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b064"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a37"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "37_沙拉盆留在地面_銜接第二段"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/37_沙拉盆留在地面_銜接第二段/76.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b065"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a38"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "38_沙拉盆下降風壓"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/38_沙拉盆下降風壓/81.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b066"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a39"
+domain = 5
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "39_Overhead_命中特效"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/39_Overhead_命中特效/82.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"HIT"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b067"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a40"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "40_Overhead_沙拉飛散"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/40_Overhead_沙拉飛散/83.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b068"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a41"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "41_地面撞擊核心"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/41_地面撞擊核心/84.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b069"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a42"
+domain = 2
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "42_第二段_LOW_Shockwave_起始"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/42_第二段_LOW_Shockwave_起始/85.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b070"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a43"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "43_LOW_大範圍震波"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/43_LOW_大範圍震波/86.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b071"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a44"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "44_Low_左側震波"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/44_Low_左側震波/87.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b072"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a45"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "45_Low_右側震波"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/45_Low_右側震波/88.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b073"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a46"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "46_Neutral_Reset_最終爆發"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/46_Neutral_Reset_最終爆發/89.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b074"]
+script = ExtResource("anim")
+animation_id = &"special_neutral"
+domain = 0
+asset_folder = "沙拉貓貓"
+round_name = &"ROUND_2"
+action_folder = "13_開始蓄力"
+frame_paths = PackedStringArray("res://assets/production_roster/source/沙拉貓貓/ROUND_2/13_開始蓄力/41.webp")
+mode_id = &""
+move_id = &"special_neutral"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Runtime special body fallback from exact authored charge/release body pose; detached effect remains separately bound."
+
+[resource]
+script = ExtResource("catalog")
+character_id = &"salad_cat"
+display_name = "沙拉貓貓"
+asset_folder = "沙拉貓貓"
+source_inventory_path = "res://assets/production_roster/combat_asset_inventory.json"
+bindings = Array[ExtResource("anim")]([SubResource("b000"), SubResource("b001"), SubResource("b002"), SubResource("b003"), SubResource("b004"), SubResource("b005"), SubResource("b006"), SubResource("b007"), SubResource("b008"), SubResource("b009"), SubResource("b010"), SubResource("b011"), SubResource("b012"), SubResource("b013"), SubResource("b014"), SubResource("b015"), SubResource("b016"), SubResource("b017"), SubResource("b018"), SubResource("b019"), SubResource("b020"), SubResource("b021"), SubResource("b022"), SubResource("b023"), SubResource("b024"), SubResource("b025"), SubResource("b026"), SubResource("b027"), SubResource("b028"), SubResource("b029"), SubResource("b030"), SubResource("b031"), SubResource("b032"), SubResource("b033"), SubResource("b034"), SubResource("b035"), SubResource("b036"), SubResource("b037"), SubResource("b038"), SubResource("b039"), SubResource("b040"), SubResource("b041"), SubResource("b042"), SubResource("b043"), SubResource("b044"), SubResource("b045"), SubResource("b046"), SubResource("b047"), SubResource("b048"), SubResource("b049"), SubResource("b050"), SubResource("b051"), SubResource("b052"), SubResource("b053"), SubResource("b054"), SubResource("b055"), SubResource("b056"), SubResource("b057"), SubResource("b058"), SubResource("b059"), SubResource("b060"), SubResource("b061"), SubResource("b062"), SubResource("b063"), SubResource("b064"), SubResource("b065"), SubResource("b066"), SubResource("b067"), SubResource("b068"), SubResource("b069"), SubResource("b070"), SubResource("b071"), SubResource("b072"), SubResource("b073"), SubResource("b074")])

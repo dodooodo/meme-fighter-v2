@@ -1,9 +1,11 @@
 [gd_resource type="Resource" load_steps=29 format=3]
 
 [ext_resource type="Script" path="res://presentation/data/character_presentation_data.gd" id="data"]
-[ext_resource type="PackedScene" path="res://presentation/visuals/production/magic_orange_cat_visual.tscn" id="visual"]
+[ext_resource type="PackedScene" path="res://presentation/visuals/production/inventory_bound_fighter_visual.tscn" id="visual"]
 [ext_resource type="Script" path="res://presentation/data/state_presentation_binding.gd" id="state"]
 [ext_resource type="Script" path="res://presentation/data/move_presentation_binding.gd" id="move"]
+
+[ext_resource type="Resource" path="res://presentation/resources/production_asset_bindings/magic_orange_cat.tres" id="prod_catalog"]
 
 [sub_resource type="Resource" id="State_idle"]
 script = ExtResource("state")
@@ -109,6 +111,18 @@ animation_key = &"special_neutral"
 script = ExtResource("move")
 move_id = &"special_neutral_l3"
 animation_key = &"special_neutral"
+[sub_resource type="Resource" id="Move_magic_circle_l1"]
+script = ExtResource("move")
+move_id = &"magic_circle_l1"
+animation_key = &"special_neutral"
+[sub_resource type="Resource" id="Move_magic_circle_l2"]
+script = ExtResource("move")
+move_id = &"magic_circle_l2"
+animation_key = &"special_neutral"
+[sub_resource type="Resource" id="Move_magic_circle_l3"]
+script = ExtResource("move")
+move_id = &"magic_circle_l3"
+animation_key = &"special_neutral"
 
 [resource]
 script = ExtResource("data")
@@ -119,4 +133,5 @@ visual_offset_pixels = Vector2(0, 0)
 visual_scale = 1.0
 placeholder_color = Color(0.72, 0.72, 0.78, 1)
 state_bindings = Array[ExtResource("state")]([SubResource("State_idle"), SubResource("State_walk_forward"), SubResource("State_walk_back"), SubResource("State_crouch"), SubResource("State_jump"), SubResource("State_landing"), SubResource("State_guard_stand"), SubResource("State_guard_crouch"), SubResource("State_hitstun"), SubResource("State_blockstun"), SubResource("State_thrown"), SubResource("State_knockdown"), SubResource("State_getup"), SubResource("State_ko"), SubResource("State_dash_forward"), SubResource("State_backstep"), SubResource("State_charge")])
-move_bindings = Array[ExtResource("move")]([SubResource("Move_light"), SubResource("Move_heavy"), SubResource("Move_low"), SubResource("Move_air"), SubResource("Move_throw"), SubResource("Move_special"), SubResource("Move_ultimate"), SubResource("Move_special_l2"), SubResource("Move_special_l3")])
+move_bindings = Array[ExtResource("move")]([SubResource("Move_light"), SubResource("Move_heavy"), SubResource("Move_low"), SubResource("Move_air"), SubResource("Move_throw"), SubResource("Move_special"), SubResource("Move_ultimate"), SubResource("Move_special_l2"), SubResource("Move_special_l3"), SubResource("Move_magic_circle_l1"), SubResource("Move_magic_circle_l2"), SubResource("Move_magic_circle_l3")])
+production_asset_binding = ExtResource("prod_catalog")

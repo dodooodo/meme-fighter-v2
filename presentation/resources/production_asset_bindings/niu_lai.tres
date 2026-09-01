@@ -1,0 +1,1608 @@
+[gd_resource type="Resource" load_steps=87 format=3]
+
+[ext_resource type="Script" path="res://presentation/data/production_animation_binding.gd" id="anim"]
+[ext_resource type="Script" path="res://presentation/data/production_character_asset_binding.gd" id="catalog"]
+
+[sub_resource type="Resource" id="b000"]
+script = ExtResource("anim")
+animation_id = &"idle"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "01_待機_Courage_Lv0「膽小」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/01_待機_Courage_Lv0「膽小」/11.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b001"]
+script = ExtResource("anim")
+animation_id = &"idle_c3"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "02_待機_Courage_Lv3「夢的勇士」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/02_待機_Courage_Lv3「夢的勇士」/12.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b002"]
+script = ExtResource("anim")
+animation_id = &"walk_forward"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "03_前走_Lv0–1"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/03_前走_Lv0–1/13.webp", "res://assets/production_roster/source/牛來/ROUND_1/03_前走_Lv0–1/14.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b003"]
+script = ExtResource("anim")
+animation_id = &"walk_forward_c2"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "04_強化前走_Lv2–3"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/04_強化前走_Lv2–3/15.webp", "res://assets/production_roster/source/牛來/ROUND_1/04_強化前走_Lv2–3/16.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b004"]
+script = ExtResource("anim")
+animation_id = &"walk_back"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "05_後走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/05_後走/17.webp", "res://assets/production_roster/source/牛來/ROUND_1/05_後走/18.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b005"]
+script = ExtResource("anim")
+animation_id = &"crouch"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "06_蹲下"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/06_蹲下/19.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b006"]
+script = ExtResource("anim")
+animation_id = &"jump"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "07_跳躍"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/07_跳躍/21.webp", "res://assets/production_roster/source/牛來/ROUND_1/07_跳躍/22.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b007"]
+script = ExtResource("anim")
+animation_id = &"landing"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "08_落地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/08_落地/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b008"]
+script = ExtResource("anim")
+animation_id = &"dash_forward"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "09_前衝"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/09_前衝/24.webp", "res://assets/production_roster/source/牛來/ROUND_1/09_前衝/25.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b009"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a10"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "10_前衝收招_Lv0–1"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/10_前衝收招_Lv0–1/26.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b010"]
+script = ExtResource("anim")
+animation_id = &"dash_forward_c2"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "11_強化前衝收招_Lv2–3"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/11_強化前衝收招_Lv2–3/27.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b011"]
+script = ExtResource("anim")
+animation_id = &"backstep"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "12_後撤"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/12_後撤/28.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b012"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a13"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "13_後撤落地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/13_後撤落地/29.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b013"]
+script = ExtResource("anim")
+animation_id = &"stand_light"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "14_Lv0_輕攻「試探拳」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/14_Lv0_輕攻「試探拳」/31.webp", "res://assets/production_roster/source/牛來/ROUND_1/14_Lv0_輕攻「試探拳」/32.webp", "res://assets/production_roster/source/牛來/ROUND_1/14_Lv0_輕攻「試探拳」/33.webp")
+mode_id = &""
+move_id = &"stand_light"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b014"]
+script = ExtResource("anim")
+animation_id = &"stand_light_c3"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "15_Lv3_強化動作版「試探拳」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/15_Lv3_強化動作版「試探拳」/34.webp", "res://assets/production_roster/source/牛來/ROUND_1/15_Lv3_強化動作版「試探拳」/35.webp", "res://assets/production_roster/source/牛來/ROUND_1/15_Lv3_強化動作版「試探拳」/36.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b015"]
+script = ExtResource("anim")
+animation_id = &"stand_heavy"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "16_Lv0–1_重攻「牛角重槌」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/16_Lv0–1_重攻「牛角重槌」/41.webp", "res://assets/production_roster/source/牛來/ROUND_1/16_Lv0–1_重攻「牛角重槌」/42.webp", "res://assets/production_roster/source/牛來/ROUND_1/16_Lv0–1_重攻「牛角重槌」/43.webp")
+mode_id = &""
+move_id = &"stand_heavy"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b016"]
+script = ExtResource("anim")
+animation_id = &"stand_heavy_c2"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "17_Lv2–3_前踏版「牛角重槌」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/17_Lv2–3_前踏版「牛角重槌」/44.webp", "res://assets/production_roster/source/牛來/ROUND_1/17_Lv2–3_前踏版「牛角重槌」/45.webp", "res://assets/production_roster/source/牛來/ROUND_1/17_Lv2–3_前踏版「牛角重槌」/46.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b017"]
+script = ExtResource("anim")
+animation_id = &"crouch_low"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "18_Lv0–1「怕歸怕還是要踢」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/18_Lv0–1「怕歸怕還是要踢」/51.webp", "res://assets/production_roster/source/牛來/ROUND_1/18_Lv0–1「怕歸怕還是要踢」/52.webp", "res://assets/production_roster/source/牛來/ROUND_1/18_Lv0–1「怕歸怕還是要踢」/53.webp")
+mode_id = &""
+move_id = &"crouch_low"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b018"]
+script = ExtResource("anim")
+animation_id = &"crouch_low_c2"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "19_Lv2_加長版"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/19_Lv2_加長版/54.webp", "res://assets/production_roster/source/牛來/ROUND_1/19_Lv2_加長版/55.webp", "res://assets/production_roster/source/牛來/ROUND_1/19_Lv2_加長版/56.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b019"]
+script = ExtResource("anim")
+animation_id = &"crouch_low_c3"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "20_Lv3_下段攻擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/20_Lv3_下段攻擊/57.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b020"]
+script = ExtResource("anim")
+animation_id = &"niu_special_l3"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "21_Lv3_Counter_Hit_後向前確認"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/21_Lv3_Counter_Hit_後向前確認/58.webp")
+mode_id = &""
+move_id = &"niu_special_l3"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b021"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a22"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "22_Lv3_接輕攻準備"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/22_Lv3_接輕攻準備/59.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b022"]
+script = ExtResource("anim")
+animation_id = &"air_attack"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "23_Lv0–1「閉眼勇氣飛踢」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/23_Lv0–1「閉眼勇氣飛踢」/61.webp", "res://assets/production_roster/source/牛來/ROUND_1/23_Lv0–1「閉眼勇氣飛踢」/62.webp", "res://assets/production_roster/source/牛來/ROUND_1/23_Lv0–1「閉眼勇氣飛踢」/63.webp")
+mode_id = &""
+move_id = &"air_attack"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b023"]
+script = ExtResource("anim")
+animation_id = &"air_attack_c2"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "24_Lv2_前進版"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/24_Lv2_前進版/64.webp", "res://assets/production_roster/source/牛來/ROUND_1/24_Lv2_前進版/65.webp", "res://assets/production_roster/source/牛來/ROUND_1/24_Lv2_前進版/66.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b024"]
+script = ExtResource("anim")
+animation_id = &"air_attack_c3"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "25_Lv3_完整_Jump-in_版"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/25_Lv3_完整_Jump-in_版/67.webp", "res://assets/production_roster/source/牛來/ROUND_1/25_Lv3_完整_Jump-in_版/68.webp", "res://assets/production_roster/source/牛來/ROUND_1/25_Lv3_完整_Jump-in_版/69.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b025"]
+script = ExtResource("anim")
+animation_id = &"guard_stand"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "26_站防_Lv0"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/26_站防_Lv0/71.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b026"]
+script = ExtResource("anim")
+animation_id = &"guard_stand_c1"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "27_站防_Lv1"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/27_站防_Lv1/72.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b027"]
+script = ExtResource("anim")
+animation_id = &"guard_stand_c2"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "28_站防_Lv2"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/28_站防_Lv2/73.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b028"]
+script = ExtResource("anim")
+animation_id = &"guard_stand_c3"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "29_站防_Lv3"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/29_站防_Lv3/74.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b029"]
+script = ExtResource("anim")
+animation_id = &"guard_crouch"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "30_蹲防_Lv0"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/30_蹲防_Lv0/75.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b030"]
+script = ExtResource("anim")
+animation_id = &"guard_crouch_c1"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "31_蹲防_Lv1"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/31_蹲防_Lv1/76.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b031"]
+script = ExtResource("anim")
+animation_id = &"guard_crouch_c2"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "32_蹲防_Lv2"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/32_蹲防_Lv2/77.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b032"]
+script = ExtResource("anim")
+animation_id = &"guard_crouch_c3"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "33_蹲防_Lv3"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/33_蹲防_Lv3/78.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b033"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a34"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "34_防禦解除_回待機"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/34_防禦解除_回待機/79.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b034"]
+script = ExtResource("anim")
+animation_id = &"blockstun"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "35_輕防禦硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/35_輕防禦硬直/81.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b035"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a36"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "36_重防禦硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/36_重防禦硬直/82.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b036"]
+script = ExtResource("anim")
+animation_id = &"hitstun"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "37_上段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/37_上段受擊/83.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b037"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a38"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "38_下段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/38_下段受擊/84.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b038"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a39"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "39_重受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/39_重受擊/85.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b039"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a40"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_1"
+action_folder = "40_空中受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_1/40_空中受擊/86.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b040"]
+script = ExtResource("anim")
+animation_id = &"ground_throw"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "01_投技「友情抱摔」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/01_投技「友情抱摔」/11.webp", "res://assets/production_roster/source/牛來/ROUND_2/01_投技「友情抱摔」/12.webp", "res://assets/production_roster/source/牛來/ROUND_2/01_投技「友情抱摔」/13.webp", "res://assets/production_roster/source/牛來/ROUND_2/01_投技「友情抱摔」/14.webp", "res://assets/production_roster/source/牛來/ROUND_2/01_投技「友情抱摔」/15.webp", "res://assets/production_roster/source/牛來/ROUND_2/01_投技「友情抱摔」/16.webp")
+mode_id = &""
+move_id = &"ground_throw"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b041"]
+script = ExtResource("anim")
+animation_id = &"thrown"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "02_被摔起飛"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/02_被摔起飛/21.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b042"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a03"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "03_空中翻滾"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/03_空中翻滾/22.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b043"]
+script = ExtResource("anim")
+animation_id = &"knockdown"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "04_Heavy_Knockdown_撞地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/04_Heavy_Knockdown_撞地/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b044"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a05"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "05_Heavy_Knockdown_倒地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/05_Heavy_Knockdown_倒地/24.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b045"]
+script = ExtResource("anim")
+animation_id = &"getup"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "06_起身"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/06_起身/25.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b046"]
+script = ExtResource("anim")
+animation_id = &"ko"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "07_KO"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/07_KO/26.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b047"]
+script = ExtResource("anim")
+animation_id = &"charge"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "08_開始蓄力_深呼吸"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/08_開始蓄力_深呼吸/31.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b048"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a09"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "09_持續蓄力"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/09_持續蓄力/32.webp", "res://assets/production_roster/source/牛來/ROUND_2/09_持續蓄力/33.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b049"]
+script = ExtResource("anim")
+animation_id = &"niu_special_l1"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "10_Charge_Lv1「小聲打氣」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/10_Charge_Lv1「小聲打氣」/34.webp")
+mode_id = &""
+move_id = &"niu_special_l1"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b050"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a11"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "11_Lv1_尷尬後座_收招"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/11_Lv1_尷尬後座_收招/35.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b051"]
+script = ExtResource("anim")
+animation_id = &"niu_special_l2"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "12_Charge_Lv2「站起來！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/12_Charge_Lv2「站起來！」/36.webp")
+mode_id = &""
+move_id = &"niu_special_l2"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b052"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a13"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "13_Lv2_勇氣提升後收招"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/13_Lv2_勇氣提升後收招/37.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b053"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a14"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "14_Charge_Lv3「牛來，站起來！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/14_Charge_Lv3「牛來，站起來！」/38.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b054"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a15"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "15_Lv3_收招"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/15_Lv3_收招/39.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b055"]
+script = ExtResource("anim")
+animation_id = &"charge"
+domain = 5
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "16_牛角蓄力光_Lv1"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/16_牛角蓄力光_Lv1/41.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b056"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a17"
+domain = 5
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "17_牛角強蓄力光"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/17_牛角強蓄力光/42.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b057"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a18"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "18_Courage_+1_爆發"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/18_Courage_+1_爆發/43.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b058"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a19"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "19_Courage_+1_收束"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/19_Courage_+1_收束/44.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b059"]
+script = ExtResource("anim")
+animation_id = &"niu_special_l1"
+domain = 5
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "20_Lv1_咆哮推退_VFX"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/20_Lv1_咆哮推退_VFX/45.webp")
+mode_id = &""
+move_id = &"niu_special_l1"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b060"]
+script = ExtResource("anim")
+animation_id = &"niu_special_l3"
+domain = 5
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "21_Lv3_咆哮推退_VFX"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/21_Lv3_咆哮推退_VFX/46.webp")
+mode_id = &""
+move_id = &"niu_special_l3"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b061"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a22"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "22_Courage_-1_破裂"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/22_Courage_-1_破裂/47.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b062"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a23"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "23_Courage_-1_掉落粒子"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/23_Courage_-1_掉落粒子/48.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b063"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a24"
+domain = 5
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "24_Courage_Lv3_達成特效"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/24_Courage_Lv3_達成特效/49.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b064"]
+script = ExtResource("anim")
+animation_id = &"ultimate"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "25_Ultimate_發動決意"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/25_Ultimate_發動決意/51.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b065"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a26"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "26_夢之牛角突進起手"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/26_夢之牛角突進起手/52.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b066"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a27"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "27_「夢之牛角撞擊」有效攻擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/27_「夢之牛角撞擊」有效攻擊/53.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b067"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a28"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "28_Ultimate_揮空大硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/28_Ultimate_揮空大硬直/54.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b068"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a29"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "29_命中確認_夢境啟動"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/29_命中確認_夢境啟動/55.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b069"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a30"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "30_Courage_Lv0～Lv2_共用「夢境覺醒」收尾"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/30_Courage_Lv0～Lv2_共用「夢境覺醒」收尾/56.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b070"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a31"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "31_Courage_Lv3_夢境轉場"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/31_Courage_Lv3_夢境轉場/57.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b071"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a32"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "32_Courage_Lv3_完整「夢境覺醒」衝鋒"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/32_Courage_Lv3_完整「夢境覺醒」衝鋒/58.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b072"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a33"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "33_Ultimate_結束toCourage_重置_Lv0"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/33_Ultimate_結束toCourage_重置_Lv0/59.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b073"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a34"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "34_「巨大夢之公牛幻影」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/34_「巨大夢之公牛幻影」/61.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b074"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a35"
+domain = 5
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "35_夢之牛角命中特效"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/35_夢之牛角命中特效/71.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"HIT"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b075"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a36"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "36_Hit_Confirm_夢境啟動"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/36_Hit_Confirm_夢境啟動/72.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b076"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a37"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "37_Courage_Lv0_基礎終結撞擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/37_Courage_Lv0_基礎終結撞擊/73.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b077"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a38"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "38_Lv0_終結殘留"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/38_Lv0_終結殘留/74.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b078"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a39"
+domain = 5
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "39_Courage_Lv1_Corner_Carry_軌跡"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/39_Courage_Lv1_Corner_Carry_軌跡/75.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b079"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a40"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "40_Courage_Lv1_Carry_撞擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/40_Courage_Lv1_Carry_撞擊/76.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b080"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a41"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "41_Courage_Lv2_強化位置獎勵撞擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/41_Courage_Lv2_強化位置獎勵撞擊/77.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b081"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a42"
+domain = 5
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "42_Courage_Lv3_完整夢境衝鋒軌跡"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/42_Courage_Lv3_完整夢境衝鋒軌跡/78.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b082"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a43"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "43_Courage_Lv3_最終「夢境覺醒」撞擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/43_Courage_Lv3_最終「夢境覺醒」撞擊/79.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b083"]
+script = ExtResource("anim")
+animation_id = &"special_neutral"
+domain = 0
+asset_folder = "牛來"
+round_name = &"ROUND_2"
+action_folder = "08_開始蓄力_深呼吸"
+frame_paths = PackedStringArray("res://assets/production_roster/source/牛來/ROUND_2/08_開始蓄力_深呼吸/31.webp")
+mode_id = &""
+move_id = &"special_neutral"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Runtime special body fallback from exact authored charge/release body pose; detached effect remains separately bound."
+
+[resource]
+script = ExtResource("catalog")
+character_id = &"niu_lai"
+display_name = "牛來"
+asset_folder = "牛來"
+source_inventory_path = "res://assets/production_roster/combat_asset_inventory.json"
+bindings = Array[ExtResource("anim")]([SubResource("b000"), SubResource("b001"), SubResource("b002"), SubResource("b003"), SubResource("b004"), SubResource("b005"), SubResource("b006"), SubResource("b007"), SubResource("b008"), SubResource("b009"), SubResource("b010"), SubResource("b011"), SubResource("b012"), SubResource("b013"), SubResource("b014"), SubResource("b015"), SubResource("b016"), SubResource("b017"), SubResource("b018"), SubResource("b019"), SubResource("b020"), SubResource("b021"), SubResource("b022"), SubResource("b023"), SubResource("b024"), SubResource("b025"), SubResource("b026"), SubResource("b027"), SubResource("b028"), SubResource("b029"), SubResource("b030"), SubResource("b031"), SubResource("b032"), SubResource("b033"), SubResource("b034"), SubResource("b035"), SubResource("b036"), SubResource("b037"), SubResource("b038"), SubResource("b039"), SubResource("b040"), SubResource("b041"), SubResource("b042"), SubResource("b043"), SubResource("b044"), SubResource("b045"), SubResource("b046"), SubResource("b047"), SubResource("b048"), SubResource("b049"), SubResource("b050"), SubResource("b051"), SubResource("b052"), SubResource("b053"), SubResource("b054"), SubResource("b055"), SubResource("b056"), SubResource("b057"), SubResource("b058"), SubResource("b059"), SubResource("b060"), SubResource("b061"), SubResource("b062"), SubResource("b063"), SubResource("b064"), SubResource("b065"), SubResource("b066"), SubResource("b067"), SubResource("b068"), SubResource("b069"), SubResource("b070"), SubResource("b071"), SubResource("b072"), SubResource("b073"), SubResource("b074"), SubResource("b075"), SubResource("b076"), SubResource("b077"), SubResource("b078"), SubResource("b079"), SubResource("b080"), SubResource("b081"), SubResource("b082"), SubResource("b083")])

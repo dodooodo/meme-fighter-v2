@@ -14,6 +14,8 @@ var knockback_velocity_x_units: int = 0
 var knockback_velocity_y_units: int = 0
 var is_ko: bool = false
 var last_result_type: int = -1
+# Training-only debug policy; false in all ordinary matches and excluded from Snapshot/Replay.
+var training_infinite_hp: bool = false
 
 func configure(p_max_hp: int) -> void:
     max_hp = maxi(1, p_max_hp)
@@ -35,7 +37,7 @@ func apply_attacker_hitstop(frames: int) -> void:
 func receive_hit(damage: int, hitstun: int, hitstop: int, knockback_x: int, knockback_y: int = 0) -> void:
     if is_ko:
         return
-    hp = clampi(hp - maxi(0, damage), 0, max_hp)
+    hp = clampi(hp - maxi(0, damage), 1 if training_infinite_hp else 0, max_hp)
     hitstun_remaining = maxi(0, hitstun)
     blockstun_remaining = 0
     hitstop_remaining = maxi(hitstop_remaining, maxi(0, hitstop))
@@ -47,7 +49,7 @@ func receive_hit(damage: int, hitstun: int, hitstop: int, knockback_x: int, knoc
 func receive_throw_damage(damage: int, hitstop: int) -> void:
     if is_ko:
         return
-    hp = clampi(hp - maxi(0, damage), 0, max_hp)
+    hp = clampi(hp - maxi(0, damage), 1 if training_infinite_hp else 0, max_hp)
     hitstun_remaining = 0
     blockstun_remaining = 0
     hitstop_remaining = maxi(hitstop_remaining, maxi(0, hitstop))
@@ -59,7 +61,7 @@ func receive_throw_damage(damage: int, hitstop: int) -> void:
 func receive_block(chip_damage: int, blockstun: int, hitstop: int) -> void:
     if is_ko:
         return
-    hp = clampi(hp - maxi(0, chip_damage), 0, max_hp)
+    hp = clampi(hp - maxi(0, chip_damage), 1 if training_infinite_hp else 0, max_hp)
     hitstun_remaining = 0
     blockstun_remaining = maxi(0, blockstun)
     hitstop_remaining = maxi(hitstop_remaining, maxi(0, hitstop))

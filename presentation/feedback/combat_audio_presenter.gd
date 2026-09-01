@@ -13,11 +13,12 @@ func present_event(event: CombatEvent) -> void:
         return
     cue_dispatch_count += 1
     last_cue = cue
-    # M7 has no formal audio assets; future bindings may play AudioStreamPlayer here.
+    # The project currently ships no AudioStream assets. This stable cue hook is
+    # intentionally a no-op until a real audio bank binds streams by cue.
 
 func _cue_for_event(event: CombatEvent) -> StringName:
     if event.type in [CombatEvent.EventType.HIT, CombatEvent.EventType.BLOCK, CombatEvent.EventType.THROW, CombatEvent.EventType.KO]:
-        return CombatFeedbackProfile.audio_cue_for(event.type, CombatFeedbackProfile.tier_for_move(event.move_id))
+        return CombatFeedbackProfile.audio_cue_for_move(event.type, event.move_id)
     match event.type:
         CombatEvent.EventType.MOVE_STARTED:
             return &"move_started"
@@ -28,6 +29,6 @@ func _cue_for_event(event: CombatEvent) -> StringName:
         CombatEvent.EventType.TIME_UP:
             return &"time_up"
         CombatEvent.EventType.MATCH_ENDED:
-            return &"match_end"
+            return &"victory"
         _:
             return &""

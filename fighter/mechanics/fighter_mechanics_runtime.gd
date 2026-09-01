@@ -15,6 +15,7 @@ var counter_attack_instance_id: int = 0
 var wall_bounce_available: bool = true
 var last_stand_active: bool = false
 var last_stand_mode_serial: int = 0
+var last_stand_resolve_gain_lock_remaining: int = 0
 var panic_backstep_consumed_this_tick: bool = false
 var panic_backstep_remaining_frames: int = 0
 var _mechanics_data: CharacterMechanicsData
@@ -37,6 +38,7 @@ func reset_for_round() -> void:
     wall_bounce_available = true
     last_stand_active = false
     last_stand_mode_serial = 0
+    last_stand_resolve_gain_lock_remaining = 0
     panic_backstep_consumed_this_tick = false
     panic_backstep_remaining_frames = 0
 
@@ -58,6 +60,8 @@ func tick(frozen_by_hitstop: bool) -> void:
         forced_stand_remaining -= 1
     if panic_backstep_remaining_frames > 0:
         panic_backstep_remaining_frames -= 1
+    if last_stand_resolve_gain_lock_remaining > 0:
+        last_stand_resolve_gain_lock_remaining -= 1
 
 func exiting_crouch_guard() -> bool:
     return guard_exit_remaining > 0 and movement_intent_x != 0
@@ -118,6 +122,12 @@ func counter_success_move_id(runner: MoveRunner) -> StringName:
 func last_stand_blocks_control() -> bool:
     return last_stand_active
 
+func can_gain_last_stand_resolve() -> bool:
+    return last_stand_active and last_stand_resolve_gain_lock_remaining <= 0
+
+func record_last_stand_resolve_gain() -> void:
+    last_stand_resolve_gain_lock_remaining = _mechanics_data.last_stand_resolve_gain_lock_frames if _mechanics_data != null else 0
+
 func panic_status_id() -> StringName:
     return _mechanics_data.panic_exit_status_id if _mechanics_data != null else &""
 
@@ -149,6 +159,7 @@ func capture_state() -> Dictionary:
         "wall_bounce_available": wall_bounce_available,
         "last_stand_active": last_stand_active,
         "last_stand_mode_serial": last_stand_mode_serial,
+        "last_stand_resolve_gain_lock_remaining": last_stand_resolve_gain_lock_remaining,
         "panic_backstep_remaining_frames": panic_backstep_remaining_frames,
     }
 
@@ -168,6 +179,7 @@ func restore_state(value: Dictionary) -> bool:
     wall_bounce_available = bool(value.get("wall_bounce_available", true))
     last_stand_active = bool(value.get("last_stand_active", false))
     last_stand_mode_serial = int(value.get("last_stand_mode_serial", 0))
+    last_stand_resolve_gain_lock_remaining = maxi(0, int(value.get("last_stand_resolve_gain_lock_remaining", 0)))
     panic_backstep_remaining_frames = maxi(0, int(value.get("panic_backstep_remaining_frames", 0)))
     panic_backstep_consumed_this_tick = false
     return true

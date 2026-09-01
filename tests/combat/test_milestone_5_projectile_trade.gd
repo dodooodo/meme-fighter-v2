@@ -38,8 +38,8 @@ func _test_projectile_and_melee_same_frame_trade() -> void:
     battle.simulate_frame(InputFrame.neutral(1), InputFrame.neutral(1))
     t.equal(battle.fighter_a.combatant.hp, 4955, "Rush active Light applies 45 damage to Zone in trade")
     t.equal(battle.fighter_b.combatant.hp, 4920, "Zone projectile applies 80 damage to Rush in same frame")
-    t.equal(battle.fighter_a.meter.get_value(), 70, "Zone gets projectile +14 meter in trade")
-    t.equal(battle.fighter_b.meter.get_value(), 35, "Rush gets Light +7 meter in trade")
+    t.equal(battle.fighter_a.meter.get_value(), 15, "Zone gets the authored projectile trade meter")
+    t.equal(battle.fighter_b.meter.get_value(), 8, "Rush gets the authored Light trade meter")
     t.equal(battle.projectile_system.active_count(), 0, "Resolved trade projectile despawns after apply phase")
 
 func _test_same_frame_lethal_projectile_outcome_survives_owner_ko() -> void:

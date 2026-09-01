@@ -12,6 +12,8 @@ extends Control
 @onready var p2_hp_label: Label = $P2HPText
 @onready var p1_wins_label: Label = $P1Wins
 @onready var p2_wins_label: Label = $P2Wins
+@onready var p1_mechanic_label: Label = $P1Mechanic
+@onready var p2_mechanic_label: Label = $P2Mechanic
 @onready var timer_label: Label = $Timer
 @onready var round_label: Label = $RoundState
 @onready var training_label: Label = $Training
@@ -42,6 +44,8 @@ func update_from_simulation(simulation: BattleSimulation) -> void:
     p2_hp_label.text = "%d / %d" % [view_model.p2_hp, view_model.p2_max_hp]
     p1_wins_label.text = "Wins %d" % view_model.p1_wins
     p2_wins_label.text = "Wins %d" % view_model.p2_wins
+    p1_mechanic_label.text = view_model.p1_mechanic_text
+    p2_mechanic_label.text = view_model.p2_mechanic_text
     timer_label.text = view_model.timer_text
     round_label.text = "%s | %s" % [view_model.round_text, view_model.state_text]
     training_label.visible = view_model.training

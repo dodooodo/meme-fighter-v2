@@ -28,14 +28,10 @@ validator reads that field. The animation a move plays comes from the
 presentation binding resolved by `CharacterPresentationData.animation_for_move`.
 Setting `animation_id` on a move does not bind anything.
 
-**An unbound move plays the wrong animation, not no animation.** It resolves to
-`PresentationAnimationIds.ATTACK_FALLBACK` (`attack`); no character package
-builds an `attack` animation, so `ProductionFighterVisual._generic_fallback`
-catches it and substitutes `stand_light`. Verified on salad_cat: an unbound
-`salad_wave_l1` plays the light-attack animation with `visible = true` behind a
-single `push_warning`. A charge special that looks like a jab is much harder to
-spot than a blank frame, which is why this is checked rather than left to
-playtesting.
+**An unbound move does not fall back to something sensible.** It resolves to
+`PresentationAnimationIds.ATTACK_FALLBACK` (`attack`), and no character package
+currently builds an `attack` animation. An unbound move therefore renders
+nothing and leaves the previous frame on screen.
 
 ## Checks
 
@@ -67,127 +63,6 @@ the uncovered-gap case that check does not cover.
 `scripts/verify.sh` runs `--issues-only`. Errors fail the build; warnings never
 do.
 
-## The editor dock
-
-`addons/character_content_inspector` renders the same index inside Godot, under
-the **Characters** dock. It is read-only; nothing in it writes to disk.
-
-- **Characters** list — every non-template package, with its error count.
-- **Moves** — move id, bound animation, `startup/active/recovery`, damage, and
-  status (`ok`, `MISSING ANIMATION`, `UNBOUND`, `allowlisted`).
-- **States** — the same for state bindings, including resource-conditioned
-  variants shown as `animation [resource min-max]`.
-- **Animations** — every built animation with frame count, fps, loop, and
-  whether any binding references it.
-- **Issues** — the character's findings, using the same codes and wording CI
-  prints.
-
-Selecting a move, state, or animation plays it from the character's real
-`SpriteFrames` at the build manifest's fps and loop setting. Selecting a move
-with no usable binding says so rather than showing a stale frame.
-
-The **Import art pack** button is deliberately inert; the GUI import path is
-`A-COL-010`. Build art packs with `scripts/build_art_manifest.py` until then.
-
-## Binding a move to an animation
-
-The dock reports which moves are unbound or point at art that does not exist.
-The **Bind selected move to** row closes that gap: pick a move in the Moves tab,
-pick an animation from the dropdown, press Apply. Only animations the character
-actually has are offered, which is the point — a hand-typed `StringName` is how
-a move ends up bound to art that was never built.
-
-### Why it edits the file as text
-
-`ResourceSaver.save()` is not used. Saving a presentation resource *unchanged*
-rewrites all 139 lines: every `ext_resource` id is randomised, entries appear
-for binding types the file does not use, and the document is reordered. A
-one-line change would arrive as an unreviewable diff whose ids differ again on
-the next save, in the file art, balance, skill, and frontend contributors all
-share.
-
-So `binding_writer.gd` performs two narrow text transforms and nothing else:
-
-| Operation | Diff |
-| --- | --- |
-| Rebind an existing move | one changed line |
-| Add a binding for an unbound move | four inserted lines, plus the array and `load_steps` lines |
-
-Adding a binding produces `6 insertions(+), 2 deletions(-)`.
-
-It refuses rather than guesses: no `move_presentation_binding.gd` ext_resource,
-no `move_bindings` array, a move that is already bound, a taken sub-resource id,
-or a move bound through resource-conditioned variants. Courage-style variants
-are edited by hand, because changing one block in isolation silently changes
-which variant wins.
-
-### The engine is the check
-
-After writing, the resource is reloaded with `CACHE_MODE_IGNORE` and the
-character re-indexed. If it no longer loads, or the character's error count
-rose, the original file content is put back and the dock says so.
-
-## Importing an art pack
-
-The dock's **Import art pack** button imports a MODE_FIGHTER pack from a folder
-of frames. One subfolder per animation; images inside are ordered by filename.
-fps and loop are editable per animation.
-
-The dialog never touches images. It writes two files, both meant to be
-committed with the build:
-
-```text
-assets/presentation/specs/<character>_<mode_id>.json                # pack spec
-assets/presentation/specs/<character>_<mode_id>.art_manifest.json   # one-job manifest
-```
-
-then runs `scripts/build_art_manifest.py`, so crop, pivot, frame ordering,
-alpha, and output naming keep exactly one definition, in Python.
-
-The order is enforced: **check the interpreter, validate, confirm, build,
-report**. Build stays disabled until validation passes, and any edit disables it
-again. After a build the dialog lists every file added, changed, or removed
-under the character's asset directory.
-
-`base_fighter`, `effect`, and `ultimate_screen` packs are not offered here and
-stay on the CLI.
-
-### The builders need Python 3.12+ and Pillow
-
-`scripts/presentation_asset_pipeline/common.py` puts a backslash inside an
-f-string expression, which only parses from Python 3.12 (PEP 701). No CI job
-runs the builders, so nothing catches this: on macOS's system `python3` (3.9)
-every build fails with a bare `SyntaxError` far from its cause.
-
-The dialog checks the interpreter first and says so plainly. Its **Python**
-field takes a full command, so a wrapper works when the default interpreter is
-too old:
-
-```text
-python3                              # fine on 3.12+ with Pillow installed
-uv run --python 3.13 --with pillow python
-```
-
-## Not checked yet: blank frames
-
-The index checks that an animation *exists*, not that its frames draw anything.
-Building the movelist screen's auto-framing surfaced the gap: `salad_cat`'s
-`walk_back` frames 1-3 are fully transparent, so the character disappears for
-the first three frames of walking backwards. Nothing in validation, the report,
-or the dock reports this today.
-
-It is a natural `animation.blank_frame` check for the index, but it needs an
-image decode per frame rather than a resource read, so it belongs with a
-follow-up that decides where that cost is acceptable.
-
-Current count across shipped packages, for whoever picks it up:
-
-| Character | Blank frames |
-| --- | --- |
-| doge | 0 / 65 |
-| magic_orange_cat | 0 / 250 |
-| salad_cat | **3 / 250** (`walk_back` frames 1-3 of 13) |
-
 ## The unbound-move allowlist
 
 `content/validation/unbound_moves_allowlist.json` declares moves knowingly
@@ -199,5 +74,4 @@ shipped without a binding. It is a shrinking debt list, not a mute button:
 
 Current entries are the Golden Pair's charge-special tiers
 (`magic_circle_l1/l2/l3`, `salad_wave_l1/l2/l3`). Those animations have never
-been built, so all six currently play the light-attack animation when they
-fire.
+been built, so the moves currently render nothing when they fire.

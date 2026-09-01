@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/cpu/cpu_difficulty_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"expert"
+reaction_min_frames = 6
+reaction_max_frames = 10
+decision_error_percent = 4
+decision_interval_frames = 3

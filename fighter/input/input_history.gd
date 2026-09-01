@@ -84,3 +84,24 @@ func debug_string(max_frames: int = 12) -> String:
             token += "H"
         parts.append(token)
     return " ".join(parts)
+
+
+func has_recent_button_press(button: int, max_age_frames: int) -> bool:
+    var max_offset := mini(maxi(0, max_age_frames), _count - 1)
+    for offset in range(max_offset + 1):
+        var frame := get_recent(offset)
+        if frame != null and frame.is_pressed(button):
+            return true
+    return false
+
+func has_recent_relative_direction(facing: int, wanted_relative: int, max_age_frames: int) -> bool:
+    var normalized_facing := -1 if facing < 0 else 1
+    var max_offset := mini(maxi(0, max_age_frames), _count - 1)
+    for offset in range(max_offset + 1):
+        var frame := get_recent(offset)
+        if frame == null or frame.direction_x == 0:
+            continue
+        var relative := 1 if frame.direction_x == normalized_facing else -1
+        if relative == wanted_relative:
+            return true
+    return false

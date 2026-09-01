@@ -9,10 +9,12 @@ extends Control
 
 var formatter := InputDisplayFormatter.new()
 var dummy_source: TrainingDummyInputSource
+var training_controller: TrainingController
 
-func configure(mode: int, source: TrainingDummyInputSource) -> void:
+func configure(mode: int, source: TrainingDummyInputSource, controller: TrainingController = null) -> void:
     visible = mode in [BattleMode.Mode.TRAINING, BattleMode.Mode.TUTORIAL]
     dummy_source = source
+    training_controller = controller
     controls_label.visible = mode == BattleMode.Mode.TRAINING
     guard_label.visible = mode == BattleMode.Mode.TRAINING
     _refresh_guard_label()
@@ -27,11 +29,9 @@ func refresh_guard_mode() -> void:
     _refresh_guard_label()
 
 func _refresh_guard_label() -> void:
-    var mode_name := "OFF"
+    var mode_name := "STAND"
     if dummy_source != null:
-        match dummy_source.guard_mode():
-            TrainingDummyInputSource.GuardMode.STANDING:
-                mode_name = "STAND"
-            TrainingDummyInputSource.GuardMode.CROUCHING:
-                mode_name = "CROUCH"
-    guard_label.text = "DUMMY GUARD  /  %s" % mode_name
+        mode_name = dummy_source.mode_name()
+    var hp_mode := "∞HP" if training_controller != null and training_controller.infinite_hp else "HP"
+    var meter_mode := "∞METER" if training_controller != null and training_controller.infinite_meter else "METER"
+    guard_label.text = "DUMMY / %s    %s    %s" % [mode_name, hp_mode, meter_mode]

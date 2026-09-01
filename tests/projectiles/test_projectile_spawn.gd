@@ -33,18 +33,26 @@ func _advance(battle: BattleSimulation, count: int) -> void:
 func _tap_lv1_special(battle: BattleSimulation) -> void:
     var press_frame := battle.frame_number + 1
     _tick(battle, InputFrame.with_special_press(press_frame))
-    _tick(battle) # released/neutral input starts Lv1 through the M8 charge runtime
+    var release_frame := battle.frame_number + 1
+    _tick(battle, InputFrame.new(release_frame, 0, 0, 0, 0, InputFrame.InputButton.SPECIAL)) # earliest release request
+    # The authored charge contract commits Lv1 only after its 3F minimum.  Keep
+    # releasing through that threshold instead of assuming the legacy tap path.
+    var commit_frame := battle.frame_number + 1
+    _tick(battle, InputFrame.new(commit_frame, 0, 0, 0, 0, InputFrame.InputButton.SPECIAL))
 
 func _test_special_spawn_exactly_once_and_next_frame_movement() -> void:
     var battle := _battle()
     _tap_lv1_special(battle)
     _advance(battle, 13)
-    t.equal(battle.frame_number, 15, "Zone Lv1 MoveRunner reaches move F14 after one M8 charge-entry tick")
+    t.equal(battle.fighter_a.move_runner.move_frame, 15, "Zone Lv1 MoveRunner reaches the authored projectile spawn frame after the legal minimum charge")
     t.equal(battle.projectile_system.active_count(), 0, "No projectile before Special move F15")
     _tick(battle)
-    t.equal(battle.frame_number, 16, "Tap-charge shifts only input entry; projectile still spawns on authoritative move F15")
+    t.equal(battle.fighter_a.move_runner.move_frame, 16, "MoveRunner advances normally after the authoritative F15 spawn")
     t.equal(battle.projectile_system.active_count(), 1, "Special move F15 spawns exactly one projectile")
-    var projectile := battle.projectile_system.active_projectiles()[0]
+    var active := battle.projectile_system.active_projectiles()
+    if active.size() != 1:
+        return # The failed spawn assertion above is authoritative; do not manufacture an indexing SCRIPT ERROR.
+    var projectile := active[0]
     t.equal(projectile.instance_id, 1, "First projectile gets deterministic instance ID 1")
     t.equal(projectile.position_units, Vector2i(50100, BattleSimulation.GROUND_Y_UNITS - 70), "Projectile starts at integer spawn position")
     t.equal(projectile.remaining_lifetime_frames, 120, "New projectile receives no lifetime decrement on spawn frame")
@@ -63,7 +71,11 @@ func _test_spawn_mirrors_with_facing_and_is_detached() -> void:
     t.equal(battle.fighter_a.movement_motor.facing, -1, "Zone starts facing left when opponent is left")
     _tap_lv1_special(battle)
     _advance(battle, 14)
-    var projectile := battle.projectile_system.active_projectiles()[0]
+    var active := battle.projectile_system.active_projectiles()
+    t.equal(active.size(), 1, "Mirrored Lv1 setup spawns exactly one projectile")
+    if active.size() != 1:
+        return
+    var projectile := active[0]
     t.equal(projectile.facing, -1, "Projectile captures simulation facing at spawn")
     t.equal(projectile.position_units.x, 99900, "Spawn offset mirrors by facing")
     battle.fighter_a.movement_motor.facing = 1
@@ -77,7 +89,11 @@ func _test_hitstop_freezes_projectile_motion_and_lifetime() -> void:
     var battle := _battle()
     _tap_lv1_special(battle)
     _advance(battle, 14)
-    var before := battle.projectile_system.active_projectiles()[0]
+    var active := battle.projectile_system.active_projectiles()
+    t.equal(active.size(), 1, "Hitstop setup spawns exactly one projectile")
+    if active.size() != 1:
+        return
+    var before := active[0]
     var before_pos := before.position_units
     var before_life := before.remaining_lifetime_frames
     battle.fighter_a.combatant.hitstop_remaining = 2
@@ -91,11 +107,13 @@ func _test_multiple_concurrent_projectiles() -> void:
     var battle := _battle()
     _tap_lv1_special(battle)
     _advance(battle, 34)
-    t.equal(battle.frame_number, 36, "First Lv1 Special completes its unchanged 35F MoveData timeline after the charge-entry tick")
+    t.equal(battle.frame_number, 37, "First Lv1 Special completes its unchanged MoveData timeline after the legal minimum charge")
     _tap_lv1_special(battle)
     _advance(battle, 14)
     t.equal(battle.projectile_system.active_count(), 2, "Same owner may have two concurrent projectiles")
     var active := battle.projectile_system.active_projectiles()
+    if active.size() != 2:
+        return # Concurrent-count assertion is the test result; avoid invalid index access after it fails.
     t.that(active[0].instance_id != active[1].instance_id, "Concurrent projectiles have unique deterministic IDs")
     t.that(active[0].position_units != active[1].position_units, "Concurrent projectiles maintain independent positions")
     t.that(active[0].remaining_lifetime_frames != active[1].remaining_lifetime_frames, "Concurrent projectiles maintain independent lifetimes")

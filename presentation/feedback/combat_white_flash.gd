@@ -7,14 +7,14 @@ var initial_seconds: float = 0.0
 var peak_alpha: float = 0.0
 var overlay: ColorRect
 
-func configure(alpha_value: float, lifetime_seconds: float) -> void:
+func configure(alpha_value: float, lifetime_seconds: float, color_value: Color = Color.WHITE) -> void:
     peak_alpha = clampf(alpha_value, 0.0, 1.0)
     remaining_seconds = maxf(0.01, lifetime_seconds)
     initial_seconds = remaining_seconds
     layer = 90
     overlay = ColorRect.new()
     overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    overlay.color = Color(1.0, 1.0, 1.0, peak_alpha)
+    overlay.color = Color(color_value.r, color_value.g, color_value.b, peak_alpha)
     add_child(overlay)
     overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 

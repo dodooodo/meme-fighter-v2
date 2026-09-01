@@ -1,0 +1,1665 @@
+[gd_resource type="Resource" load_steps=90 format=3]
+
+[ext_resource type="Script" path="res://presentation/data/production_animation_binding.gd" id="anim"]
+[ext_resource type="Script" path="res://presentation/data/production_character_asset_binding.gd" id="catalog"]
+
+[sub_resource type="Resource" id="b000"]
+script = ExtResource("anim")
+animation_id = &"idle"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "01_待機_害羞_緊張準備"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/01_待機_害羞_緊張準備/11.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/01_待機_害羞_緊張準備/12.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/01_待機_害羞_緊張準備/13.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b001"]
+script = ExtResource("anim")
+animation_id = &"walk_forward"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "02_前走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/02_前走/14.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/02_前走/15.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/02_前走/16.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b002"]
+script = ExtResource("anim")
+animation_id = &"walk_back"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "03_後走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/03_後走/17.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/03_後走/18.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/03_後走/19.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b003"]
+script = ExtResource("anim")
+animation_id = &"crouch"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "04_蹲下"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/04_蹲下/21.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b004"]
+script = ExtResource("anim")
+animation_id = &"jump"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "05_跳躍"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/05_跳躍/22.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/05_跳躍/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b005"]
+script = ExtResource("anim")
+animation_id = &"landing"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "06_落地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/06_落地/24.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b006"]
+script = ExtResource("anim")
+animation_id = &"dash_forward"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "07_前衝"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/07_前衝/25.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/07_前衝/26.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b007"]
+script = ExtResource("anim")
+animation_id = &"backstep"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "08_後撤"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/08_後撤/27.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/08_後撤/28.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/08_後撤/29.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b008"]
+script = ExtResource("anim")
+animation_id = &"guard_stand"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "09_站防"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/09_站防/31.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b009"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a10"
+domain = 5
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "10_站防_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/10_站防_Impact/32.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b010"]
+script = ExtResource("anim")
+animation_id = &"blockstun"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "11_站防硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/11_站防硬直/33.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b011"]
+script = ExtResource("anim")
+animation_id = &"guard_crouch"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "12_蹲防"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/12_蹲防/34.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b012"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a13"
+domain = 5
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "13_蹲防_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/13_蹲防_Impact/35.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b013"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a14"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "14_蹲防硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/14_蹲防硬直/36.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b014"]
+script = ExtResource("anim")
+animation_id = &"stand_light"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "15_Light_Hitstun"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/15_Light_Hitstun/37.webp")
+mode_id = &""
+move_id = &"stand_light"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b015"]
+script = ExtResource("anim")
+animation_id = &"hitstun"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "16_Medium_Hitstun"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/16_Medium_Hitstun/38.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b016"]
+script = ExtResource("anim")
+animation_id = &"stand_heavy"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "17_Heavy_Stagger"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/17_Heavy_Stagger/39.webp")
+mode_id = &""
+move_id = &"stand_heavy"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b017"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a18"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "18_輕攻「那個...妳好」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/18_輕攻「那個...妳好」/41.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/18_輕攻「那個...妳好」/42.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/18_輕攻「那個...妳好」/43.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/18_輕攻「那個...妳好」/44.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/18_輕攻「那個...妳好」/45.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/18_輕攻「那個...妳好」/46.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b018"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a19"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "19_重攻「戀愛頭槌」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/19_重攻「戀愛頭槌」/51.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/19_重攻「戀愛頭槌」/52.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/19_重攻「戀愛頭槌」/53.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/19_重攻「戀愛頭槌」/54.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/19_重攻「戀愛頭槌」/55.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/19_重攻「戀愛頭槌」/56.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b019"]
+script = ExtResource("anim")
+animation_id = &"crouch_low"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "20_下段「卑微求愛掃腿」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/20_下段「卑微求愛掃腿」/61.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/20_下段「卑微求愛掃腿」/62.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/20_下段「卑微求愛掃腿」/63.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/20_下段「卑微求愛掃腿」/64.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/20_下段「卑微求愛掃腿」/65.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/20_下段「卑微求愛掃腿」/66.webp")
+mode_id = &""
+move_id = &"crouch_low"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b020"]
+script = ExtResource("anim")
+animation_id = &"air_attack"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "21_空中攻擊「從天而降的告白」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/21_空中攻擊「從天而降的告白」/71.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/21_空中攻擊「從天而降的告白」/72.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/21_空中攻擊「從天而降的告白」/73.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/21_空中攻擊「從天而降的告白」/74.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/21_空中攻擊「從天而降的告白」/75.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/21_空中攻擊「從天而降的告白」/76.webp")
+mode_id = &""
+move_id = &"air_attack"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b021"]
+script = ExtResource("anim")
+animation_id = &"ground_throw"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "22_普通投技「不要走！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/22_普通投技「不要走！」/81.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/22_普通投技「不要走！」/82.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/22_普通投技「不要走！」/83.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/22_普通投技「不要走！」/84.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/22_普通投技「不要走！」/85.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/22_普通投技「不要走！」/86.webp")
+mode_id = &""
+move_id = &"ground_throw"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b022"]
+script = ExtResource("anim")
+animation_id = &"charge"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "23_Charge_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/23_Charge_Start/91.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b023"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a24"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "24_Charge_Loop"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/24_Charge_Loop/92.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b024"]
+script = ExtResource("anim")
+animation_id = &"goblin_grab_l1"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "25_Lv1「抱一下就好」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/25_Lv1「抱一下就好」/93.webp")
+mode_id = &""
+move_id = &"goblin_grab_l1"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b025"]
+script = ExtResource("anim")
+animation_id = &"goblin_grab_l2"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "26_Lv2「真的一下就好」Step-In"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/26_Lv2「真的一下就好」Step-In/94.webp")
+mode_id = &""
+move_id = &"goblin_grab_l2"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b026"]
+script = ExtResource("anim")
+animation_id = &"goblin_grab_l3"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "27_Lv3「我會對妳負責的！」Rush_Grab"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/27_Lv3「我會對妳負責的！」Rush_Grab/95.webp")
+mode_id = &""
+move_id = &"goblin_grab_l3"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b027"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a28"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "28_成功抱住"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/28_成功抱住/96.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b028"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a29"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "29_Lv1_Whiff_Recovery"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/29_Lv1_Whiff_Recovery/97.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b029"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a30"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "30_Lv2_Whiff_Recovery"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/30_Lv2_Whiff_Recovery/98.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b030"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a31"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "31_Lv3_Catastrophic_Whiff_Recovery"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/31_Lv3_Catastrophic_Whiff_Recovery/99.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b031"]
+script = ExtResource("anim")
+animation_id = &"thrown"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "32_Thrown_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/32_Thrown_Start/101.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b032"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a33"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "33_空中被摔"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/33_空中被摔/102.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b033"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a34"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "34_撞地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/34_撞地/103.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b034"]
+script = ExtResource("anim")
+animation_id = &"knockdown"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "35_Knockdown_Hold"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/35_Knockdown_Hold/104.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b035"]
+script = ExtResource("anim")
+animation_id = &"getup"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "36_起身開始"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/36_起身開始/105.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b036"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a37"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "37_起身中段"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/37_起身中段/106.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b037"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a38"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "38_起身完成"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/38_起身完成/107.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b038"]
+script = ExtResource("anim")
+animation_id = &"ko"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "39_KO_Collapse"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/39_KO_Collapse/108.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b039"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a40"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "40_KO_Hold"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/40_KO_Hold/109.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b040"]
+script = ExtResource("anim")
+animation_id = &"ultimate"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "01_Ultimate_決意"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/01_Ultimate_決意/11.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b041"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a02"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "02_「長老您保重」自我生命犧牲"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/02_「長老您保重」自我生命犧牲/12.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b042"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a03"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "03_變身臨界"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/03_變身臨界/13.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b043"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a04"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "04_戀愛覺醒_Reveal"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/04_戀愛覺醒_Reveal/14.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b044"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a05"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "05_覺醒後第一步"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/05_覺醒後第一步/15.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b045"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a06"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "06_Mode_Handoff"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/06_Mode_Handoff/16.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b046"]
+script = ExtResource("anim")
+animation_id = &"idle"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "07_覺醒_Idle"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/07_覺醒_Idle/21.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/07_覺醒_Idle/22.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/07_覺醒_Idle/23.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b047"]
+script = ExtResource("anim")
+animation_id = &"walk_forward"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "08_強化前走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/08_強化前走/24.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/08_強化前走/25.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/08_強化前走/26.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b048"]
+script = ExtResource("anim")
+animation_id = &"walk_back"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "09_後走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/09_後走/27.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/09_後走/28.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/09_後走/29.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b049"]
+script = ExtResource("anim")
+animation_id = &"crouch"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "10_蹲下"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/10_蹲下/31.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b050"]
+script = ExtResource("anim")
+animation_id = &"jump"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "11_跳躍"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/11_跳躍/32.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/11_跳躍/33.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b051"]
+script = ExtResource("anim")
+animation_id = &"landing"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "12_落地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/12_落地/34.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b052"]
+script = ExtResource("anim")
+animation_id = &"dash_forward"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "13_前衝"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/13_前衝/35.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/13_前衝/36.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b053"]
+script = ExtResource("anim")
+animation_id = &"backstep"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "14_後撤"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/14_後撤/37.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/14_後撤/38.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/14_後撤/39.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b054"]
+script = ExtResource("anim")
+animation_id = &"guard_stand"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "15_站防"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/15_站防/41.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b055"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a16"
+domain = 5
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "16_站防_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/16_站防_Impact/42.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b056"]
+script = ExtResource("anim")
+animation_id = &"blockstun"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "17_站防硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/17_站防硬直/43.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b057"]
+script = ExtResource("anim")
+animation_id = &"guard_crouch"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "18_蹲防"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/18_蹲防/44.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b058"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a19"
+domain = 5
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "19_蹲防_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/19_蹲防_Impact/45.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b059"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a20"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "20_蹲防硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/20_蹲防硬直/46.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b060"]
+script = ExtResource("anim")
+animation_id = &"hitstun"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "21_Light_Hitstun"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/21_Light_Hitstun/47.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b061"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a22"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "22_Medium_Hitstun"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/22_Medium_Hitstun/48.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b062"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a23"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "23_Heavy_Stagger"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/23_Heavy_Stagger/49.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b063"]
+script = ExtResource("anim")
+animation_id = &"stand_light"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "24_Light「那個...妳好」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/24_Light「那個...妳好」/51.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/24_Light「那個...妳好」/52.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/24_Light「那個...妳好」/53.webp")
+mode_id = &"love_awakened"
+move_id = &"stand_light"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b064"]
+script = ExtResource("anim")
+animation_id = &"crouch_low"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "25_Low「卑微求愛掃腿」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/25_Low「卑微求愛掃腿」/54.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/25_Low「卑微求愛掃腿」/55.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/25_Low「卑微求愛掃腿」/56.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/25_Low「卑微求愛掃腿」/57.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/25_Low「卑微求愛掃腿」/58.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/25_Low「卑微求愛掃腿」/59.webp")
+mode_id = &"love_awakened"
+move_id = &"crouch_low"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b065"]
+script = ExtResource("anim")
+animation_id = &"goblin_awakened_heavy"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "26_覺醒_Heavy「戀愛頭槌」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/26_覺醒_Heavy「戀愛頭槌」/61.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/26_覺醒_Heavy「戀愛頭槌」/62.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/26_覺醒_Heavy「戀愛頭槌」/63.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/26_覺醒_Heavy「戀愛頭槌」/64.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/26_覺醒_Heavy「戀愛頭槌」/65.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/26_覺醒_Heavy「戀愛頭槌」/66.webp")
+mode_id = &"love_awakened"
+move_id = &"goblin_awakened_heavy"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b066"]
+script = ExtResource("anim")
+animation_id = &"air_attack"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "27_「從天而降的告白」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/27_「從天而降的告白」/71.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/27_「從天而降的告白」/72.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/27_「從天而降的告白」/73.webp")
+mode_id = &"love_awakened"
+move_id = &"air_attack"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b067"]
+script = ExtResource("anim")
+animation_id = &"goblin_awakened_throw"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "28_強化普通投技「不要走！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/28_強化普通投技「不要走！」/74.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/28_強化普通投技「不要走！」/75.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/28_強化普通投技「不要走！」/76.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/28_強化普通投技「不要走！」/77.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/28_強化普通投技「不要走！」/78.webp", "res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/28_強化普通投技「不要走！」/79.webp")
+mode_id = &"love_awakened"
+move_id = &"goblin_awakened_throw"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b068"]
+script = ExtResource("anim")
+animation_id = &"charge"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "29_Charge_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/29_Charge_Start/81.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b069"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a30"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "30_Charge_Hold"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/30_Charge_Hold/82.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b070"]
+script = ExtResource("anim")
+animation_id = &"goblin_aw_grab_l1"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "31_強化_Lv1「抱一下就好」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/31_強化_Lv1「抱一下就好」/83.webp")
+mode_id = &"love_awakened"
+move_id = &"goblin_aw_grab_l1"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b071"]
+script = ExtResource("anim")
+animation_id = &"goblin_aw_grab_l2"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "32_強化_Lv2「真的一下就好」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/32_強化_Lv2「真的一下就好」/84.webp")
+mode_id = &"love_awakened"
+move_id = &"goblin_aw_grab_l2"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b072"]
+script = ExtResource("anim")
+animation_id = &"goblin_aw_grab_l3"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "33_強化_Lv3「我會對妳負責的！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/33_強化_Lv3「我會對妳負責的！」/85.webp")
+mode_id = &"love_awakened"
+move_id = &"goblin_aw_grab_l3"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b073"]
+script = ExtResource("anim")
+animation_id = &"goblin_awakened_special"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "34_成功擁抱"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/34_成功擁抱/86.webp")
+mode_id = &"love_awakened"
+move_id = &"goblin_awakened_special"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b074"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a35"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "35_Lv1_Lv2_正常後續"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/35_Lv1_Lv2_正常後續/87.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b075"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a36"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "36_Lv2_Whiff"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/36_Lv2_Whiff/88.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b076"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a37"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "37_Lv3_Catastrophic_Whiff"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/37_Lv3_Catastrophic_Whiff/89.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b077"]
+script = ExtResource("anim")
+animation_id = &"thrown"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "38_Mode_Thrown_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/38_Mode_Thrown_Start/91.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b078"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a39"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "39_空中翻滾"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/39_空中翻滾/92.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b079"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a40"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "40_撞地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/40_撞地/93.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b080"]
+script = ExtResource("anim")
+animation_id = &"knockdown"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "41_Knockdown_Hold"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/41_Knockdown_Hold/94.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b081"]
+script = ExtResource("anim")
+animation_id = &"getup"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "42_起身開始"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/42_起身開始/95.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b082"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a43"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "43_起身中段"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/43_起身中段/96.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b083"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a44"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "44_起身完成"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/44_起身完成/97.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b084"]
+script = ExtResource("anim")
+animation_id = &"ko"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "45_KO_Collapse"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/45_KO_Collapse/98.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b085"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a46"
+domain = 1
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_2"
+action_folder = "46_KO_Hold"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_2/46_KO_Hold/99.webp")
+mode_id = &"love_awakened"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b086"]
+script = ExtResource("anim")
+animation_id = &"special_neutral"
+domain = 0
+asset_folder = "哥布林也想談戀愛"
+round_name = &"ROUND_1"
+action_folder = "23_Charge_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/哥布林也想談戀愛/ROUND_1/23_Charge_Start/91.webp")
+mode_id = &""
+move_id = &"special_neutral"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Runtime special body fallback from exact authored charge/release body pose; detached effect remains separately bound."
+
+[resource]
+script = ExtResource("catalog")
+character_id = &"goblin_love"
+display_name = "哥布林也想談戀愛"
+asset_folder = "哥布林也想談戀愛"
+source_inventory_path = "res://assets/production_roster/combat_asset_inventory.json"
+bindings = Array[ExtResource("anim")]([SubResource("b000"), SubResource("b001"), SubResource("b002"), SubResource("b003"), SubResource("b004"), SubResource("b005"), SubResource("b006"), SubResource("b007"), SubResource("b008"), SubResource("b009"), SubResource("b010"), SubResource("b011"), SubResource("b012"), SubResource("b013"), SubResource("b014"), SubResource("b015"), SubResource("b016"), SubResource("b017"), SubResource("b018"), SubResource("b019"), SubResource("b020"), SubResource("b021"), SubResource("b022"), SubResource("b023"), SubResource("b024"), SubResource("b025"), SubResource("b026"), SubResource("b027"), SubResource("b028"), SubResource("b029"), SubResource("b030"), SubResource("b031"), SubResource("b032"), SubResource("b033"), SubResource("b034"), SubResource("b035"), SubResource("b036"), SubResource("b037"), SubResource("b038"), SubResource("b039"), SubResource("b040"), SubResource("b041"), SubResource("b042"), SubResource("b043"), SubResource("b044"), SubResource("b045"), SubResource("b046"), SubResource("b047"), SubResource("b048"), SubResource("b049"), SubResource("b050"), SubResource("b051"), SubResource("b052"), SubResource("b053"), SubResource("b054"), SubResource("b055"), SubResource("b056"), SubResource("b057"), SubResource("b058"), SubResource("b059"), SubResource("b060"), SubResource("b061"), SubResource("b062"), SubResource("b063"), SubResource("b064"), SubResource("b065"), SubResource("b066"), SubResource("b067"), SubResource("b068"), SubResource("b069"), SubResource("b070"), SubResource("b071"), SubResource("b072"), SubResource("b073"), SubResource("b074"), SubResource("b075"), SubResource("b076"), SubResource("b077"), SubResource("b078"), SubResource("b079"), SubResource("b080"), SubResource("b081"), SubResource("b082"), SubResource("b083"), SubResource("b084"), SubResource("b085"), SubResource("b086")])

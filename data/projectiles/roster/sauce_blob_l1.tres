@@ -7,10 +7,10 @@
 [sub_resource type="Resource" id="sauce_status"]
 script = ExtResource("status")
 id = &"sauce"
-duration_frames = 180
-walk_speed_permille = 820
-dash_speed_permille = 780
-backstep_speed_permille = 780
+duration_frames = 120
+walk_speed_permille = 860
+dash_speed_permille = 860
+backstep_speed_permille = 860
 
 [sub_resource type="Resource" id="apply_sauce"]
 script = ExtResource("eff")
@@ -30,6 +30,6 @@ blockstun_frames = 7
 hitstop_attacker = 3
 hitstop_defender = 3
 knockback_x_units = 700
-meter_gain_on_hit = 3
+meter_gain_on_hit = 5
 meter_gain_on_block = 1
 on_hit_effects = Array[ExtResource("eff")]([SubResource("apply_sauce")])

@@ -11,6 +11,8 @@ level_3_move_id = &"salad_wave_l3"
 [resource]
 script = ExtResource("move")
 id = &"special_neutral"
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
 display_name = "拒吃震波 Charge"
 animation_id = &"special_neutral"
 startup_frames = 1

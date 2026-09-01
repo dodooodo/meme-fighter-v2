@@ -40,6 +40,8 @@ func _test_training_rules_and_timer() -> void:
 
 func _test_training_ko_auto_reset_and_projectile_cleanup() -> void:
     var battle := _battle()
+    var configured_start_a := battle.configured_start_position(1)
+    var configured_start_b := battle.configured_start_position(2)
     var special := battle.fighter_a.move_registry.get_move(MoveIds.SPECIAL_NEUTRAL)
     battle.projectile_system.spawn_from_descriptor(battle.fighter_a, MoveIds.SPECIAL_NEUTRAL, 0, special.projectile_spawns[0])
     battle.fighter_b.combatant.hp = 0
@@ -56,4 +58,6 @@ func _test_training_ko_auto_reset_and_projectile_cleanup() -> void:
     t.equal(battle.round_controller.p1_round_wins, 0, "Training score remains zero after reset")
     t.equal(battle.round_controller.p2_round_wins, 0, "Training P2 score remains zero after reset")
     t.equal(battle.fighter_b.combatant.hp, 5000, "Training auto-reset restores KO fighter HP")
+    t.equal(battle.fighter_a.movement_motor.sim_position, configured_start_a, "Training round reset restores simulation-configured P1 start")
+    t.equal(battle.fighter_b.movement_motor.sim_position, configured_start_b, "Training round reset restores simulation-configured P2 start")
     t.that(not battle.round_controller.is_match_over(), "Training never enters MATCH_OVER")

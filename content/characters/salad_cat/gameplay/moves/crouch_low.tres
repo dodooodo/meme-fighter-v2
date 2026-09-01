@@ -9,7 +9,7 @@ offset = Vector2(40, -25)
 size = Vector2(91, 25)
 [sub_resource type="Resource" id="pos_1"]
 script = ExtResource("pos")
-type = 3
+type = 9
 distance_units = 19000
 [sub_resource type="Resource" id="eff_1"]
 script = ExtResource("eff")
@@ -28,9 +28,9 @@ hitstun_frames = 10
 blockstun_frames = 7
 hitstop_attacker = 4
 hitstop_defender = 4
-hit_level = 1
+hit_level = 2
 knockback_x_units = 900
-meter_gain_on_hit = 3
+meter_gain_on_hit = 4
 meter_gain_on_block = 1
 hitbox = SubResource("box_3")
 counter_hit_reaction_type = 3

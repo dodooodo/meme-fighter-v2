@@ -57,12 +57,14 @@ func _test_initial_round_and_timer() -> void:
     t.equal(battle.round_controller.round_number, 1, "New match starts at Round 1")
     t.equal(battle.round_controller.p1_round_wins, 0, "P1 starts at zero round wins")
     t.equal(battle.round_controller.p2_round_wins, 0, "P2 starts at zero round wins")
-    t.equal(battle.round_controller.round_timer_remaining_frames, 5940, "Versus timer starts at deterministic 5940F")
+    t.equal(battle.round_controller.round_timer_remaining_frames, versus.round_timer_frames, "Versus timer starts at configured deterministic duration")
     _tick(battle)
-    t.equal(battle.round_controller.round_timer_remaining_frames, 5939, "One active non-hitstop simulation tick decrements timer exactly once")
+    t.equal(battle.round_controller.round_timer_remaining_frames, versus.round_timer_frames - 1, "One active non-hitstop simulation tick decrements timer exactly once")
 
 func _test_single_ko_post_round_exact_reset() -> void:
     var battle := _battle()
+    var configured_start_a := battle.configured_start_position(1)
+    var configured_start_b := battle.configured_start_position(2)
     _ko(battle.fighter_b)
     _tick(battle)
     t.equal(battle.round_controller.state, RoundController.State.POST_ROUND, "P2 KO enters POST_ROUND")
@@ -79,7 +81,9 @@ func _test_single_ko_post_round_exact_reset() -> void:
     t.equal(battle.frame_number, frame_before_reset + 1, "Global BattleSimulation frame remains monotonic across round reset")
     t.equal(battle.fighter_a.combatant.hp, 5000, "Next round restores P1 HP")
     t.equal(battle.fighter_b.combatant.hp, 5000, "Next round restores P2 HP")
-    t.equal(battle.round_controller.round_timer_remaining_frames, 5940, "Next round timer resets to 5940F")
+    t.equal(battle.round_controller.round_timer_remaining_frames, versus.round_timer_frames, "Next round timer resets to configured duration")
+    t.equal(battle.fighter_a.movement_motor.sim_position, configured_start_a, "Round reset restores configured P1 start")
+    t.equal(battle.fighter_b.movement_motor.sim_position, configured_start_b, "Round reset restores configured P2 start")
 
 func _test_double_ko_draw() -> void:
     var battle := _battle()
@@ -94,6 +98,7 @@ func _test_double_ko_draw() -> void:
 
 func _test_round_reset_clears_runtime_and_preserves_projectile_serial() -> void:
     var battle := _battle(zone, generic)
+    var configured_start_a := battle.configured_start_position(1)
     var special := battle.fighter_a.move_registry.get_move(MoveIds.SPECIAL_NEUTRAL)
     battle.projectile_system.spawn_from_descriptor(battle.fighter_a, MoveIds.SPECIAL_NEUTRAL, 0, special.projectile_spawns[0])
     battle.projectile_system.spawn_from_descriptor(battle.fighter_a, MoveIds.SPECIAL_NEUTRAL, 0, special.projectile_spawns[0])
@@ -113,7 +118,7 @@ func _test_round_reset_clears_runtime_and_preserves_projectile_serial() -> void:
     t.equal(battle.fighter_a.input_history.count(), 0, "Round reset clears InputHistory")
     t.that(not battle.fighter_a.input_buffer.has_pending(battle.frame_number), "Round reset clears InputBuffer")
     t.that(not battle.fighter_a.move_runner.is_running(), "Round reset returns MoveRunner to idle")
-    t.equal(battle.fighter_a.movement_motor.sim_position, Vector2i(50000, BattleSimulation.GROUND_Y_UNITS), "Round reset restores canonical P1 start position")
+    t.equal(battle.fighter_a.movement_motor.sim_position, configured_start_a, "Round reset restores configured P1 start position")
     t.equal(battle.fighter_a.movement_motor.facing, 1, "Round reset restores canonical P1 facing")
     t.equal(battle.fighter_b.movement_motor.facing, -1, "Round reset restores canonical P2 facing")
     t.equal(battle.projectile_system.next_projectile_instance_serial, serial_before, "Round reset still does not rewind projectile instance serial")
@@ -139,6 +144,10 @@ func _test_round_wins_and_match_over_lock() -> void:
 
 func _test_full_match_reset() -> void:
     var battle := _battle(zone, generic)
+    var configured_start_a := battle.configured_start_position(1)
+    var configured_start_b := battle.configured_start_position(2)
+    var character_a := battle.fighter_a.data
+    var character_b := battle.fighter_b.data
     var special := battle.fighter_a.move_registry.get_move(MoveIds.SPECIAL_NEUTRAL)
     battle.projectile_system.spawn_from_descriptor(battle.fighter_a, MoveIds.SPECIAL_NEUTRAL, 0, special.projectile_spawns[0])
     _advance(battle, 4)
@@ -151,6 +160,9 @@ func _test_full_match_reset() -> void:
     t.equal(battle.projectile_system.active_count(), 0, "Full reset clears active projectiles")
     t.equal(battle.projectile_system.next_projectile_instance_serial, ProjectileSystem.INITIAL_INSTANCE_SERIAL, "Full reset resets projectile serial")
     t.equal(battle.fighter_a.meter.get_value(), 0, "Full reset clears meter")
+    t.equal(battle.fighter_a.movement_motor.sim_position, configured_start_a, "Full reset restores configured P1 start")
+    t.equal(battle.fighter_b.movement_motor.sim_position, configured_start_b, "Full reset restores configured P2 start")
+    t.that(battle.fighter_a.data == character_a and battle.fighter_b.data == character_b, "Full reset preserves configured CharacterData identity")
 
 func _test_post_round_input_and_contact_suppression() -> void:
     var battle := _battle(generic, rush)

@@ -13,6 +13,8 @@ var up_pressed: bool = false
 var down_held: bool = false
 var forward_held: bool = false
 var back_held: bool = false
+var forward_pressed: bool = false
+var throw_chord_pressed: bool = false
 var dash_forward_pressed: bool = false
 var backstep_pressed: bool = false
 
@@ -51,6 +53,13 @@ func update(frame: InputFrame, facing: int, history: InputHistory = null) -> voi
 
     var previous_frame: InputFrame = history.get_recent(1) if history != null else null
     up_pressed = up_held and (previous_frame == null or previous_frame.direction_y <= 0)
+    var previous_forward := previous_frame != null and previous_frame.direction_x == _facing_at_parse
+    forward_pressed = forward_held and not previous_forward
+    # Canonical mobile throw chord: Forward + Heavy accepts a ±3F ordering tolerance.
+    # Heavy-first conversion is completed by the HFSM while the just-started Heavy is still in its first 3 startup frames.
+    var recent_forward := forward_held or (history != null and history.has_recent_relative_direction(_facing_at_parse, 1, 3))
+    var recent_heavy_press := history != null and history.has_recent_button_press(InputFrame.InputButton.HEAVY, 3)
+    throw_chord_pressed = (frame.is_pressed(InputFrame.InputButton.HEAVY) and recent_forward) or (forward_pressed and recent_heavy_press)
     # Formal gameplay path requires InputHistory. Standalone parser calls remain edge-safe but do not recognize double taps.
     dash_forward_pressed = DirectionCommandRecognizer.recognize_forward_dash(history, _facing_at_parse) if history != null else false
     backstep_pressed = DirectionCommandRecognizer.recognize_backstep(history, _facing_at_parse) if history != null else false
@@ -74,6 +83,8 @@ func update(frame: InputFrame, facing: int, history: InputHistory = null) -> voi
 func action_pressed_intent() -> ActionIntent:
     # Deterministic same-frame priority: ULTIMATE > SPECIAL > HEAVY (including Throw mapping) > LIGHT.
     var action_button := 0
+    if throw_chord_pressed:
+        return ActionIntent.new(InputFrame.InputButton.HEAVY, _source_frame, _facing_at_parse, _direction_y, _facing_at_parse)
     if ultimate_pressed:
         action_button = InputFrame.InputButton.ULTIMATE
     elif special_pressed:

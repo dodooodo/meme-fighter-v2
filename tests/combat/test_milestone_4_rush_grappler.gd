@@ -111,8 +111,9 @@ func _test_rush_ground_movement_runtime() -> void:
 func _advance_attack_to_contact(battle: BattleSimulation, first: InputFrame, startup: int, guard: bool = false) -> void:
     _tick(battle, first, _guard(1) if guard else null)
     if first.is_pressed(InputFrame.InputButton.SPECIAL):
-        var release_frame := battle.frame_number + 1
-        _tick(battle, null, InputFrame.new(release_frame, 0, 0, InputFrame.InputButton.GUARD, 0, 0) if guard else null)
+        for _i in range(2):
+            var release_frame := battle.frame_number + 1
+            _tick(battle, InputFrame.new(release_frame, 0, 0, 0, 0, InputFrame.InputButton.SPECIAL), InputFrame.new(release_frame, 0, 0, InputFrame.InputButton.GUARD, 0, 0) if guard else null)
     for _i in range(startup):
         var f := battle.frame_number + 1
         _tick(battle, null, InputFrame.new(f, 0, 0, InputFrame.InputButton.GUARD, 0, 0) if guard else null)
@@ -121,7 +122,7 @@ func _test_rush_damage_runtime() -> void:
     var light := _battle()
     _advance_attack_to_contact(light, InputFrame.with_light_press(1), 4)
     t.equal(light.fighter_b.combatant.hp, 4955, "Rush Light actual simulation deals 45")
-    t.equal(light.fighter_a.meter.get_value(), 35, "Rush Light actual HIT gains +7")
+    t.equal(light.fighter_a.meter.get_value(), 7, "Rush Light actual HIT gains +7")
 
     var heavy := _battle()
     _advance_attack_to_contact(heavy, InputFrame.with_heavy_press(1), 9)
@@ -134,12 +135,12 @@ func _test_rush_damage_runtime() -> void:
     var special := _battle()
     _advance_attack_to_contact(special, InputFrame.with_special_press(1), 8)
     t.equal(special.fighter_b.combatant.hp, 4900, "Rush Special actual simulation deals 100")
-    t.equal(special.fighter_a.meter.get_value(), 80, "Rush Special actual HIT gains +16")
+    t.equal(special.fighter_a.meter.get_value(), 16, "Rush Special actual HIT gains +16")
 
     var blocked := _battle()
     _advance_attack_to_contact(blocked, InputFrame.with_special_press(1), 8, true)
     t.equal(blocked.fighter_b.combatant.hp, 5000, "Rush Special BLOCK causes no chip damage")
-    t.equal(blocked.fighter_a.meter.get_value(), 35, "Rush Special actual BLOCK gains +7")
+    t.equal(blocked.fighter_a.meter.get_value(), 7, "Rush Special actual BLOCK gains +7")
 
 func _start_throw_active(fighter: Fighter) -> void:
     var move := fighter.move_registry.get_move(MoveIds.GROUND_THROW)
@@ -151,8 +152,10 @@ func _start_throw_active(fighter: Fighter) -> void:
 func _test_rush_throw_runtime_and_range() -> void:
     var actual := _battle(rush, generic, 50000, 57000)
     _advance_attack_to_contact(actual, InputFrame.with_heavy_press(1, 1), 5, true)
+    for _i in range(6):
+        _tick(actual, null, _guard(actual.frame_number + 1))
     t.equal(actual.fighter_b.combatant.hp, 4850, "Rush Forward+Heavy actual throw deals 150")
-    t.equal(actual.fighter_a.meter.get_value(), 90, "Rush actual throw gains +18")
+    t.equal(actual.fighter_a.meter.get_value(), 18, "Rush actual throw gains +18")
     t.equal(actual.fighter_b.state_machine.state, FighterStateMachine.State.THROWN, "Guard remains throwable by generic ThrowSystem")
 
     var generic_range := _battle(generic, rush, 50000, 63600)
@@ -174,7 +177,7 @@ func _test_rush_throw_runtime_and_range() -> void:
     var attacking := _battle(rush, generic, 50000, 57000)
     _start_throw_active(attacking.fighter_a)
     attacking.fighter_b.state_machine.transition_to(FighterStateMachine.State.GROUND_ATTACK)
-    t.that(attacking.throw_system.build_throw_contact(attacking.fighter_a, attacking.fighter_b) == null, "Attack state remains unthrowable")
+    t.that(attacking.throw_system.build_throw_contact(attacking.fighter_a, attacking.fighter_b) != null, "Current normal-attack state remains throwable until a protected reaction state begins")
 
 func _runner_for(move_id: StringName, frame: int, hit: bool, block: bool) -> MoveRunner:
     var runner := MoveRunner.new()

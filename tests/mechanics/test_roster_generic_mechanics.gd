@@ -38,6 +38,6 @@ func _test_temporary_entity_primitives() -> void:
     t.equal(system.capture_state().size(), 0, "Empty temporary entity state captures canonically")
 
 func _test_rules_versions() -> void:
-    t.equal(BattleStateSnapshot.VERSION, 8, "Authoritative snapshot schema is v8")
+    t.equal(BattleStateSnapshot.VERSION, 10, "Authoritative snapshot schema is v10")
     t.equal(ReplayFormat.SCHEMA_VERSION, 1, "Replay payload schema remains input-only v1")
-    t.equal(ReplayFormat.COMBAT_RULES_VERSION, 4, "Combat rules compatibility is v4")
+    t.equal(ReplayFormat.COMBAT_RULES_VERSION, 5, "Combat rules compatibility is v5")

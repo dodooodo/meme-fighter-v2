@@ -1,9 +1,11 @@
 [gd_resource type="Resource" load_steps=50 format=3]
 
 [ext_resource type="Script" path="res://presentation/data/character_presentation_data.gd" id="data"]
-[ext_resource type="PackedScene" path="res://presentation/visuals/production/niu_lai_visual.tscn" id="visual"]
+[ext_resource type="PackedScene" path="res://presentation/visuals/production/inventory_bound_fighter_visual.tscn" id="visual"]
 [ext_resource type="Script" path="res://presentation/data/state_presentation_binding.gd" id="state"]
 [ext_resource type="Script" path="res://presentation/data/move_presentation_binding.gd" id="move"]
+
+[ext_resource type="Resource" path="res://presentation/resources/production_asset_bindings/niu_lai.tres" id="prod_catalog"]
 
 [sub_resource type="Resource" id="s_idle"]
 script = ExtResource("state")
@@ -251,3 +253,4 @@ visual_scale = 1.0
 placeholder_color = Color(0.91, 0.64, 0.12, 1)
 state_bindings = Array[ExtResource("state")]([SubResource("s_idle"), SubResource("s_idle_c3"), SubResource("s_walk_forward"), SubResource("s_walk_forward_c2"), SubResource("s_walk_back"), SubResource("s_crouch"), SubResource("s_charge"), SubResource("s_jump"), SubResource("s_landing"), SubResource("s_guard_stand"), SubResource("s_guard_stand_c1"), SubResource("s_guard_stand_c2"), SubResource("s_guard_stand_c3"), SubResource("s_guard_crouch"), SubResource("s_guard_crouch_c1"), SubResource("s_guard_crouch_c2"), SubResource("s_guard_crouch_c3"), SubResource("s_hitstun"), SubResource("s_blockstun"), SubResource("s_thrown"), SubResource("s_knockdown"), SubResource("s_getup"), SubResource("s_ko"), SubResource("s_dash"), SubResource("s_dash_c2"), SubResource("s_backstep")])
 move_bindings = Array[ExtResource("move")]([SubResource("m_light"), SubResource("m_light_c3"), SubResource("m_heavy"), SubResource("m_heavy_c2"), SubResource("m_low"), SubResource("m_low_c2"), SubResource("m_low_c3"), SubResource("m_air"), SubResource("m_air_c2"), SubResource("m_air_c3"), SubResource("m_throw"), SubResource("m_special"), SubResource("m_special_l1"), SubResource("m_special_l2"), SubResource("m_special_l3"), SubResource("m_ultimate"), SubResource("m_ultimate_c1"), SubResource("m_ultimate_c2"), SubResource("m_ultimate_c3")])
+production_asset_binding = ExtResource("prod_catalog")

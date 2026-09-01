@@ -24,6 +24,7 @@ var mode: ModeComponent = ModeComponent.new()
 var defense_modifiers: DefenseModifierComponent = DefenseModifierComponent.new()
 var mechanics_runtime: FighterMechanicsRuntime = FighterMechanicsRuntime.new()
 var move_resolver: FighterMoveResolver = FighterMoveResolver.new()
+var combo_scaling: ComboScalingRuntime = ComboScalingRuntime.new()
 
 func configure(
     p_fighter_id: int,
@@ -55,6 +56,7 @@ func configure(
     defense_modifiers.configure(data.mechanics)
     mechanics_runtime.configure(data.mechanics)
     move_resolver = FighterMoveResolver.new()
+    combo_scaling = ComboScalingRuntime.new()
     movement_motor.configure(start_position_units, stage_left_units, stage_right_units, ground_y_units)
 
 
@@ -80,6 +82,7 @@ func reset_for_round(
     statuses.reset_for_round()
     mode.reset_for_round()
     mechanics_runtime.reset_for_round()
+    combo_scaling.reset()
     movement_motor.configure(
         start_position_units,
         movement_motor.stage_left_units,
@@ -99,11 +102,9 @@ func ingest_input(frame: InputFrame) -> void:
     mechanics_runtime.observe_control_context(state_machine, input_parser)
 
 func pre_tick(current_frame: int) -> bool:
-    var panic_id := mechanics_runtime.panic_status_id()
-    if input_parser.backstep_pressed and panic_id != &"" and statuses.has_status(panic_id):
-        statuses.remove(panic_id)
-        mechanics_runtime.panic_backstep_consumed_this_tick = true
-    var started := state_machine.pre_tick(input_parser, input_buffer, move_runner, move_registry, meter, combatant, current_frame, data, mode, resources, move_resolver, mechanics_runtime)
+    # Panic Exit is consumed only by the state machine when a Backstep actually
+    # begins. Input recognition alone must not spend a pending optional escape.
+    var started := state_machine.pre_tick(input_parser, input_buffer, move_runner, move_registry, meter, combatant, current_frame, data, mode, resources, move_resolver, mechanics_runtime, combo_scaling, statuses)
     if started:
         hitbox_owner.begin_attack_instance(move_runner.attack_instance_id)
         mechanics_runtime.begin_move_defenses(move_runner.current_move, move_runner.attack_instance_id)
@@ -114,7 +115,7 @@ func pre_tick(current_frame: int) -> bool:
     return started
 
 func movement_tick() -> void:
-    movement_motor.tick(state_machine, combatant, data, input_parser, move_runner, statuses, mode, mechanics_runtime)
+    movement_motor.tick(state_machine, combatant, data, input_parser, move_runner, statuses, mode, mechanics_runtime, resources)
 
 func finalize_move_tick() -> void:
     move_runner.finalize_tick(combatant.hitstop_remaining > 0)
@@ -122,6 +123,7 @@ func finalize_move_tick() -> void:
 func status_tick() -> void:
     var frozen := combatant.hitstop_remaining > 0
     combatant.tick_statuses()
+    state_machine.tick_universal_protection(frozen)
     statuses.tick(frozen)
     mechanics_runtime.tick(frozen)
     var was_last_stand := mechanics_runtime.last_stand_active
@@ -146,6 +148,7 @@ func status_tick() -> void:
                 hitbox_owner.begin_attack_instance(move_runner.attack_instance_id)
                 mechanics_runtime.begin_move_defenses(expiry_move, move_runner.attack_instance_id)
                 state_machine.transition_to(FighterStateMachine.State.GROUND_ATTACK)
+        resources.set_value(resource_id, 0)
 
 func post_tick() -> void:
     state_machine.post_tick(move_runner, combatant, input_buffer, input_parser, movement_motor, data)
@@ -157,6 +160,43 @@ func update_facing(opponent_x_units: int) -> void:
 
 func position_pixels() -> Vector2:
     return movement_motor.position_pixels()
+
+# Stable read-only boundary for external observers. Every value derives from an
+# existing authoritative component; no state is cached or duplicated here.
+func is_grounded() -> bool:
+    return not movement_motor.is_airborne()
+
+func is_airborne() -> bool:
+    return movement_motor.is_airborne()
+
+func has_status(id: StringName) -> bool:
+    return statuses.has_status(id)
+
+func status_remaining(id: StringName) -> int:
+    return statuses.remaining_frames(id)
+
+func get_resource_value(id: StringName) -> int:
+    return resources.get_value(id)
+
+func get_active_mode_id() -> StringName:
+    return mode.active_mode_id
+
+func get_mode_remaining_frames() -> int:
+    return mode.remaining_frames
+
+func has_move(id: StringName) -> bool:
+    return move_registry.has_move(id)
+
+func has_charge_special() -> bool:
+    var move := move_registry.get_move(MoveIds.SPECIAL_NEUTRAL)
+    return move != null and move.charge_special_data != null
+
+func can_afford_move(id: StringName) -> bool:
+    var move := move_registry.get_move(id)
+    return move != null and meter.can_spend(move.meter_cost)
+
+func capture_combat_read() -> Dictionary:
+    return FighterReadView.capture(self)
 
 func debug_summary(current_frame: int) -> String:
     var move_name := String(move_runner.current_move_id()) if move_runner.is_running() else "-"
@@ -215,7 +255,7 @@ func debug_summary(current_frame: int) -> String:
         state_machine.getup_remaining,
         buffer_detail,
         last_result,
-    ]
+    ] + " combo=%d@%d%% dmg=%d dc=%d" % [combo_scaling.hit_count, combo_scaling.current_scale_percent, combo_scaling.combo_damage, combo_scaling.dash_cancel_count]
 
 func enter_forced_stand(frames: int) -> void:
     move_runner.interrupt()

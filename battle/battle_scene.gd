@@ -15,6 +15,8 @@ var replay_directory: String = TelemetryReplayStore.DEFAULT_DIRECTORY
 var _match_finalized: bool = true
 var training_dummy_source: TrainingDummyInputSource
 var _training_guard_mode: int = TrainingDummyInputSource.GuardMode.OFF
+var _training_dummy_mode: int = TrainingDummyInputSource.DummyMode.STAND
+var training_controller: TrainingController = TrainingController.new()
 @export var character_a_data: CharacterData
 @export var character_b_data: CharacterData
 @export var character_a_presentation: CharacterPresentationData
@@ -30,6 +32,7 @@ var _training_guard_mode: int = TrainingDummyInputSource.GuardMode.OFF
 @onready var mode_label: Label = $CanvasLayer/ModeIndicator
 @onready var training_overlay: TrainingOverlay = $CanvasLayer/TrainingOverlay
 @onready var tutorial_overlay: TutorialOverlay = $CanvasLayer/TutorialOverlay
+@onready var post_match_prompt: Label = $CanvasLayer/PostMatchPrompt
 
 func _ready() -> void:
     telemetry_service = get_node_or_null("/root/Telemetry") as TelemetryService
@@ -80,30 +83,49 @@ func _unhandled_key_input(event: InputEvent) -> void:
         KEY_G:
             if battle_mode == BattleMode.Mode.TRAINING and training_dummy_source != null:
                 _training_guard_mode = training_dummy_source.cycle_guard_mode()
+                _training_dummy_mode = training_dummy_source.dummy_mode()
+                training_overlay.refresh_guard_mode()
+        KEY_F6:
+            if battle_mode == BattleMode.Mode.TRAINING and training_dummy_source != null:
+                _training_dummy_mode = training_dummy_source.cycle_dummy_mode()
+                training_overlay.refresh_guard_mode()
+        KEY_F7:
+            if battle_mode == BattleMode.Mode.TRAINING:
+                training_controller.set_infinite_hp(not training_controller.infinite_hp)
+                training_overlay.refresh_guard_mode()
+        KEY_F8:
+            if battle_mode == BattleMode.Mode.TRAINING:
+                training_controller.set_infinite_meter(not training_controller.infinite_meter)
+                training_overlay.refresh_guard_mode()
+        KEY_F9:
+            if battle_mode == BattleMode.Mode.TRAINING:
+                training_controller.reset_positions()
                 training_overlay.refresh_guard_mode()
         KEY_ESCAPE:
             get_tree().change_scene_to_file("res://frontend/mode_select_scene.tscn")
 
 func _reset_battle() -> void:
     _finalize_match("reset")
+    post_match_prompt.visible = false
     var load_started_usec := Time.get_ticks_usec()
     var source_p1: InputSource = BattleInputWiring.create_p1_source()
     var source_p2: InputSource = BattleInputWiring.create_p2_source(battle_mode)
     var cpu_source := source_p2 as CpuInputSource
     training_dummy_source = source_p2 as TrainingDummyInputSource
     if training_dummy_source != null:
-        training_dummy_source.set_guard_mode(_training_guard_mode)
+        training_dummy_source.set_dummy_mode(_training_dummy_mode)
 
     simulation = BattleSimulation.new()
-    simulation.configure(
+    simulation.configure_standard(
         character_a_data,
         character_b_data,
         source_p1,
         source_p2,
-        Vector2i(50000, BattleSimulation.GROUND_Y_UNITS),
-        Vector2i(78000, BattleSimulation.GROUND_Y_UNITS),
         match_rules_data
     )
+    if training_dummy_source != null:
+        training_dummy_source.bind_context(simulation.fighter_b)
+    training_controller.configure(simulation, battle_mode == BattleMode.Mode.TRAINING)
     if cpu_source != null and not cpu_source.bind_context(simulation.fighter_b, simulation.fighter_a, simulation):
         push_error("CpuInputSource context binding failed")
         telemetry_service.record_error("CPU_CONTEXT_BIND_FAILED", "CPU input context binding failed")
@@ -133,7 +155,7 @@ func _reset_battle() -> void:
     battle_view.set_simulation(simulation)
     hitbox_debugger.set_simulation(simulation)
     mode_label.text = "%s%s" % [BattleMode.display_name(battle_mode), " | P2 [CPU]" if battle_mode == BattleMode.Mode.VS_CPU else ""]
-    training_overlay.configure(battle_mode, training_dummy_source)
+    training_overlay.configure(battle_mode, training_dummy_source, training_controller)
     tutorial_overlay.configure(battle_mode)
     var asset_load_started_usec := Time.get_ticks_usec()
     if not presentation_controller.configure(simulation, character_a_presentation, character_b_presentation, hud, round_overlay):
@@ -150,6 +172,18 @@ func _consume_simulation_events(events: Array[CombatEvent]) -> void:
     for event in events:
         if event != null and event.type == CombatEvent.EventType.MATCH_ENDED:
             _finalize_match("completed")
+            _show_post_match_prompt()
+
+func _show_post_match_prompt() -> void:
+    if simulation == null:
+        return
+    var winner := "MATCH COMPLETE"
+    if simulation.round_controller.match_winner == RoundController.Participant.P1:
+        winner = "P1 WINS THE MATCH"
+    elif simulation.round_controller.match_winner == RoundController.Participant.P2:
+        winner = "P2 WINS THE MATCH"
+    post_match_prompt.text = "%s\nR  REMATCH     ESC  CHARACTER SELECT" % winner
+    post_match_prompt.visible = true
 
 func _finalize_match(disconnect_reason: String) -> void:
     if _match_finalized or simulation == null or telemetry_service == null:

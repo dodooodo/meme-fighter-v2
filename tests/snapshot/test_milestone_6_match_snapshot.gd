@@ -46,7 +46,7 @@ func _test_active_round_snapshot_fields_and_restore() -> void:
     battle.round_controller.p1_round_wins = 1
     battle.round_controller.round_timer_remaining_frames = 2417
     var snapshot := battle.capture_state()
-    t.equal(snapshot.version, 8, "M6 Battle snapshot schema version is roster v8")
+    t.equal(snapshot.version, BattleStateSnapshot.VERSION, "Current snapshot schema follows BattleStateSnapshot.VERSION")
     t.equal(snapshot.round_state.rules_id, &"versus", "Snapshot captures stable MatchRules ID")
     t.equal(snapshot.round_state.state, RoundController.State.ROUND_ACTIVE, "Snapshot captures ROUND_ACTIVE")
     t.equal(snapshot.round_state.round_number, 2, "Snapshot captures round number")

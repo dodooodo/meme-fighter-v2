@@ -23,6 +23,7 @@ enum Type {
     TARGET_GROUNDED,
     TARGET_GRABBABLE,
     TARGET_NOT_IN_ORDINARY_HITSTUN,
+    RESOURCE_AT_MOVE_START_AT_LEAST,
 }
 
 @export var type: Type = Type.ALWAYS

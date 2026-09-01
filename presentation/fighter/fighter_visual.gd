@@ -28,6 +28,10 @@ func set_facing(facing: int) -> void:
 func set_visual_visible(value: bool) -> void:
     visible = value
 
+# Presentation-only mode hint supplied from authoritative ModeComponent.
+func apply_presentation_mode_id(_mode_id: StringName) -> void:
+    pass
+
 func socket_world_position(socket_id: int, custom_offset: Vector2 = Vector2.ZERO) -> Vector2:
     var socket_key := _socket_key(socket_id)
     var local_offset := Vector2.ZERO

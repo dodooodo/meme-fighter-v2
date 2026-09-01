@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ck80fvatu1ab1"
+
+[deps]
+
+files=["res://assets/production_roster/source/export_manifest.round.translation", "res://assets/production_roster/source/export_manifest.image.translation", "res://assets/production_roster/source/export_manifest.frame.translation", "res://assets/production_roster/source/export_manifest.pose.translation", "res://assets/production_roster/source/export_manifest.action.translation", "res://assets/production_roster/source/export_manifest.output.translation", "res://assets/production_roster/source/export_manifest.source.translation", "res://assets/production_roster/source/export_manifest.crop.translation", "res://assets/production_roster/source/export_manifest.crop.translation", "res://assets/production_roster/source/export_manifest.crop.translation", "res://assets/production_roster/source/export_manifest.crop.translation", "res://assets/production_roster/source/export_manifest.crop.translation", "res://assets/production_roster/source/export_manifest.output.translation", "res://assets/production_roster/source/export_manifest.source.translation", "res://assets/production_roster/source/export_manifest.manual.translation"]
+
+source_file="res://assets/production_roster/source/export_manifest.csv"
+dest_files=["res://assets/production_roster/source/export_manifest.round.translation", "res://assets/production_roster/source/export_manifest.image.translation", "res://assets/production_roster/source/export_manifest.frame.translation", "res://assets/production_roster/source/export_manifest.pose.translation", "res://assets/production_roster/source/export_manifest.action.translation", "res://assets/production_roster/source/export_manifest.output.translation", "res://assets/production_roster/source/export_manifest.source.translation", "res://assets/production_roster/source/export_manifest.crop.translation", "res://assets/production_roster/source/export_manifest.crop.translation", "res://assets/production_roster/source/export_manifest.crop.translation", "res://assets/production_roster/source/export_manifest.crop.translation", "res://assets/production_roster/source/export_manifest.crop.translation", "res://assets/production_roster/source/export_manifest.output.translation", "res://assets/production_roster/source/export_manifest.source.translation", "res://assets/production_roster/source/export_manifest.manual.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

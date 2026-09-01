@@ -6,6 +6,7 @@ extends Node
 @onready var projectile_presenter: ProjectileVisualPresenter = $World/Projectiles
 @onready var vfx_presenter: CombatVfxPresenter = $World/VFX
 @onready var world_effect_presenter: WorldEffectPresenter = $World/WorldEffects
+@onready var temporary_entity_presenter: TemporaryEntityVisualPresenter = $World/TemporaryEntities
 @onready var ultimate_screen_presenter: UltimateScreenPresenter = $UltimateScreens
 @onready var audio_presenter: CombatAudioPresenter = $Audio
 @onready var camera_controller: BattleCameraController = $World/CameraFeedback
@@ -52,6 +53,7 @@ func configure(
         return false
     var presentations: Array[CharacterPresentationData] = [p1_data, p2_data]
     projectile_presenter.configure(simulation, presentations)
+    temporary_entity_presenter.configure(simulation, presentations)
     world_effect_presenter.configure(presentations, {
         simulation.fighter_a.fighter_id: p1_controller,
         simulation.fighter_b.fighter_id: p2_controller,
@@ -75,6 +77,7 @@ func sync_from_simulation() -> void:
     p1_controller.sync_from_simulation()
     p2_controller.sync_from_simulation()
     projectile_presenter.sync_from_simulation()
+    temporary_entity_presenter.sync_from_simulation()
     camera_controller.sync_follow()
     if hud != null:
         hud.update_from_simulation(simulation)
@@ -195,6 +198,8 @@ func clear_runtime_visuals() -> void:
     p2_controller = null
     if is_instance_valid(projectile_presenter):
         projectile_presenter.clear_all()
+    if is_instance_valid(temporary_entity_presenter):
+        temporary_entity_presenter.clear_all()
     if is_instance_valid(vfx_presenter):
         vfx_presenter.clear_all()
     if is_instance_valid(world_effect_presenter):

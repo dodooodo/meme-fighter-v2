@@ -11,6 +11,8 @@ enum Type {
     RESET_TO_MID_RANGE,
     PUSH_BOTH_APART,
     CORNER_SAFE_RESET,
+    # Outward-only spacing: increases separation up to distance_units but never pulls.
+    PUSH_TO_MINIMUM_SEPARATION,
 }
 
 @export var type: Type = Type.NONE

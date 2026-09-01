@@ -1,0 +1,1551 @@
+[gd_resource type="Resource" load_steps=84 format=3]
+
+[ext_resource type="Script" path="res://presentation/data/production_animation_binding.gd" id="anim"]
+[ext_resource type="Script" path="res://presentation/data/production_character_asset_binding.gd" id="catalog"]
+
+[sub_resource type="Resource" id="b000"]
+script = ExtResource("anim")
+animation_id = &"idle"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "01_Panic_Idle_緊張待機"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/01_Panic_Idle_緊張待機/11.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/01_Panic_Idle_緊張待機/12.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/01_Panic_Idle_緊張待機/13.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/01_Panic_Idle_緊張待機/14.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/01_Panic_Idle_緊張待機/15.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/01_Panic_Idle_緊張待機/16.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b001"]
+script = ExtResource("anim")
+animation_id = &"walk_forward"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "02_前走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/02_前走/21.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/02_前走/22.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/02_前走/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b002"]
+script = ExtResource("anim")
+animation_id = &"walk_back"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "03_後走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/03_後走/24.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/03_後走/25.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/03_後走/26.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b003"]
+script = ExtResource("anim")
+animation_id = &"crouch"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "04_蹲下"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/04_蹲下/31.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b004"]
+script = ExtResource("anim")
+animation_id = &"jump"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "05_跳躍"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/05_跳躍/32.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/05_跳躍/33.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/05_跳躍/34.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/05_跳躍/35.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b005"]
+script = ExtResource("anim")
+animation_id = &"landing"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "06_Landing"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/06_Landing/36.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b006"]
+script = ExtResource("anim")
+animation_id = &"stand_light"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "07_輕攻「不要過來拳」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/07_輕攻「不要過來拳」/41.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/07_輕攻「不要過來拳」/42.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/07_輕攻「不要過來拳」/43.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/07_輕攻「不要過來拳」/44.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/07_輕攻「不要過來拳」/45.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/07_輕攻「不要過來拳」/46.webp")
+mode_id = &""
+move_id = &"stand_light"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b007"]
+script = ExtResource("anim")
+animation_id = &"stand_heavy"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "08_重攻「救命亂抓」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/08_重攻「救命亂抓」/51.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/08_重攻「救命亂抓」/52.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/08_重攻「救命亂抓」/53.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/08_重攻「救命亂抓」/54.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/08_重攻「救命亂抓」/55.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/08_重攻「救命亂抓」/56.webp")
+mode_id = &""
+move_id = &"stand_heavy"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b008"]
+script = ExtResource("anim")
+animation_id = &"crouch_low"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "09_下段「尾巴被踩到了！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/09_下段「尾巴被踩到了！」/61.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/09_下段「尾巴被踩到了！」/62.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/09_下段「尾巴被踩到了！」/63.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/09_下段「尾巴被踩到了！」/64.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/09_下段「尾巴被踩到了！」/65.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/09_下段「尾巴被踩到了！」/66.webp")
+mode_id = &""
+move_id = &"crouch_low"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b009"]
+script = ExtResource("anim")
+animation_id = &"air_attack"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "10_空中攻擊「空中炸毛亂抓」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/10_空中攻擊「空中炸毛亂抓」/71.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/10_空中攻擊「空中炸毛亂抓」/72.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/10_空中攻擊「空中炸毛亂抓」/73.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/10_空中攻擊「空中炸毛亂抓」/74.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/10_空中攻擊「空中炸毛亂抓」/75.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/10_空中攻擊「空中炸毛亂抓」/76.webp")
+mode_id = &""
+move_id = &"air_attack"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b010"]
+script = ExtResource("anim")
+animation_id = &"guard_stand"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "11_站防"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/11_站防/81.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b011"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a12"
+domain = 5
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "12_Standing_Guard_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/12_Standing_Guard_Impact/82.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b012"]
+script = ExtResource("anim")
+animation_id = &"blockstun"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "13_Standing_Blockstun"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/13_Standing_Blockstun/83.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b013"]
+script = ExtResource("anim")
+animation_id = &"guard_crouch"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "14_蹲防_縮毛球"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/14_蹲防_縮毛球/84.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b014"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a15"
+domain = 5
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "15_Crouching_Guard_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/15_Crouching_Guard_Impact/85.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b015"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a16"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "16_Crouching_Blockstun"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/16_Crouching_Blockstun/86.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b016"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a17"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "17_Light_High_Hit"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/17_Light_High_Hit/91.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b017"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a18"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "18_Light_Body_Hit"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/18_Light_Body_Hit/92.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b018"]
+script = ExtResource("anim")
+animation_id = &"hitstun"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "19_Medium_High_Hit"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/19_Medium_High_Hit/93.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b019"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a20"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "20_Medium_Body_Hit"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/20_Medium_Body_Hit/94.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b020"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a21"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "21_Low_Hit"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/21_Low_Hit/95.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b021"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a22"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "22_Heavy_Stagger"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/22_Heavy_Stagger/96.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b022"]
+script = ExtResource("anim")
+animation_id = &"dash_forward"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "23_前衝"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/23_前衝/101.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/23_前衝/102.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/23_前衝/103.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b023"]
+script = ExtResource("anim")
+animation_id = &"backstep"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "24_普通後撤"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/24_普通後撤/104.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/24_普通後撤/105.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/24_普通後撤/106.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b024"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a25"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_1"
+action_folder = "25_Panic_Exit_強化後撤"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_1/25_Panic_Exit_強化後撤/107.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/25_Panic_Exit_強化後撤/108.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_1/25_Panic_Exit_強化後撤/109.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b025"]
+script = ExtResource("anim")
+animation_id = &"ground_throw"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "01_投技「啊啊啊不是你！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/01_投技「啊啊啊不是你！」/11.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_2/01_投技「啊啊啊不是你！」/12.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_2/01_投技「啊啊啊不是你！」/13.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_2/01_投技「啊啊啊不是你！」/14.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_2/01_投技「啊啊啊不是你！」/15.webp", "res://assets/production_roster/source/驚嚇小貓/ROUND_2/01_投技「啊啊啊不是你！」/16.webp")
+mode_id = &""
+move_id = &"ground_throw"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b026"]
+script = ExtResource("anim")
+animation_id = &"thrown"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "02_Thrown_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/02_Thrown_Start/21.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b027"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a03"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "03_Airborne_Tumble"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/03_Airborne_Tumble/22.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b028"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a04"
+domain = 5
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "04_Ground_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/04_Ground_Impact/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b029"]
+script = ExtResource("anim")
+animation_id = &"knockdown"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "05_Knockdown_Hold"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/05_Knockdown_Hold/24.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b030"]
+script = ExtResource("anim")
+animation_id = &"getup"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "06_Getup_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/06_Getup_Start/25.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b031"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a07"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "07_Getup_Middle"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/07_Getup_Middle/26.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b032"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a08"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "08_Getup_Finish"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/08_Getup_Finish/27.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b033"]
+script = ExtResource("anim")
+animation_id = &"ko"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "09_KO_Collapse"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/09_KO_Collapse/28.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b034"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a10"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "10_KO_Hold"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/10_KO_Hold/29.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b035"]
+script = ExtResource("anim")
+animation_id = &"charge"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "11_Charge_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/11_Charge_Start/31.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b036"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a12"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "12_Charge_Hold"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/12_Charge_Hold/32.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b037"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a13"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "13_Release_Anticipation"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/13_Release_Anticipation/33.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b038"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a14"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "14_Panic_Rush_Active"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/14_Panic_Rush_Active/34.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b039"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a15"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "15_撞到後自己反彈"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/15_撞到後自己反彈/35.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b040"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a16"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "16_Recovery_距離重設"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/16_Recovery_距離重設/36.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b041"]
+script = ExtResource("anim")
+animation_id = &"scared_dash_l1"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "17_Lv1_Charge_Pulse"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/17_Lv1_Charge_Pulse/41.webp")
+mode_id = &""
+move_id = &"scared_dash_l1"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b042"]
+script = ExtResource("anim")
+animation_id = &"scared_dash_l2"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "18_Lv2_Charge_Pulse"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/18_Lv2_Charge_Pulse/42.webp")
+mode_id = &""
+move_id = &"scared_dash_l2"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b043"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a19"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "19_Lv3_Maximum_Charge"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/19_Lv3_Maximum_Charge/43.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b044"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a20"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "20_Lv1_Short_Rush_Streak"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/20_Lv1_Short_Rush_Streak/44.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b045"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a21"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "21_Lv2_Rush_Streak"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/21_Lv2_Rush_Streak/45.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b046"]
+script = ExtResource("anim")
+animation_id = &"scared_dash_l3"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "22_Lv3_High-Speed_Rush"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/22_Lv3_High-Speed_Rush/46.webp")
+mode_id = &""
+move_id = &"scared_dash_l3"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b047"]
+script = ExtResource("anim")
+animation_id = &"scared_dash_l1"
+domain = 5
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "23_Lv1_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/23_Lv1_Impact/47.webp")
+mode_id = &""
+move_id = &"scared_dash_l1"
+entity_id = &""
+trigger_event = &"HIT"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b048"]
+script = ExtResource("anim")
+animation_id = &"scared_dash_l2"
+domain = 2
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "24_Lv2_強_Knockback_Shockwave"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/24_Lv2_強_Knockback_Shockwave/48.webp")
+mode_id = &""
+move_id = &"scared_dash_l2"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b049"]
+script = ExtResource("anim")
+animation_id = &"scared_dash_l3"
+domain = 2
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "25_Lv3_Extreme_Separation_Shockwave"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/25_Lv3_Extreme_Separation_Shockwave/49.webp")
+mode_id = &""
+move_id = &"scared_dash_l3"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b050"]
+script = ExtResource("anim")
+animation_id = &"ultimate"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "26_突然警報"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/26_突然警報/51.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b051"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a27"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "27_超巨大吸氣"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/27_超巨大吸氣/52.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b052"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a28"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "28_開始尖叫"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/28_開始尖叫/53.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b053"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a29"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "29_Ultimate_Peak_Scream"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/29_Ultimate_Peak_Scream/54.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b054"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a30"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "30_尖叫後驚恐"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/30_尖叫後驚恐/55.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b055"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a31"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "31_恢復正常操作_哈士奇持續在場"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/31_恢復正常操作_哈士奇持續在場/56.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b056"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a32"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "32_Neutral_Arrival"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/32_Neutral_Arrival/61.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b057"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a33"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "33_Chase_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/33_Chase_Start/62.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b058"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a34"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "34_Low_Chase_Gallop"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/34_Low_Chase_Gallop/63.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b059"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a35"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "35_Chase_Passing"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/35_Chase_Passing/64.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b060"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a36"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "36_Fast_Open-Mouth_Sprint"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/36_Fast_Open-Mouth_Sprint/65.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b061"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a37"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "37_Bark_Warning"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/37_Bark_Warning/66.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b062"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a38"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "38_Target_Point_「就是你」警告"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/38_Target_Point_「就是你」警告/67.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b063"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a39"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "39_Tongue-Out_Cooldown"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/39_Tongue-Out_Cooldown/68.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b064"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a40"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "40_Cooldown_to_Chase_Recovery"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/40_Cooldown_to_Chase_Recovery/69.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b065"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a41"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "41_Pounce_Anticipation"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/41_Pounce_Anticipation/71.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b066"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a42"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "42_前爪飛撲_Active"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/42_前爪飛撲_Active/72.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b067"]
+script = ExtResource("anim")
+animation_id = &"landing"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "43_Pounce_Landing_Recovery"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/43_Pounce_Landing_Recovery/73.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b068"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a44"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "44_Bite_Windup"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/44_Bite_Windup/74.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b069"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a45"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "45_張嘴飛咬_Active"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/45_張嘴飛咬_Active/75.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b070"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a46"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "46_Bite_Recovery"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/46_Bite_Recovery/76.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b071"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a47"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "47_Hit_Reaction"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/47_Hit_Reaction/77.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b072"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a48"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "48_Heavy_Hit_Forced_Back"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/48_Heavy_Hit_Forced_Back/78.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b073"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a49"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "49_Defeated_Disengage_Despawn"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/49_Defeated_Disengage_Despawn/79.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b074"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a50"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "50_主要_Paw_Bite_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/50_主要_Paw_Bite_Impact/81.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b075"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a51"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "51_小型_Contact_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/51_小型_Contact_Impact/82.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b076"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a52"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "52_Heavy_Companion_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/52_Heavy_Companion_Impact/83.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b077"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a53"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "53_Horizontal_Speed_Smear"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/53_Horizontal_Speed_Smear/84.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b078"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a54"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "54_Pounce_Directional_Streak"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/54_Pounce_Directional_Streak/85.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b079"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a55"
+domain = 3
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "55_Bite_Lunge_Directional_Streak"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/55_Bite_Lunge_Directional_Streak/86.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"husky_guardian"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b080"]
+script = ExtResource("anim")
+animation_id = &"special_neutral"
+domain = 0
+asset_folder = "驚嚇小貓"
+round_name = &"ROUND_2"
+action_folder = "11_Charge_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/驚嚇小貓/ROUND_2/11_Charge_Start/31.webp")
+mode_id = &""
+move_id = &"special_neutral"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Runtime special body fallback from exact authored charge/release body pose; detached effect remains separately bound."
+
+[resource]
+script = ExtResource("catalog")
+character_id = &"scared_cat"
+display_name = "驚嚇小貓"
+asset_folder = "驚嚇小貓"
+source_inventory_path = "res://assets/production_roster/combat_asset_inventory.json"
+bindings = Array[ExtResource("anim")]([SubResource("b000"), SubResource("b001"), SubResource("b002"), SubResource("b003"), SubResource("b004"), SubResource("b005"), SubResource("b006"), SubResource("b007"), SubResource("b008"), SubResource("b009"), SubResource("b010"), SubResource("b011"), SubResource("b012"), SubResource("b013"), SubResource("b014"), SubResource("b015"), SubResource("b016"), SubResource("b017"), SubResource("b018"), SubResource("b019"), SubResource("b020"), SubResource("b021"), SubResource("b022"), SubResource("b023"), SubResource("b024"), SubResource("b025"), SubResource("b026"), SubResource("b027"), SubResource("b028"), SubResource("b029"), SubResource("b030"), SubResource("b031"), SubResource("b032"), SubResource("b033"), SubResource("b034"), SubResource("b035"), SubResource("b036"), SubResource("b037"), SubResource("b038"), SubResource("b039"), SubResource("b040"), SubResource("b041"), SubResource("b042"), SubResource("b043"), SubResource("b044"), SubResource("b045"), SubResource("b046"), SubResource("b047"), SubResource("b048"), SubResource("b049"), SubResource("b050"), SubResource("b051"), SubResource("b052"), SubResource("b053"), SubResource("b054"), SubResource("b055"), SubResource("b056"), SubResource("b057"), SubResource("b058"), SubResource("b059"), SubResource("b060"), SubResource("b061"), SubResource("b062"), SubResource("b063"), SubResource("b064"), SubResource("b065"), SubResource("b066"), SubResource("b067"), SubResource("b068"), SubResource("b069"), SubResource("b070"), SubResource("b071"), SubResource("b072"), SubResource("b073"), SubResource("b074"), SubResource("b075"), SubResource("b076"), SubResource("b077"), SubResource("b078"), SubResource("b079"), SubResource("b080")])
