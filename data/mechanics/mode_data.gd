@@ -19,3 +19,12 @@ extends Resource
 @export var exit_move_id: StringName = &""
 @export var finisher_enabled: bool = false
 @export var finisher_move_id: StringName = &""
+@export var finisher_resource_id: StringName = &""
+@export_range(0, 100, 1) var finisher_min_resource: int = 0
+@export var finisher_tiers: Array[ModeFinisherTierData] = []
+
+func finisher_move_for_resource(value: int) -> StringName:
+    for tier: ModeFinisherTierData in finisher_tiers:
+        if tier != null and tier.resource_value == value:
+            return tier.move_id
+    return finisher_move_id

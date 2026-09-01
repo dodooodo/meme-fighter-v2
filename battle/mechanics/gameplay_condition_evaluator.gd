@@ -91,4 +91,6 @@ static func _matches_raw(condition: GameplayConditionData, attacker: Fighter, de
             return defender != null and defender.state_machine.is_throwable()
         GameplayConditionData.Type.TARGET_NOT_IN_ORDINARY_HITSTUN:
             return defender != null and defender.combatant.hitstun_remaining <= 0
+        GameplayConditionData.Type.RESOURCE_AT_MOVE_START_AT_LEAST:
+            return attacker != null and attacker.move_runner.activation_resource_value(condition.id) >= condition.value
     return false

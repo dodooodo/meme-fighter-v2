@@ -4,7 +4,7 @@
 class_name BattleStateSnapshot
 extends RefCounted
 
-const VERSION: int = 8
+const VERSION: int = 10
 var version: int = VERSION
 var frame_number: int = 0
 var round_state: RoundStateSnapshot = null
@@ -15,3 +15,8 @@ var projectiles: Array[ProjectileSnapshot] = []
 
 var next_temporary_entity_serial: int = TemporaryEntitySystem.INITIAL_INSTANCE_SERIAL
 var temporary_entities: Array[Dictionary] = []
+# Gate 2 summon lock/counter state that is group-scoped rather than entity-local.
+var temporary_entity_aux_state: Dictionary = {}
+
+# Canonical 7F normal-throw tech windows. Primitive dictionaries only.
+var pending_normal_throws: Array[Dictionary] = []

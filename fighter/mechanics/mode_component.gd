@@ -81,10 +81,15 @@ func movement_permille(kind: StringName) -> int:
         &"air_back": return data.air_back_permille
     return 1000
 
-func resolve_move_id(canonical_id: StringName) -> StringName:
+func resolve_move_id(canonical_id: StringName, resources: FighterResourceComponent = null) -> StringName:
     var data := active_data()
     if data == null:
         return canonical_id
+    if canonical_id == MoveIds.ULTIMATE and data.finisher_enabled:
+        var resource_value := resources.get_value(data.finisher_resource_id) if resources != null and data.finisher_resource_id != &"" else 0
+        if data.finisher_resource_id != &"" and resource_value < data.finisher_min_resource:
+            return &""
+        return data.finisher_move_for_resource(resource_value)
     for override: ModeMoveOverrideData in data.move_overrides:
         if override != null and override.canonical_move_id == canonical_id:
             return override.replacement_move_id

@@ -130,7 +130,7 @@ func _test_charge_snapshot_restore_hash() -> void:
     for f in range(2, 31):
         _tick(battle, _special_input(f, true))
     var snapshot := battle.capture_state()
-    t.equal(snapshot.version, 8, "M8 gameplay snapshot schema is v8")
+    t.equal(snapshot.version, BattleStateSnapshot.VERSION, "Snapshot follows current authoritative schema")
     t.equal(snapshot.fighter_a.charge_frames, 30, "Snapshot captures authoritative charge frame count")
     var replay_inputs: Array[InputFrame] = []
     for f in range(31, 41):

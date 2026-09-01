@@ -40,7 +40,7 @@ func _test_schema_and_resource_free_projectile_fields() -> void:
     p.position_units = Vector2i(44444, 33333)
     p.remaining_lifetime_frames = 37
     var snapshot := battle.capture_state()
-    t.equal(snapshot.version, 8, "M6 Battle snapshot schema version is roster v8 while preserving M5 projectile state")
+    t.equal(snapshot.version, BattleStateSnapshot.VERSION, "Current snapshot schema follows BattleStateSnapshot.VERSION")
     t.equal(snapshot.next_projectile_instance_serial, 2, "Snapshot captures next projectile serial")
     t.equal(snapshot.projectiles.size(), 1, "Snapshot captures active projectile array")
     var s := snapshot.projectiles[0]
@@ -111,7 +111,8 @@ func _test_facing_lifetime_restore_exact() -> void:
 func _test_spawn_exactly_once_across_restore() -> void:
     var battle := _battle()
     battle.simulate_frame(InputFrame.with_special_press(1), InputFrame.neutral(1))
-    _tick(battle) # release tap -> Lv1 MoveRunner starts
+    battle.simulate_frame(InputFrame.new(2, 0, 0, 0, 0, InputFrame.InputButton.SPECIAL), InputFrame.neutral(2))
+    battle.simulate_frame(InputFrame.new(3, 0, 0, 0, 0, InputFrame.InputButton.SPECIAL), InputFrame.neutral(3)) # minimum charge commits Lv1
     for _i in range(13):
         _tick(battle)
     var before_spawn := battle.capture_state()

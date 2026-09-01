@@ -20,6 +20,10 @@ const SEVERITY_WARNING := "warning"
 # MoveData.animation_id is NOT this path -- nothing reads that field.
 const MOVE_FALLBACK_ANIMATION := PresentationAnimationIds.ATTACK_FALLBACK
 const STATE_FALLBACK_ANIMATION := PresentationAnimationIds.IDLE
+# InventoryBoundFighterVisual uses its authored Special body as the visual
+# fallback. This differs from the legacy SpriteFrames renderer's generic
+# `attack` fallback and is deliberately presentation-only.
+const INVENTORY_ATTACK_FALLBACK: StringName = &"special_neutral"
 
 var characters: Array[Dictionary] = []
 
@@ -68,12 +72,9 @@ func _index_character(manifest: CharacterManifest, allowlisted_unbound: Dictiona
         _add_issue(entry, SEVERITY_ERROR, "presentation.missing", "no presentation resource")
         return entry
 
-    var base_keys := _animation_keys_from_scene(presentation.fighter_visual_scene)
+    var base_keys := _animation_keys_for_presentation(presentation)
     entry["animation_keys"] = base_keys
     entry["animations"] = _animation_details(presentation.fighter_visual_scene, base_keys)
-    # Carried so the editor dock can preview engine truth without a second copy
-    # of the scene-state walk. Null when a package has no visual scene.
-    entry["sprite_frames"] = _sprite_frames_from_scene(presentation.fighter_visual_scene)
 
     var allowlist: Dictionary = {}
     for move_id: Variant in allowlisted_unbound.get(String(character_id), []):
@@ -83,22 +84,21 @@ func _index_character(manifest: CharacterManifest, allowlisted_unbound: Dictiona
     _index_states(entry, presentation, base_keys)
     _index_modes(entry, presentation, base_keys)
     _index_orphans(entry, base_keys)
-    _index_fallbacks(entry, base_keys)
+    _index_fallbacks(entry, presentation, base_keys)
     return entry
 
-# V5: an unbound move/state resolves to a fallback key. When that key is itself
-# absent from SpriteFrames, ProductionFighterVisual falls back a second time --
-# 'attack' becomes 'stand_light' -- so the move plays a plausible but wrong
-# animation behind a single push_warning. Report it, because that is far harder
-# to notice than a blank frame.
-func _index_fallbacks(entry: Dictionary, base_keys: Dictionary) -> void:
-    entry["move_fallback_exists"] = base_keys.has(MOVE_FALLBACK_ANIMATION)
-    entry["state_fallback_exists"] = base_keys.has(STATE_FALLBACK_ANIMATION)
+# V5: an unbound move/state resolves to a fallback key. If that key is not in
+# SpriteFrames the sprite cannot play anything -- the frame is left on whatever
+# was showing. Report it so "unbound" is never mistaken for "shows a generic
+# animation".
+func _index_fallbacks(entry: Dictionary, presentation: CharacterPresentationData, base_keys: Dictionary) -> void:
+    entry["move_fallback_exists"] = _animation_is_renderable(presentation, base_keys, MOVE_FALLBACK_ANIMATION)
+    entry["state_fallback_exists"] = _animation_is_renderable(presentation, base_keys, STATE_FALLBACK_ANIMATION)
     for fallback: StringName in [MOVE_FALLBACK_ANIMATION, STATE_FALLBACK_ANIMATION]:
-        if base_keys.has(fallback):
+        if _animation_is_renderable(presentation, base_keys, fallback):
             continue
         _add_issue(entry, SEVERITY_WARNING, "animation.fallback_missing",
-            "fallback animation '%s' does not exist in SpriteFrames; unbound entries reach ProductionFighterVisual's generic fallback and play a wrong animation instead" % String(fallback))
+            "fallback animation '%s' does not exist in SpriteFrames; anything unbound renders nothing" % String(fallback))
 
 func _index_moves(
     entry: Dictionary,
@@ -128,15 +128,15 @@ func _index_moves(
             "allowlisted": allowlist.has(move.id),
         }
         for binding: MovePresentationBinding in bindings:
-            row["bindings"].append(_binding_row(binding, binding.animation_key, base_keys))
+            row["bindings"].append(_binding_row(binding, binding.animation_key, presentation, base_keys))
         move_rows.append(row)
 
         # V2: an unbound move resolves to MOVE_FALLBACK_ANIMATION, which may not
         # exist in this character's SpriteFrames at all.
         if bindings.is_empty():
-            var consequence := "resolves to '%s'" % String(MOVE_FALLBACK_ANIMATION)
-            if not base_keys.has(MOVE_FALLBACK_ANIMATION):
-                consequence = "resolves to '%s', which this character does not build, so it plays a generic fallback animation instead" % String(MOVE_FALLBACK_ANIMATION)
+            var consequence := "falls back to '%s'" % String(MOVE_FALLBACK_ANIMATION)
+            if not _animation_is_renderable(presentation, base_keys, MOVE_FALLBACK_ANIMATION):
+                consequence = "falls back to '%s', which this character does not have -- renders nothing" % String(MOVE_FALLBACK_ANIMATION)
             if allowlist.has(move.id):
                 _add_issue(entry, SEVERITY_WARNING, "move.unbound_allowlisted",
                     "move '%s' has no presentation binding (allowlisted); %s" % [String(move.id), consequence])
@@ -146,7 +146,7 @@ func _index_moves(
 
         # V1a: every bound animation key must exist in the base SpriteFrames.
         for binding: MovePresentationBinding in bindings:
-            if not base_keys.has(binding.animation_key):
+            if not _animation_is_renderable(presentation, base_keys, binding.animation_key):
                 _add_issue(entry, SEVERITY_ERROR, "move.animation_missing",
                     "move '%s' binds animation '%s' which does not exist in SpriteFrames" % [String(move.id), String(binding.animation_key)])
 
@@ -170,8 +170,8 @@ func _index_states(entry: Dictionary, presentation: CharacterPresentationData, b
         var bindings: Array = grouped[state_key]
         var row: Dictionary = {"state_key": state_key, "bindings": []}
         for binding: StatePresentationBinding in bindings:
-            row["bindings"].append(_binding_row(binding, binding.animation_key, base_keys))
-            if not base_keys.has(binding.animation_key):
+            row["bindings"].append(_binding_row(binding, binding.animation_key, presentation, base_keys))
+            if not _animation_is_renderable(presentation, base_keys, binding.animation_key):
                 _add_issue(entry, SEVERITY_ERROR, "state.animation_missing",
                     "state '%s' binds animation '%s' which does not exist in SpriteFrames" % [String(state_key), String(binding.animation_key)])
         state_rows.append(row)
@@ -182,10 +182,10 @@ func _index_modes(entry: Dictionary, presentation: CharacterPresentationData, ba
     for binding: ModePresentationBinding in presentation.mode_bindings:
         if binding == null:
             continue
-        var mode_keys := _animation_keys_from_scene(binding.fighter_visual_scene)
+        var mode_keys := _animation_keys_for_scene(binding.fighter_visual_scene)
         var missing_required: Array[StringName] = []
         for required: StringName in binding.required_animations:
-            if not mode_keys.has(required):
+            if not _animation_is_renderable(presentation, mode_keys, required, binding.mode_id):
                 missing_required.append(required)
                 # V1b: a mode that lacks a declared required animation breaks on entry.
                 _add_issue(entry, SEVERITY_ERROR, "mode.required_animation_missing",
@@ -194,7 +194,13 @@ func _index_modes(entry: Dictionary, presentation: CharacterPresentationData, ba
         for key: StringName in base_keys:
             if not mode_keys.has(key):
                 missing_from_base.append(key)
-        if not missing_from_base.is_empty():
+        # Inventory-backed mode packs have no SpriteFrames scene keys, but their
+        # production binding is still the authoritative render inventory.
+        # Treat that explicit presentation contract as a complete renderer rather
+        # than reporting a false partial-pack warning.
+        var inventory_mode_backed := presentation.production_asset_binding != null \
+            and presentation.production_asset_binding.has_mode(binding.mode_id)
+        if not missing_from_base.is_empty() and not inventory_mode_backed:
             # V1c: partial mode packs are legal, but the gap is worth seeing.
             missing_from_base.sort()
             _add_issue(entry, SEVERITY_WARNING, "mode.partial_pack",
@@ -280,14 +286,14 @@ func _group_move_bindings(presentation: CharacterPresentationData) -> Dictionary
         (grouped[binding.move_id] as Array).append(binding)
     return grouped
 
-func _binding_row(binding: Object, animation_key: StringName, base_keys: Dictionary) -> Dictionary:
+func _binding_row(binding: Object, animation_key: StringName, presentation: CharacterPresentationData, base_keys: Dictionary) -> Dictionary:
     var condition := _variant_condition(binding)
     return {
         "animation_key": animation_key,
         "resource_id": condition.get("resource_id", &""),
         "resource_min_value": condition.get("min", 0),
         "resource_max_value": condition.get("max", 0),
-        "exists": base_keys.has(animation_key),
+        "exists": _animation_is_renderable(presentation, base_keys, animation_key),
     }
 
 # Resource-conditioned bindings (Courage-style variants) are a newer presentation
@@ -317,6 +323,67 @@ func _animation_keys_from_scene(scene: PackedScene) -> Dictionary:
         return keys
     for name: StringName in sprite_frames.get_animation_names():
         keys[name] = true
+    return keys
+
+# Production inventory-backed visuals deliberately use Sprite2D rather than a
+# legacy SpriteFrames adapter.  The same animation identity is authoritative in
+# ProductionCharacterAssetBinding, so validation must query that inventory when
+# it is the configured renderer rather than declaring every valid binding absent.
+func _animation_keys_for_presentation(presentation: CharacterPresentationData) -> Dictionary:
+    var keys := _animation_keys_for_scene(presentation.fighter_visual_scene)
+    if not keys.is_empty() or presentation.production_asset_binding == null:
+        return keys
+    for binding: ProductionAnimationBinding in presentation.production_asset_binding.bindings:
+        if binding != null and binding.animation_id != &"":
+            keys[binding.animation_id] = true
+    return keys
+
+# A production inventory renderer intentionally has no SpriteFrames. It resolves
+# an absent authored key through its documented attack fallback instead of
+# drawing nothing, so validation follows the actual renderer contract. Legacy
+# SpriteFrames presentations still require their key to exist exactly.
+func _animation_is_renderable(
+    presentation: CharacterPresentationData,
+    keys: Dictionary,
+    animation_key: StringName,
+    mode_id: StringName = &""
+) -> bool:
+    if keys.has(animation_key):
+        return true
+    if presentation == null or presentation.production_asset_binding == null:
+        return false
+    var catalog := presentation.production_asset_binding
+    return _production_catalog_has_renderable_animation(catalog, animation_key, mode_id) \
+        or _production_catalog_has_renderable_animation(catalog, INVENTORY_ATTACK_FALLBACK, mode_id)
+
+# Content validation already invokes ProductionCharacterAssetBinding.validate().
+# Inspect the authored entries directly here rather than rebuilding its playback
+# cache, which intentionally declines to cache an invalid catalog and would turn
+# an unrelated inventory diagnostic into a false SpriteFrames error.
+func _production_catalog_has_renderable_animation(
+    catalog: ProductionCharacterAssetBinding,
+    animation_key: StringName,
+    mode_id: StringName
+) -> bool:
+    for value: Variant in catalog.bindings:
+        if not (value is Object):
+            continue
+        var binding := value as Object
+        if StringName(binding.get("animation_id")) != animation_key:
+            continue
+        var binding_mode := StringName(binding.get("mode_id"))
+        if binding_mode == mode_id or binding_mode == &"":
+            return true
+    return false
+
+func _animation_keys_for_scene(scene: PackedScene) -> Dictionary:
+    var keys := _animation_keys_from_scene(scene)
+    var manifest := _manifest_from_scene(scene)
+    for animation: Variant in manifest.get("animations", []):
+        if animation is Dictionary:
+            var key := StringName(String(animation.get("key", "")))
+            if key != &"":
+                keys[key] = true
     return keys
 
 func _sprite_frames_from_scene(scene: PackedScene) -> SpriteFrames:

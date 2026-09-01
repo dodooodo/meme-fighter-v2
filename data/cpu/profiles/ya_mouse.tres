@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/cpu/cpu_utility_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = &"ya_mouse"
+archetype = "Evasion / Debuff Trickster"
+preferred_range_min_units = 18000
+preferred_range_max_units = 38000
+approach_weight = 25
+retreat_weight = 78
+light_weight = 28
+heavy_weight = 24
+low_weight = 32
+air_weight = 22
+anti_air_weight = 28
+throw_weight = 12
+special_lv1_weight = 48
+special_lv2_weight = 60
+special_lv3_weight = 64
+ultimate_weight = 22
+guard_weight = 36
+backstep_weight = 55
+jump_weight = 42
+resource_spend_weight = 20
+mode_activation_weight = 12
+summon_weight = 8
+trap_weight = 66
+counter_weight = 8
+notes = "Retreat/debuff spacing; strongly avoids corner/close commitment."

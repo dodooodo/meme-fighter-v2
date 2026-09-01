@@ -31,7 +31,8 @@ display_to_hud = true
 [sub_resource type="Resource" id="mode_1"]
 script = ExtResource("mode")
 mode_id = &"last_stand"
-duration_frames = 150
+duration_frames = 120
+forward_walk_permille = 1120
 guard_allowed = false
 
 [sub_resource type="Resource" id="mech_1"]
@@ -40,28 +41,29 @@ resources = Array[ExtResource("res")]([SubResource("res_1")])
 modes = Array[ExtResource("mode")]([SubResource("mode_1")])
 last_stand_mode_id = &"last_stand"
 last_stand_resolve_resource_id = &"resolve"
+last_stand_resolve_gain_lock_frames = 20
 last_stand_expiry_move_ids = Array[StringName]([&"bao_last_stand_0", &"bao_last_stand_1", &"bao_last_stand_2", &"bao_last_stand_3"])
 
 [resource]
 script = ExtResource("char")
 id = &"bao_la"
 display_name = "豹拉"
-max_hp = 5000
+max_hp = 990
 max_meter = 100
-walk_forward_units_per_tick = 285
-walk_back_units_per_tick = 250
-jump_velocity_y_units_per_tick = -1400
-gravity_y_units_per_tick2 = 80
-max_fall_speed_y_units_per_tick = 1800
-air_forward_units_per_tick = 230
-air_back_units_per_tick = 225
+walk_forward_units_per_tick = 375
+walk_back_units_per_tick = 410
+jump_velocity_y_units_per_tick = -1716
+gravity_y_units_per_tick2 = 79
+max_fall_speed_y_units_per_tick = 2000
+air_forward_units_per_tick = 270
+air_back_units_per_tick = 300
 landing_recovery_frames = 3
-dash_move_frames = 8
-dash_speed_units_per_tick = 870
+dash_move_frames = 6
+dash_speed_units_per_tick = 2050
 dash_recovery_frames = 4
-backstep_move_frames = 7
-backstep_speed_units_per_tick = 800
-backstep_recovery_frames = 6
+backstep_move_frames = 10
+backstep_speed_units_per_tick = 1260
+backstep_recovery_frames = 5
 default_getup_frames = 18
 pushbox = SubResource("box_1")
 hurtbox = SubResource("box_2")

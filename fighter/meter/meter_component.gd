@@ -7,10 +7,10 @@ extends RefCounted
 
 const MIN_VALUE: int = 0
 const MAX_VALUE: int = 100
-# Revision: global gameplay tuning — positive meter gains are five times the authored value.
-const GAIN_MULTIPLIER: int = 5
 
 var _value: int = MIN_VALUE
+# Training-only debug policy; false in ordinary matches and excluded from Snapshot/Replay.
+var training_infinite_meter: bool = false
 
 func get_value() -> int:
     return _value
@@ -18,15 +18,16 @@ func get_value() -> int:
 func gain(amount: int) -> void:
     if amount <= 0:
         return
-    _value = clampi(_value + amount * GAIN_MULTIPLIER, MIN_VALUE, MAX_VALUE)
+    _value = clampi(_value + amount, MIN_VALUE, MAX_VALUE)
 
 func can_spend(amount: int) -> bool:
-    return amount >= 0 and _value >= amount
+    return amount >= 0 and (training_infinite_meter or _value >= amount)
 
 func spend(amount: int) -> bool:
     if not can_spend(amount):
         return false
-    _value = clampi(_value - amount, MIN_VALUE, MAX_VALUE)
+    if not training_infinite_meter:
+        _value = clampi(_value - amount, MIN_VALUE, MAX_VALUE)
     return true
 
 func reset() -> void:

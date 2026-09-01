@@ -25,6 +25,10 @@ static func canonical_string(snapshot: BattleStateSnapshot) -> String:
     parts.append("temporary:next=%d:count=%d" % [snapshot.next_temporary_entity_serial, snapshot.temporary_entities.size()])
     for value: Dictionary in snapshot.temporary_entities:
         parts.append("temp=" + _variant_canonical(value))
+    parts.append("temporary:aux=" + _variant_canonical(snapshot.temporary_entity_aux_state))
+    parts.append("pending_throws:count=%d" % snapshot.pending_normal_throws.size())
+    for value: Dictionary in snapshot.pending_normal_throws:
+        parts.append("pending_throw=" + _variant_canonical(value))
     return "|".join(parts)
 
 static func _append_round(parts: PackedStringArray, s: RoundStateSnapshot) -> void:
@@ -44,14 +48,16 @@ static func _append_fighter(parts: PackedStringArray, prefix: String, s: Fighter
     parts.append("%s:combat=%d,%d,%d,%d,%d,%d,%d,%d" % [prefix, s.hp, s.hitstun_remaining, s.blockstun_remaining, s.hitstop_remaining, s.knockback_velocity_x_units, s.knockback_velocity_y_units, _b(s.is_ko), s.last_result_type])
     parts.append("%s:meter=%d" % [prefix, s.meter_value])
     parts.append("%s:hfsm=%d,%d,%d,%d,%d" % [prefix, s.root_state, s.state, s.previous_state, s.guard_posture, _b(s.air_attack_available)])
-    parts.append("%s:timers=%d,%d,%d,%d,%d,%d,%d,%d,%d" % [prefix, s.landing_remaining, s.dash_move_remaining, s.dash_recovery_remaining, s.thrown_remaining, s.knockdown_remaining, s.getup_remaining, s.pending_knockdown_frames, s.pending_getup_frames, _b(s.jump_started_this_tick)])
-    parts.append("%s:charge=%d,%s,%d" % [prefix, s.charge_frames, String(s.charge_entry_move_id), s.charge_locked_facing])
-    parts.append("%s:move=%s,%d,%d,%d,%d,%d:spawned=%s" % [prefix, String(s.current_move_id), s.move_frame, s.attack_instance_id, s.next_attack_instance_serial, _b(s.move_connected_hit), _b(s.move_connected_block), _ints(s.move_spawned_projectile_indices)])
+    parts.append("%s:timers=%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d" % [prefix, s.landing_remaining, s.dash_move_remaining, s.dash_recovery_remaining, s.dash_elapsed_frames, s.throw_protection_remaining, s.thrown_remaining, s.knockdown_remaining, s.getup_remaining, s.pending_knockdown_frames, s.pending_getup_frames, _b(s.jump_started_this_tick), s.jump_buffer_expiry_frame])
+    parts.append("%s:throwtech=%d" % [prefix, _b(s.throw_tech_pending)])
+    parts.append("%s:charge=%d,%s,%d,%d" % [prefix, s.charge_frames, String(s.charge_entry_move_id), s.charge_locked_facing, _b(s.charge_early_release_requested)])
+    parts.append("%s:move=%s,%d,%d,%d,%d,%d:spawned=%s:activation_resources=%s" % [prefix, String(s.current_move_id), s.move_frame, s.attack_instance_id, s.next_attack_instance_serial, _b(s.move_connected_hit), _b(s.move_connected_block), _ints(s.move_spawned_projectile_indices), _variant_canonical(s.move_activation_resource_values)])
     parts.append("%s:contact=%d:%s:hits=%s" % [prefix, s.tracked_attack_instance_id, _ints(s.contacted_defender_ids), _ints(s.contacted_hit_keys)])
     parts.append("%s:resources=%s" % [prefix, _variant_canonical(s.resource_values)])
     parts.append("%s:statuses=%s:next=%d" % [prefix, _variant_canonical(s.status_states), s.next_status_application_serial])
     parts.append("%s:mode=%s" % [prefix, _variant_canonical(s.mode_state)])
     parts.append("%s:mechanics=%s" % [prefix, _variant_canonical(s.mechanics_state)])
+    parts.append("%s:combo=%s" % [prefix, _variant_canonical(s.combo_state)])
     if s.buffered_intent == null:
         parts.append("%s:buffer=none,%d" % [prefix, s.input_buffer_expiry_frame])
     else:

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/cpu/cpu_utility_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = &"doge"
+archetype = "Power Bruiser"
+preferred_range_min_units = 7000
+preferred_range_max_units = 22000
+approach_weight = 65
+retreat_weight = 18
+light_weight = 35
+heavy_weight = 72
+low_weight = 28
+air_weight = 24
+anti_air_weight = 45
+throw_weight = 42
+special_lv1_weight = 42
+special_lv2_weight = 48
+special_lv3_weight = 55
+ultimate_weight = 46
+guard_weight = 28
+backstep_weight = 14
+jump_weight = 12
+resource_spend_weight = 35
+mode_activation_weight = 45
+summon_weight = 8
+trap_weight = 8
+counter_weight = 8
+notes = "Slow approach, Heavy/throw punish and favorable Muscle Rush."

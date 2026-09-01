@@ -63,6 +63,7 @@ script = ExtResource("move")
 id = &"stand_light"
 display_name = "甜心拍拍"
 animation_id = &"stand_light"
+repeated_light_scaling = true
 startup_frames = 4
 active_frames = 3
 recovery_frames = 7
@@ -73,7 +74,7 @@ hitstop_attacker = 4
 hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 900
-meter_gain_on_hit = 3
+meter_gain_on_hit = 4
 meter_gain_on_block = 1
 cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_1")])
 hitbox = SubResource("box_1")
@@ -93,8 +94,8 @@ hitstop_attacker = 4
 hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 900
-meter_gain_on_hit = 3
-meter_gain_on_block = 1
+meter_gain_on_hit = 7
+meter_gain_on_block = 2
 cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_2")])
 travel_x_units_per_tick = 300
 travel_start_frame = 3
@@ -126,9 +127,9 @@ hitstun_frames = 10
 blockstun_frames = 7
 hitstop_attacker = 4
 hitstop_defender = 4
-hit_level = 1
+hit_level = 2
 knockback_x_units = 900
-meter_gain_on_hit = 3
+meter_gain_on_hit = 4
 meter_gain_on_block = 1
 hitbox = SubResource("box_3")
 counter_hit_extra_knockback_x_units = 1400
@@ -153,9 +154,9 @@ hitstun_frames = 10
 blockstun_frames = 7
 hitstop_attacker = 4
 hitstop_defender = 4
-hit_level = 1
+hit_level = 0
 knockback_x_units = 900
-meter_gain_on_hit = 3
+meter_gain_on_hit = 5
 meter_gain_on_block = 1
 hitbox = SubResource("box_4")
 on_hit_effects = Array[ExtResource("eff")]([SubResource("eff_2")])
@@ -170,9 +171,9 @@ script = ExtResource("move")
 id = &"ground_throw"
 display_name = "不要抱我！"
 animation_id = &"ground_throw"
-startup_frames = 5
-active_frames = 2
-recovery_frames = 14
+startup_frames = 6
+active_frames = 1
+recovery_frames = 18
 damage = 72
 hitstun_frames = 10
 blockstun_frames = 7
@@ -183,10 +184,12 @@ knockback_x_units = 900
 throw_box = SubResource("box_5")
 throw_hold_frames = 6
 knockdown_frames = 14
-meter_gain_on_hit = 3
-meter_gain_on_block = 1
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
+meter_gain_on_throw = 8
 reaction_type = 3
 throw_positioning = SubResource("pos_2")
+throw_whiff_recovery_frames = 18
 
 [sub_resource type="Resource" id="charge_1"]
 script = ExtResource("charge")
@@ -199,6 +202,8 @@ level_3_move_id = &"pink_sonic_l3"
 [sub_resource type="Resource" id="move_6"]
 script = ExtResource("move")
 id = &"special_neutral"
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
 display_name = "尖叫爆震 Charge"
 animation_id = &"special_neutral"
 startup_frames = 1
@@ -233,7 +238,7 @@ hitstop_attacker = 4
 hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 1100
-meter_gain_on_hit = 3
+meter_gain_on_hit = 5
 meter_gain_on_block = 1
 hitbox = SubResource("box_6")
 
@@ -257,8 +262,8 @@ hitstop_attacker = 4
 hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 2200
-meter_gain_on_hit = 3
-meter_gain_on_block = 1
+meter_gain_on_hit = 7
+meter_gain_on_block = 2
 hitbox = SubResource("box_7")
 
 [sub_resource type="Resource" id="box_8"]
@@ -281,8 +286,8 @@ hitstop_attacker = 4
 hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 3000
-meter_gain_on_hit = 3
-meter_gain_on_block = 1
+meter_gain_on_hit = 9
+meter_gain_on_block = 3
 hitbox = SubResource("box_8")
 
 [sub_resource type="Resource" id="eff_3"]
@@ -313,6 +318,9 @@ hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 900
 meter_cost = 100
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
+meter_gain_on_throw = 0
 on_start_effects = Array[ExtResource("eff")]([SubResource("eff_3"), SubResource("eff_4")])
 
 [sub_resource type="Resource" id="cancel_3"]
@@ -324,6 +332,7 @@ allowed_target_move_ids = Array[StringName]([])
 target_kind = 1
 movement_resource_cost_id = &"face_actions"
 movement_resource_cost_amount = 1
+max_uses_per_combo = 1
 
 [sub_resource type="Resource" id="box_9"]
 script = ExtResource("box")
@@ -342,6 +351,7 @@ script = ExtResource("move")
 id = &"pink_true_light"
 display_name = "瘋狂連抓"
 animation_id = &"pink_true_light"
+repeated_light_scaling = true
 startup_frames = 3
 active_frames = 3
 recovery_frames = 6
@@ -352,7 +362,7 @@ hitstop_attacker = 4
 hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 900
-meter_gain_on_hit = 3
+meter_gain_on_hit = 4
 meter_gain_on_block = 1
 cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_4"), SubResource("cancel_3")])
 travel_x_units_per_tick = 170
@@ -372,6 +382,13 @@ end_frame = 15
 condition = 1
 allowed_target_move_ids = Array[StringName]([&"pink_true_special"])
 
+[sub_resource type="Resource" id="cancel_7"]
+script = ExtResource("cancel")
+start_frame = 9
+end_frame = 18
+condition = 1
+allowed_target_move_ids = Array[StringName]([&"pink_true_finisher_2", &"pink_true_finisher_3", &"pink_true_finisher_4", &"pink_true_finisher_5"])
+
 [sub_resource type="Resource" id="move_12"]
 script = ExtResource("move")
 id = &"pink_true_heavy"
@@ -387,9 +404,9 @@ hitstop_attacker = 4
 hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 900
-meter_gain_on_hit = 3
-meter_gain_on_block = 1
-cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_5"), SubResource("cancel_3")])
+meter_gain_on_hit = 7
+meter_gain_on_block = 2
+cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_5"), SubResource("cancel_7"), SubResource("cancel_3")])
 travel_x_units_per_tick = 750
 travel_start_frame = 2
 travel_end_frame = 9
@@ -424,7 +441,7 @@ hitstop_attacker = 4
 hitstop_defender = 4
 hit_level = 2
 knockback_x_units = 900
-meter_gain_on_hit = 3
+meter_gain_on_hit = 4
 meter_gain_on_block = 1
 cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_6")])
 travel_x_units_per_tick = 320
@@ -450,9 +467,9 @@ hitstun_frames = 14
 blockstun_frames = 7
 hitstop_attacker = 4
 hitstop_defender = 4
-hit_level = 1
+hit_level = 0
 knockback_x_units = 900
-meter_gain_on_hit = 3
+meter_gain_on_hit = 5
 meter_gain_on_block = 1
 hitbox = SubResource("box_12")
 
@@ -467,6 +484,8 @@ level_3_move_id = &"pink_true_scream_l3"
 [sub_resource type="Resource" id="move_15"]
 script = ExtResource("move")
 id = &"pink_true_special"
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
 display_name = "貼臉尖叫 Charge"
 animation_id = &"pink_true_special"
 startup_frames = 1
@@ -486,6 +505,13 @@ script = ExtResource("box")
 offset = Vector2(45, -64)
 size = Vector2(90, 52)
 
+[sub_resource type="Resource" id="cancel_8"]
+script = ExtResource("cancel")
+start_frame = 6
+end_frame = 13
+condition = 1
+allowed_target_move_ids = Array[StringName]([&"pink_true_finisher_2", &"pink_true_finisher_3", &"pink_true_finisher_4", &"pink_true_finisher_5"])
+
 [sub_resource type="Resource" id="move_16"]
 script = ExtResource("move")
 id = &"pink_true_scream_l1"
@@ -501,8 +527,9 @@ hitstop_attacker = 4
 hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 900
-meter_gain_on_hit = 3
+meter_gain_on_hit = 5
 meter_gain_on_block = 1
+cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_8")])
 hitbox = SubResource("box_13")
 resource_cost_id = &"face_actions"
 resource_cost_amount = 1
@@ -511,6 +538,13 @@ resource_cost_amount = 1
 script = ExtResource("box")
 offset = Vector2(60, -66)
 size = Vector2(120, 58)
+
+[sub_resource type="Resource" id="cancel_9"]
+script = ExtResource("cancel")
+start_frame = 8
+end_frame = 15
+condition = 1
+allowed_target_move_ids = Array[StringName]([&"pink_true_finisher_2", &"pink_true_finisher_3", &"pink_true_finisher_4", &"pink_true_finisher_5"])
 
 [sub_resource type="Resource" id="move_17"]
 script = ExtResource("move")
@@ -527,8 +561,9 @@ hitstop_attacker = 4
 hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 900
-meter_gain_on_hit = 3
-meter_gain_on_block = 1
+meter_gain_on_hit = 7
+meter_gain_on_block = 2
+cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_9")])
 hitbox = SubResource("box_14")
 resource_cost_id = &"face_actions"
 resource_cost_amount = 1
@@ -537,6 +572,13 @@ resource_cost_amount = 1
 script = ExtResource("box")
 offset = Vector2(75, -68)
 size = Vector2(150, 65)
+
+[sub_resource type="Resource" id="cancel_10"]
+script = ExtResource("cancel")
+start_frame = 11
+end_frame = 19
+condition = 1
+allowed_target_move_ids = Array[StringName]([&"pink_true_finisher_2", &"pink_true_finisher_3", &"pink_true_finisher_4", &"pink_true_finisher_5"])
 
 [sub_resource type="Resource" id="move_18"]
 script = ExtResource("move")
@@ -553,8 +595,9 @@ hitstop_attacker = 4
 hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 900
-meter_gain_on_hit = 3
-meter_gain_on_block = 1
+meter_gain_on_hit = 9
+meter_gain_on_block = 3
+cancel_windows = Array[ExtResource("cancel")]([SubResource("cancel_10")])
 hitbox = SubResource("box_15")
 defender_block_pushback_units = 1500
 resource_cost_id = &"face_actions"
@@ -563,6 +606,8 @@ resource_cost_amount = 1
 [sub_resource type="Resource" id="move_19"]
 script = ExtResource("move")
 id = &"true_face_exit"
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
 display_name = "真面目解除"
 animation_id = &"true_face_exit"
 startup_frames = 1
@@ -576,6 +621,112 @@ hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 900
 
+[sub_resource type="Resource" id="box_16"]
+script = ExtResource("box")
+offset = Vector2(78, -72)
+size = Vector2(156, 72)
+
+[sub_resource type="Resource" id="eff_5"]
+script = ExtResource("eff")
+type = 7
+target = 0
+
+[sub_resource type="Resource" id="move_20"]
+script = ExtResource("move")
+id = &"pink_true_finisher_2"
+display_name = "真面目終結 2★"
+animation_id = &"ultimate"
+startup_frames = 11
+active_frames = 4
+recovery_frames = 34
+damage = 105
+hitstun_frames = 16
+blockstun_frames = 22
+hitstop_attacker = 6
+hitstop_defender = 6
+hit_level = 1
+knockback_x_units = 2600
+knockdown_frames = 28
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
+hitbox = SubResource("box_16")
+reaction_type = 4
+on_complete_effects = Array[ExtResource("eff")]([SubResource("eff_5")])
+resource_cost_id = &"face_actions"
+resource_cost_amount = 2
+
+[sub_resource type="Resource" id="move_21"]
+script = ExtResource("move")
+id = &"pink_true_finisher_3"
+display_name = "真面目終結 3★"
+animation_id = &"ultimate"
+startup_frames = 11
+active_frames = 4
+recovery_frames = 34
+damage = 135
+hitstun_frames = 16
+blockstun_frames = 22
+hitstop_attacker = 6
+hitstop_defender = 6
+hit_level = 1
+knockback_x_units = 3000
+knockdown_frames = 28
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
+hitbox = SubResource("box_16")
+reaction_type = 4
+on_complete_effects = Array[ExtResource("eff")]([SubResource("eff_5")])
+resource_cost_id = &"face_actions"
+resource_cost_amount = 3
+
+[sub_resource type="Resource" id="move_22"]
+script = ExtResource("move")
+id = &"pink_true_finisher_4"
+display_name = "真面目終結 4★"
+animation_id = &"ultimate"
+startup_frames = 11
+active_frames = 4
+recovery_frames = 34
+damage = 165
+hitstun_frames = 16
+blockstun_frames = 22
+hitstop_attacker = 6
+hitstop_defender = 6
+hit_level = 1
+knockback_x_units = 3400
+knockdown_frames = 28
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
+hitbox = SubResource("box_16")
+reaction_type = 4
+on_complete_effects = Array[ExtResource("eff")]([SubResource("eff_5")])
+resource_cost_id = &"face_actions"
+resource_cost_amount = 4
+
+[sub_resource type="Resource" id="move_23"]
+script = ExtResource("move")
+id = &"pink_true_finisher_5"
+display_name = "真面目終結 5★"
+animation_id = &"ultimate"
+startup_frames = 11
+active_frames = 4
+recovery_frames = 34
+damage = 195
+hitstun_frames = 16
+blockstun_frames = 22
+hitstop_attacker = 6
+hitstop_defender = 6
+hit_level = 1
+knockback_x_units = 3800
+knockdown_frames = 28
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
+hitbox = SubResource("box_16")
+reaction_type = 4
+on_complete_effects = Array[ExtResource("eff")]([SubResource("eff_5")])
+resource_cost_id = &"face_actions"
+resource_cost_amount = 5
+
 [resource]
 script = ExtResource("set")
-moves = Array[ExtResource("move")]([SubResource("move_1"), SubResource("move_2"), SubResource("move_3"), SubResource("move_4"), SubResource("move_5"), SubResource("move_6"), SubResource("move_7"), SubResource("move_8"), SubResource("move_9"), SubResource("move_10"), SubResource("move_11"), SubResource("move_12"), SubResource("move_13"), SubResource("move_14"), SubResource("move_15"), SubResource("move_16"), SubResource("move_17"), SubResource("move_18"), SubResource("move_19")])
+moves = Array[ExtResource("move")]([SubResource("move_1"), SubResource("move_2"), SubResource("move_3"), SubResource("move_4"), SubResource("move_5"), SubResource("move_6"), SubResource("move_7"), SubResource("move_8"), SubResource("move_9"), SubResource("move_10"), SubResource("move_11"), SubResource("move_12"), SubResource("move_13"), SubResource("move_14"), SubResource("move_15"), SubResource("move_16"), SubResource("move_17"), SubResource("move_18"), SubResource("move_19"), SubResource("move_20"), SubResource("move_21"), SubResource("move_22"), SubResource("move_23")])

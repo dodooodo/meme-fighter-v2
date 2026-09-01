@@ -24,7 +24,7 @@ func _battle(close: bool = true) -> BattleSimulation:
         null,
         null,
         Vector2i(50000, BattleSimulation.GROUND_Y_UNITS),
-        Vector2i(58000 if close else 100000, BattleSimulation.GROUND_Y_UNITS)
+        Vector2i(54000 if close else 100000, BattleSimulation.GROUND_Y_UNITS)
     )
     return battle
 
@@ -62,14 +62,16 @@ func _test_cancel_connection_snapshot_replay() -> void:
     _tick(battle, cancel_input)
     t.equal(battle.fighter_a.state_machine.state, FighterStateMachine.State.CHARGE, "Heavy HIT snapshot path cancels into committed Special CHARGE")
     t.that(not battle.fighter_a.move_runner.is_running(), "Cancel into CHARGE stops the old Heavy AttackInstance")
-    _tick(battle)
+    _tick(battle, InputFrame.new(battle.frame_number + 1, 0, 0, 0, 0, InputFrame.InputButton.SPECIAL))
+    _tick(battle, InputFrame.new(battle.frame_number + 1, 0, 0, 0, 0, InputFrame.InputButton.SPECIAL))
     t.equal(battle.fighter_a.move_runner.current_move_id(), MoveIds.SPECIAL_NEUTRAL, "Tap-release after Heavy cancel starts Lv1 Special")
     var signature_a := battle.state_signature()
     t.that(battle.restore_state(snapshot), "Heavy cancel-ready snapshot restores")
     t.that(battle.fighter_a.move_runner.connected_hit, "Restore preserves HIT connection needed for cancel legality")
     _tick(battle, cancel_input)
     t.equal(battle.fighter_a.state_machine.state, FighterStateMachine.State.CHARGE, "Restored same input reproduces Heavy -> CHARGE cancel")
-    _tick(battle)
+    _tick(battle, InputFrame.new(battle.frame_number + 1, 0, 0, 0, 0, InputFrame.InputButton.SPECIAL))
+    _tick(battle, InputFrame.new(battle.frame_number + 1, 0, 0, 0, 0, InputFrame.InputButton.SPECIAL))
     t.equal(battle.fighter_a.move_runner.current_move_id(), MoveIds.SPECIAL_NEUTRAL, "Restored tap-release reproduces Lv1 Special")
     t.equal(battle.state_signature(), signature_a, "Cancel-ready restore/replay produces identical hash")
 
@@ -95,7 +97,7 @@ func _test_duplicate_meter_contact_restore() -> void:
     _tick(battle, InputFrame.with_light_press(1))
     for _i in range(5):
         _tick(battle)
-    t.equal(battle.fighter_a.meter.get_value(), 40, "Light setup already awarded tuned meter")
+    t.equal(battle.fighter_a.meter.get_value(), 8, "Light setup already awarded current authored meter")
     t.equal(battle.fighter_b.combatant.hp, 4950, "Light setup already applied damage once")
     battle.fighter_a.combatant.hitstop_remaining = 0
     battle.fighter_b.combatant.hitstop_remaining = 0

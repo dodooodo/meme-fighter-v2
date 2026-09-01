@@ -6,6 +6,8 @@ var simulation: BattleSimulation
 var shake_remaining_seconds: float = 0.0
 var shake_strength_pixels: float = 0.0
 var shake_request_count: int = 0
+var emphasis_remaining_seconds: float = 0.0
+var emphasis_zoom: float = 1.0
 var _shake_elapsed: float = 0.0
 
 func configure(p_simulation: BattleSimulation) -> void:
@@ -24,6 +26,9 @@ func _process(delta: float) -> void:
         position = _follow_position() + offsets[phase] * shake_strength_pixels
     else:
         position = _follow_position()
+    if emphasis_remaining_seconds > 0.0:
+        emphasis_remaining_seconds = maxf(0.0, emphasis_remaining_seconds - delta)
+    _apply_camera_zoom()
 
 func sync_follow() -> void:
     if shake_remaining_seconds <= 0.0:
@@ -39,6 +44,8 @@ func present_event(event: CombatEvent) -> void:
         CombatFeedbackProfile.camera_strength_for(event.type, tier),
         CombatFeedbackProfile.camera_duration_for(event.type, tier)
     )
+    if tier >= 3 or event.type == CombatEvent.EventType.KO:
+        request_emphasis(0.035 if tier == 3 else 0.075, 0.12 if tier == 3 else 0.22)
 
 func request_shake(strength_pixels: float, duration_seconds: float) -> void:
     shake_strength_pixels = maxf(shake_strength_pixels, strength_pixels)
@@ -46,11 +53,19 @@ func request_shake(strength_pixels: float, duration_seconds: float) -> void:
     _shake_elapsed = 0.0
     shake_request_count += 1
 
+func request_emphasis(amount: float, duration_seconds: float) -> void:
+    emphasis_zoom = minf(emphasis_zoom, 1.0 - clampf(amount, 0.0, 0.12))
+    emphasis_remaining_seconds = maxf(emphasis_remaining_seconds, maxf(0.0, duration_seconds))
+    _apply_camera_zoom()
+
 func reset_feedback() -> void:
     shake_remaining_seconds = 0.0
     shake_strength_pixels = 0.0
+    emphasis_remaining_seconds = 0.0
+    emphasis_zoom = 1.0
     _shake_elapsed = 0.0
     position = _follow_position()
+    _apply_camera_zoom()
 
 func feedback_state() -> String:
     return "SHAKE %.2f/%.1f" % [shake_remaining_seconds, shake_strength_pixels] if shake_remaining_seconds > 0.0 else "FOLLOW"
@@ -61,3 +76,9 @@ func _follow_position() -> Vector2:
     var a := SimulationRenderConverter.to_pixels(simulation.fighter_a.movement_motor.sim_position)
     var b := SimulationRenderConverter.to_pixels(simulation.fighter_b.movement_motor.sim_position)
     return (a + b) * 0.5
+
+func _apply_camera_zoom() -> void:
+    var camera := get_node_or_null("Camera2D") as Camera2D
+    if camera == null:
+        return
+    camera.zoom = Vector2.ONE * (emphasis_zoom if emphasis_remaining_seconds > 0.0 else 1.0)

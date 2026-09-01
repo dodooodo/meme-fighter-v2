@@ -17,7 +17,7 @@ func present_event(event: CombatEvent) -> void:
     last_impact_intensity = CombatFeedbackProfile.vfx_intensity_for(event.type, tier)
     last_flash_alpha = CombatFeedbackProfile.flash_alpha_for(event.type, tier)
     effect.configure(
-        CombatFeedbackProfile.vfx_color_for(event.type, tier),
+        CombatFeedbackProfile.vfx_color_for_move(event.type, event.move_id),
         CombatFeedbackProfile.vfx_radius_for(event.type, tier),
         last_impact_intensity,
         CombatFeedbackProfile.vfx_rays_for(event.type, tier),
@@ -29,7 +29,11 @@ func present_event(event: CombatEvent) -> void:
     if last_flash_alpha > 0.0:
         var flash := CombatWhiteFlash.new()
         add_child(flash)
-        flash.configure(last_flash_alpha, CombatFeedbackProfile.flash_duration_for(event.type, tier))
+        flash.configure(
+            last_flash_alpha,
+            CombatFeedbackProfile.flash_duration_for(event.type, tier),
+            CombatFeedbackProfile.flash_color_for_move(event.type, event.move_id)
+        )
         flash_count += 1
 
 func clear_all() -> void:

@@ -16,7 +16,7 @@ func run_all() -> int:
     presenter.configure(battle, presentations)
     var event := CombatEvent.move_started(10, battle.fighter_a.fighter_id, &"ultimate", 1)
     presenter.present_event(event)
-    t.equal(presenter.active_count(), 1, "Ultimate MOVE_STARTED may spawn one screen-space background")
+    t.equal(presenter.active_count(), 2, "Ultimate MOVE_STARTED combines a generic spectacle pulse with its authored screen background")
     presenter.free()
     print("\nM9P UltimateScreenPack: %d passed, %d failed" % [t.passed, t.failed])
     return t.failed

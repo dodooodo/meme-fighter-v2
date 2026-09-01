@@ -14,4 +14,4 @@ hitstop_attacker = 4
 hitstop_defender = 4
 knockback_x_units = 1800
 reaction_type = 3
-meter_gain_on_hit = 2
+meter_gain_on_hit = 9

@@ -1,0 +1,1019 @@
+[gd_resource type="Resource" load_steps=56 format=3]
+
+[ext_resource type="Script" path="res://presentation/data/production_animation_binding.gd" id="anim"]
+[ext_resource type="Script" path="res://presentation/data/production_character_asset_binding.gd" id="catalog"]
+
+[sub_resource type="Resource" id="b000"]
+script = ExtResource("anim")
+animation_id = &"idle"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "01_待機"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/01_待機/11.webp", "res://assets/production_roster/source/豹拉/ROUND_1/01_待機/12.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b001"]
+script = ExtResource("anim")
+animation_id = &"walk_forward"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "02_前走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/02_前走/13.webp", "res://assets/production_roster/source/豹拉/ROUND_1/02_前走/14.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b002"]
+script = ExtResource("anim")
+animation_id = &"walk_back"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "03_後走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/03_後走/15.webp", "res://assets/production_roster/source/豹拉/ROUND_1/03_後走/16.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b003"]
+script = ExtResource("anim")
+animation_id = &"crouch"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "04_蹲下"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/04_蹲下/17.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b004"]
+script = ExtResource("anim")
+animation_id = &"jump"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "05_跳躍"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/05_跳躍/18.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b005"]
+script = ExtResource("anim")
+animation_id = &"landing"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "06_落地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/06_落地/19.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b006"]
+script = ExtResource("anim")
+animation_id = &"dash_forward"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "07_前衝"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/07_前衝/21.webp", "res://assets/production_roster/source/豹拉/ROUND_1/07_前衝/22.webp", "res://assets/production_roster/source/豹拉/ROUND_1/07_前衝/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b007"]
+script = ExtResource("anim")
+animation_id = &"backstep"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "08_後撤"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/08_後撤/24.webp", "res://assets/production_roster/source/豹拉/ROUND_1/08_後撤/25.webp", "res://assets/production_roster/source/豹拉/ROUND_1/08_後撤/26.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b008"]
+script = ExtResource("anim")
+animation_id = &"stand_light"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "09_輕攻「豹爪」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/09_輕攻「豹爪」/31.webp", "res://assets/production_roster/source/豹拉/ROUND_1/09_輕攻「豹爪」/32.webp", "res://assets/production_roster/source/豹拉/ROUND_1/09_輕攻「豹爪」/33.webp", "res://assets/production_roster/source/豹拉/ROUND_1/09_輕攻「豹爪」/34.webp", "res://assets/production_roster/source/豹拉/ROUND_1/09_輕攻「豹爪」/35.webp", "res://assets/production_roster/source/豹拉/ROUND_1/09_輕攻「豹爪」/36.webp")
+mode_id = &""
+move_id = &"stand_light"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b009"]
+script = ExtResource("anim")
+animation_id = &"stand_heavy"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "10_重攻「裂痕重爪」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/10_重攻「裂痕重爪」/41.webp", "res://assets/production_roster/source/豹拉/ROUND_1/10_重攻「裂痕重爪」/42.webp", "res://assets/production_roster/source/豹拉/ROUND_1/10_重攻「裂痕重爪」/43.webp", "res://assets/production_roster/source/豹拉/ROUND_1/10_重攻「裂痕重爪」/44.webp", "res://assets/production_roster/source/豹拉/ROUND_1/10_重攻「裂痕重爪」/45.webp", "res://assets/production_roster/source/豹拉/ROUND_1/10_重攻「裂痕重爪」/46.webp")
+mode_id = &""
+move_id = &"stand_heavy"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b010"]
+script = ExtResource("anim")
+animation_id = &"crouch_low"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "11_下段「守線截踝」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/11_下段「守線截踝」/51.webp", "res://assets/production_roster/source/豹拉/ROUND_1/11_下段「守線截踝」/52.webp", "res://assets/production_roster/source/豹拉/ROUND_1/11_下段「守線截踝」/53.webp", "res://assets/production_roster/source/豹拉/ROUND_1/11_下段「守線截踝」/54.webp", "res://assets/production_roster/source/豹拉/ROUND_1/11_下段「守線截踝」/55.webp", "res://assets/production_roster/source/豹拉/ROUND_1/11_下段「守線截踝」/56.webp")
+mode_id = &""
+move_id = &"crouch_low"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b011"]
+script = ExtResource("anim")
+animation_id = &"air_attack"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "12_空中攻擊「回身斷後爪」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/12_空中攻擊「回身斷後爪」/61.webp", "res://assets/production_roster/source/豹拉/ROUND_1/12_空中攻擊「回身斷後爪」/62.webp", "res://assets/production_roster/source/豹拉/ROUND_1/12_空中攻擊「回身斷後爪」/63.webp", "res://assets/production_roster/source/豹拉/ROUND_1/12_空中攻擊「回身斷後爪」/64.webp", "res://assets/production_roster/source/豹拉/ROUND_1/12_空中攻擊「回身斷後爪」/65.webp", "res://assets/production_roster/source/豹拉/ROUND_1/12_空中攻擊「回身斷後爪」/66.webp")
+mode_id = &""
+move_id = &"air_attack"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b012"]
+script = ExtResource("anim")
+animation_id = &"guard_stand"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "13_站防「我不走」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/13_站防「我不走」/71.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b013"]
+script = ExtResource("anim")
+animation_id = &"guard_crouch"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "14_蹲防"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/14_蹲防/72.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b014"]
+script = ExtResource("anim")
+animation_id = &"blockstun"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "15_輕防禦硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/15_輕防禦硬直/73.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b015"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a16"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "16_重防禦硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/16_重防禦硬直/74.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b016"]
+script = ExtResource("anim")
+animation_id = &"hitstun"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "17_上段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/17_上段受擊/75.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b017"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a18"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_1"
+action_folder = "18_下段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_1/18_下段受擊/76.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b018"]
+script = ExtResource("anim")
+animation_id = &"ground_throw"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "01_投技「斷後摔」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/01_投技「斷後摔」/11.webp", "res://assets/production_roster/source/豹拉/ROUND_2/01_投技「斷後摔」/12.webp", "res://assets/production_roster/source/豹拉/ROUND_2/01_投技「斷後摔」/13.webp", "res://assets/production_roster/source/豹拉/ROUND_2/01_投技「斷後摔」/14.webp", "res://assets/production_roster/source/豹拉/ROUND_2/01_投技「斷後摔」/15.webp", "res://assets/production_roster/source/豹拉/ROUND_2/01_投技「斷後摔」/16.webp")
+mode_id = &""
+move_id = &"ground_throw"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b019"]
+script = ExtResource("anim")
+animation_id = &"thrown"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "02_被摔起飛"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/02_被摔起飛/21.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b020"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a03"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "03_空中翻滾"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/03_空中翻滾/22.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b021"]
+script = ExtResource("anim")
+animation_id = &"knockdown"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "04_倒地撞擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/04_倒地撞擊/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b022"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a05"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "05_倒地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/05_倒地/24.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b023"]
+script = ExtResource("anim")
+animation_id = &"getup"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "06_起身"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/06_起身/25.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b024"]
+script = ExtResource("anim")
+animation_id = &"ko"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "07_KO"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/07_KO/26.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b025"]
+script = ExtResource("anim")
+animation_id = &"charge"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "08_開始蓄力"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/08_開始蓄力/31.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b026"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a09"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "09_蓄力維持"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/09_蓄力維持/32.webp", "res://assets/production_roster/source/豹拉/ROUND_2/09_蓄力維持/33.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b027"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a10"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "10_放開_進入反擊準備"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/10_放開_進入反擊準備/34.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b028"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a11"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "11_Counter_有效窗口"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/11_Counter_有效窗口/35.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b029"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a12"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "12_反擊失敗收招"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/12_反擊失敗收招/36.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b030"]
+script = ExtResource("anim")
+animation_id = &"bao_counter_l1"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "13_Lv1「護身」成功"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/13_Lv1「護身」成功/41.webp", "res://assets/production_roster/source/豹拉/ROUND_2/13_Lv1「護身」成功/42.webp", "res://assets/production_roster/source/豹拉/ROUND_2/13_Lv1「護身」成功/43.webp")
+mode_id = &""
+move_id = &"bao_counter_l1"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b031"]
+script = ExtResource("anim")
+animation_id = &"bao_counter_l2"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "14_Lv2「斷後反擊」成功"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/14_Lv2「斷後反擊」成功/44.webp", "res://assets/production_roster/source/豹拉/ROUND_2/14_Lv2「斷後反擊」成功/45.webp", "res://assets/production_roster/source/豹拉/ROUND_2/14_Lv2「斷後反擊」成功/46.webp")
+mode_id = &""
+move_id = &"bao_counter_l2"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b032"]
+script = ExtResource("anim")
+animation_id = &"bao_counter_l3"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "15_Lv3_對_Strike_反擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/15_Lv3_對_Strike_反擊/51.webp", "res://assets/production_roster/source/豹拉/ROUND_2/15_Lv3_對_Strike_反擊/52.webp", "res://assets/production_roster/source/豹拉/ROUND_2/15_Lv3_對_Strike_反擊/53.webp", "res://assets/production_roster/source/豹拉/ROUND_2/15_Lv3_對_Strike_反擊/54.webp", "res://assets/production_roster/source/豹拉/ROUND_2/15_Lv3_對_Strike_反擊/55.webp")
+mode_id = &""
+move_id = &"bao_counter_l3"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b033"]
+script = ExtResource("anim")
+animation_id = &"bao_counter_l3"
+domain = 2
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "16_Lv3_對_Projectile_反擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/16_Lv3_對_Projectile_反擊/56.webp", "res://assets/production_roster/source/豹拉/ROUND_2/16_Lv3_對_Projectile_反擊/57.webp", "res://assets/production_roster/source/豹拉/ROUND_2/16_Lv3_對_Projectile_反擊/58.webp", "res://assets/production_roster/source/豹拉/ROUND_2/16_Lv3_對_Projectile_反擊/59.webp")
+mode_id = &""
+move_id = &"bao_counter_l3"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b034"]
+script = ExtResource("anim")
+animation_id = &"ultimate"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "17_Ultimate_啟動_深吸氣"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/17_Ultimate_啟動_深吸氣/61.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b035"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a18"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "18_啟動咆哮"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/18_啟動咆哮/62.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b036"]
+script = ExtResource("anim")
+animation_id = &"ultimate"
+domain = 1
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "19_進入_LAST_STAND"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/19_進入_LAST_STAND/63.webp")
+mode_id = &"last_stand"
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b037"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a20"
+domain = 1
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "20_LAST_STAND_等待"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/20_LAST_STAND_等待/64.webp")
+mode_id = &"last_stand"
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b038"]
+script = ExtResource("anim")
+animation_id = &"hitstun"
+domain = 1
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "21_吸收敵人攻擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/21_吸收敵人攻擊/65.webp", "res://assets/production_roster/source/豹拉/ROUND_2/21_吸收敵人攻擊/66.webp")
+mode_id = &"last_stand"
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b039"]
+script = ExtResource("anim")
+animation_id = &"bao_last_stand_1"
+domain = 1
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "22_Resolve_≥1，準備反擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/22_Resolve_≥1，準備反擊/67.webp")
+mode_id = &"last_stand"
+move_id = &"bao_last_stand_1"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b040"]
+script = ExtResource("anim")
+animation_id = &"bao_last_stand_2"
+domain = 1
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "23_反擊咆哮本體"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/23_反擊咆哮本體/68.webp")
+mode_id = &"last_stand"
+move_id = &"bao_last_stand_2"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b041"]
+script = ExtResource("anim")
+animation_id = &"bao_last_stand_0"
+domain = 1
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "24_0_Hit_失敗_巨大硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/24_0_Hit_失敗_巨大硬直/69.webp")
+mode_id = &"last_stand"
+move_id = &"bao_last_stand_0"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b042"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a25"
+domain = 1
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "25_Resolve_●"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/25_Resolve_●/71.webp")
+mode_id = &"last_stand"
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b043"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a26"
+domain = 1
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "26_Resolve_●●"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/26_Resolve_●●/72.webp")
+mode_id = &"last_stand"
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b044"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a27"
+domain = 1
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "27_Resolve_●●●"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/27_Resolve_●●●/73.webp")
+mode_id = &"last_stand"
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b045"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a28"
+domain = 5
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "28_LAST_STAND_吸收命中特效"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/28_LAST_STAND_吸收命中特效/74.webp")
+mode_id = &"last_stand"
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"HIT"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b046"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a29"
+domain = 5
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "29_最大_Resolve_特效"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/29_最大_Resolve_特效/75.webp")
+mode_id = &"last_stand"
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b047"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a30"
+domain = 5
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "30_0_Hit_失敗消散特效"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/30_0_Hit_失敗消散特效/76.webp")
+mode_id = &"last_stand"
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"HIT"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b048"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a31"
+domain = 1
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "31_「巨大記憶怪物幻影」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/31_「巨大記憶怪物幻影」/81.webp")
+mode_id = &"last_stand"
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b049"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a32"
+domain = 1
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "32_1_Resolve「短距離咆哮」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/32_1_Resolve「短距離咆哮」/91.webp", "res://assets/production_roster/source/豹拉/ROUND_2/32_1_Resolve「短距離咆哮」/92.webp", "res://assets/production_roster/source/豹拉/ROUND_2/32_1_Resolve「短距離咆哮」/93.webp")
+mode_id = &"last_stand"
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b050"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a33"
+domain = 1
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "33_2_Resolve「大型咆哮」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/33_2_Resolve「大型咆哮」/94.webp", "res://assets/production_roster/source/豹拉/ROUND_2/33_2_Resolve「大型咆哮」/95.webp", "res://assets/production_roster/source/豹拉/ROUND_2/33_2_Resolve「大型咆哮」/96.webp")
+mode_id = &"last_stand"
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b051"]
+script = ExtResource("anim")
+animation_id = &"bao_last_stand_3"
+domain = 1
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "34_3_Resolve_完整「怪物前的咆哮」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/34_3_Resolve_完整「怪物前的咆哮」/97.webp", "res://assets/production_roster/source/豹拉/ROUND_2/34_3_Resolve_完整「怪物前的咆哮」/98.webp", "res://assets/production_roster/source/豹拉/ROUND_2/34_3_Resolve_完整「怪物前的咆哮」/99.webp")
+mode_id = &"last_stand"
+move_id = &"bao_last_stand_3"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b052"]
+script = ExtResource("anim")
+animation_id = &"special_neutral"
+domain = 0
+asset_folder = "豹拉"
+round_name = &"ROUND_2"
+action_folder = "08_開始蓄力"
+frame_paths = PackedStringArray("res://assets/production_roster/source/豹拉/ROUND_2/08_開始蓄力/31.webp")
+mode_id = &""
+move_id = &"special_neutral"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Runtime special body fallback from exact authored charge/release body pose; detached effect remains separately bound."
+
+[resource]
+script = ExtResource("catalog")
+character_id = &"bao_la"
+display_name = "豹拉"
+asset_folder = "豹拉"
+source_inventory_path = "res://assets/production_roster/combat_asset_inventory.json"
+bindings = Array[ExtResource("anim")]([SubResource("b000"), SubResource("b001"), SubResource("b002"), SubResource("b003"), SubResource("b004"), SubResource("b005"), SubResource("b006"), SubResource("b007"), SubResource("b008"), SubResource("b009"), SubResource("b010"), SubResource("b011"), SubResource("b012"), SubResource("b013"), SubResource("b014"), SubResource("b015"), SubResource("b016"), SubResource("b017"), SubResource("b018"), SubResource("b019"), SubResource("b020"), SubResource("b021"), SubResource("b022"), SubResource("b023"), SubResource("b024"), SubResource("b025"), SubResource("b026"), SubResource("b027"), SubResource("b028"), SubResource("b029"), SubResource("b030"), SubResource("b031"), SubResource("b032"), SubResource("b033"), SubResource("b034"), SubResource("b035"), SubResource("b036"), SubResource("b037"), SubResource("b038"), SubResource("b039"), SubResource("b040"), SubResource("b041"), SubResource("b042"), SubResource("b043"), SubResource("b044"), SubResource("b045"), SubResource("b046"), SubResource("b047"), SubResource("b048"), SubResource("b049"), SubResource("b050"), SubResource("b051"), SubResource("b052")])

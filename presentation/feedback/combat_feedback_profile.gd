@@ -3,11 +3,17 @@ class_name CombatFeedbackProfile
 extends RefCounted
 
 static func tier_for_move(move_id: StringName) -> int:
-    if move_id == &"ultimate":
+    var id := String(move_id)
+    # Move IDs are presentation labels only here. The combat event has already
+    # been resolved; this simply gives authored Level/Finisher moves a feedback
+    # tier that matches their player-facing commitment.
+    if move_id == &"ultimate" or "finisher" in id or "last_stand" in id:
         return 4
-    if move_id in [&"special_neutral", &"special_neutral_l2", &"special_neutral_l3"]:
+    if move_id in [&"special_neutral", &"special_neutral_l2", &"special_neutral_l3"] \
+            or "_l1" in id or "_l2" in id or "_l3" in id \
+            or "special" in id or "counter" in id or "summon" in id:
         return 3
-    if move_id in [&"stand_heavy", &"ground_throw"]:
+    if move_id in [&"stand_heavy", &"ground_throw"] or "heavy" in id or "throw" in id:
         return 2
     return 1
 
@@ -63,6 +69,14 @@ static func vfx_color_for(event_type: int, tier: int) -> Color:
         return Color(1.0, 0.48, 0.18, 0.95)
     return Color(1.0, 0.35, 0.25, 0.92)
 
+static func vfx_color_for_move(event_type: int, move_id: StringName) -> Color:
+    var id := String(move_id)
+    if event_type == CombatEvent.EventType.HIT and "counter" in id:
+        return Color(0.48, 0.82, 1.0, 0.98)
+    if event_type == CombatEvent.EventType.HIT and "finisher" in id:
+        return Color(1.0, 0.88, 0.22, 0.99)
+    return vfx_color_for(event_type, tier_for_move(move_id))
+
 static func camera_strength_for(event_type: int, tier: int) -> float:
     if event_type == CombatEvent.EventType.BLOCK:
         return 1.5 + float(tier) * 0.65
@@ -90,6 +104,27 @@ static func flash_alpha_for(event_type: int, tier: int) -> float:
         return 0.36
     return [0.0, 0.04, 0.10, 0.20, 0.30][clampi(tier, 1, 4)]
 
+static func flash_color_for(event_type: int, tier: int) -> Color:
+    if event_type == CombatEvent.EventType.BLOCK:
+        return Color(0.42, 0.72, 1.0, 1.0)
+    if event_type == CombatEvent.EventType.THROW:
+        return Color(1.0, 0.72, 0.26, 1.0)
+    if event_type == CombatEvent.EventType.KO:
+        return Color(1.0, 0.22, 0.18, 1.0)
+    if tier >= 4:
+        return Color(1.0, 0.80, 0.28, 1.0)
+    if tier == 3:
+        return Color(1.0, 0.50, 0.24, 1.0)
+    return Color.WHITE
+
+static func flash_color_for_move(event_type: int, move_id: StringName) -> Color:
+    var id := String(move_id)
+    if event_type == CombatEvent.EventType.HIT and "counter" in id:
+        return Color(0.48, 0.82, 1.0, 1.0)
+    if event_type == CombatEvent.EventType.HIT and "finisher" in id:
+        return Color(1.0, 0.88, 0.22, 1.0)
+    return flash_color_for(event_type, tier_for_move(move_id))
+
 static func flash_duration_for(event_type: int, tier: int) -> float:
     if event_type == CombatEvent.EventType.BLOCK:
         return 0.045
@@ -110,3 +145,11 @@ static func audio_cue_for(event_type: int, tier: int) -> StringName:
             return &"ko_ultimate"
         _:
             return &""
+
+static func audio_cue_for_move(event_type: int, move_id: StringName) -> StringName:
+    var id := String(move_id)
+    if event_type == CombatEvent.EventType.HIT and "counter" in id:
+        return &"counter_special"
+    if event_type == CombatEvent.EventType.HIT and "finisher" in id:
+        return &"finisher_ultimate"
+    return audio_cue_for(event_type, tier_for_move(move_id))

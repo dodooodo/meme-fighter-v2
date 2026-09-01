@@ -49,17 +49,22 @@ var air_attack_available: bool = true
 var landing_remaining: int = 0
 var dash_move_remaining: int = 0
 var dash_recovery_remaining: int = 0
+var dash_elapsed_frames: int = 0
+var throw_protection_remaining: int = 0
 var thrown_remaining: int = 0
 var knockdown_remaining: int = 0
 var getup_remaining: int = 0
 var pending_knockdown_frames: int = 0
 var pending_getup_frames: int = 18
+var throw_tech_pending: bool = false
 var jump_started_this_tick: bool = false
+var jump_buffer_expiry_frame: int = -1
 
 # Generic authoritative hold/release charge-special runtime.
 var charge_frames: int = 0
 var charge_entry_move_id: StringName = &""
 var charge_locked_facing: int = 1
+var charge_early_release_requested: bool = false
 
 enum ActionStartResult {
     NONE,
@@ -80,12 +85,16 @@ func reset() -> void:
     landing_remaining = 0
     dash_move_remaining = 0
     dash_recovery_remaining = 0
+    dash_elapsed_frames = 0
+    throw_protection_remaining = 0
     thrown_remaining = 0
     knockdown_remaining = 0
     getup_remaining = 0
     pending_knockdown_frames = 0
     pending_getup_frames = 18
+    throw_tech_pending = false
     jump_started_this_tick = false
+    jump_buffer_expiry_frame = -1
     _clear_charge()
     last_cancel_meter_denied_target = &""
 
@@ -101,14 +110,20 @@ func pre_tick(
     mode: ModeComponent = null,
     resources: FighterResourceComponent = null,
     move_resolver: FighterMoveResolver = null,
-    mechanics_runtime: FighterMechanicsRuntime = null
+    mechanics_runtime: FighterMechanicsRuntime = null,
+    combo_scaling: ComboScalingRuntime = null,
+    statuses: StatusEffectComponent = null
 ) -> bool:
     jump_started_this_tick = false
     last_cancel_meter_denied_target = &""
     _guard_allowed_runtime = mode == null or mode.guard_allowed()
     input_buffer.expire_if_needed(current_frame)
+    if jump_buffer_expiry_frame >= 0 and current_frame > jump_buffer_expiry_frame:
+        jump_buffer_expiry_frame = -1
+    if parser.up_pressed and root_state != RootState.AIRBORNE and state not in [State.THROWN, State.KNOCKDOWN, State.HITSTUN, State.KO]:
+        jump_buffer_expiry_frame = current_frame + 6
     if state != State.CHARGE:
-        _capture_action_request(parser, input_buffer)
+        _capture_action_request(parser, input_buffer, 8 if state == State.GETUP else InputBuffer.DEFAULT_BUFFER_FRAMES)
     else:
         # Charge is a committed hold/release state; disallowed offense is never buffered for later escape.
         input_buffer.clear()
@@ -117,6 +132,7 @@ func pre_tick(
         input_buffer.clear()
         runner.interrupt()
         _clear_charge()
+        jump_buffer_expiry_frame = -1
         transition_to(State.KO)
         return false
     if combatant.hitstop_remaining > 0:
@@ -125,6 +141,7 @@ func pre_tick(
         input_buffer.clear()
         runner.interrupt()
         _clear_charge()
+        jump_buffer_expiry_frame = -1
         transition_to(State.HITSTUN)
         return false
     if combatant.blockstun_remaining > 0:
@@ -139,7 +156,6 @@ func pre_tick(
         runner.interrupt()
         if state != State.HITSTUN and state != State.KO:
             transition_to(State.IDLE)
-        return false
 
     if state == State.CHARGE:
         return _tick_charge(parser, input_buffer, runner, registry, meter, current_frame, resources, mode, move_resolver)
@@ -155,14 +171,23 @@ func pre_tick(
     if state == State.DASH_FORWARD or state == State.BACKSTEP:
         return false
 
+    # Canonical F+H chord leniency: if Heavy was pressed up to 3F before Forward,
+    # convert only the still-starting Heavy into the normal Throw. This preserves
+    # immediate Heavy response while supporting the +3F side of the mobile chord.
+    if state == State.GROUND_ATTACK and runner.is_running():
+        if _try_convert_heavy_startup_to_throw(input_buffer, runner, registry, meter, current_frame, resources, mode, move_resolver):
+            return true
+
     # Ground attacks may only replace themselves through MoveData cancel windows.
     if state == State.GROUND_ATTACK and runner.is_running():
         if parser.dash_forward_pressed and runner.can_cancel_to_dash():
             var dash_window := runner.active_dash_cancel_window()
-            if dash_window != null and (resources == null or resources.can_spend(dash_window.movement_resource_cost_id, dash_window.movement_resource_cost_amount)):
+            var combo_budget_ok := dash_window != null and (combo_scaling == null or combo_scaling.can_use_dash_cancel(dash_window.max_uses_per_combo))
+            if combo_budget_ok and (resources == null or resources.can_spend(dash_window.movement_resource_cost_id, dash_window.movement_resource_cost_amount)):
                 if resources != null and dash_window.movement_resource_cost_id != &"": resources.spend(dash_window.movement_resource_cost_id, dash_window.movement_resource_cost_amount)
+                if combo_scaling != null and dash_window.max_uses_per_combo > 0: combo_scaling.record_dash_cancel()
                 runner.interrupt()
-                _enter_dash(data, true, mechanics_runtime)
+                _enter_dash(data, true, mechanics_runtime, resources, statuses)
                 return false
         var cancel_result := _try_start_buffered_cancel(input_buffer, runner, registry, meter, current_frame, resources, mode, move_resolver)
         return cancel_result == ActionStartResult.MOVE_STARTED
@@ -174,18 +199,19 @@ func pre_tick(
         return _try_start_air_attack(input_buffer, runner, registry, meter, current_frame, resources, mode, move_resolver)
 
     # Jump has movement-state priority over grounded action requests.
-    if _is_ground_control_state(state) and parser.up_pressed and not parser.guard_held:
+    if _is_ground_control_state(state) and jump_buffer_expiry_frame >= current_frame and not parser.guard_held:
         air_attack_available = true
         jump_started_this_tick = true
+        jump_buffer_expiry_frame = -1
         transition_to(State.JUMP)
         return false
 
     if _is_ground_control_state(state):
         if parser.dash_forward_pressed:
-            _enter_dash(data, true, mechanics_runtime)
+            _enter_dash(data, true, mechanics_runtime, resources, statuses)
             return false
         if parser.backstep_pressed:
-            _enter_dash(data, false, mechanics_runtime)
+            _enter_dash(data, false, mechanics_runtime, resources, statuses)
             return false
 
     # Voluntary Guard remains grounded-only and has priority over every buffered offense, including Special/Ultimate.
@@ -231,12 +257,19 @@ func post_tick(
         return
 
     if state == State.HITSTUN:
+        if pending_knockdown_frames > 0:
+            knockdown_remaining = pending_knockdown_frames
+            pending_knockdown_frames = knockdown_remaining
+            transition_to(State.KNOCKDOWN)
+            return
+        throw_protection_remaining = maxi(throw_protection_remaining, 6)
         if movement_motor != null and movement_motor.is_airborne():
             transition_to(State.JUMP)
         else:
             _settle_ground_state(parser)
         return
     if state == State.BLOCKSTUN:
+        throw_protection_remaining = maxi(throw_protection_remaining, 5)
         _settle_ground_state(parser)
         return
 
@@ -278,14 +311,26 @@ func transition_to(next_state: State) -> bool:
 
 func enter_thrown(hold_frames: int, knockdown_frames: int, getup_frames: int, input_buffer: InputBuffer) -> void:
     _clear_charge()
+    throw_tech_pending = false
+    jump_buffer_expiry_frame = -1
     thrown_remaining = maxi(0, hold_frames)
     pending_knockdown_frames = maxi(0, knockdown_frames)
     pending_getup_frames = maxi(1, getup_frames)
     input_buffer.clear()
     transition_to(State.THROWN)
 
+func schedule_knockdown_after_hitstun(knockdown_frames: int, getup_frames: int) -> void:
+    pending_knockdown_frames = maxi(1, knockdown_frames)
+    pending_getup_frames = maxi(1, getup_frames)
+
+func clear_pending_knockdown() -> void:
+    pending_knockdown_frames = 0
+    pending_getup_frames = 18
+
 func enter_knockdown(knockdown_frames: int, getup_frames: int, input_buffer: InputBuffer) -> void:
     _clear_charge()
+    throw_tech_pending = false
+    jump_buffer_expiry_frame = -1
     thrown_remaining = 0
     knockdown_remaining = maxi(1, knockdown_frames)
     pending_knockdown_frames = knockdown_remaining
@@ -293,11 +338,48 @@ func enter_knockdown(knockdown_frames: int, getup_frames: int, input_buffer: Inp
     input_buffer.clear()
     transition_to(State.KNOCKDOWN)
 
+func enter_throw_tech_window(input_buffer: InputBuffer) -> void:
+    _clear_charge()
+    jump_buffer_expiry_frame = -1
+    throw_tech_pending = true
+    thrown_remaining = 0
+    pending_knockdown_frames = 0
+    input_buffer.clear()
+    transition_to(State.THROWN)
+
+func exit_throw_tech_window(parser: InputParser) -> void:
+    throw_tech_pending = false
+    thrown_remaining = 0
+    pending_knockdown_frames = 0
+    _settle_ground_state(parser)
+
+func exit_throw_after_tech(parser: InputParser) -> void:
+    throw_tech_pending = false
+    thrown_remaining = 0
+    pending_knockdown_frames = 0
+    if state == State.THROW:
+        _settle_ground_state(parser)
+
+func tick_universal_protection(frozen_by_hitstop: bool) -> void:
+    if frozen_by_hitstop:
+        return
+    if throw_protection_remaining > 0:
+        throw_protection_remaining -= 1
+
+func is_throw_protected() -> bool:
+    return throw_protection_remaining > 0
+
+func has_backstep_throw_invulnerability() -> bool:
+    # Canonical Backstep: grounded, strike-vulnerable, Throw-invulnerable on F1–6 only.
+    return state == State.BACKSTEP and dash_elapsed_frames < 6
+
 func is_guarding() -> bool:
     return state == State.GUARD and guard_posture != GuardPosture.NONE
 
 func is_throwable() -> bool:
-    # Greybox rule: Guard and Landing are throwable; attacks/air/forced reactions are not.
+    # Canonical grounded throwability: startup/recovery can be thrown, while hit/block reactions,
+    # wakeup and airborne states are protected by their explicit rules. Active Strike vs Throw is
+    # settled later by SameTickArbitrator from the shared pre-apply state.
     return state in [
         State.IDLE,
         State.WALK_FORWARD,
@@ -308,6 +390,8 @@ func is_throwable() -> bool:
         State.DASH_FORWARD,
         State.BACKSTEP,
         State.LANDING,
+        State.GROUND_ATTACK,
+        State.THROW,
     ]
 
 func is_strike_target() -> bool:
@@ -331,10 +415,39 @@ func state_name() -> String:
 func root_state_name() -> String:
     return RootState.keys()[root_state]
 
-func _capture_action_request(parser: InputParser, input_buffer: InputBuffer) -> void:
+func _capture_action_request(parser: InputParser, input_buffer: InputBuffer, window_frames: int = InputBuffer.DEFAULT_BUFFER_FRAMES) -> void:
     var intent := parser.action_pressed_intent()
     if intent != null:
-        input_buffer.buffer_intent(intent)
+        input_buffer.buffer_intent(intent, window_frames)
+
+
+func _try_convert_heavy_startup_to_throw(
+    input_buffer: InputBuffer,
+    runner: MoveRunner,
+    registry: MoveRegistry,
+    meter: MeterComponent,
+    current_frame: int,
+    resources: FighterResourceComponent = null,
+    mode: ModeComponent = null,
+    move_resolver: FighterMoveResolver = null
+) -> bool:
+    var intent := input_buffer.peek_intent(current_frame)
+    if intent == null or ActionMoveMap.ground_move_id_for_intent(intent) != MoveIds.GROUND_THROW:
+        return false
+    var resolved_heavy := move_resolver.resolve(MoveIds.STAND_HEAVY, mode, resources) if move_resolver != null else (mode.resolve_move_id(MoveIds.STAND_HEAVY, resources) if mode != null else MoveIds.STAND_HEAVY)
+    if runner.current_move_id() != resolved_heavy or runner.phase() != &"STARTUP" or runner.move_frame > 3:
+        return false
+    var throw_id := move_resolver.resolve(MoveIds.GROUND_THROW, mode, resources) if move_resolver != null else (mode.resolve_move_id(MoveIds.GROUND_THROW, resources) if mode != null else MoveIds.GROUND_THROW)
+    var throw_move := registry.get_move(throw_id)
+    if throw_move == null or not _can_pay_move(throw_move, meter, resources):
+        return false
+    runner.interrupt()
+    if not runner.start_move(throw_move):
+        return false
+    _pay_move(throw_move, meter, resources, runner)
+    input_buffer.consume_intent(current_frame)
+    transition_to(State.THROW)
+    return true
 
 func _try_start_buffered_ground_action(
     input_buffer: InputBuffer,
@@ -352,7 +465,7 @@ func _try_start_buffered_ground_action(
     var canonical_id := ActionMoveMap.ground_move_id_for_intent(intent)
     if canonical_id == &"":
         input_buffer.clear(); return ActionStartResult.NONE
-    var move_id := move_resolver.resolve(canonical_id, mode) if move_resolver != null else (mode.resolve_move_id(canonical_id) if mode != null else canonical_id)
+    var move_id := move_resolver.resolve(canonical_id, mode, resources) if move_resolver != null else (mode.resolve_move_id(canonical_id, resources) if mode != null else canonical_id)
     var move := registry.get_move(move_id)
     if move == null:
         input_buffer.clear(); return ActionStartResult.NONE
@@ -361,7 +474,7 @@ func _try_start_buffered_ground_action(
         _enter_charge(move_id, intent.facing_at_request); input_buffer.consume_intent(current_frame); return ActionStartResult.CHARGE_STARTED
     if not _can_pay_move(move, meter, resources): return ActionStartResult.NONE
     if not runner.start_move(move): return ActionStartResult.NONE
-    _pay_move(move, meter, resources); input_buffer.consume_intent(current_frame)
+    _pay_move(move, meter, resources, runner); input_buffer.consume_intent(current_frame)
     return ActionStartResult.MOVE_STARTED
 
 func _try_start_buffered_cancel(
@@ -377,7 +490,7 @@ func _try_start_buffered_cancel(
     var intent := input_buffer.peek_intent(current_frame)
     if intent == null: return ActionStartResult.NONE
     var canonical_id := ActionMoveMap.ground_move_id_for_intent(intent)
-    var target_move_id := move_resolver.resolve(canonical_id, mode) if move_resolver != null else (mode.resolve_move_id(canonical_id) if mode != null else canonical_id)
+    var target_move_id := move_resolver.resolve(canonical_id, mode, resources) if move_resolver != null else (mode.resolve_move_id(canonical_id, resources) if mode != null else canonical_id)
     if target_move_id == &"" or not runner.can_cancel_to(target_move_id, resources): return ActionStartResult.NONE
     var target_move := registry.get_move(target_move_id)
     if target_move == null: input_buffer.clear(); return ActionStartResult.NONE
@@ -387,13 +500,14 @@ func _try_start_buffered_cancel(
     if not _can_pay_move(target_move, meter, resources):
         last_cancel_meter_denied_target = target_move_id; return ActionStartResult.NONE
     if not runner.start_cancel(target_move): return ActionStartResult.NONE
-    _pay_move(target_move, meter, resources); input_buffer.consume_intent(current_frame)
+    _pay_move(target_move, meter, resources, runner); input_buffer.consume_intent(current_frame)
     return ActionStartResult.MOVE_STARTED
 
 func _enter_charge(entry_move_id: StringName, facing_at_request: int) -> void:
     charge_frames = 1
     charge_entry_move_id = entry_move_id
     charge_locked_facing = -1 if facing_at_request < 0 else 1
+    charge_early_release_requested = false
     transition_to(State.CHARGE)
 
 func _tick_charge(
@@ -411,13 +525,23 @@ func _tick_charge(
     var entry_move := registry.get_move(charge_entry_move_id)
     if entry_move == null or entry_move.charge_special_data == null or not entry_move.charge_special_data.is_valid():
         _clear_charge(); _settle_ground_state(parser); return false
-    if parser.special_released or not parser.special_held:
-        var target_id := entry_move.charge_special_data.move_id_for_charge_frames(charge_frames)
+    var charge_data := entry_move.charge_special_data
+    var release_requested := charge_early_release_requested or parser.special_released or not parser.special_held
+    if release_requested and charge_frames < charge_data.minimum_level_1_frames:
+        # A 1–2F mobile tap is remembered rather than dropped. The charge remains committed and
+        # deterministically releases Lv1 on the first legal 3F charge tick.
+        charge_early_release_requested = true
+        charge_frames += 1
+        if charge_frames < charge_data.minimum_level_1_frames:
+            return false
+        release_requested = true
+    if release_requested:
+        var target_id := charge_data.move_id_for_charge_frames(charge_frames)
         var target_move := registry.get_move(target_id)
         if target_move == null or not _can_pay_move(target_move, meter, resources):
             _clear_charge(); _settle_ground_state(parser); return false
         if not runner.start_move(target_move): return false
-        _pay_move(target_move, meter, resources)
+        _pay_move(target_move, meter, resources, runner)
         _clear_charge(); transition_to(State.GROUND_ATTACK); return true
     charge_frames += 1
     return false
@@ -426,6 +550,7 @@ func _clear_charge() -> void:
     charge_frames = 0
     charge_entry_move_id = &""
     charge_locked_facing = 1
+    charge_early_release_requested = false
 
 func charge_level(registry: MoveRegistry) -> int:
     if state != State.CHARGE or registry == null:
@@ -450,11 +575,11 @@ func _try_start_air_attack(
     if intent == null: return false
     var canonical_id := ActionMoveMap.air_move_id_for_intent(intent)
     if canonical_id == &"": input_buffer.clear(); return false
-    var move_id := move_resolver.resolve(canonical_id, mode) if move_resolver != null else (mode.resolve_move_id(canonical_id) if mode != null else canonical_id)
+    var move_id := move_resolver.resolve(canonical_id, mode, resources) if move_resolver != null else (mode.resolve_move_id(canonical_id, resources) if mode != null else canonical_id)
     var move := registry.get_move(move_id)
     if move == null: input_buffer.clear(); return false
     if not _can_pay_move(move, meter, resources) or not runner.start_move(move): return false
-    _pay_move(move, meter, resources); input_buffer.consume_intent(current_frame)
+    _pay_move(move, meter, resources, runner); input_buffer.consume_intent(current_frame)
     air_attack_available = false; transition_to(State.AIR_ATTACK); return true
 
 func _enter_guard(parser: InputParser) -> void:
@@ -469,18 +594,23 @@ func _enter_landing(data: CharacterData) -> void:
     landing_remaining = data.landing_recovery_frames if data != null else 3
     transition_to(State.LANDING)
 
-func _enter_dash(data: CharacterData, forward: bool, mechanics_runtime: FighterMechanicsRuntime = null) -> void:
+func _enter_dash(data: CharacterData, forward: bool, mechanics_runtime: FighterMechanicsRuntime = null, resources: FighterResourceComponent = null, statuses: StatusEffectComponent = null) -> void:
     if data == null: return
     dash_move_remaining = data.dash_move_frames if forward else data.backstep_move_frames
-    dash_recovery_remaining = data.dash_recovery_frames if forward else data.backstep_recovery_frames
-    if not forward and mechanics_runtime != null and mechanics_runtime.panic_status_id() != &"":
-        # Fighter consumes the status before this call; runtime flag preserves the enhanced movement window.
-        if mechanics_runtime.panic_backstep_consumed_this_tick:
+    dash_elapsed_frames = 0
+    dash_recovery_remaining = (resources.dash_recovery_frames(data.dash_recovery_frames) if forward and resources != null else data.dash_recovery_frames) if forward else data.backstep_recovery_frames
+    if not forward and mechanics_runtime != null and statuses != null:
+        var panic_id := mechanics_runtime.panic_status_id()
+        # This transition is the committed, legal Backstep boundary. Status data
+        # opt-in through CharacterMechanicsData; no character identity is needed.
+        if panic_id != &"" and statuses.has_status(panic_id):
+            statuses.remove(panic_id)
             dash_recovery_remaining = maxi(0, dash_recovery_remaining - mechanics_runtime.panic_backstep_startup_reduction())
             mechanics_runtime.activate_panic_backstep(dash_move_remaining + dash_recovery_remaining)
     transition_to(State.DASH_FORWARD if forward else State.BACKSTEP)
 
 func _advance_dash_timers(parser: InputParser) -> void:
+    dash_elapsed_frames += 1
     if dash_move_remaining > 0:
         dash_move_remaining -= 1
         return
@@ -490,11 +620,14 @@ func _advance_dash_timers(parser: InputParser) -> void:
             return
     dash_move_remaining = 0
     dash_recovery_remaining = 0
+    dash_elapsed_frames = 0
     _settle_ground_state(parser)
 
 func _tick_forced_reaction_before_control(parser: InputParser, input_buffer: InputBuffer) -> bool:
     if state == State.THROWN:
         input_buffer.clear()
+        if throw_tech_pending:
+            return true
         if thrown_remaining > 0:
             thrown_remaining -= 1
         if thrown_remaining <= 0:
@@ -512,8 +645,7 @@ func _tick_forced_reaction_before_control(parser: InputParser, input_buffer: Inp
             transition_to(State.GETUP)
         return true
     if state == State.GETUP:
-        # Wakeup attack buffering is intentionally disabled in M2/M3 greybox.
-        input_buffer.clear()
+        # Canonical wakeup buffer: offensive requests made during the final 8F survive until control returns.
         if getup_remaining > 0:
             getup_remaining -= 1
         if getup_remaining <= 0:
@@ -542,6 +674,9 @@ func _settle_ground_state(parser: InputParser) -> void:
     else:
         transition_to(State.IDLE)
 
+func has_actionable_control() -> bool:
+    return _is_ground_control_state(state)
+
 func _is_ground_control_state(value: State) -> bool:
     return value in [State.IDLE, State.WALK_FORWARD, State.WALK_BACK, State.CROUCH, State.GUARD]
 
@@ -561,7 +696,9 @@ func _is_transition_legal(from_state: State, to_state: State) -> bool:
             return to_state in [State.JUMP, State.AIR_ATTACK, State.LANDING]
         State.AIR_ATTACK:
             return to_state in [State.JUMP, State.LANDING]
-        State.GROUND_ATTACK, State.THROW:
+        State.GROUND_ATTACK:
+            return to_state in [State.IDLE, State.WALK_FORWARD, State.WALK_BACK, State.CROUCH, State.GUARD, State.CHARGE, State.DASH_FORWARD]
+        State.THROW:
             return to_state in [State.IDLE, State.WALK_FORWARD, State.WALK_BACK, State.CROUCH, State.GUARD, State.CHARGE]
         State.CHARGE:
             return to_state in [State.GROUND_ATTACK, State.IDLE, State.WALK_FORWARD, State.WALK_BACK, State.CROUCH, State.GUARD]
@@ -598,7 +735,10 @@ func _can_pay_move(move: MoveData, meter: MeterComponent, resources: FighterReso
         return resources != null and resources.can_spend(move.resource_cost_id, move.resource_cost_amount)
     return true
 
-func _pay_move(move: MoveData, meter: MeterComponent, resources: FighterResourceComponent) -> void:
+func _pay_move(move: MoveData, meter: MeterComponent, resources: FighterResourceComponent, runner: MoveRunner) -> void:
     meter.spend(move.meter_cost)
     if move.resource_cost_id != &"" and move.resource_cost_amount > 0 and resources != null:
         resources.spend(move.resource_cost_id, move.resource_cost_amount)
+    if move.activation_resource_cashout_id != &"" and resources != null:
+        runner.capture_activation_resource(move.activation_resource_cashout_id, resources.get_value(move.activation_resource_cashout_id))
+        resources.cash_out(move.activation_resource_cashout_id)

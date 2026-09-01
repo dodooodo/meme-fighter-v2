@@ -7,17 +7,31 @@ const INITIAL_INSTANCE_SERIAL: int = 1
 var next_instance_serial: int = INITIAL_INSTANCE_SERIAL
 var _active: Array[TemporaryEntityRuntime] = []
 var _data_registry: Dictionary = {}
+# Gate 2 deterministic summon anti-infinite state. Keys are stable primitive strings only.
+var _summon_shared_target_lock_remaining: Dictionary = {}
+var _summon_rehit_lock_remaining: Dictionary = {}
+var _summon_combo_hit_count: Dictionary = {}
 
 func reset_for_new_match() -> void:
     next_instance_serial = INITIAL_INSTANCE_SERIAL
     _active.clear()
     _data_registry.clear()
+    _summon_shared_target_lock_remaining.clear()
+    _summon_rehit_lock_remaining.clear()
+    _summon_combo_hit_count.clear()
 
 func clear_active() -> void:
     _active.clear()
+    _summon_shared_target_lock_remaining.clear()
+    _summon_rehit_lock_remaining.clear()
+    _summon_combo_hit_count.clear()
 
 func active_entities() -> Array[TemporaryEntityRuntime]:
     return _active.duplicate()
+
+func data_for_id(id: StringName) -> Resource:
+    # Read-only debug/presentation query; gameplay mutation remains internal.
+    return _data_registry.get(id, null) as Resource
 
 func register_data(data: Resource) -> void:
     if data == null:
@@ -49,11 +63,21 @@ func spawn_summon(owner: Fighter, data: SummonData) -> Array[int]:
     var ids: Array[int] = []
     if owner == null or data == null or data.id == &"": return ids
     register_data(data)
+    if data.replace_group != &"":
+        for runtime in _active:
+            if runtime.kind != TemporaryEntityRuntime.Kind.SUMMON or runtime.owner_fighter_id != owner.fighter_id:
+                continue
+            var old := _data_registry.get(runtime.data_id) as SummonData
+            if old != null and old.replace_group == data.replace_group:
+                runtime.pending_remove = true
+        _remove_pending()
     for i in range(data.spawn_count):
         var runtime := _create(TemporaryEntityRuntime.Kind.SUMMON, owner, data.id, data.lifetime_frames)
         runtime.hp = data.max_hp
         runtime.position_units += Vector2i((data.spawn_offset_units.x + i * 1600) * owner.movement_motor.facing, data.spawn_offset_units.y)
         runtime.phase_remaining = 0
+        if data.spawn_wave_size > 0 and data.spawn_wave_interval_frames > 0:
+            runtime.activation_delay_remaining = (i / data.spawn_wave_size) * data.spawn_wave_interval_frames
         ids.append(runtime.instance_id)
     return ids
 
@@ -80,6 +104,7 @@ func _create(kind: int, owner: Fighter, data_id: StringName, lifetime: int) -> T
 func advance_existing(frozen: bool, fighter_a: Fighter, fighter_b: Fighter, max_existing_instance_id: int = 2147483647) -> Array[HitResult]:
     var results: Array[HitResult] = []
     if frozen: return results
+    _tick_aux_state(fighter_a, fighter_b)
     for runtime in _active:
         if runtime.pending_remove or runtime.instance_id > max_existing_instance_id: continue
         runtime.age_frames += 1
@@ -99,6 +124,9 @@ func advance_existing(frozen: bool, fighter_a: Fighter, fighter_b: Fighter, max_
 func _tick_area(runtime: TemporaryEntityRuntime, owner: Fighter, target: Fighter, results: Array[HitResult]) -> void:
     var data := _data_registry.get(runtime.data_id) as AreaData
     if data == null: runtime.pending_remove = true; return
+    # arm_frames is independent from trigger telegraph: an unarmed trap exists but is not yet interactable.
+    if not _area_is_armed(runtime, data):
+        return
     var inside := _inside_box(target.movement_motor.sim_position, runtime.position_units, data.half_extents_units)
     if inside and data.while_inside_status != null: target.statuses.apply(data.while_inside_status)
     if (runtime.force_triggered or (inside and data.trigger_on_enemy_enter)) and not runtime.triggered:
@@ -124,11 +152,21 @@ func _tick_summon(runtime: TemporaryEntityRuntime, owner: Fighter, target: Fight
     var data := _data_registry.get(runtime.data_id) as SummonData
     if data == null: runtime.pending_remove = true; return
     if runtime.hp <= 0: runtime.pending_remove = true; return
+    if runtime.activation_delay_remaining > 0:
+        runtime.activation_delay_remaining -= 1
+        return
     var dx := target.movement_motor.sim_position.x - runtime.position_units.x
     runtime.facing = 1 if dx >= 0 else -1
     if runtime.phase == 0:
         if absi(dx) > data.attack_range_units:
-            runtime.position_units.x += runtime.facing * mini(data.move_speed_units_per_tick, absi(dx))
+            var step := mini(data.move_speed_units_per_tick, absi(dx))
+            var next_x := runtime.position_units.x + runtime.facing * step
+            if not data.can_cross_target:
+                if runtime.facing > 0:
+                    next_x = mini(next_x, target.movement_motor.sim_position.x - 1)
+                else:
+                    next_x = maxi(next_x, target.movement_motor.sim_position.x + 1)
+            runtime.position_units.x = next_x
         else:
             runtime.phase = 1; runtime.phase_remaining = data.attack_startup_frames
     elif runtime.phase == 1:
@@ -137,7 +175,25 @@ func _tick_summon(runtime: TemporaryEntityRuntime, owner: Fighter, target: Fight
             runtime.phase = 2; runtime.phase_remaining = data.attack_active_frames; runtime.attack_serial += 1
     elif runtime.phase == 2:
         if runtime.phase_remaining == data.attack_active_frames and absi(target.movement_motor.sim_position.x - runtime.position_units.x) <= data.attack_range_units:
-            results.append(_make_world_hit(runtime, owner, target, data.damage, data.hitstun_frames, data.knockback_x_units, MoveData.HitLevel.MID, CombatReaction.Type.NONE))
+            var group_id := data.shared_group_id if data.shared_group_id != &"" else data.id
+            var rehit_key := _summon_rehit_key(runtime.instance_id, target.fighter_id)
+            var group_key := _summon_group_target_key(owner.fighter_id, target.fighter_id, group_id)
+            var combo_key := _summon_combo_key(owner.fighter_id, target.fighter_id, group_id)
+            var rehit_ready := int(_summon_rehit_lock_remaining.get(rehit_key, 0)) <= 0
+            var group_ready := int(_summon_shared_target_lock_remaining.get(group_key, 0)) <= 0
+            var combo_hits := int(_summon_combo_hit_count.get(combo_key, 0))
+            var combo_budget := data.max_hits_per_owner_combo <= 0 or combo_hits < data.max_hits_per_owner_combo
+            if rehit_ready and group_ready and combo_budget:
+                var applied_hitstun := data.hitstun_frames
+                if data.owner_hitstun_target_hitstun_cap > 0 and (target.combatant.hitstun_remaining > 0 or target.combatant.blockstun_remaining > 0):
+                    applied_hitstun = mini(applied_hitstun, data.owner_hitstun_target_hitstun_cap)
+                results.append(_make_world_hit(runtime, owner, target, data.damage, applied_hitstun, data.knockback_x_units, MoveData.HitLevel.MID, data.reaction_type))
+                if data.same_target_rehit_lockout_frames > 0:
+                    _summon_rehit_lock_remaining[rehit_key] = data.same_target_rehit_lockout_frames
+                if data.shared_group_target_lockout_frames > 0:
+                    _summon_shared_target_lock_remaining[group_key] = data.shared_group_target_lockout_frames
+                if data.max_hits_per_owner_combo > 0:
+                    _summon_combo_hit_count[combo_key] = combo_hits + 1
         runtime.phase_remaining -= 1
         if runtime.phase_remaining <= 0: runtime.phase = 3; runtime.phase_remaining = data.attack_recovery_frames
     else:
@@ -190,7 +246,11 @@ func apply_incoming_fighter_strikes(attacker: Fighter) -> void:
             var rect := Rect2(center_px - half_px, half_px * 2.0)
             var contact_key := attacker.move_runner.attack_instance_id * 1000 + hit_id
             if attack_rect.intersects(rect) and not runtime.contacted_fighter_ids.has(contact_key):
-                var payload: MoveHitData = attacker.move_runner.payload_for_hit_id(hit_id)
+                # Legacy authored moves without per-hit payloads return their
+                # MoveData as the canonical fallback. Both MoveData and
+                # MoveHitData own damage, so retain that shared payload shape
+                # instead of narrowing it to the newer per-hit resource type.
+                var payload = attacker.move_runner.payload_for_hit_id(hit_id)
                 runtime.hp -= int(payload.damage if payload != null else 0)
                 runtime.contacted_fighter_ids.append(contact_key)
                 if runtime.hp <= 0: runtime.pending_remove = true
@@ -202,6 +262,7 @@ func target_inside_owner_area(owner_id: int, target_position: Vector2i, group_id
         var data := _data_registry.get(runtime.data_id) as AreaData
         if data == null: continue
         if group_id != &"" and data.replace_group != group_id: continue
+        if not _area_is_armed(runtime, data): continue
         if _inside_box(target_position, runtime.position_units, data.half_extents_units): return true
     return false
 
@@ -209,7 +270,79 @@ func force_trigger_owner_area(owner_id: int, group_id: StringName) -> void:
     for runtime in _active:
         if runtime.kind != TemporaryEntityRuntime.Kind.AREA or runtime.owner_fighter_id != owner_id: continue
         var data := _data_registry.get(runtime.data_id) as AreaData
-        if data != null and (group_id == &"" or data.replace_group == group_id): runtime.force_triggered = true
+        if data != null and _area_is_armed(runtime, data) and (group_id == &"" or data.replace_group == group_id): runtime.force_triggered = true
+
+func _area_is_armed(runtime: TemporaryEntityRuntime, data: AreaData) -> bool:
+    return runtime != null and data != null and runtime.age_frames >= data.arm_frames
+
+func _tick_aux_state(fighter_a: Fighter, fighter_b: Fighter) -> void:
+    _decrement_lock_dictionary(_summon_shared_target_lock_remaining)
+    _decrement_lock_dictionary(_summon_rehit_lock_remaining)
+    var remove_combo_keys: Array[String] = []
+    for key: Variant in _summon_combo_hit_count.keys():
+        var parts := String(key).split(":")
+        if parts.size() < 2:
+            remove_combo_keys.append(String(key)); continue
+        var owner_id := int(parts[0])
+        var target_id := int(parts[1])
+        var owner := fighter_a if fighter_a != null and fighter_a.fighter_id == owner_id else fighter_b
+        if owner == null or owner.combo_scaling.hit_count <= 0 or owner.combo_scaling.active_defender_id != target_id:
+            remove_combo_keys.append(String(key))
+    for key in remove_combo_keys:
+        _summon_combo_hit_count.erase(key)
+
+func _decrement_lock_dictionary(values: Dictionary) -> void:
+    var remove_keys: Array[String] = []
+    for key: Variant in values.keys():
+        var remaining := maxi(0, int(values[key]) - 1)
+        if remaining <= 0:
+            remove_keys.append(String(key))
+        else:
+            values[key] = remaining
+    for key in remove_keys:
+        values.erase(key)
+
+func _summon_group_target_key(owner_id: int, target_id: int, group_id: StringName) -> String:
+    return "%d:%d:%s" % [owner_id, target_id, String(group_id)]
+
+func _summon_rehit_key(instance_id: int, target_id: int) -> String:
+    return "%d:%d" % [instance_id, target_id]
+
+func _summon_combo_key(owner_id: int, target_id: int, group_id: StringName) -> String:
+    return _summon_group_target_key(owner_id, target_id, group_id)
+
+func capture_aux_state() -> Dictionary:
+    return {
+        "shared_target_locks": _copy_int_dictionary(_summon_shared_target_lock_remaining),
+        "rehit_locks": _copy_int_dictionary(_summon_rehit_lock_remaining),
+        "combo_hit_count": _copy_int_dictionary(_summon_combo_hit_count),
+    }
+
+func validate_restore_aux_state(value: Dictionary) -> bool:
+    for field in ["shared_target_locks", "rehit_locks", "combo_hit_count"]:
+        var entries: Variant = value.get(field, {})
+        if not (entries is Dictionary):
+            return false
+        for key: Variant in entries.keys():
+            if String(key).is_empty() or int(entries[key]) < 0:
+                return false
+    return true
+
+func restore_aux_state(value: Dictionary) -> bool:
+    if not validate_restore_aux_state(value):
+        return false
+    _summon_shared_target_lock_remaining = _copy_int_dictionary(value.get("shared_target_locks", {}))
+    _summon_rehit_lock_remaining = _copy_int_dictionary(value.get("rehit_locks", {}))
+    _summon_combo_hit_count = _copy_int_dictionary(value.get("combo_hit_count", {}))
+    return true
+
+func _copy_int_dictionary(value: Dictionary) -> Dictionary:
+    var out: Dictionary = {}
+    var keys: Array = value.keys()
+    keys.sort_custom(func(a: Variant, b: Variant) -> bool: return String(a) < String(b))
+    for key: Variant in keys:
+        out[String(key)] = int(value[key])
+    return out
 
 func capture_state() -> Array[Dictionary]:
     var out: Array[Dictionary] = []
@@ -287,7 +420,7 @@ func apply_continuous_area_statuses(fighter_a: Fighter, fighter_b: Fighter) -> v
     for runtime in _active:
         if runtime.kind != TemporaryEntityRuntime.Kind.AREA or runtime.pending_remove: continue
         var data := _data_registry.get(runtime.data_id) as AreaData
-        if data == null or data.while_inside_status == null: continue
+        if data == null or data.while_inside_status == null or not _area_is_armed(runtime, data): continue
         var target := fighter_b if runtime.owner_fighter_id == fighter_a.fighter_id else fighter_a
         if target == null: continue
         if _inside_box(target.movement_motor.sim_position, runtime.position_units, data.half_extents_units):

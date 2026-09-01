@@ -6,7 +6,7 @@ class_name DirectionCommandRecognizer
 extends RefCounted
 
 const TOTAL_WINDOW_FRAMES: int = 12
-const MAX_NEUTRAL_GAP_FRAMES: int = 6
+const MAX_NEUTRAL_GAP_FRAMES: int = 4
 
 static func recognize_forward_dash(history: InputHistory, facing: int) -> bool:
     return _recognize(history, 1, facing)

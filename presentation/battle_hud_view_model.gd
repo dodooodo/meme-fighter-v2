@@ -10,6 +10,8 @@ var p2_hp: int = 0
 var p2_max_hp: int = 1
 var p1_meter: int = 0
 var p2_meter: int = 0
+var p1_mechanic_text: String = ""
+var p2_mechanic_text: String = ""
 var p1_wins: int = 0
 var p2_wins: int = 0
 var timer_text: String = "0"
@@ -28,6 +30,8 @@ func update_from(simulation: BattleSimulation, p1_data: CharacterPresentationDat
     p2_max_hp = simulation.fighter_b.combatant.max_hp
     p1_meter = simulation.fighter_a.meter.get_value()
     p2_meter = simulation.fighter_b.meter.get_value()
+    p1_mechanic_text = _mechanic_summary(simulation.fighter_a)
+    p2_mechanic_text = _mechanic_summary(simulation.fighter_b)
     var round := simulation.round_controller
     p1_wins = round.p1_round_wins
     p2_wins = round.p2_round_wins
@@ -35,3 +39,13 @@ func update_from(simulation: BattleSimulation, p1_data: CharacterPresentationDat
     timer_text = "∞" if training or (round.rules != null and not round.rules.timer_enabled) else str(round.timer_display_seconds())
     round_text = "ROUND %d" % round.round_number
     state_text = round.state_name()
+
+func _mechanic_summary(fighter: Fighter) -> String:
+    var parts: PackedStringArray = []
+    var mode_id := fighter.get_active_mode_id()
+    if mode_id != &"":
+        parts.append(String(mode_id).replace("_", " ").to_upper())
+    var resources := fighter.resources.display_summary()
+    if not resources.is_empty():
+        parts.append(resources.replace("_", " ").to_upper())
+    return "  •  ".join(parts)

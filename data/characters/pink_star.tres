@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://data/mechanics/status_effect_data.gd" id="status"]
 [ext_resource type="Script" path="res://data/mechanics/mode_data.gd" id="mode"]
 [ext_resource type="Script" path="res://data/mechanics/mode_move_override_data.gd" id="override"]
+[ext_resource type="Script" path="res://data/mechanics/mode_finisher_tier_data.gd" id="finisher_tier"]
 [ext_resource type="Script" path="res://data/mechanics/defense_modifier_data.gd" id="defense"]
 [ext_resource type="Resource" path="res://data/move_sets/roster/pink_star_move_set.tres" id="moveset"]
 
@@ -53,6 +54,26 @@ script = ExtResource("override")
 canonical_move_id = &"special_neutral"
 replacement_move_id = &"pink_true_special"
 
+[sub_resource type="Resource" id="finisher_tier_2"]
+script = ExtResource("finisher_tier")
+resource_value = 2
+move_id = &"pink_true_finisher_2"
+
+[sub_resource type="Resource" id="finisher_tier_3"]
+script = ExtResource("finisher_tier")
+resource_value = 3
+move_id = &"pink_true_finisher_3"
+
+[sub_resource type="Resource" id="finisher_tier_4"]
+script = ExtResource("finisher_tier")
+resource_value = 4
+move_id = &"pink_true_finisher_4"
+
+[sub_resource type="Resource" id="finisher_tier_5"]
+script = ExtResource("finisher_tier")
+resource_value = 5
+move_id = &"pink_true_finisher_5"
+
 [sub_resource type="Resource" id="mode_1"]
 script = ExtResource("mode")
 mode_id = &"true_face"
@@ -62,7 +83,10 @@ move_overrides = Array[ExtResource("override")]([SubResource("override_1"), SubR
 exit_when_resource_zero_id = &"face_actions"
 exit_recovery_frames = 24
 exit_move_id = &"true_face_exit"
-finisher_enabled = false
+finisher_enabled = true
+finisher_resource_id = &"face_actions"
+finisher_min_resource = 2
+finisher_tiers = Array[ExtResource("finisher_tier")]([SubResource("finisher_tier_2"), SubResource("finisher_tier_3"), SubResource("finisher_tier_4"), SubResource("finisher_tier_5")])
 
 [sub_resource type="Resource" id="mech_1"]
 script = ExtResource("mech")
@@ -73,22 +97,22 @@ modes = Array[ExtResource("mode")]([SubResource("mode_1")])
 script = ExtResource("char")
 id = &"pink_star"
 display_name = "粉紅星星"
-max_hp = 5000
+max_hp = 950
 max_meter = 100
-walk_forward_units_per_tick = 290
-walk_back_units_per_tick = 245
-jump_velocity_y_units_per_tick = -1400
-gravity_y_units_per_tick2 = 80
-max_fall_speed_y_units_per_tick = 1800
-air_forward_units_per_tick = 230
-air_back_units_per_tick = 210
+walk_forward_units_per_tick = 390
+walk_back_units_per_tick = 350
+jump_velocity_y_units_per_tick = -1806
+gravity_y_units_per_tick2 = 85
+max_fall_speed_y_units_per_tick = 2000
+air_forward_units_per_tick = 300
+air_back_units_per_tick = 260
 landing_recovery_frames = 3
-dash_move_frames = 8
-dash_speed_units_per_tick = 890
+dash_move_frames = 7
+dash_speed_units_per_tick = 1971
 dash_recovery_frames = 4
-backstep_move_frames = 7
-backstep_speed_units_per_tick = 800
-backstep_recovery_frames = 6
+backstep_move_frames = 10
+backstep_speed_units_per_tick = 1200
+backstep_recovery_frames = 5
 default_getup_frames = 18
 pushbox = SubResource("box_1")
 hurtbox = SubResource("box_2")

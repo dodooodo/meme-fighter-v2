@@ -18,7 +18,7 @@ func run_all() -> int:
     print("\nM2.4 Throw + Mobility tests: %d passed, %d failed" % [t.passed, t.failed])
     return t.failed
 
-func _battle(p1_x: int = 50000, p2_x: int = 58000) -> BattleSimulation:
+func _battle(p1_x: int = 50000, p2_x: int = 54000) -> BattleSimulation:
     var battle := BattleSimulation.new()
     battle.configure(character, character, null, null, Vector2i(p1_x, BattleSimulation.GROUND_Y_UNITS), Vector2i(p2_x, BattleSimulation.GROUND_Y_UNITS))
     return battle
@@ -65,6 +65,10 @@ func _test_throw_success_whiff_and_eligibility() -> void:
     for _i in range(5):
         var f := success.frame_number + 1
         _tick(success, InputFrame.neutral(f), _guard(f))
+    # Normal throws now expose their authored six-frame tech window before
+    # damage/THROWN state are committed.
+    for _i in range(6):
+        _tick(success, null, _guard(success.frame_number + 1))
     t.equal(success.fighter_b.combatant.hp, 4880, "Throw succeeds against Guard for 120 damage")
     t.equal(success.fighter_b.state_machine.state, FighterStateMachine.State.THROWN, "Successful Throw enters THROWN")
 
@@ -95,6 +99,8 @@ func _test_throw_duplicate_contact() -> void:
     for _i in range(12):
         var f := battle.frame_number + 1
         _tick(battle, InputFrame.neutral(f), _guard(f))
+    for _i in range(6):
+        _tick(battle, null, _guard(battle.frame_number + 1))
     var throw_events := 0
     for event in battle.peek_events():
         if event.type == CombatEvent.EventType.THROW:

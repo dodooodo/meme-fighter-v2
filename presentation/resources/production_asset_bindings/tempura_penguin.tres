@@ -1,0 +1,1475 @@
+[gd_resource type="Resource" load_steps=80 format=3]
+
+[ext_resource type="Script" path="res://presentation/data/production_animation_binding.gd" id="anim"]
+[ext_resource type="Script" path="res://presentation/data/production_character_asset_binding.gd" id="catalog"]
+
+[sub_resource type="Resource" id="b000"]
+script = ExtResource("anim")
+animation_id = &"idle"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "01_待機"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/01_待機/11.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/01_待機/12.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/01_待機/13.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b001"]
+script = ExtResource("anim")
+animation_id = &"walk_forward"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "02_前走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/02_前走/14.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/02_前走/15.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/02_前走/16.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b002"]
+script = ExtResource("anim")
+animation_id = &"walk_back"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "03_後走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/03_後走/21.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/03_後走/22.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/03_後走/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b003"]
+script = ExtResource("anim")
+animation_id = &"crouch"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "04_蹲下"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/04_蹲下/24.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b004"]
+script = ExtResource("anim")
+animation_id = &"jump"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "05_跳躍"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/05_跳躍/25.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/05_跳躍/26.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/05_跳躍/27.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/05_跳躍/28.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b005"]
+script = ExtResource("anim")
+animation_id = &"landing"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "06_落地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/06_落地/29.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b006"]
+script = ExtResource("anim")
+animation_id = &"stand_light"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "07_輕攻「企鵝啄啄」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/07_輕攻「企鵝啄啄」/31.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/07_輕攻「企鵝啄啄」/32.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/07_輕攻「企鵝啄啄」/33.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/07_輕攻「企鵝啄啄」/34.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/07_輕攻「企鵝啄啄」/35.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/07_輕攻「企鵝啄啄」/36.webp")
+mode_id = &""
+move_id = &"stand_light"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b007"]
+script = ExtResource("anim")
+animation_id = &"stand_heavy"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "08_重攻「天婦羅鐵頭功」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/08_重攻「天婦羅鐵頭功」/41.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/08_重攻「天婦羅鐵頭功」/42.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/08_重攻「天婦羅鐵頭功」/43.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/08_重攻「天婦羅鐵頭功」/44.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/08_重攻「天婦羅鐵頭功」/45.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/08_重攻「天婦羅鐵頭功」/46.webp")
+mode_id = &""
+move_id = &"stand_heavy"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b008"]
+script = ExtResource("anim")
+animation_id = &"crouch_low"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "09_下段「冰面肚皮滑行」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/09_下段「冰面肚皮滑行」/51.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/09_下段「冰面肚皮滑行」/52.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/09_下段「冰面肚皮滑行」/53.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/09_下段「冰面肚皮滑行」/54.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/09_下段「冰面肚皮滑行」/55.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/09_下段「冰面肚皮滑行」/56.webp")
+mode_id = &""
+move_id = &"crouch_low"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b009"]
+script = ExtResource("anim")
+animation_id = &"air_attack"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "10_空中攻擊「企鵝炸彈」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/10_空中攻擊「企鵝炸彈」/61.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/10_空中攻擊「企鵝炸彈」/62.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/10_空中攻擊「企鵝炸彈」/63.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/10_空中攻擊「企鵝炸彈」/64.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/10_空中攻擊「企鵝炸彈」/65.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/10_空中攻擊「企鵝炸彈」/66.webp")
+mode_id = &""
+move_id = &"air_attack"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b010"]
+script = ExtResource("anim")
+animation_id = &"guard_stand"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "11_站防"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/11_站防/71.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b011"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a12"
+domain = 5
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "12_站防_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/12_站防_Impact/72.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b012"]
+script = ExtResource("anim")
+animation_id = &"blockstun"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "13_站防硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/13_站防硬直/73.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b013"]
+script = ExtResource("anim")
+animation_id = &"guard_crouch"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "14_蹲防"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/14_蹲防/74.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b014"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a15"
+domain = 5
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "15_蹲防_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/15_蹲防_Impact/75.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b015"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a16"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "16_蹲防硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/16_蹲防硬直/76.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b016"]
+script = ExtResource("anim")
+animation_id = &"hitstun"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "17_上段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/17_上段受擊/81.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b017"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a18"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "18_中段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/18_中段受擊/82.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b018"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a19"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "19_下段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/19_下段受擊/83.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b019"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a20"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "20_Heavy_Reel"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/20_Heavy_Reel/84.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b020"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a21"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "21_Counter_Hit_Reel"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/21_Counter_Hit_Reel/85.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b021"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a22"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "22_恢復"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/22_恢復/86.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b022"]
+script = ExtResource("anim")
+animation_id = &"dash_forward"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "23_前衝"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/23_前衝/91.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/23_前衝/92.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/23_前衝/93.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b023"]
+script = ExtResource("anim")
+animation_id = &"backstep"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_1"
+action_folder = "24_後撤"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/24_後撤/94.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/24_後撤/95.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_1/24_後撤/96.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b024"]
+script = ExtResource("anim")
+animation_id = &"ground_throw"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "01_投技「一起摔啦！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/01_投技「一起摔啦！」/11.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/01_投技「一起摔啦！」/12.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/01_投技「一起摔啦！」/13.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/01_投技「一起摔啦！」/14.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/01_投技「一起摔啦！」/15.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/01_投技「一起摔啦！」/16.webp")
+mode_id = &""
+move_id = &"ground_throw"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b025"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a02"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "02_強擊起飛"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/02_強擊起飛/21.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b026"]
+script = ExtResource("anim")
+animation_id = &"thrown"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "03_被摔空中"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/03_被摔空中/22.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b027"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a04"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "04_下墜"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/04_下墜/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b028"]
+script = ExtResource("anim")
+animation_id = &"knockdown"
+domain = 5
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "05_Knockdown_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/05_Knockdown_Impact/24.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b029"]
+script = ExtResource("anim")
+animation_id = &"knockdown"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "06_Knockdown_Hold"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/06_Knockdown_Hold/25.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b030"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a07"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "07_Soft_KD_Recovery"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/07_Soft_KD_Recovery/26.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b031"]
+script = ExtResource("anim")
+animation_id = &"getup"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "08_起身前段"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/08_起身前段/27.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b032"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a09"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "09_起身後段"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/09_起身後段/28.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b033"]
+script = ExtResource("anim")
+animation_id = &"ko"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "10_KO"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/10_KO/29.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b034"]
+script = ExtResource("anim")
+animation_id = &"charge"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "11_Charge_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/11_Charge_Start/31.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b035"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a12"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "12_Charge_Loop"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/12_Charge_Loop/32.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b036"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a13"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "13_Maximum_Charge"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/13_Maximum_Charge/33.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b037"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a14"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "14_短衝_Release"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/14_短衝_Release/34.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b038"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a15"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "15_Full_Rush_Push_Through"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/15_Full_Rush_Push_Through/35.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b039"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a16"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "16_煞停_Recovery"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/16_煞停_Recovery/36.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b040"]
+script = ExtResource("anim")
+animation_id = &"penguin_rush_l1"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "17_Lv1「小隊出發」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/17_Lv1「小隊出發」/41.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/17_Lv1「小隊出發」/42.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/17_Lv1「小隊出發」/43.webp")
+mode_id = &""
+move_id = &"penguin_rush_l1"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b041"]
+script = ExtResource("anim")
+animation_id = &"penguin_rush_l2"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "18_Lv2「全速前進」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/18_Lv2「全速前進」/44.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/18_Lv2「全速前進」/45.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/18_Lv2「全速前進」/46.webp")
+mode_id = &""
+move_id = &"penguin_rush_l2"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b042"]
+script = ExtResource("anim")
+animation_id = &"penguin_rush_l3"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "19_Lv3「企鵝不要停！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/19_Lv3「企鵝不要停！」/47.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/19_Lv3「企鵝不要停！」/48.webp", "res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/19_Lv3「企鵝不要停！」/49.webp")
+mode_id = &""
+move_id = &"penguin_rush_l3"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b043"]
+script = ExtResource("anim")
+animation_id = &"ultimate"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "20_Ultimate_啟動"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/20_Ultimate_啟動/51.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b044"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a21"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "21_召喚蓄勢"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/21_召喚蓄勢/52.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b045"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a22"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "22_大聲召喚"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/22_大聲召喚/53.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b046"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a23"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "23_指揮企鵝群往前"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/23_指揮企鵝群往前/54.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b047"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a24"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "24_快速_Recovery"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/24_快速_Recovery/55.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b048"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a25"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "25_玩家恢復正常操作"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/25_玩家恢復正常操作/56.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b049"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a26"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "26_Minion_1_Deadpan"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/26_Minion_1_Deadpan/61.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b050"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a27"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "27_Minion_1"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/27_Minion_1/62.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b051"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a28"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "28_Minion_1"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/28_Minion_1/63.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b052"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a29"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "29_Minion_2_Angry"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/29_Minion_2_Angry/64.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b053"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a30"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "30_Minion_2"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/30_Minion_2/65.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b054"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a31"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "31_Minion_2"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/31_Minion_2/66.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b055"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a32"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "32_Minion_3_Nervous"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/32_Minion_3_Nervous/67.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b056"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a33"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "33_Minion_3"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/33_Minion_3/68.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b057"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a34"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "34_Minion_3"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/34_Minion_3/69.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b058"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a35"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "35_Minion_4_Smug"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/35_Minion_4_Smug/71.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b059"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a36"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "36_Body_Check"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/36_Body_Check/72.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b060"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a37"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "37_Hit_Defeat"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/37_Hit_Defeat/73.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b061"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a38"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "38_Minion_5_Excited"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/38_Minion_5_Excited/74.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b062"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a39"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "39_Body_Check"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/39_Body_Check/75.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b063"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a40"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "40_Hit_Defeat"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/40_Hit_Defeat/76.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b064"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a41"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "41_Minion_6_Confused"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/41_Minion_6_Confused/77.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b065"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a42"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "42_Body_Check"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/42_Body_Check/78.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b066"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a43"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "43_Hit_Defeat"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/43_Hit_Defeat/79.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b067"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a44"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "44_Minion_7_Sleepy"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/44_Minion_7_Sleepy/81.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b068"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a45"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "45_Body_Check"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/45_Body_Check/82.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b069"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a46"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "46_Hit_Defeat"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/46_Hit_Defeat/83.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b070"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a47"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "47_Minion_8_Shocked"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/47_Minion_8_Shocked/84.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b071"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a48"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "48_Body_Check"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/48_Body_Check/85.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b072"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a49"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "49_Hit_Defeat"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/49_Hit_Defeat/86.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b073"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a50"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "50_Minion_9_Determined"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/50_Minion_9_Determined/87.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b074"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a51"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "51_Body_Check"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/51_Body_Check/88.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b075"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a52"
+domain = 3
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "52_Hit_Defeat"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/52_Hit_Defeat/89.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &"penguin_swarm"
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b076"]
+script = ExtResource("anim")
+animation_id = &"special_neutral"
+domain = 0
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+round_name = &"ROUND_2"
+action_folder = "11_Charge_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Oh fuxking 天婦羅尬哩涼/ROUND_2/11_Charge_Start/31.webp")
+mode_id = &""
+move_id = &"special_neutral"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Runtime special body fallback from exact authored charge/release body pose; detached effect remains separately bound."
+
+[resource]
+script = ExtResource("catalog")
+character_id = &"tempura_penguin"
+display_name = "Oh fuxking 天婦羅尬哩涼"
+asset_folder = "Oh fuxking 天婦羅尬哩涼"
+source_inventory_path = "res://assets/production_roster/combat_asset_inventory.json"
+bindings = Array[ExtResource("anim")]([SubResource("b000"), SubResource("b001"), SubResource("b002"), SubResource("b003"), SubResource("b004"), SubResource("b005"), SubResource("b006"), SubResource("b007"), SubResource("b008"), SubResource("b009"), SubResource("b010"), SubResource("b011"), SubResource("b012"), SubResource("b013"), SubResource("b014"), SubResource("b015"), SubResource("b016"), SubResource("b017"), SubResource("b018"), SubResource("b019"), SubResource("b020"), SubResource("b021"), SubResource("b022"), SubResource("b023"), SubResource("b024"), SubResource("b025"), SubResource("b026"), SubResource("b027"), SubResource("b028"), SubResource("b029"), SubResource("b030"), SubResource("b031"), SubResource("b032"), SubResource("b033"), SubResource("b034"), SubResource("b035"), SubResource("b036"), SubResource("b037"), SubResource("b038"), SubResource("b039"), SubResource("b040"), SubResource("b041"), SubResource("b042"), SubResource("b043"), SubResource("b044"), SubResource("b045"), SubResource("b046"), SubResource("b047"), SubResource("b048"), SubResource("b049"), SubResource("b050"), SubResource("b051"), SubResource("b052"), SubResource("b053"), SubResource("b054"), SubResource("b055"), SubResource("b056"), SubResource("b057"), SubResource("b058"), SubResource("b059"), SubResource("b060"), SubResource("b061"), SubResource("b062"), SubResource("b063"), SubResource("b064"), SubResource("b065"), SubResource("b066"), SubResource("b067"), SubResource("b068"), SubResource("b069"), SubResource("b070"), SubResource("b071"), SubResource("b072"), SubResource("b073"), SubResource("b074"), SubResource("b075"), SubResource("b076")])

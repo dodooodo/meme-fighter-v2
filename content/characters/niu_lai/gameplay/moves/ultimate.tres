@@ -1,10 +1,9 @@
-[gd_resource type="Resource" load_steps=22 format=3]
+[gd_resource type="Resource" load_steps=21 format=3]
 
 [ext_resource type="Script" path="res://data/move_data.gd" id="move"]
 [ext_resource type="Script" path="res://data/box_data.gd" id="box"]
 [ext_resource type="Script" path="res://data/mechanics/move_hit_data.gd" id="hit"]
 [ext_resource type="Script" path="res://data/mechanics/gameplay_condition_data.gd" id="cond"]
-[ext_resource type="Script" path="res://data/mechanics/gameplay_effect_data.gd" id="eff"]
 
 [sub_resource type="Resource" id="box_9"]
 script = ExtResource("box")
@@ -13,21 +12,15 @@ size = Vector2(145, 58)
 
 [sub_resource type="Resource" id="cond_6"]
 script = ExtResource("cond")
-type = 9
+type = 20
 id = &"courage"
 
 [sub_resource type="Resource" id="cond_7"]
 script = ExtResource("cond")
-type = 9
+type = 20
 id = &"courage"
 value = 1
 invert = true
-
-[sub_resource type="Resource" id="eff_5"]
-script = ExtResource("eff")
-type = 5
-target = 0
-id = &"courage"
 
 [sub_resource type="Resource" id="hit_7"]
 script = ExtResource("hit")
@@ -45,7 +38,6 @@ knockback_x_units = 1700
 reaction_type = 3
 knockdown_frames = 24
 conditions = Array[ExtResource("cond")]([SubResource("cond_6"), SubResource("cond_7")])
-on_hit_effects = Array[ExtResource("eff")]([SubResource("eff_5")])
 
 [sub_resource type="Resource" id="box_10"]
 script = ExtResource("box")
@@ -54,13 +46,13 @@ size = Vector2(145, 58)
 
 [sub_resource type="Resource" id="cond_8"]
 script = ExtResource("cond")
-type = 9
+type = 20
 id = &"courage"
 value = 1
 
 [sub_resource type="Resource" id="cond_9"]
 script = ExtResource("cond")
-type = 9
+type = 20
 id = &"courage"
 value = 2
 invert = true
@@ -81,7 +73,6 @@ knockback_x_units = 2200
 reaction_type = 4
 knockdown_frames = 27
 conditions = Array[ExtResource("cond")]([SubResource("cond_8"), SubResource("cond_9")])
-on_hit_effects = Array[ExtResource("eff")]([SubResource("eff_5")])
 
 [sub_resource type="Resource" id="box_11"]
 script = ExtResource("box")
@@ -90,13 +81,13 @@ size = Vector2(145, 58)
 
 [sub_resource type="Resource" id="cond_10"]
 script = ExtResource("cond")
-type = 9
+type = 20
 id = &"courage"
 value = 2
 
 [sub_resource type="Resource" id="cond_11"]
 script = ExtResource("cond")
-type = 9
+type = 20
 id = &"courage"
 value = 3
 invert = true
@@ -117,7 +108,6 @@ knockback_x_units = 2800
 reaction_type = 4
 knockdown_frames = 30
 conditions = Array[ExtResource("cond")]([SubResource("cond_10"), SubResource("cond_11")])
-on_hit_effects = Array[ExtResource("eff")]([SubResource("eff_5")])
 
 [sub_resource type="Resource" id="box_12"]
 script = ExtResource("box")
@@ -126,7 +116,7 @@ size = Vector2(145, 58)
 
 [sub_resource type="Resource" id="cond_12"]
 script = ExtResource("cond")
-type = 9
+type = 20
 id = &"courage"
 value = 3
 
@@ -146,12 +136,11 @@ knockback_x_units = 3500
 reaction_type = 5
 knockdown_frames = 33
 conditions = Array[ExtResource("cond")]([SubResource("cond_12")])
-on_hit_effects = Array[ExtResource("eff")]([SubResource("eff_5")])
 
 [resource]
 script = ExtResource("move")
 id = &"ultimate"
-display_name = "勇氣全開"
+display_name = "夢境覺醒"
 animation_id = &"ultimate"
 startup_frames = 10
 active_frames = 4
@@ -164,4 +153,8 @@ hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 900
 meter_cost = 100
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
+meter_gain_on_throw = 0
+activation_resource_cashout_id = &"courage"
 hits = Array[ExtResource("hit")]([SubResource("hit_7"), SubResource("hit_8"), SubResource("hit_9"), SubResource("hit_10")])

@@ -15,6 +15,9 @@ extends Resource
 @export_range(0, 60, 1) var hitstop_defender: int = 0
 @export var knockback_x_units: int = 0
 @export var knockback_y_units: int = 0
+# -1 means inherit the owning MoveData meter reward.
+@export_range(-1, 1000, 1) var meter_gain_on_hit: int = -1
+@export_range(-1, 1000, 1) var meter_gain_on_block: int = -1
 @export var reaction_type: int = 0
 @export_range(0, 600, 1) var knockdown_frames: int = 0
 @export_range(0, 600, 1) var getup_frames: int = 0

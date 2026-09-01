@@ -13,6 +13,8 @@ static func capture(simulation: BattleSimulation) -> BattleStateSnapshot:
     snapshot.projectiles = simulation.projectile_system.capture_snapshots()
     snapshot.next_temporary_entity_serial = simulation.temporary_entity_system.next_instance_serial
     snapshot.temporary_entities = simulation.temporary_entity_system.capture_state()
+    snapshot.temporary_entity_aux_state = simulation.temporary_entity_system.capture_aux_state()
+    snapshot.pending_normal_throws = simulation.capture_pending_normal_throws()
     return snapshot
 
 static func restore(simulation: BattleSimulation, snapshot: BattleStateSnapshot) -> bool:
@@ -37,6 +39,12 @@ static func restore(simulation: BattleSimulation, snapshot: BattleStateSnapshot)
     if not simulation.temporary_entity_system.validate_restore_state(snapshot.temporary_entities, snapshot.next_temporary_entity_serial):
         push_error("Battle snapshot temporary entity compatibility validation failed")
         return false
+    if not simulation.temporary_entity_system.validate_restore_aux_state(snapshot.temporary_entity_aux_state):
+        push_error("Battle snapshot temporary entity aux-state validation failed")
+        return false
+    if not simulation.validate_pending_normal_throws(snapshot.pending_normal_throws):
+        push_error("Battle snapshot pending normal throw compatibility validation failed")
+        return false
 
     if not FighterSnapshotCodec.restore(simulation.fighter_a, snapshot.fighter_a):
         return false
@@ -51,8 +59,11 @@ static func restore(simulation: BattleSimulation, snapshot: BattleStateSnapshot)
         return false
     if not simulation.temporary_entity_system.restore_state(snapshot.temporary_entities, snapshot.next_temporary_entity_serial):
         return false
+    if not simulation.temporary_entity_system.restore_aux_state(snapshot.temporary_entity_aux_state):
+        return false
     if not simulation.round_controller.restore_snapshot(snapshot.round_state):
         return false
+    simulation.restore_pending_normal_throws(snapshot.pending_normal_throws)
     simulation.frame_number = snapshot.frame_number
     simulation.clear_pending_presentation_events()
     return true

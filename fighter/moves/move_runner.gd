@@ -13,6 +13,7 @@ var connected_block: bool = false
 var _owner_id: int = 0
 var _instance_serial: int = 0
 var _spawned_projectile_indices: Array[int] = []
+var _activation_resource_values: Dictionary = {}
 var _pending_completion_effects: Array[GameplayEffectData] = []
 var _pending_completed_move_id: StringName = &""
 
@@ -37,6 +38,7 @@ func interrupt() -> void:
     connected_hit = false
     connected_block = false
     _spawned_projectile_indices.clear()
+    _activation_resource_values.clear()
 
 # Round reset clears active move/spawn bookkeeping while preserving the per-match attack serial by default.
 func reset_runtime(reset_instance_serial: bool = false) -> void:
@@ -91,6 +93,19 @@ func owner_id() -> int:
 
 func spawned_projectile_indices() -> Array[int]:
     return _spawned_projectile_indices.duplicate()
+
+func capture_activation_resource(id: StringName, value: int) -> void:
+    if id != &"":
+        _activation_resource_values[id] = value
+
+func activation_resource_value(id: StringName) -> int:
+    return int(_activation_resource_values.get(id, 0))
+
+func activation_resource_values() -> Dictionary:
+    var out: Dictionary = {}
+    for id: StringName in _activation_resource_values.keys():
+        out[String(id)] = activation_resource_value(id)
+    return out
 
 # Called by BattleSimulation once per non-hitstop simulation tick after old projectiles advance.
 # Descriptor indices are persisted so the same MoveRunner frame cannot spawn twice during hitstop or restore/re-sim.
@@ -173,7 +188,8 @@ func restore_runtime(
     p_instance_serial: int,
     p_connected_hit: bool = false,
     p_connected_block: bool = false,
-    p_spawned_projectile_indices: Array[int] = []
+    p_spawned_projectile_indices: Array[int] = [],
+    p_activation_resource_values: Dictionary = {}
 ) -> bool:
     current_move = null
     move_frame = 0
@@ -182,8 +198,9 @@ func restore_runtime(
     connected_hit = false
     connected_block = false
     _spawned_projectile_indices.clear()
+    _activation_resource_values.clear()
     if move_id == &"":
-        return p_spawned_projectile_indices.is_empty()
+        return p_spawned_projectile_indices.is_empty() and p_activation_resource_values.is_empty()
     var move := registry.get_move(move_id)
     if move == null:
         return false
@@ -195,6 +212,8 @@ func restore_runtime(
     connected_hit = p_connected_hit
     connected_block = p_connected_block
     _spawned_projectile_indices = p_spawned_projectile_indices.duplicate()
+    for key: Variant in p_activation_resource_values.keys():
+        _activation_resource_values[StringName(key)] = int(p_activation_resource_values[key])
     return true
 
 func _begin_move(move: MoveData) -> void:
@@ -205,3 +224,4 @@ func _begin_move(move: MoveData) -> void:
     connected_hit = false
     connected_block = false
     _spawned_projectile_indices.clear()
+    _activation_resource_values.clear()

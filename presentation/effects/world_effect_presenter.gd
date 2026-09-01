@@ -31,6 +31,25 @@ func present_event(event: CombatEvent, simulation: BattleSimulation) -> void:
         return
     for binding: EffectPresentationBinding in data.effects_for_move(event.move_id, trigger):
         _spawn_binding(binding, fighter_id, event.position)
+    _spawn_production_bindings(data, event, fighter, trigger)
+
+
+func _spawn_production_bindings(data: CharacterPresentationData, event: CombatEvent, fighter: Fighter, trigger: int) -> void:
+    if data == null or data.production_asset_binding == null:
+        return
+    var trigger_name := &"MOVE_STARTED"
+    if trigger == EffectPresentationBinding.TriggerEvent.HIT: trigger_name = &"HIT"
+    elif trigger == EffectPresentationBinding.TriggerEvent.BLOCK: trigger_name = &"BLOCK"
+    for domain in [ProductionAnimationBinding.Domain.WORLD_EFFECT, ProductionAnimationBinding.Domain.HAZARD, ProductionAnimationBinding.Domain.ATTACHMENT]:
+        for production: ProductionAnimationBinding in data.production_asset_binding.bindings_for_move(event.move_id, domain):
+            if production.trigger_event != &"" and production.trigger_event != trigger_name:
+                continue
+            var visual := load("res://presentation/visuals/production/inventory_bound_effect_visual.tscn").instantiate() as Node2D
+            if visual == null: continue
+            add_child(visual)
+            visual.global_position = event.position if event.position != Vector2.ZERO else fighter.position_pixels()
+            visual.call("configure_binding", production, fighter.movement_motor.facing, 1.0)
+            spawn_count += 1
 
 func present_effect(character_id: StringName, effect_id: StringName, world_position: Vector2, facing: int = 1) -> Node2D:
     var data: CharacterPresentationData = _presentations.get(character_id, null) as CharacterPresentationData

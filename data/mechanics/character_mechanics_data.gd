@@ -12,6 +12,7 @@ extends Resource
 @export var panic_backstep_startup_reduction_frames: int = 0
 @export var last_stand_mode_id: StringName = &""
 @export var last_stand_resolve_resource_id: StringName = &""
+@export_range(0, 600, 1) var last_stand_resolve_gain_lock_frames: int = 0
 @export var heavy_knockdown_resource_id: StringName = &""
 @export var heavy_knockdown_resource_loss: int = 0
 @export var successful_hit_grants_status_id: StringName = &""

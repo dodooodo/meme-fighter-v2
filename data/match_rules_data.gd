@@ -16,7 +16,7 @@ enum Mode {
 @export_group("Round / Match")
 @export_range(0, 99, 1) var rounds_to_win: int = 2
 @export var timer_enabled: bool = true
-@export_range(0, 36000, 1) var round_timer_frames: int = 5940
+@export_range(0, 36000, 1) var round_timer_frames: int = 3600
 @export_range(0, 3600, 1) var post_round_frames: int = 90
 @export var match_can_end: bool = true
 @export var reset_meter_each_round: bool = true
@@ -37,7 +37,7 @@ static func versus_defaults() -> MatchRulesData:
     rules.mode = Mode.VERSUS
     rules.rounds_to_win = 2
     rules.timer_enabled = true
-    rules.round_timer_frames = 5940
+    rules.round_timer_frames = 3600
     rules.post_round_frames = 90
     rules.match_can_end = true
     rules.reset_meter_each_round = true

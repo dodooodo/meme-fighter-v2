@@ -23,10 +23,10 @@ func _run() -> void:
 
 func _smoke_character_select() -> void:
     var select := await _open_character_select()
-    _check(select.model.count() == 4, "Character Select loads four manifest-backed fighters")
-    _check(select.p1_select.item_count == 4, "Original P1 picker lists four manifest-backed fighters")
-    _check(select.p2_select.item_count == 4, "Original P2 picker lists four manifest-backed fighters")
-    _check(not select.vs_cpu_button.disabled, "Character Select actions are enabled after package discovery")
+    _check(select.model.count() == 14, "Character Select loads fourteen registry-backed fighters")
+    _check(select.p1_select.item_count == 14, "Original P1 picker lists fourteen canonical fighters")
+    _check(select.p2_select.item_count == 14, "Original P2 picker lists fourteen canonical fighters")
+    _check(not select.vs_cpu_button.disabled, "Character Select actions are enabled after roster resolution")
     await process_frame
     await process_frame
     if DisplayServer.get_name() == "headless":
@@ -39,6 +39,8 @@ func _smoke_character_select() -> void:
 
 func _smoke_launch(button_name: String, mode: int, expected_source_type: Variant) -> void:
     var select := await _open_character_select()
+    select.p1_select.select(select.model.index_for_id(&"doge"))
+    select.p2_select.select(select.model.index_for_id(&"magic_orange_cat"))
     var group := "ExtraModes" if button_name in ["Training", "Tutorial"] else "Buttons"
     var button := select.get_node("Center/VBox/%s/%s" % [group, button_name]) as Button
     _check(button != null, "%s launch action exists" % BattleMode.display_name(mode))

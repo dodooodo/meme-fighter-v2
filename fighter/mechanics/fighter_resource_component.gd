@@ -45,6 +45,12 @@ func spend(id: StringName, amount: int) -> bool:
         return false
     return set_value(id, get_value(id) - amount)
 
+func cash_out(id: StringName) -> bool:
+    if not _data_by_id.has(id):
+        return false
+    var data: FighterResourceData = _data_by_id[id]
+    return set_value(id, data.min_value)
+
 func can_spend(id: StringName, amount: int) -> bool:
     if amount <= 0:
         return true
@@ -82,3 +88,24 @@ func display_summary() -> String:
         if data.display_to_hud:
             parts.append("%s=%d" % [String(id), get_value(id)])
     return " ".join(parts)
+
+
+func movement_permille(kind: StringName) -> int:
+    var result := 1000
+    for id: StringName in sorted_ids():
+        var data: FighterResourceData = _data_by_id[id]
+        if data.movement_modifier_min_value < 0 or get_value(id) < data.movement_modifier_min_value:
+            continue
+        if kind == &"walk_forward":
+            result = result * data.forward_walk_permille / 1000
+    return result
+
+func dash_recovery_frames(base_frames: int) -> int:
+    var result := maxi(0, base_frames)
+    for id: StringName in sorted_ids():
+        var data: FighterResourceData = _data_by_id[id]
+        if data.movement_modifier_min_value < 0 or get_value(id) < data.movement_modifier_min_value:
+            continue
+        if data.dash_recovery_override_frames >= 0:
+            result = data.dash_recovery_override_frames
+    return result

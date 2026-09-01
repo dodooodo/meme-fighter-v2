@@ -1,7 +1,9 @@
 [gd_resource type="Resource" load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://presentation/data/character_presentation_data.gd" id="data"]
-[ext_resource type="PackedScene" path="res://presentation/visuals/greybox_fighter_visual.tscn" id="visual"]
+[ext_resource type="PackedScene" path="res://presentation/visuals/production/inventory_bound_fighter_visual.tscn" id="visual"]
+
+[ext_resource type="Resource" path="res://presentation/resources/production_asset_bindings/ya_mouse.tres" id="prod_catalog"]
 
 [resource]
 script = ExtResource("data")
@@ -11,3 +13,4 @@ fighter_visual_scene = ExtResource("visual")
 visual_offset_pixels = Vector2(0, 0)
 visual_scale = 1.0
 placeholder_color = Color(0.72, 0.72, 0.78, 1)
+production_asset_binding = ExtResource("prod_catalog")

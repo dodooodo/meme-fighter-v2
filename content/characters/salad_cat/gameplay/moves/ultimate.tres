@@ -45,7 +45,7 @@ type = 14
 sequence = SubResource("seq_1")
 [sub_resource type="Resource" id="pos_4"]
 script = ExtResource("pos")
-type = 6
+type = 9
 distance_units = 22000
 [sub_resource type="Resource" id="eff_5"]
 script = ExtResource("eff")
@@ -67,5 +67,8 @@ hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 900
 meter_cost = 100
+meter_gain_on_hit = 0
+meter_gain_on_block = 0
+meter_gain_on_throw = 0
 on_start_effects = Array[ExtResource("eff")]([SubResource("eff_4")])
 on_complete_effects = Array[ExtResource("eff")]([SubResource("eff_5")])

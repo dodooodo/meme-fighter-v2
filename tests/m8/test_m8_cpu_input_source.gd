@@ -7,7 +7,7 @@ var t = ASSERT_HELPER.new()
 var generic: CharacterData
 
 func run_all() -> int:
-    generic = load("res://data/characters/generic_fighter.tres") as CharacterData
+    generic = RosterRegistry.character_by_id(&"alien_meow")
     _test_match_mode_input_wiring()
     _test_canonical_frame_and_bits()
     _test_guard_throw_and_ultimate_are_inputs_only()
@@ -48,16 +48,16 @@ func _test_guard_throw_and_ultimate_are_inputs_only() -> void:
     var setup := _cpu_battle()
     var battle := setup["battle"] as BattleSimulation
     var cpu := setup["cpu"] as CpuInputSource
-    var guard := cpu._frame_for_decision(1, 0, 0, 8000, &"guard")
+    var guard := cpu._frame_for_decision(1, 0, &"guard")
     t.that(guard.is_held(InputFrame.InputButton.GUARD), "CPU Guard uses canonical GUARD held bit")
-    var throw_input := cpu._frame_for_decision(9, 1, 0, 8000, &"throw")
+    var throw_input := cpu._frame_for_decision(9, 0, &"throw")
     t.that(throw_input.is_pressed(InputFrame.InputButton.HEAVY), "CPU Throw uses HEAVY press")
     t.equal(throw_input.direction_x, battle.fighter_b.movement_motor.facing, "CPU Throw uses facing-relative Forward + Heavy")
-    var ultimate_without_meter := cpu._frame_for_decision(17, 2, 0, 8000, &"ultimate")
+    var ultimate_without_meter := cpu._frame_for_decision(17, 0, &"ultimate")
     t.that(not ultimate_without_meter.is_held(InputFrame.InputButton.ULTIMATE), "CPU cannot emit Ultimate action when authoritative meter is insufficient")
     battle.fighter_b.meter.gain(100)
     cpu.reset()
-    var ultimate_with_meter := cpu._frame_for_decision(25, 3, 0, 8000, &"ultimate")
+    var ultimate_with_meter := cpu._frame_for_decision(25, 0, &"ultimate")
     t.that(ultimate_with_meter.is_pressed(InputFrame.InputButton.ULTIMATE), "CPU with sufficient meter expresses Ultimate only through canonical input")
 
 
@@ -65,7 +65,7 @@ func _test_reaction_block_and_crouch_behavior() -> void:
     var setup := _cpu_battle(5150)
     var battle := setup["battle"] as BattleSimulation
     var cpu := setup["cpu"] as CpuInputSource
-    var crouch := cpu._frame_for_decision(1, 0, 0, 8000, &"crouch")
+    var crouch := cpu._frame_for_decision(1, 0, &"crouch")
     t.equal(crouch.direction_y, -1, "CPU has a canonical plain crouch behavior through direction_y only")
     t.equal(crouch.held_bits, 0, "Plain crouch does not invent a Crouch button bit")
 

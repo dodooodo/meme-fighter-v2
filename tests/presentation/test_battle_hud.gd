@@ -16,6 +16,7 @@ func run_all() -> int:
     rush_p = load("res://presentation/characters/rush_grappler_presentation.tres") as CharacterPresentationData
     _test_hud_view_model()
     _test_training_timer()
+    _test_character_mechanic_strip()
     _test_round_overlay_mapping()
     print("\nM7 BattleHUD/Round presentation tests: %d passed, %d failed" % [t.passed, t.failed])
     return t.failed
@@ -39,6 +40,7 @@ func _test_hud_view_model() -> void:
     t.equal(vm.p2_meter, 44, "HUD reads P2 authoritative meter")
     t.equal(vm.timer_text, "60", "3599F timer displays ceil(frames/60) without changing gameplay frames")
     t.equal(vm.p1_wins, 1, "HUD reads RoundController round wins")
+    t.equal(vm.p1_mechanic_text, "", "HUD keeps the mechanic strip empty when a fighter has no displayable resource or mode")
 
 func _test_training_timer() -> void:
     var battle := BattleSimulation.new()
@@ -49,6 +51,18 @@ func _test_training_timer() -> void:
     t.equal(vm.timer_text, "∞", "Training timer displays infinity as presentation text only")
     t.equal(battle.round_controller.round_timer_remaining_frames, 0, "Training gameplay timer remains deterministic integer zero")
 
+func _test_character_mechanic_strip() -> void:
+    var pink := RosterRegistry.character_by_id(&"pink_star")
+    var doge := RosterRegistry.character_by_id(&"doge")
+    var battle := BattleSimulation.new()
+    battle.configure(pink, doge)
+    battle.fighter_a.resources.set_value(&"face_actions", 3)
+    battle.fighter_a.mode.enter(&"true_face", 90)
+    var vm := BattleHudViewModel.new()
+    vm.update_from(battle, RosterRegistry.presentation_by_id(&"pink_star"), RosterRegistry.presentation_by_id(&"doge"))
+    t.that("TRUE FACE" in vm.p1_mechanic_text and "FACE ACTIONS=3" in vm.p1_mechanic_text,
+        "HUD presents authored mode/resource values as a read-only mechanic strip")
+
 func _test_round_overlay_mapping() -> void:
     var overlay := RoundPresentationOverlay.new()
     overlay.present_event(CombatEvent.round_started(1, 1))
@@ -57,6 +71,7 @@ func _test_round_overlay_mapping() -> void:
     ko.type = CombatEvent.EventType.KO
     overlay.present_event(ko)
     t.equal(overlay.visual_message, "KO", "KO event maps to KO overlay")
+    t.equal(overlay.visual_color, Color(1.0, 0.32, 0.24, 1.0), "KO receives a distinct presentation-only alert color")
     overlay.present_event(CombatEvent.time_up(100, 1, RoundController.RoundResult.P1_WIN))
     t.equal(overlay.visual_message, "TIME UP", "TIME_UP event maps to TIME UP overlay")
     overlay.present_event(CombatEvent.round_ended(101, 1, RoundController.RoundResult.DRAW, false))

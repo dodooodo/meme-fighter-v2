@@ -118,12 +118,10 @@ func _test_production_presentation_feet_pivots() -> void:
 
     var presentation := _manifest().presentation_resource
     var visual := presentation.fighter_visual_scene.instantiate()
-    var sprite := visual.get_node_or_null("AnimatedSprite2D") as AnimatedSprite2D
-    t.that(sprite != null and not sprite.centered, "Doge visual uses the top-left sprite anchor required by per-frame pivots")
-    t.equal(visual.get_script().resource_path, "res://presentation/visuals/production/production_fighter_visual.gd", "Doge uses the shared production visual adapter without a character-specific pivot exception")
-    if sprite != null and sprite.sprite_frames != null:
-        for animation_name: StringName in sprite.sprite_frames.get_animation_names():
-            t.that(keys.has(animation_name), "Doge manifest covers SpriteFrames animation %s" % String(animation_name))
+    var sprite := visual.get_node_or_null("Sprite2D") as Sprite2D
+    t.that(sprite != null and not sprite.centered, "Doge inventory-bound visual exposes the authored FEET_CENTER Sprite2D surface")
+    t.equal(visual.get_script().resource_path, "res://presentation/visuals/production/inventory_bound_fighter_visual.gd", "Doge uses the accepted inventory-bound production adapter")
+    t.that(presentation.production_asset_binding != null and presentation.production_asset_binding.character_id == &"doge", "Doge inventory visual resolves its canonical production-asset inventory")
     visual.free()
 
     var super_parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(DOGE_SUPER_ANIMATION_MANIFEST_PATH))
@@ -134,9 +132,9 @@ func _test_production_presentation_feet_pivots() -> void:
         t.that(super_animations is Array and not super_animations.is_empty(), "Super Doge manifest carries per-animation frame metadata")
     var mode_binding := presentation.mode_binding(&"super_doge")
     var super_visual := mode_binding.fighter_visual_scene.instantiate()
-    var super_sprite := super_visual.get_node_or_null("AnimatedSprite2D") as AnimatedSprite2D
-    t.that(super_sprite != null and not super_sprite.centered, "Super Doge uses top-left per-frame pivot coordinates")
-    t.equal(super_visual.get_script().resource_path, "res://presentation/visuals/production/production_fighter_visual.gd", "Super Doge also uses the shared production visual adapter")
+    var super_sprite := super_visual.get_node_or_null("Sprite2D") as Sprite2D
+    t.that(super_sprite != null and not super_sprite.centered, "Super Doge inventory-bound visual exposes the authored FEET_CENTER Sprite2D surface")
+    t.equal(super_visual.get_script().resource_path, "res://presentation/visuals/production/inventory_bound_fighter_visual.gd", "Super Doge uses the accepted inventory-bound production adapter")
     super_visual.free()
 
 func _test_packaged_charge_regression() -> void:

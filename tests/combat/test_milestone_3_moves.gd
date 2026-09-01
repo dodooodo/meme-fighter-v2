@@ -33,6 +33,13 @@ func _guard_with_action(frame: int, action_bit: int) -> InputFrame:
     var guard := InputFrame.InputButton.GUARD
     return InputFrame.new(frame, 0, 0, guard | action_bit, guard | action_bit, 0)
 
+func _start_lv1_special(battle: BattleSimulation, defender_guarding: bool = false) -> void:
+    var f := battle.frame_number + 1
+    _tick(battle, InputFrame.with_special_press(f), InputFrame.new(f, 0, 0, InputFrame.InputButton.GUARD, InputFrame.InputButton.GUARD, 0) if defender_guarding else null)
+    for _i in range(2):
+        f = battle.frame_number + 1
+        _tick(battle, InputFrame.new(f, 0, 0, 0, 0, InputFrame.InputButton.SPECIAL), InputFrame.new(f, 0, 0, InputFrame.InputButton.GUARD, 0, 0) if defender_guarding else null)
+
 func _test_keyboard_action_bit_composition() -> void:
     t.equal(KeyboardInputSource.compose_action_bits(false, false, false, true, false), InputFrame.InputButton.SPECIAL, "KeyboardInputSource canonical action composition produces SPECIAL bit for its Special key state")
     t.equal(KeyboardInputSource.compose_action_bits(false, false, false, false, true), InputFrame.InputButton.ULTIMATE, "KeyboardInputSource canonical action composition produces ULTIMATE bit for its Ultimate key state")
@@ -41,12 +48,12 @@ func _test_keyboard_action_bit_composition() -> void:
 func _test_action_priority_and_mapping() -> void:
     var parser := InputParser.new()
     var all_bits := InputFrame.InputButton.LIGHT | InputFrame.InputButton.HEAVY | InputFrame.InputButton.SPECIAL | InputFrame.InputButton.ULTIMATE
-    parser.update(InputFrame.new(1, 1, 0, all_bits, all_bits, 0), 1)
+    parser.update(InputFrame.new(1, 0, 0, all_bits, all_bits, 0), 1)
     var intent := parser.action_pressed_intent()
     t.equal(intent.action_button, InputFrame.InputButton.ULTIMATE, "Same-frame action priority chooses ULTIMATE first")
 
     var no_ultimate := InputFrame.InputButton.LIGHT | InputFrame.InputButton.HEAVY | InputFrame.InputButton.SPECIAL
-    parser.update(InputFrame.new(2, 1, 0, no_ultimate, no_ultimate, 0), 1)
+    parser.update(InputFrame.new(2, 0, 0, no_ultimate, no_ultimate, 0), 1)
     t.equal(parser.action_pressed_intent().action_button, InputFrame.InputButton.SPECIAL, "Same-frame priority chooses SPECIAL over HEAVY/LIGHT")
 
     var forward_heavy := ActionIntent.new(InputFrame.InputButton.HEAVY, 3, 1, 0, 1)
@@ -86,8 +93,8 @@ func _test_special_data_and_timing() -> void:
 func _test_special_runtime_outcome_and_actionable_frame() -> void:
     var hit := BattleSimulation.new()
     hit.configure(character, character, null, null, Vector2i(50000, BattleSimulation.GROUND_Y_UNITS), Vector2i(58000, BattleSimulation.GROUND_Y_UNITS))
-    _tick(hit, InputFrame.with_special_press(1))
-    for _i in range(11):
+    _start_lv1_special(hit)
+    for _i in range(10):
         _tick(hit)
     t.equal(hit.fighter_b.combatant.hp, 4890, "Special runtime HIT applies exactly 110 damage")
     t.equal(hit.fighter_b.combatant.hitstun_remaining, 20, "Special runtime HIT installs the configured 20F hitstun")
@@ -99,26 +106,23 @@ func _test_special_runtime_outcome_and_actionable_frame() -> void:
     var block := BattleSimulation.new()
     block.configure(character, character, null, null, Vector2i(50000, BattleSimulation.GROUND_Y_UNITS), Vector2i(58000, BattleSimulation.GROUND_Y_UNITS))
     var guard_bit := InputFrame.InputButton.GUARD
-    _tick(block, InputFrame.with_special_press(1), InputFrame.new(1, 0, 0, guard_bit, guard_bit, 0))
-    for _i in range(11):
+    _start_lv1_special(block, true)
+    for _i in range(10):
         var f := block.frame_number + 1
         _tick(block, null, InputFrame.new(f, 0, 0, guard_bit, 0, 0))
     t.equal(block.fighter_b.combatant.hp, 5000, "Special BLOCK does no direct damage with zero chip")
     t.equal(block.fighter_b.combatant.blockstun_remaining, 14, "Special BLOCK installs the configured 14F blockstun")
 
     var timing := _battle()
-    _tick(timing, InputFrame.with_special_press(1))
-    t.equal(timing.fighter_a.state_machine.state, FighterStateMachine.State.CHARGE, "Special press first enters CHARGE instead of starting attack")
-    _tick(timing) # tap release -> Lv1 starts on simulation F2
-    for _i in range(30):
+    _start_lv1_special(timing)
+    t.equal(timing.fighter_a.state_machine.state, FighterStateMachine.State.GROUND_ATTACK, "Minimum charge commits Special into its attack state")
+    while timing.fighter_a.move_runner.move_frame < 32:
         _tick(timing)
-    t.equal(timing.frame_number, 32, "Lv1 Special reaches its final Recovery presentation-independent gameplay frame after one charge-entry tick")
     t.equal(timing.fighter_a.move_runner.move_frame, 32, "Lv1 Special is still running final Recovery move frame 32")
     t.equal(timing.fighter_a.move_runner.phase(), &"RECOVERY", "Lv1 Special runtime phase is Recovery on move frame 32")
     _tick(timing)
-    t.equal(timing.frame_number, 33, "Lv1 Special completes 32 occupied MoveRunner frames after release")
     t.that(not timing.fighter_a.move_runner.is_running(), "Lv1 Special is no longer running after move frame 32 resolves")
-    _tick(timing, InputFrame.with_light_press(34))
+    _tick(timing, InputFrame.with_light_press(timing.frame_number + 1))
     t.equal(timing.fighter_a.move_runner.current_move_id(), MoveIds.STAND_LIGHT, "Lv1 Special is actionable on the next simulation frame through normal move-start path")
 
 func _test_ultimate_data_and_timing() -> void:
@@ -180,16 +184,12 @@ func _test_ultimate_runtime_outcome_and_actionable_frame() -> void:
 
 func _test_special_ground_air_and_whiff_rules() -> void:
     var ground := _battle()
-    _tick(ground, InputFrame.with_special_press(1))
-    t.equal(ground.fighter_a.state_machine.state, FighterStateMachine.State.CHARGE, "Ground Special press enters generic CHARGE state")
-    t.that(not ground.fighter_a.move_runner.is_running(), "Ground Special does not create attack before release")
-    _tick(ground)
-    t.equal(ground.fighter_a.state_machine.state, FighterStateMachine.State.GROUND_ATTACK, "Tap release enters generic GROUND_ATTACK state")
-    t.equal(ground.fighter_a.move_runner.current_move_id(), MoveIds.SPECIAL_NEUTRAL, "Tap release starts canonical Lv1 special_neutral")
+    _start_lv1_special(ground)
+    t.equal(ground.fighter_a.state_machine.state, FighterStateMachine.State.GROUND_ATTACK, "Minimum-charge release enters generic GROUND_ATTACK state")
+    t.equal(ground.fighter_a.move_runner.current_move_id(), MoveIds.SPECIAL_NEUTRAL, "Minimum-charge release starts canonical Lv1 special_neutral")
 
     var whiff := _battle()
-    _tick(whiff, InputFrame.with_special_press(1))
-    _tick(whiff)
+    _start_lv1_special(whiff)
     while whiff.fighter_a.move_runner.is_running():
         _tick(whiff)
     t.equal(whiff.fighter_a.state_machine.state, FighterStateMachine.State.IDLE, "Special whiff completes normal recovery and returns actionable ground state")

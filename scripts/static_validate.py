@@ -13,6 +13,12 @@ def check(cond,msg):
 def text(rel):
     return (ROOT/rel).read_text(encoding='utf-8')
 
+def gd_function_body(source: str, function_name: str) -> str:
+    # Extract one top-level GDScript function so static ordering checks reflect runtime call order,
+    # not textual placement of helper function definitions elsewhere in the file.
+    match = re.search(rf'^func\s+{re.escape(function_name)}\s*\(.*?(?=^func\s+|\Z)', source, re.M | re.S)
+    return match.group(0) if match else ''
+
 # Project shell / references.
 project=text('project.godot')
 check('run/main_scene="res://frontend/mode_select_scene.tscn"' in project, 'M8 main scene points to mode_select_scene.tscn')
@@ -227,8 +233,9 @@ for legacy_api in ['buffer_action(', 'peek_action(', 'consume_action(']:
 check('expire_if_needed(current_frame)' in state, 'StateMachine advances InputBuffer expiry inside simulation tick')
 check('input_buffer.clear()' in state and 'combatant.hitstun_remaining > 0' in state and 'combatant.is_ko' in state,
       'StateMachine clears contextual normal buffer for Hitstun/KO policy')
-check('parser.action_pressed_intent()' in state and 'input_buffer.buffer_intent(intent)' in state,
-      'StateMachine captures prioritized parsed ActionIntent into InputBuffer')
+check('parser.action_pressed_intent()' in state and '_capture_action_request(parser, input_buffer' in state and 'input_buffer.buffer_intent(intent, window_frames)' in state
+      and '8 if state == State.GETUP else InputBuffer.DEFAULT_BUFFER_FRAMES' in state and 'DEFAULT_BUFFER_FRAMES: int = 5' in input_buffer,
+      'StateMachine captures prioritized ActionIntent with contextual 5F normal / 8F wakeup buffer windows')
 check('input_buffer.peek_intent(current_frame)' in state and 'input_buffer.consume_intent(current_frame)' in state,
       'StateMachine owns buffered intent legality/consumption')
 
@@ -238,7 +245,7 @@ check(all(token in hitbox_owner for token in [
     '_key(hit_id, defender_id)', '_contact_keys.has(_key(hit_id, defender_id))',
 ]), 'AttackInstance+HitID+Defender duplicate-hit protection remains present')
 debug=text('debug/debug_overlay.gd')
-check('debug_summary(simulation.frame_number)' in debug, 'Debug overlay provides simulation frame to read-only buffer diagnostics')
+check('_fighter_line(simulation.fighter_a, simulation.frame_number)' in debug and 'input_history.debug_string' in debug, 'Debug overlay provides simulation frame to read-only fighter/input diagnostics')
 check(all(token in fighter for token in ['phase=%s','buf=%s','@F%d dir=(%d,%d)','fwd=%s','back=%s','exp=%d']),
       'Debug summary exposes contextual buffered intent without mutation')
 
@@ -388,10 +395,66 @@ for forbidden in ['hp =','receive_hit','receive_throw','transition_to','Animatio
     check(forbidden not in throw_system_code, f'ThrowSystem stays geometry-only: no {forbidden}')
 check('HitResult.ResultType.THROW' in resolver and 'resolve_throw_contact' in resolver and 'apply_throw_result' in resolver, 'HitResult.THROW is resolved/applied through CombatResolver')
 check('State.GUARD' in re.search(r'func is_throwable\(\).*?func is_strike_target', state, re.S).group(0), 'Guard is throwable')
-check('State.GROUND_ATTACK' not in re.search(r'func is_throwable\(\).*?func is_strike_target', state, re.S).group(0), 'Ground Attack is not throwable')
+throwable_body = re.search(r'func is_throwable\(\).*?func is_strike_target', state, re.S).group(0)
+check('State.GROUND_ATTACK' in throwable_body, 'Ground Attack participates in grounded throw candidate eligibility')
+same_tick_arbitrator = text('battle/combat/same_tick_arbitrator.gd')
+check('_active_strike_hits_throw_attacker' in same_tick_arbitrator and 'HitResult.AttackSourceKind.FIGHTER_BODY' in same_tick_arbitrator
+      and '"throw_a": null if suppress_a or normal_auto_tech else throw_a' in same_tick_arbitrator,
+      'SameTickArbitrator suppresses Throw when an already-active fighter strike hits the throw attacker')
 
-check('InputHistory' in direction_recognizer and 'TOTAL_WINDOW_FRAMES: int = 12' in direction_recognizer and 'MAX_NEUTRAL_GAP_FRAMES: int = 6' in direction_recognizer, 'Dash/Backstep recognition uses InputHistory with 12F/6F leniency')
+check('InputHistory' in direction_recognizer and 'TOTAL_WINDOW_FRAMES: int = 12' in direction_recognizer and 'MAX_NEUTRAL_GAP_FRAMES: int = 4' in direction_recognizer
+      and 'if _relative_x(previous, normalized_facing) == wanted_relative:' in direction_recognizer,
+      'Dash/Backstep recognition uses InputHistory with 12F total / 4F neutral leniency and distinct taps')
 check('DASH_FORWARD' in state and 'BACKSTEP' in state, 'Dash/Backstep states exist')
+# Gate 1 current throw-foundation invariants: validate behavior/authority, not historical source shapes.
+input_history = text('fighter/input/input_history.gd')
+active_tick_body = gd_function_body(battle, '_simulate_round_active_tick')
+fighter_snapshot = text('battle/simulation/fighter_state_snapshot.gd')
+check('has_recent_relative_direction(_facing_at_parse, 1, 3)' in parser and 'has_recent_button_press(InputFrame.InputButton.HEAVY, 3)' in parser
+      and 'throw_chord_pressed =' in parser,
+      'Forward+Heavy throw recognition preserves ±3F tolerant InputHistory chord semantics')
+check('func has_recent_button_press' in input_history and 'func has_recent_relative_direction' in input_history,
+      'InputHistory owns deterministic recent press/direction queries used by tolerant throw recognition')
+normal_throw_queue_body = gd_function_body(battle, '_apply_or_queue_throw')
+pending_throw_body = gd_function_body(battle, '_process_pending_normal_throws')
+confirmed_throw_body = gd_function_body(resolver, 'resolve_confirmed_throw')
+immediate_tech_body = gd_function_body(battle, '_apply_immediate_throw_tech')
+pending_tech_body = gd_function_body(battle, '_apply_pending_throw_tech')
+check('move.throw_kind != MoveData.ThrowKind.NORMAL_THROW' in normal_throw_queue_body and 'combat_resolver.apply_throw_result' in normal_throw_queue_body
+      and 'enter_throw_tech_window' in normal_throw_queue_body and '_pending_normal_throws.append' in normal_throw_queue_body,
+      'Only Normal Throw enters the 7F pending-tech path; command/capture throws settle immediately')
+check('"expires_frame": frame + 6' in normal_throw_queue_body and 'defender.input_parser.throw_chord_pressed' in normal_throw_queue_body,
+      'Normal Throw capture tick counts as tech frame 1 and opens exactly seven tech frames')
+check('resolve_confirmed_throw' in pending_throw_body and 'resolve_throw_contact' not in pending_throw_body
+      and 'throw_system' not in pending_throw_body and 'intersects(' not in pending_throw_body,
+      'Captured Normal Throw settlement never re-runs F7 range/geometry eligibility')
+check('func resolve_confirmed_throw' in confirmed_throw_body and 'is_throwable' not in confirmed_throw_body and 'intersects(' not in confirmed_throw_body,
+      'CombatResolver confirmed-throw path consumes locked capture facts without geometry revalidation')
+check(all(token in normal_throw_queue_body for token in ['"attacker_id"','"defender_id"','"move_id"','"attack_instance_id"','"captured_flags"','"hit_x_milli"','"hit_y_milli"','"expires_frame"'])
+      and all(token not in normal_throw_queue_body for token in ['"attacker":','"defender":','"move":','"resource":','"node":']),
+      'Pending Normal Throw stores stable primitive IDs/data rather than Fighter/Resource/Node pointers')
+check('CombatEvent.throw_tech' in immediate_tech_body and 'CombatEvent.throw_tech' in pending_tech_body
+      and 'apply_throw_result' not in immediate_tech_body and 'apply_throw_result' not in pending_tech_body
+      and 'meter.' not in immediate_tech_body and 'meter.' not in pending_tech_body,
+      'Normal Throw Tech deals no damage/knockdown/meter and emits THROW_TECH only')
+check('normal_auto_tech' in same_tick_arbitrator and 'MoveData.ThrowKind.NORMAL_THROW' in same_tick_arbitrator,
+      'Same-tick Normal Throw vs Normal Throw resolves as Auto Tech')
+check('for result: HitResult in strike_results:' in active_tick_body and 'for result: HitResult in projectile_results:' in active_tick_body
+      and active_tick_body.find('round_controller.evaluate_active_tick') > active_tick_body.find('_apply_or_queue_throw'),
+      'Strike/projectile/throw results all apply before KO/timeout evaluation, preserving same-frame trades')
+
+# Gate 1 snapshot/hash consistency for future-affecting universal state already introduced in WIP.
+for field, capture_token, restore_token, hash_token in [
+    ('throw_protection_remaining', 's.throw_protection_remaining = fighter.state_machine.throw_protection_remaining', 'fighter.state_machine.throw_protection_remaining = maxi(0, s.throw_protection_remaining)', 's.throw_protection_remaining'),
+    ('pending_knockdown_frames', 's.pending_knockdown_frames = fighter.state_machine.pending_knockdown_frames', 'fighter.state_machine.pending_knockdown_frames = s.pending_knockdown_frames', 's.pending_knockdown_frames'),
+    ('throw_tech_pending', 's.throw_tech_pending = fighter.state_machine.throw_tech_pending', 'fighter.state_machine.throw_tech_pending = s.throw_tech_pending', '_b(s.throw_tech_pending)'),
+    ('jump_buffer_expiry_frame', 's.jump_buffer_expiry_frame = fighter.state_machine.jump_buffer_expiry_frame', 'fighter.state_machine.jump_buffer_expiry_frame = s.jump_buffer_expiry_frame', 's.jump_buffer_expiry_frame'),
+    ('charge_early_release_requested', 's.charge_early_release_requested = fighter.state_machine.charge_early_release_requested', 'fighter.state_machine.charge_early_release_requested = s.charge_early_release_requested', '_b(s.charge_early_release_requested)'),
+    ('combo_state', 's.combo_state = fighter.combo_scaling.capture_state()', 'fighter.combo_scaling.restore_state(s.combo_state)', '_variant_canonical(s.combo_state)'),
+    ('input_buffer_expiry_frame', 's.input_buffer_expiry_frame = fighter.input_buffer.expiry_frame()', 's.input_buffer_expiry_frame', 's.input_buffer_expiry_frame'),
+]:
+    check(field in fighter_snapshot and capture_token in snapshot_codec and restore_token in snapshot_codec and hash_token in hasher,
+          f'Universal future state is snapshot/capture/restore/hash consistent: {field}')
 check('State.GETUP, State.THROWN, State.KNOCKDOWN, State.KO' in state and 'temporary greybox rule' in state, 'GetUp temporary strike protection is explicit')
 check('State.GETUP' not in re.search(r'func is_throwable\(\).*?func is_strike_target', state, re.S).group(0), 'GetUp is not throwable')
 
@@ -644,7 +707,15 @@ check('s.character_id = fighter.data.id' in snapshot_codec, 'Snapshot capture st
 check('fighter.data.id == s.character_id' in snapshot_codec and 'Snapshot character mismatch' in snapshot_codec, 'Snapshot restore validates character identity and fails loudly')
 check('FighterSnapshotCodec.is_compatible(simulation.fighter_a' in text('battle/simulation/battle_snapshot_codec.gd') and 'FighterSnapshotCodec.is_compatible(simulation.fighter_b' in text('battle/simulation/battle_snapshot_codec.gd'), 'Battle restore preflights both fighter identities before mutation')
 check('character=%s' in hasher and 'String(s.character_id)' in hasher, 'BattleStateHasher includes stable textual character identity')
-check('const VERSION: int = 8' in text('battle/simulation/battle_state_snapshot.gd'), 'M8 Snapshot schema is v8 for authoritative Charge state while retaining prior state')
+check('const VERSION: int = 10' in text('battle/simulation/battle_state_snapshot.gd'), 'Current BattleStateSnapshot schema version is 10')
+check('pending_normal_throws: Array[Dictionary]' in text('battle/simulation/battle_state_snapshot.gd')
+      and 'snapshot.pending_normal_throws = simulation.capture_pending_normal_throws()' in battle_snapshot_codec
+      and 'simulation.restore_pending_normal_throws(snapshot.pending_normal_throws)' in battle_snapshot_codec
+      and 'pending_throw=' in hasher,
+      'Snapshot v9 captures/restores/hashes pending Normal Throw state as primitive data')
+check('combo_state: Dictionary' in fighter_snapshot and 'fighter.combo_scaling.capture_state()' in snapshot_codec
+      and 'fighter.combo_scaling.restore_state(s.combo_state)' in snapshot_codec and ':combo=%s' in hasher,
+      'Snapshot v9 captures/restores/hashes ComboScalingRuntime state')
 check('registry.get_move(move_id)' in move_runner and 'current_move = move' in move_runner, 'Snapshot MoveRunner rehydration continues through that Fighter registry')
 
 # M4 no-character-branch core audit and hardcoded resource bans.
@@ -704,7 +775,12 @@ check('class_name ProjectileContact' in projectile_contact and 'extends StrikeCo
 check('resolve_projectile_contact' in resolver and '_resolve_strike_payload' in resolver and 'HitResult.AttackSourceKind.PROJECTILE' in resolver, 'Projectile contacts route through shared CombatResolver strike logic')
 check('mark_connected_hit' in resolver and 'if result.attack_source_kind == HitResult.AttackSourceKind.FIGHTER_BODY' in resolver, 'Detached projectile impact does not write current MoveRunner connection facts')
 check('var projectile_system: ProjectileSystem = ProjectileSystem.new()' in battle and 'projectile_system.advance_existing' in battle and '_spawn_move_projectiles' in battle and 'projectile_system.build_contacts' in battle, 'BattleSimulation owns and ticks ProjectileSystem in explicit phases')
-check('projectile_system.cleanup_end_of_tick' in battle and battle.find('projectile_system.cleanup_end_of_tick') > battle.find('apply_throw_result'), 'Projectile contact/KO/lifetime cleanup occurs after outcome apply phase')
+active_tick_body = gd_function_body(battle, '_simulate_round_active_tick')
+cleanup_pos = active_tick_body.find('projectile_system.cleanup_end_of_tick')
+strike_apply_pos = active_tick_body.find('combat_resolver.apply_strike_result')
+throw_apply_pos = active_tick_body.find('_apply_or_queue_throw')
+check(active_tick_body != '' and strike_apply_pos >= 0 and throw_apply_pos >= 0 and cleanup_pos > strike_apply_pos and cleanup_pos > throw_apply_pos,
+      'Projectile contact/KO/lifetime cleanup occurs after top-level strike/throw outcome apply phase')
 
 check('id = &"zone_fighter"' in zone_character, 'Zone CharacterData stable ID exists')
 for key,value in {'max_hp':5000,'walk_forward_units_per_tick':270,'walk_back_units_per_tick':250,'jump_velocity_y_units_per_tick':-1450,'gravity_y_units_per_tick2':75,'max_fall_speed_y_units_per_tick':1750,'air_forward_units_per_tick':220,'air_back_units_per_tick':230,'landing_recovery_frames':3,'dash_move_frames':8,'dash_speed_units_per_tick':820,'dash_recovery_frames':5,'backstep_move_frames':7,'backstep_speed_units_per_tick':900,'backstep_recovery_frames':5}.items():
@@ -749,7 +825,7 @@ for body,pid,velocity,damage,lifetime in [(shot_data,'zone_shot',800,80,120),(su
     check(f'id = &"{pid}"' in body and f'velocity_x_units_per_tick = {velocity}' in body and f'damage = {damage}' in body and f'lifetime_frames = {lifetime}' in body, f'ProjectileData resource matches core values: {pid}')
 check('id = &"zone_shot"' in shot_data and 'id = &"zone_super_shot"' in super_shot_data, 'Projectile IDs zone_shot/zone_super_shot are unique')
 
-check('const VERSION: int = 8' in battle_snapshot and 'next_projectile_instance_serial' in battle_snapshot and 'Array[ProjectileSnapshot]' in battle_snapshot, 'Battle snapshot v8 retains M5 projectile serial and active entity snapshots')
+check('next_projectile_instance_serial' in battle_snapshot and 'Array[ProjectileSnapshot]' in battle_snapshot, 'Current Battle snapshot retains projectile serial and active entity snapshots')
 for field in ['instance_id','owner_fighter_id','source_move_id','spawn_index','projectile_id','position_units','facing','remaining_lifetime_frames','contacted_defender_ids','pending_despawn']:
     check(field in projectile_snapshot, f'ProjectileSnapshot future-affecting field exists: {field}')
 projectile_snapshot_code='\n'.join(line for line in projectile_snapshot.splitlines() if not line.lstrip().startswith('#'))
@@ -860,7 +936,7 @@ check('class_name MatchRulesData' in match_rules_data and 'extends Resource' in 
 for field in ['id: StringName','mode: Mode','rounds_to_win: int','round_timer_frames: int','timer_enabled: bool','post_round_frames: int','match_can_end: bool','reset_meter_each_round: bool']:
     check(field in match_rules_data, f'M6 MatchRulesData field exists: {field}')
 check('VERSUS' in match_rules_data and 'TRAINING' in match_rules_data and 'ONLINE' not in match_rules_data and 'RANKED' not in match_rules_data, 'M6 Battle mode enum contains only VERSUS/TRAINING foundation')
-for token in ['id = &"versus"','mode = 0','rounds_to_win = 2','timer_enabled = true','round_timer_frames = 5940','post_round_frames = 90','match_can_end = true','reset_meter_each_round = true']:
+for token in ['id = &"versus"','mode = 0','rounds_to_win = 2','timer_enabled = true','round_timer_frames = 3600','post_round_frames = 90','match_can_end = true','reset_meter_each_round = true']:
     check(token in versus_rules, f'M6 versus_match_rules exact field: {token}')
 for token in ['id = &"training"','mode = 1','rounds_to_win = 0','timer_enabled = false','round_timer_frames = 0','post_round_frames = 60','match_can_end = false','reset_meter_each_round = true']:
     check(token in training_rules, f'M6 training_match_rules exact field: {token}')
@@ -890,6 +966,145 @@ check('func reset_for_new_match()' in projectile_system_m6 and 'next_projectile_
 check('func reset_for_round(' in fighter_m6 and 'input_history.clear()' in fighter_m6 and 'input_buffer = InputBuffer.new()' in fighter_m6 and 'move_runner.reset_runtime' in fighter_m6 and 'hitbox_owner.reset_runtime()' in fighter_m6, 'Fighter round reset clears input/move/contact runtime through Fighter-owned API')
 check('meter.reset()' in fighter_m6 and 'reset_meter_value' in fighter_m6, 'Fighter round reset obeys MatchRules reset_meter_each_round policy')
 check('_start_a' in battle_sim and '_start_b' in battle_sim and '_start_facing_a' in battle_sim and '_start_facing_b' in battle_sim, 'BattleSimulation preserves canonical round starting positions/facings')
+check('func configure_standard(' in battle_sim and 'func configured_start_position(' in battle_sim, 'Phase 4 exposes simulation-owned standard configuration and configured-start read API')
+check('simulation.configure_standard(' in text('battle/battle_scene.gd') and 'Vector2i(50000' not in text('battle/battle_scene.gd') and 'Vector2i(78000' not in text('battle/battle_scene.gd'), 'BattleScene delegates standard VS spawn to BattleSimulation without an independent coordinate copy')
+check('simulation.reset_training_state()' in text('battle/training_controller.gd') and 'Vector2i(' not in text('battle/training_controller.gd'), 'TrainingController resets through simulation-owned configured starts without copied coordinates')
+phase4_spawn_test = text('tests/match/test_battle_spawn_ownership.gd')
+for token in ['STAGE_LEFT_UNITS', 'configured_start_position(1)', 'configured_start_position(2)', 'TrainingController.new()', 'capture_state()', 'restore_state(snapshot)', 'reset_full_match()']:
+    check(token in phase4_spawn_test, f'Phase 4 spawn ownership runtime test covers: {token}')
+
+# Phase 5: generic resource-tier mode finisher plus canonical Doge armor contract.
+mode_data_phase5 = text('data/mechanics/mode_data.gd')
+mode_component_phase5 = text('fighter/mechanics/mode_component.gd')
+pink_character_phase5 = text('data/characters/pink_star.tres')
+pink_moves_phase5 = text('data/move_sets/roster/pink_star_move_set.tres')
+doge_l1_phase5 = text('content/characters/doge/gameplay/moves/doge_rush_l1.tres')
+doge_l2_phase5 = text('content/characters/doge/gameplay/moves/doge_rush_l2.tres')
+doge_l3_phase5 = text('content/characters/doge/gameplay/moves/doge_rush_l3.tres')
+phase5_test = text('tests/characters/roster/test_phase5_pink_doge_contract.gd')
+check('finisher_tiers: Array[ModeFinisherTierData]' in mode_data_phase5 and 'finisher_move_for_resource' in mode_data_phase5, 'Phase 5 ModeData exposes generic typed resource-tier Finisher selection')
+check('canonical_id == MoveIds.ULTIMATE' in mode_component_phase5 and 'finisher_min_resource' in mode_component_phase5 and 'pink_star' not in mode_component_phase5, 'Phase 5 ModeComponent resolves mode Finisher generically without Pink ID branching')
+for stars, damage in [(2, 105), (3, 135), (4, 165), (5, 195)]:
+    check(f'resource_value = {stars}' in pink_character_phase5 and f'id = &"pink_true_finisher_{stars}"' in pink_moves_phase5 and f'damage = {damage}' in pink_moves_phase5, f'Pink {stars}-Star Finisher tier is authored at {damage} raw damage')
+check('finisher_enabled = true' in pink_character_phase5 and 'finisher_min_resource = 2' in pink_character_phase5, 'Pink True Face enables Finisher with two-Star minimum')
+check('max_uses_per_combo = 1' in pink_moves_phase5, 'Pink Dash Cancel retains maximum one use per combo')
+check('armor_data' not in doge_l1_phase5 and 'armor_data' not in doge_l2_phase5, 'Doge Lv1/Lv2 Rush have no armor data')
+check('max_absorbed_hits = 1' in doge_l3_phase5 and 'valid_source_mask = 1' in doge_l3_phase5 and 'start_frame = 7' in doge_l3_phase5 and 'end_frame = 12' in doge_l3_phase5, 'Doge Lv3 owns one-hit strike-only release armor F7-F12')
+for token in ['One-Star Finisher attempt', 'Hard KD', 'Finisher is blockable', 'Finisher authored block result is -12', 'Finisher receives no Star refund', 'True Heavy HIT', 'True Special HIT', 'Snapshot restores one remaining Lv3 armor hit', 'Throw beats Lv3 strike armor', 'Strike-only Lv3 armor does not absorb projectile']:
+    check(token in phase5_test, f'Phase 5 runtime scenario covers: {token}')
+core_phase5_paths = ['battle/combat/combat_resolver.gd', 'fighter/state_machine/fighter_state_machine.gd', 'fighter/mechanics/mode_component.gd', 'fighter/mechanics/fighter_mechanics_runtime.gd']
+for path in core_phase5_paths:
+    source = text(path)
+    check('character_id == &"pink_star"' not in source and 'character_id == "pink_star"' not in source and 'character_id == &"doge"' not in source and 'character_id == "doge"' not in source, f'Phase 5 adds no Pink/Doge character-ID branch in generic core: {path}')
+
+# Phase 6A: Alien fixed-position warning readability and Salad outward-only spacing.
+alien_moves_phase6a = text('data/move_sets/roster/alien_meow_move_set.tres')
+salad_low_phase6a = text('content/characters/salad_cat/gameplay/moves/crouch_low.tres')
+salad_throw_phase6a = text('content/characters/salad_cat/gameplay/moves/ground_throw.tres')
+salad_ultimate_phase6a = text('content/characters/salad_cat/gameplay/moves/ultimate.tres')
+positioning_data_phase6a = text('data/mechanics/positioning_effect_data.gd')
+positioning_system_phase6a = text('battle/mechanics/positioning_system.gd')
+phase6a_test = text('tests/characters/roster/test_phase6a_alien_salad_contract.gd')
+check('telegraph_frames = 24' in alien_moves_phase6a and 'telegraph_frames = 13' in alien_moves_phase6a and 'telegraph_frames = 6' not in alien_moves_phase6a, 'Phase 6A Alien authors readable 24F unmarked and 13F marked Position Lock warnings')
+check('PUSH_TO_MINIMUM_SEPARATION' in positioning_data_phase6a and '_push_to_minimum_separation' in positioning_system_phase6a and 'current_distance >= distance_units' in positioning_system_phase6a, 'Phase 6A generic positioning exposes outward-only minimum separation without pull')
+for source, label in [(salad_low_phase6a, 'Low'), (salad_throw_phase6a, 'Throw'), (salad_ultimate_phase6a, 'Ultimate')]:
+    check('type = 9' in source, f'Phase 6A Salad {label} migrates only its authored spacing effect to outward minimum separation')
+for token in ['Alien defender can leave the recorded point', 'Alien restored Position Lock reproduces canonical hash', 'Salad far hit displaces less', 'never pulls an already-far defender', 'reversed facing', 'clamps defender at the stage corner', 'Salad restored spacing reproduces canonical hash']:
+    check(token in phase6a_test, f'Phase 6A runtime scenario covers: {token}')
+for path in ['battle/mechanics/positioning_system.gd', 'battle/entities/temporary_entity_system.gd', 'fighter/state_machine/fighter_state_machine.gd']:
+    source = text(path)
+    check('character_id == &"alien_meow"' not in source and 'character_id == "alien_meow"' not in source and 'character_id == &"salad_cat"' not in source and 'character_id == "salad_cat"' not in source, f'Phase 6A adds no Alien/Salad character-ID branch in generic core: {path}')
+
+# Phase 6B: YA Mouse and Sauce Stubble Dog retain locomotion-only, bounded generic statuses.
+ya_moves_phase6b = text('data/move_sets/roster/ya_mouse_move_set.tres')
+sauce_character_phase6b = text('data/characters/sauce_stubble_dog.tres')
+sauce_l1_phase6b = text('data/projectiles/roster/sauce_blob_l1.tres')
+sauce_l2_phase6b = text('data/projectiles/roster/sauce_blob_l2.tres')
+sauce_l3_phase6b = text('data/projectiles/roster/sauce_blob_l3.tres')
+sauce_moves_phase6b = text('data/move_sets/roster/sauce_stubble_dog_move_set.tres')
+phase6b_test = text('tests/characters/roster/test_phase6b_ya_sauce_contract.gd')
+phase6b_runner = text('tests/run_tests.gd')
+ya_l3_status = re.search(r'\[sub_resource type="Resource" id="status_2"\](.*?)(?=\n\[sub_resource|\Z)', ya_moves_phase6b, re.S)
+ya_l3_body = ya_l3_status.group(1) if ya_l3_status else ''
+check('walk_speed_permille = 780' in ya_l3_body and 'dash_speed_permille = 740' in ya_l3_body and 'backstep_speed_permille = 740' in ya_l3_body, 'Phase 6B YA Lv3 Slow preserves 0.78 walk and 0.74 dash/backstep floors')
+check('duration_frames = 240' in sauce_character_phase6b and 'walk_speed_permille = 780' in sauce_character_phase6b and 'dash_speed_permille = 780' in sauce_character_phase6b and 'backstep_speed_permille = 780' in sauce_character_phase6b, 'Phase 6B Sauce canonical Sticky definition is L3-equivalent and bounded at 240F')
+for source, label, duration, speed in [(sauce_l1_phase6b, 'L1', 120, 860), (sauce_l2_phase6b, 'L2', 180, 820), (sauce_l3_phase6b, 'L3', 240, 780)]:
+    check(f'duration_frames = {duration}' in source and source.count(f'_speed_permille = {speed}') == 3, f'Phase 6B Sauce {label} Sticky authors {duration}F and {speed} locomotion multipliers')
+check('type = 2' in sauce_moves_phase6b and 'id = &"sauce"' in sauce_moves_phase6b and 'value = 60' in sauce_moves_phase6b, 'Phase 6B Sauce Low retains one generic 60F Sticky extension')
+for token in ['YA Slow leaves attack startup', 'YA overlap does not stack', 'Sauce Sticky leaves attack', 'Sauce second Low extension', 'Sauce Sticky Ultimate consumes', 'Sauce restored Sticky reproduces canonical hash']:
+    check(token in phase6b_test, f'Phase 6B runtime scenario covers: {token}')
+check('PHASE6B_YA_SAUCE_CONTRACT_SUITE' in phase6b_runner, 'Full runtime runner includes Phase 6B YA/Sauce contract coverage')
+for path in ['fighter/movement/movement_motor.gd', 'fighter/mechanics/status_effect_component.gd', 'battle/combat/combat_resolver.gd']:
+    source = text(path)
+    check('character_id == &"ya_mouse"' not in source and 'character_id == "ya_mouse"' not in source and 'character_id == &"sauce_stubble_dog"' not in source and 'character_id == "sauce_stubble_dog"' not in source, f'Phase 6B adds no YA/Sauce character-ID branch in generic core: {path}')
+
+# Phase 6C: data-driven summon waves and readable Magic trap/Ultimate timing.
+summon_data_phase6c = text('data/mechanics/summon_data.gd')
+tempura_moves_phase6c = text('data/move_sets/roster/tempura_penguin_move_set.tres')
+magic_l1_phase6c = text('content/characters/magic_orange_cat/gameplay/moves/magic_circle_l1.tres')
+magic_l2_phase6c = text('content/characters/magic_orange_cat/gameplay/moves/magic_circle_l2.tres')
+magic_l3_phase6c = text('content/characters/magic_orange_cat/gameplay/moves/magic_circle_l3.tres')
+magic_ultimate_phase6c = text('content/characters/magic_orange_cat/gameplay/moves/ultimate.tres')
+temp_runtime_phase6c = text('battle/entities/temporary_entity_runtime.gd')
+temp_system_phase6c = text('battle/entities/temporary_entity_system.gd')
+phase6c_test = text('tests/characters/roster/test_phase6c_penguin_magic_contract.gd')
+phase6c_runner = text('tests/run_tests.gd')
+check('spawn_wave_size' in summon_data_phase6c and 'spawn_wave_interval_frames' in summon_data_phase6c, 'Phase 6C SummonData exposes generic wave scheduling fields')
+for token in ['spawn_count = 9', 'spawn_wave_size = 3', 'spawn_wave_interval_frames = 36', 'shared_group_target_lockout_frames = 12', 'max_hits_per_owner_combo = 3', 'reaction_type = 0', 'attack_recovery_frames = 108']:
+    check(token in tempura_moves_phase6c, f'Phase 6C Penguin authors: {token}')
+for source, label, arm in [(magic_l1_phase6c, 'Lv1', 30), (magic_l2_phase6c, 'Lv2', 36), (magic_l3_phase6c, 'Lv3', 42)]:
+    check('replace_group = &"jpeg_circle"' in source and f'arm_frames = {arm}' in source, f'Phase 6C Magic {label} keeps one replacing trap with {arm}F re-arm')
+check(magic_ultimate_phase6c.count('telegraph_frames = 24') == 4 and 'step_5' not in magic_ultimate_phase6c and 'steps = Array[ExtResource("step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4")])' in magic_ultimate_phase6c, 'Phase 6C Magic Ultimate has exactly four 24F warned zones')
+check('activation_delay_remaining' in temp_runtime_phase6c and '"activation_delay_remaining"' in temp_runtime_phase6c and 'runtime.activation_delay_remaining = (i / data.spawn_wave_size) * data.spawn_wave_interval_frames' in temp_system_phase6c, 'Phase 6C wave delay is authoritative, primitive snapshot state')
+for token in ['Penguin real summon contact accepts no more than three combo hits', 'Penguin corner swarm stays inside legal geometry', 'Magic replacement trap starts unarmed', 'Magic four warned zones activate', 'Magic warned zone remains guardable', 'Magic Ultimate warning sequence restores identical hash']:
+    check(token in phase6c_test, f'Phase 6C runtime scenario covers: {token}')
+check('PHASE6C_PENGUIN_MAGIC_CONTRACT_SUITE' in phase6c_runner, 'Full runtime runner includes Phase 6C Penguin/Magic contract coverage')
+for path in ['battle/entities/temporary_entity_system.gd', 'battle/entities/temporary_entity_runtime.gd', 'battle/combat/combat_resolver.gd']:
+    source = text(path)
+    check('character_id == &"tempura_penguin"' not in source and 'character_id == "tempura_penguin"' not in source and 'character_id == &"magic_orange_cat"' not in source and 'character_id == "magic_orange_cat"' not in source, f'Phase 6C adds no Penguin/Magic character-ID branch in generic core: {path}')
+
+# Phase 6D: optional Panic Exit and bounded, data-grouped Husky summon.
+scared_character_phase6d = text('data/characters/scared_cat.tres')
+scared_moves_phase6d = text('data/move_sets/roster/scared_cat_move_set.tres')
+summon_data_phase6d = text('data/mechanics/summon_data.gd')
+fighter_phase6d = text('fighter/fighter.gd')
+hfsm_phase6d = text('fighter/state_machine/fighter_state_machine.gd')
+temp_system_phase6d = text('battle/entities/temporary_entity_system.gd')
+phase6d_test = text('tests/characters/roster/test_phase6d_scared_cat_contract.gd')
+phase6d_runner = text('tests/run_tests.gd')
+check('duration_frames = 120' in scared_character_phase6d and 'panic_exit_status_id = &"panic_exit"' in scared_character_phase6d and 'panic_backstep_speed_permille = 1450' in scared_character_phase6d, 'Phase 6D Panic Exit remains a one-stock 120F authored status with 1.45x Backstep')
+check('statuses.remove(panic_id)' not in fighter_phase6d and 'statuses.has_status(panic_id)' in hfsm_phase6d and 'statuses.remove(panic_id)' in hfsm_phase6d, 'Phase 6D consumes Panic Exit only at the legal Backstep state transition')
+check('replace_group' in summon_data_phase6d and 'if data.replace_group != &""' in temp_system_phase6d and 'old.replace_group == data.replace_group' in temp_system_phase6d, 'Phase 6D exposes generic same-owner summon replacement groups')
+for token in ['replace_group = &"husky_guardian"', 'max_hp = 160', 'attack_startup_frames = 18', 'attack_recovery_frames = 120', 'same_target_rehit_lockout_frames = 30']:
+    check(token in scared_moves_phase6d, f'Phase 6D Husky authors: {token}')
+for token in ['Illegal Backstep input does not consume', 'Panic Exit activation creates no automatic retreat', 'Second Husky summon deterministically replaces', 'Real fighter strike damages Husky', 'Husky Bark remains blockable', 'Scared Cat normal plus Husky Bark pressure', 'Panic Exit and Husky replay restore identical']:
+    check(token in phase6d_test, f'Phase 6D runtime scenario covers: {token}')
+check('PHASE6D_SCARED_CAT_CONTRACT_SUITE' in phase6d_runner, 'Full runtime runner includes Phase 6D Scared Cat contract coverage')
+for path in ['fighter/movement/movement_motor.gd', 'fighter/state_machine/fighter_state_machine.gd', 'battle/entities/temporary_entity_system.gd', 'battle/combat/combat_resolver.gd']:
+    source = text(path)
+    check('character_id == &"scared_cat"' not in source and 'character_id == "scared_cat"' not in source, f'Phase 6D adds no Scared Cat character-ID branch in generic core: {path}')
+
+# Phase 6E: data-authored command grab ladder and grounded capture counterplay.
+goblin_moves_phase6e = text('data/move_sets/roster/goblin_love_move_set.tres')
+ok_moves_phase6e = text('data/move_sets/roster/ok_meow_boss_move_set.tres')
+throw_system_phase6e = text('battle/combat/throw_system.gd')
+condition_eval_phase6e = text('battle/mechanics/gameplay_condition_evaluator.gd')
+phase6e_test = text('tests/characters/roster/test_phase6e_goblin_ok_contract.gd')
+phase6e_runner = text('tests/run_tests.gd')
+for token in ['startup_frames = 7', 'startup_frames = 9', 'startup_frames = 12', 'damage = 115', 'damage = 145', 'damage = 185', 'throw_whiff_recovery_frames = 28', 'throw_whiff_recovery_frames = 32', 'throw_whiff_recovery_frames = 38', 'throw_kind = 1']:
+    check(token in goblin_moves_phase6e, f'Phase 6E Goblin authors: {token}')
+goblin_grab_bodies_phase6e = [goblin_moves_phase6e.split(f'id = &"goblin_grab_l{level}"', 1)[1].split('[sub_resource', 1)[0] for level in [1, 2, 3]]
+goblin_low_body_phase6e = goblin_moves_phase6e.split('id = &"crouch_low"', 1)[1].split('[sub_resource', 1)[0]
+check(all('armor_data =' not in body for body in goblin_grab_bodies_phase6e) and 'cancel_windows =' not in goblin_low_body_phase6e, 'Phase 6E Goblin grab ladder adds no armor and Low has no protected grab cancel')
+for token in ['throw_kind = 2', 'throw_whiff_recovery_frames = 42', 'type = 17', 'type = 18', 'type = 19', 'blockstun_frames = 9', 'blockstun_frames = 15', 'blockstun_frames = 20', 'defender_block_pushback_units = 1500', 'defender_block_pushback_units = 1900']:
+    check(token in ok_moves_phase6e, f'Phase 6E OK authors: {token}')
+check('movement_motor.is_airborne()' in throw_system_phase6e and 'TARGET_NOT_IN_ORDINARY_HITSTUN' in condition_eval_phase6e, 'Phase 6E generic capture path preserves airborne and ordinary-hitstun counterplay')
+for token in ['succeeds through Guard', 'outside its 120px-effective range', 'pre-active Backstep escape', 'ordinary %s hit does not guarantee', 'block pushback creates real capture counterplay distance', 'normal Throw remains techable']:
+    check(token in phase6e_test, f'Phase 6E runtime scenario covers: {token}')
+check('PHASE6E_GOBLIN_OK_CONTRACT_SUITE' in phase6e_runner, 'Full runtime runner includes Phase 6E Goblin/OK contract coverage')
+for path in ['battle/combat/throw_system.gd', 'battle/combat/combat_resolver.gd', 'fighter/state_machine/fighter_state_machine.gd']:
+    source = text(path)
+    check('character_id == &"goblin_love"' not in source and 'character_id == "goblin_love"' not in source and 'character_id == &"ok_meow_boss"' not in source and 'character_id == "ok_meow_boss"' not in source, f'Phase 6E adds no Goblin/OK character-ID branch in generic core: {path}')
 check('InputFrame.neutral(required_frame)' in battle_sim and 'if not round_controller.is_round_active()' in battle_sim, 'POST_ROUND/MATCH_OVER input is neutralized at simulation authority')
 post_body = battle_sim.split('func _simulate_post_round_tick',1)[1].split('func _reset_round_runtime',1)[0]
 check('build_strike_contact' not in post_body and 'build_contacts' not in post_body and 'build_throw_contact' not in post_body, 'POST_ROUND performs settlement without building new combat contacts')
@@ -899,7 +1114,7 @@ check(active_body.find('apply_strike_result') < active_body.find('evaluate_activ
 check('cleanup_temporary_combat_entities()' in active_body and active_body.find('cleanup_temporary_combat_entities()') > active_body.find('evaluate_active_tick'), 'Round-ending tick cleans detached entities only after same-frame outcomes apply')
 
 # Snapshot v6 + rules identity + round state hash.
-check('const VERSION: int = 8' in battle_snapshot and 'round_state: RoundStateSnapshot' in battle_snapshot, 'M8 Battle snapshot schema v8 retains typed RoundStateSnapshot')
+check('round_state: RoundStateSnapshot' in battle_snapshot, 'Current Battle snapshot retains typed RoundStateSnapshot')
 for field in ['rules_id','state','round_number','p1_round_wins','p2_round_wins','round_timer_remaining_frames','post_round_remaining_frames','round_result','pending_match_winner','match_winner']:
     check(re.search(rf'var\s+{field}\s*:', round_snapshot) is not None, f'M6 RoundStateSnapshot field exists: {field}')
 check('MatchRulesData' not in '\n'.join(l for l in round_snapshot.splitlines() if not l.lstrip().startswith('#')) and 'Resource' not in '\n'.join(l for l in round_snapshot.splitlines() if not l.lstrip().startswith('#')), 'RoundStateSnapshot stores stable rules ID, not MatchRulesData Resource pointer')
@@ -911,7 +1126,7 @@ for token in ['String(s.rules_id)','s.state','s.round_number','s.p1_round_wins',
 check('clear_pending_presentation_events()' in battle_snapshot_codec, 'M6 snapshot restore clears non-gameplay pending presentation events')
 
 # Replay normalized-input-only architecture.
-check('const SCHEMA_VERSION: int = 1' in replay_format and 'const COMBAT_RULES_VERSION: int = 4' in replay_format and '&"greybox_stage"' in replay_format and '.tbf_replay.json' in replay_format, 'Replay format centralizes unchanged schema and M8 combat-rules compatibility constants')
+check('const SCHEMA_VERSION: int = 1' in replay_format and 'const COMBAT_RULES_VERSION: int = 5' in replay_format and '&"greybox_stage"' in replay_format and '.tbf_replay.json' in replay_format, 'Replay format keeps input schema 1 and current combat-rules compatibility version 5')
 for field in ['replay_schema_version','combat_rules_version','match_rules_id','stage_id','p1_character_id','p2_character_id','random_seed','initial_simulation_frame','frames','expected_final_state_hash']:
     check(re.search(rf'var\s+{field}\s*:', replay_data) is not None, f'ReplayData metadata/input field exists: {field}')
 replay_data_code='\n'.join(l for l in replay_data.splitlines() if not l.lstrip().startswith('#'))
@@ -1126,8 +1341,12 @@ for token in ['CharacterPresentationData','animation_key','event_ledger','Camera
     check(token not in snapshot_m7, f'Battle snapshot v8 excludes presentation field/pointer: {token}')
     check(token not in hasher_m7, f'BattleStateHasher excludes presentation field: {token}')
     check(token not in replay_data_m7, f'ReplayData remains normalized gameplay input-only, excludes: {token}')
-check('const VERSION: int = 8' in text('battle/simulation/battle_state_snapshot.gd'), 'M8 bumps gameplay Snapshot schema to v7 only for new authoritative Charge state')
-check('SCHEMA_VERSION: int = 1' in replay_format and 'COMBAT_RULES_VERSION: int = 4' in replay_format, 'M8 keeps Replay input schema at 1 and bumps combat-rules compatibility to 4 for Charge gameplay semantics')
+check('charge_early_release_requested: bool' in fighter_snapshot and 's.charge_early_release_requested = fighter.state_machine.charge_early_release_requested' in snapshot_codec
+      and 'fighter.state_machine.charge_early_release_requested = s.charge_early_release_requested' in snapshot_codec
+      and ':charge=%d,%s,%d,%d' in hasher,
+      'Current snapshot retains authoritative Charge and deterministic early-release state')
+check('BattleStateSnapshot' not in replay_data_m7 and 'FighterStateSnapshot' not in replay_data_m7 and 'MoveData' not in replay_data_m7,
+      'Replay remains normalized-input-only and does not serialize derived gameplay state')
 
 scene_m7=text('battle/battle_scene.gd')
 scene_tscn_m7=text('battle/battle_scene.tscn')
@@ -1211,9 +1430,12 @@ check('Input.is_key_pressed' not in cpu_code and 'RandomNumberGenerator' not in 
 for forbidden in ['.hp =', '.meter =', '.sim_position =', 'start_move(', 'transition_to(', 'receive_hit(', 'apply_damage', 'spawn_from_descriptor(']:
     check(forbidden not in cpu, f'CPU source cannot mutate gameplay via {forbidden}')
 check('pressed := held & ~_previous_held_bits' in cpu and 'released := _previous_held_bits & ~held' in cpu, 'CPU computes canonical pressed/released edges from held bits')
-check('REACTION_INTERVAL_FRAMES: int = 8' in cpu and 'CLOSE_DISTANCE_UNITS: int = 12000' in cpu and 'MID_DISTANCE_UNITS: int = 26000' in cpu, 'CPU v1 deterministic tuning uses 8F reaction and simulation-unit spacing bands')
+check('CpuProfileRegistry.profile_for' in cpu and 'CpuProfileRegistry.difficulty_for' in cpu and '_observation_history' in cpu and '_last_reaction_frames' in cpu, 'CPU uses data-driven profiles with delayed observable-state reactions')
 check('&"throw"' in cpu and 'direction_x = facing' in cpu and 'InputFrame.InputButton.HEAVY' in cpu, 'CPU Throw is represented as facing-relative Forward + Heavy input')
-check('_can_use_ultimate()' in cpu and 'meter.can_spend(move.meter_cost)' in cpu, 'CPU Ultimate decision respects authoritative MoveData meter cost')
+fighter_can_afford_move = gd_function_body(fighter, 'can_afford_move')
+check('_can_use_ultimate()' in cpu and '_own.can_afford_move(MoveIds.ULTIMATE)' in cpu
+      and 'move_registry.get_move(id)' in fighter_can_afford_move and 'meter.can_spend(move.meter_cost)' in fighter_can_afford_move,
+      'CPU Ultimate decision uses Fighter read facade while respecting authoritative MoveData meter cost')
 check('_sample_charge' in cpu and '_charge_target_frames' in cpu and 'InputFrame.InputButton.SPECIAL' in cpu, 'CPU charge plan emits real Special press/hold/release edges through InputFrame')
 
 check('class_name ChargeSpecialData' in charge_data and 'level_2_threshold_frames' in charge_data and 'level_3_threshold_frames' in charge_data, 'ChargeSpecialData is typed immutable configuration resource')
@@ -1493,6 +1715,130 @@ check(
     '--editor --quit' in text('scripts/validate_characters.sh'),
     'Package validator command bootstraps Godot class discovery on a fresh checkout',
 )
+
+# Gate 2C-1 dedicated snapshot scenario coverage.
+gate2_snapshot_rel = 'tests/snapshot/test_gate2_snapshot_scenarios.gd'
+check((ROOT/gate2_snapshot_rel).exists(), 'Gate 2 snapshot scenario suite exists')
+if (ROOT/gate2_snapshot_rel).exists():
+    gate2_snapshot = text(gate2_snapshot_rel)
+    run_source = text('tests/run_tests.gd')
+    check('preload("res://tests/snapshot/test_gate2_snapshot_scenarios.gd")' in run_source
+          and 'GATE2_SNAPSHOT_SCENARIOS_SUITE.new().run_all()' in run_source,
+          'Headless runner registers Gate 2 snapshot scenario suite')
+    required_scenarios = {
+        '_test_alien_signal_mark_snapshot': ['signal_mark', 'application_serial'],
+        '_test_alien_position_lock_snapshot': ['alien_position_lock', 'recorded_positions'],
+        '_test_doge_super_mode_snapshot': ['super_doge', 'remaining_frames'],
+        '_test_penguin_summon_aux_snapshot': ['penguin_swarm', 'shared_target_locks', 'combo_hit_count'],
+        '_test_magic_trap_arming_snapshot': ['jpeg_circle', 'arm_frames', 'target_inside_owner_area'],
+        '_test_blade_dual_mode_snapshot': ['dual_blade', 'guard_allowed'],
+        '_test_pink_true_face_resource_snapshot': ['true_face', 'face_actions'],
+        '_test_pink_dash_cancel_snapshot': ['dash_cancel_count', 'can_use_dash_cancel'],
+        '_test_sauce_sticky_extended_once_snapshot': ['sauce', 'extended_once'],
+        '_test_scared_panic_exit_snapshot': ['panic_exit', 'has_status'],
+        '_test_husky_runtime_snapshot': ['husky_guardian', 'rehit_locks', 'phase_remaining'],
+        '_test_niu_courage_snapshot': ['courage', 'dash_recovery_frames'],
+        '_test_bao_last_stand_snapshot': ['last_stand', 'resolve', 'last_stand_active'],
+    }
+    for function_name, tokens in required_scenarios.items():
+        body = gd_function_body(gate2_snapshot, function_name)
+        check(bool(body), f'Gate 2 snapshot scenario authored: {function_name}')
+        if body:
+            check('capture_state()' in body and 'state_signature()' in body and '_assert_hash_restored' in body,
+                  f'Gate 2 snapshot scenario round-trips capture/restore/hash: {function_name}')
+            for token in tokens:
+                check(token in body, f'Gate 2 snapshot scenario covers {token}: {function_name}')
+    check('Presentation' not in gate2_snapshot and 'presentation/' not in gate2_snapshot,
+          'Gate 2 snapshot scenario suite serializes no Presentation state')
+    check('BattleStateSnapshot.VERSION' not in gate2_snapshot or 'VERSION = 10' not in gate2_snapshot,
+          'Gate 2 snapshot tests do not mutate or hard-bump snapshot schema')
+
+
+# Gate 3 systems closeout invariants: production binding, deterministic CPU, Training/Debug, observational telemetry.
+gate3_binding_export = json.loads(text('GATE3_ASSET_BINDINGS.json'))
+gate3_characters = gate3_binding_export.get('characters', [])
+check(len(gate3_characters) == 14, 'Gate 3 production binding export covers 14/14 characters')
+gate3_bindings = [binding for character in gate3_characters for binding in character.get('bindings', [])]
+check(len(gate3_bindings) == 980, 'Gate 3 production binding catalog contains 980 inventory-backed bindings')
+check(sum(1 for binding in gate3_bindings if binding.get('status') == 'RED') == 0, 'Gate 3 production bindings have 0 RED gameplay blockers')
+check(sum(1 for binding in gate3_bindings if binding.get('status') == 'YELLOW') == 2, 'Gate 3 production bindings retain exactly two approved YELLOW fallbacks')
+pink_exports = [character for character in gate3_characters if character.get('character_id') == 'pink_star']
+check(len(pink_exports) == 1 and pink_exports[0].get('asset_folder') == '粉藍星星', 'Gate 3 Pink asset alias remains pink_star -> 粉藍星星')
+check(len(list((ROOT/'assets/production_roster/source').rglob('*.webp'))) == 1717, 'Gate 3 imported production roster contains 1717 WebP frames')
+check((ROOT/'scripts/asset_binding_validator.py').exists(), 'Gate 3 AssetBindingValidator exists')
+
+cpu_source = text('fighter/input/cpu_input_source.gd')
+cpu_source_code = '\n'.join(line for line in cpu_source.splitlines() if not line.lstrip().startswith('#'))
+check('class_name CpuInputSource' in cpu_source and 'extends InputSource' in cpu_source, 'Gate 3 CPU remains canonical InputSource')
+for forbidden in ['Time.get_', 'RandomNumberGenerator', 'Input.is_', 'Input.get_', '.combatant.hp =', 'move_runner.start_move(', 'spawn_summon(', 'spawn_area(']:
+    check(forbidden not in cpu_source_code, f'Gate 3 CPU has no authority/input-reading shortcut: {forbidden}')
+check('_roll(' in cpu_source and '_observation_history' in cpu_source and 'reaction_min_frames' in cpu_source, 'Gate 3 CPU uses deterministic seeded delayed observations')
+profile_paths = sorted((ROOT/'data/cpu/profiles').glob('*.tres'))
+difficulty_paths = sorted((ROOT/'data/cpu/difficulties').glob('*.tres'))
+check(len(profile_paths) == 14, 'Gate 3 CPU utility profiles exist for 14/14 characters')
+check(len(difficulty_paths) == 4, 'Gate 3 CPU has 4/4 difficulty resources')
+for rel, lo, hi, err in [
+    ('data/cpu/difficulties/beginner.tres', 24, 36, 30),
+    ('data/cpu/difficulties/normal.tres', 15, 24, 18),
+    ('data/cpu/difficulties/hard.tres', 9, 15, 8),
+    ('data/cpu/difficulties/expert.tres', 6, 10, 4),
+]:
+    body = text(rel)
+    check(f'reaction_min_frames = {lo}' in body and f'reaction_max_frames = {hi}' in body and f'decision_error_percent = {err}' in body,
+          f'Gate 3 CPU difficulty matches authored reaction/error policy: {Path(rel).stem}')
+
+training = text('battle/training_controller.gd')
+dummy = text('fighter/input/training_dummy_input_source.gd')
+for token in ['infinite_hp', 'infinite_meter', 'reset_positions', 'set_meter', 'set_resource', 'toggle_status', 'activate_mode', 'trigger_move_start_effects']:
+    check(token in training, f'Gate 3 Training control exists: {token}')
+for token in ['STAND', 'CROUCH', 'STAND_GUARD', 'CROUCH_GUARD', 'GUARD_AFTER_FIRST_HIT', 'JUMP', 'BACKSTEP']:
+    check(token in dummy, f'Gate 3 Training dummy policy exists: {token}')
+
+debug_overlay = text('debug/debug_overlay.gd')
+hitbox_debug = text('debug/hitbox_debugger.gd')
+for token in ['FrameAdvantageCalculator', 'Combo=', 'Charge=', 'ThrowProtect=', 'Mode=', 'Res=', 'Status=', 'Signal=', 'Panic=', 'Sticky=', 'Courage=', 'Stars=', 'Resolve=']:
+    check(token in debug_overlay, f'Gate 3 Debug overlay exposes: {token}')
+for token in ['pushbox_rect', 'hurtbox_rect', 'active_hitbox_rect', 'active_throw_rect', '_draw_projectile_box', 'AreaData', 'HazardData', 'SummonData']:
+    check(token in hitbox_debug, f'Gate 3 authoritative box debugger exposes: {token}')
+check('Sprite' not in hitbox_debug and 'Texture' not in hitbox_debug, 'Gate 3 Hitbox debug does not derive gameplay boxes from sprite textures')
+
+combat_event = text('battle/combat/combat_event.gd')
+telemetry_agg = text('telemetry/telemetry_match_aggregator.gd')
+telemetry_service_g3 = text('telemetry/telemetry_service.gd')
+for field in ['raw_damage', 'scaled_damage', 'damage_scale_percent', 'hit_level', 'attack_source_kind', 'source_runtime_id', 'value_before', 'value_after']:
+    check(re.search(rf'var\s+{re.escape(field)}\s*:', combat_event) is not None, f'Gate 3 CombatEvent exposes telemetry provenance: {field}')
+for event_name in [
+    'combat.move_start', 'combat.hit', 'combat.block', 'combat.whiff', 'combat.counter_hit', 'combat.punish',
+    'combat.throw_attempt', 'combat.throw_success', 'combat.throw_tech', 'combat.meter_gain', 'combat.meter_spend',
+    'combat.charge_level', 'combat.ultimate_start', 'combat.ultimate_hit', 'combat.ultimate_block', 'combat.ultimate_whiff',
+    'combat.status_apply', 'combat.status_remove', 'combat.mode_enter', 'combat.mode_exit', 'combat.resource_change',
+    'combat.projectile_spawn', 'combat.projectile_hit', 'combat.summon_spawn', 'combat.summon_hit', 'combat.summon_destroyed',
+    'combat.trap_spawn', 'combat.trap_trigger', 'combat.ko', 'combat.corner_state'
+]:
+    check(f'"{event_name}"' in telemetry_agg, f'Gate 3 telemetry event coverage exists: {event_name}')
+for field in ['raw_damage', 'scaled_damage', 'actual_hp_damage', 'hp_before', 'hp_after', 'combo_hit_count', 'combo_damage', 'distance_bucket', 'corner_state']:
+    check(f'"{field}"' in telemetry_agg, f'Gate 3 telemetry payload exposes: {field}')
+check('_capture_observable_state' in telemetry_agg and '_state_diff_records' in telemetry_agg, 'Gate 3 telemetry uses post-resolution generic state-diff observation')
+check('sink.enqueue(envelope)' in telemetry_service_g3 and 'if not envelope.is_empty()' in telemetry_service_g3, 'Gate 3 telemetry dispatch is bounded behind TelemetryService/sink')
+for authoritative_rel in ['battle/simulation/battle_state_snapshot.gd', 'battle/simulation/battle_state_hasher.gd', 'battle/replay/replay_data.gd']:
+    check('telemetry' not in text(authoritative_rel).lower(), f'Gate 3 telemetry does not enter Snapshot/Replay truth: {authoritative_rel}')
+
+run_gate3 = text('tests/run_tests.gd')
+gate3_tests = {
+    'GATE3_ASSET_BINDING_SUITE': 'tests/gate3/test_gate3_asset_binding.gd',
+    'GATE3_CPU_SUITE': 'tests/gate3/test_gate3_cpu.gd',
+    'GATE3_TRAINING_DEBUG_SUITE': 'tests/gate3/test_gate3_training_debug.gd',
+    'GATE3_TELEMETRY_SUITE': 'tests/gate3/test_gate3_telemetry.gd',
+}
+for constant, rel in gate3_tests.items():
+    check((ROOT/rel).exists(), f'Gate 3 authored test suite exists: {rel}')
+    check(f'preload("res://{rel}")' in run_gate3 and f'{constant}.new().run_all()' in run_gate3, f'Headless runner registers Gate 3 suite: {constant}')
+    if (ROOT/rel).exists():
+        body = text(rel)
+        check('func run_all() -> int' in body and 'return t.failed' in body and _balanced_gd(body), f'Gate 3 suite follows executable test contract: {rel}')
+telemetry_gate3_test = text('tests/gate3/test_gate3_telemetry.gd') if (ROOT/'tests/gate3/test_gate3_telemetry.gd').exists() else ''
+for token in ['state_signature()', 'combat.hit', 'combat.block', 'combat.throw_success', 'combat.throw_tech', 'combat.meter_gain', 'combat.status_apply', 'combat.mode_enter', 'combat.resource_change', 'combat.projectile_hit', 'combat.summon_hit', 'combat.trap_trigger', 'combat.ko']:
+    check(token in telemetry_gate3_test, f'Gate 3 Telemetry non-authority/payload test covers: {token}')
 
 for msg in passes:
     print('[PASS]',msg)

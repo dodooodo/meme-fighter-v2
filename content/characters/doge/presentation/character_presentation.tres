@@ -1,10 +1,12 @@
 [gd_resource type="Resource" load_steps=36 format=3]
 [ext_resource type="Script" path="res://presentation/data/character_presentation_data.gd" id="data"]
-[ext_resource type="PackedScene" path="res://presentation/visuals/production/doge_visual.tscn" id="visual"]
-[ext_resource type="PackedScene" path="res://presentation/visuals/production/doge_super_visual.tscn" id="super_visual"]
+[ext_resource type="PackedScene" path="res://presentation/visuals/production/inventory_bound_fighter_visual.tscn" id="visual"]
+[ext_resource type="PackedScene" path="res://presentation/visuals/production/inventory_bound_fighter_visual.tscn" id="super_visual"]
 [ext_resource type="Script" path="res://presentation/data/state_presentation_binding.gd" id="state"]
 [ext_resource type="Script" path="res://presentation/data/move_presentation_binding.gd" id="move"]
 [ext_resource type="Script" path="res://presentation/data/mode_presentation_binding.gd" id="mode"]
+
+[ext_resource type="Resource" path="res://presentation/resources/production_asset_bindings/doge.tres" id="prod_catalog"]
 
 [sub_resource type="Resource" id="s_idle"]
 script = ExtResource("state")
@@ -140,3 +142,4 @@ placeholder_color = Color(0.95, 0.66, 0.19, 1)
 state_bindings = Array[ExtResource("state")]([SubResource("s_idle"), SubResource("s_walk_forward"), SubResource("s_walk_back"), SubResource("s_crouch"), SubResource("s_charge"), SubResource("s_jump"), SubResource("s_landing"), SubResource("s_guard_stand"), SubResource("s_guard_crouch"), SubResource("s_hitstun"), SubResource("s_blockstun"), SubResource("s_thrown"), SubResource("s_knockdown"), SubResource("s_getup"), SubResource("s_ko"), SubResource("s_dash"), SubResource("s_backstep")])
 move_bindings = Array[ExtResource("move")]([SubResource("m_light"), SubResource("m_heavy"), SubResource("m_low"), SubResource("m_air"), SubResource("m_throw"), SubResource("m_special"), SubResource("m_rush_1"), SubResource("m_rush_2"), SubResource("m_rush_3"), SubResource("m_ultimate"), SubResource("m_super_heavy")])
 mode_bindings = Array[ExtResource("mode")]([SubResource("mode_super")])
+production_asset_binding = ExtResource("prod_catalog")

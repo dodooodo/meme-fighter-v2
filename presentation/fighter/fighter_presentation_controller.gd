@@ -42,8 +42,19 @@ func apply_authoritative_mode_id(mode_id: StringName) -> bool:
     if mode_id == &"":
         active_mode_id = &""
         active_mode_binding = null
+        if visual != null:
+            visual.apply_presentation_mode_id(&"")
+            visual.play_animation(current_animation_key)
+            return true
         return _swap_visual(data.fighter_visual_scene, 1.0, &"idle")
     var binding := data.mode_binding(mode_id)
+    if data.production_asset_binding != null and data.production_asset_binding.has_mode(mode_id):
+        active_mode_id = mode_id
+        active_mode_binding = binding
+        if visual != null:
+            visual.apply_presentation_mode_id(mode_id)
+            visual.play_animation(current_animation_key)
+            return true
     if binding == null or binding.fighter_visual_scene == null:
         if not _warned_missing_modes.has(mode_id):
             _warned_missing_modes[mode_id] = true
@@ -94,6 +105,7 @@ func _swap_visual(scene: PackedScene, scale_multiplier: float, start_animation: 
         old_visual.queue_free()
     if fighter != null:
         visual.set_facing(fighter.movement_motor.facing)
+    visual.apply_presentation_mode_id(active_mode_id)
     visual.play_animation(start_animation if start_animation != &"" else current_animation_key)
     sync_from_simulation()
     return true

@@ -32,15 +32,20 @@ static func capture(fighter: Fighter) -> FighterStateSnapshot:
     s.landing_remaining = fighter.state_machine.landing_remaining
     s.dash_move_remaining = fighter.state_machine.dash_move_remaining
     s.dash_recovery_remaining = fighter.state_machine.dash_recovery_remaining
+    s.dash_elapsed_frames = fighter.state_machine.dash_elapsed_frames
+    s.throw_protection_remaining = fighter.state_machine.throw_protection_remaining
     s.thrown_remaining = fighter.state_machine.thrown_remaining
     s.knockdown_remaining = fighter.state_machine.knockdown_remaining
     s.getup_remaining = fighter.state_machine.getup_remaining
     s.pending_knockdown_frames = fighter.state_machine.pending_knockdown_frames
     s.pending_getup_frames = fighter.state_machine.pending_getup_frames
+    s.throw_tech_pending = fighter.state_machine.throw_tech_pending
     s.jump_started_this_tick = fighter.state_machine.jump_started_this_tick
+    s.jump_buffer_expiry_frame = fighter.state_machine.jump_buffer_expiry_frame
     s.charge_frames = fighter.state_machine.charge_frames
     s.charge_entry_move_id = fighter.state_machine.charge_entry_move_id
     s.charge_locked_facing = fighter.state_machine.charge_locked_facing
+    s.charge_early_release_requested = fighter.state_machine.charge_early_release_requested
 
     s.current_move_id = fighter.move_runner.current_move_id()
     s.move_frame = fighter.move_runner.move_frame
@@ -49,6 +54,7 @@ static func capture(fighter: Fighter) -> FighterStateSnapshot:
     s.move_connected_hit = fighter.move_runner.connected_hit
     s.move_connected_block = fighter.move_runner.connected_block
     s.move_spawned_projectile_indices = fighter.move_runner.spawned_projectile_indices()
+    s.move_activation_resource_values = fighter.move_runner.activation_resource_values()
 
     s.tracked_attack_instance_id = fighter.hitbox_owner.tracked_attack_instance_id()
     s.contacted_defender_ids = fighter.hitbox_owner.contacted_defender_ids()
@@ -58,6 +64,7 @@ static func capture(fighter: Fighter) -> FighterStateSnapshot:
     s.next_status_application_serial = fighter.statuses.next_application_serial()
     s.mode_state = fighter.mode.capture_state()
     s.mechanics_state = fighter.mechanics_runtime.capture_state()
+    s.combo_state = fighter.combo_scaling.capture_state()
 
     s.buffered_intent = ActionIntentSnapshot.from_intent(fighter.input_buffer.snapshot_intent())
     s.input_buffer_expiry_frame = fighter.input_buffer.expiry_frame()
@@ -103,20 +110,25 @@ static func restore(fighter: Fighter, s: FighterStateSnapshot) -> bool:
     fighter.state_machine.landing_remaining = s.landing_remaining
     fighter.state_machine.dash_move_remaining = s.dash_move_remaining
     fighter.state_machine.dash_recovery_remaining = s.dash_recovery_remaining
+    fighter.state_machine.dash_elapsed_frames = maxi(0, s.dash_elapsed_frames)
+    fighter.state_machine.throw_protection_remaining = maxi(0, s.throw_protection_remaining)
     fighter.state_machine.thrown_remaining = s.thrown_remaining
     fighter.state_machine.knockdown_remaining = s.knockdown_remaining
     fighter.state_machine.getup_remaining = s.getup_remaining
     fighter.state_machine.pending_knockdown_frames = s.pending_knockdown_frames
     fighter.state_machine.pending_getup_frames = s.pending_getup_frames
+    fighter.state_machine.throw_tech_pending = s.throw_tech_pending
     fighter.state_machine.jump_started_this_tick = s.jump_started_this_tick
+    fighter.state_machine.jump_buffer_expiry_frame = s.jump_buffer_expiry_frame
     fighter.state_machine.charge_frames = maxi(0, s.charge_frames)
     fighter.state_machine.charge_entry_move_id = s.charge_entry_move_id
     fighter.state_machine.charge_locked_facing = -1 if s.charge_locked_facing < 0 else 1
+    fighter.state_machine.charge_early_release_requested = s.charge_early_release_requested
     if fighter.state_machine.state == FighterStateMachine.State.CHARGE:
         var entry_move := fighter.move_registry.get_move(fighter.state_machine.charge_entry_move_id)
         if entry_move == null or entry_move.charge_special_data == null or not entry_move.charge_special_data.is_valid() or fighter.state_machine.charge_frames <= 0:
             return false
-    elif fighter.state_machine.charge_frames != 0 or fighter.state_machine.charge_entry_move_id != &"":
+    elif fighter.state_machine.charge_frames != 0 or fighter.state_machine.charge_entry_move_id != &"" or fighter.state_machine.charge_early_release_requested:
         return false
 
     if not fighter.move_runner.restore_runtime(
@@ -127,7 +139,8 @@ static func restore(fighter: Fighter, s: FighterStateSnapshot) -> bool:
         s.next_attack_instance_serial,
         s.move_connected_hit,
         s.move_connected_block,
-        s.move_spawned_projectile_indices
+        s.move_spawned_projectile_indices,
+        s.move_activation_resource_values
     ):
         return false
     fighter.hitbox_owner.restore_contact_registry(s.tracked_attack_instance_id, s.contacted_defender_ids, s.contacted_hit_keys)
@@ -135,6 +148,7 @@ static func restore(fighter: Fighter, s: FighterStateSnapshot) -> bool:
     if not fighter.statuses.restore_state(s.status_states, s.next_status_application_serial): return false
     if not fighter.mode.restore_state(s.mode_state): return false
     if not fighter.mechanics_runtime.restore_state(s.mechanics_state): return false
+    if not fighter.combo_scaling.restore_state(s.combo_state): return false
     fighter.sync_mechanics_from_mode()
 
     fighter.input_buffer.restore_snapshot(

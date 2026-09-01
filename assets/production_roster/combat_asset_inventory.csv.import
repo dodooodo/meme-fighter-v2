@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ccfjh7upab1cb"
+
+[deps]
+
+files=["res://assets/production_roster/combat_asset_inventory.round.translation", "res://assets/production_roster/combat_asset_inventory.action.translation", "res://assets/production_roster/combat_asset_inventory.frame.translation", "res://assets/production_roster/combat_asset_inventory.frame.translation"]
+
+source_file="res://assets/production_roster/combat_asset_inventory.csv"
+dest_files=["res://assets/production_roster/combat_asset_inventory.round.translation", "res://assets/production_roster/combat_asset_inventory.action.translation", "res://assets/production_roster/combat_asset_inventory.frame.translation", "res://assets/production_roster/combat_asset_inventory.frame.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

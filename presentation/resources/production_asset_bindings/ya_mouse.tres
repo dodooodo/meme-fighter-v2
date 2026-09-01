@@ -1,0 +1,1532 @@
+[gd_resource type="Resource" load_steps=83 format=3]
+
+[ext_resource type="Script" path="res://presentation/data/production_animation_binding.gd" id="anim"]
+[ext_resource type="Script" path="res://presentation/data/production_character_asset_binding.gd" id="catalog"]
+
+[sub_resource type="Resource" id="b000"]
+script = ExtResource("anim")
+animation_id = &"idle"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "01_待機_緊張_看手機"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/01_待機_緊張_看手機/11.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/01_待機_緊張_看手機/12.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/01_待機_緊張_看手機/13.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b001"]
+script = ExtResource("anim")
+animation_id = &"walk_forward"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "02_前走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/02_前走/14.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/02_前走/15.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/02_前走/16.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b002"]
+script = ExtResource("anim")
+animation_id = &"walk_back"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "03_後走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/03_後走/21.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/03_後走/22.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/03_後走/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b003"]
+script = ExtResource("anim")
+animation_id = &"crouch"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "04_蹲下"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/04_蹲下/24.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b004"]
+script = ExtResource("anim")
+animation_id = &"jump"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "05_跳躍"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/05_跳躍/25.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/05_跳躍/26.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/05_跳躍/27.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/05_跳躍/28.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b005"]
+script = ExtResource("anim")
+animation_id = &"landing"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "06_落地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/06_落地/29.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b006"]
+script = ExtResource("anim")
+animation_id = &"stand_light"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "07_輕攻「那個...不好意思」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/07_輕攻「那個...不好意思」/31.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/07_輕攻「那個...不好意思」/32.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/07_輕攻「那個...不好意思」/33.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/07_輕攻「那個...不好意思」/34.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/07_輕攻「那個...不好意思」/35.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/07_輕攻「那個...不好意思」/36.webp")
+mode_id = &""
+move_id = &"stand_light"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b007"]
+script = ExtResource("anim")
+animation_id = &"stand_heavy"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "08_重攻「不好意思借過！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/08_重攻「不好意思借過！」/41.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/08_重攻「不好意思借過！」/42.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/08_重攻「不好意思借過！」/43.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/08_重攻「不好意思借過！」/44.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/08_重攻「不好意思借過！」/45.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/08_重攻「不好意思借過！」/46.webp")
+mode_id = &""
+move_id = &"stand_heavy"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b008"]
+script = ExtResource("anim")
+animation_id = &"crouch_low"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "09_下段「假裝綁鞋帶」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/09_下段「假裝綁鞋帶」/51.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/09_下段「假裝綁鞋帶」/52.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/09_下段「假裝綁鞋帶」/53.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/09_下段「假裝綁鞋帶」/54.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/09_下段「假裝綁鞋帶」/55.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/09_下段「假裝綁鞋帶」/56.webp")
+mode_id = &""
+move_id = &"crouch_low"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b009"]
+script = ExtResource("anim")
+animation_id = &"air_attack"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "10_空中攻擊「我只是想跳過去！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/10_空中攻擊「我只是想跳過去！」/61.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/10_空中攻擊「我只是想跳過去！」/62.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/10_空中攻擊「我只是想跳過去！」/63.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/10_空中攻擊「我只是想跳過去！」/64.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/10_空中攻擊「我只是想跳過去！」/65.webp", "res://assets/production_roster/source/YA鼠/ROUND_1/10_空中攻擊「我只是想跳過去！」/66.webp")
+mode_id = &""
+move_id = &"air_attack"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b010"]
+script = ExtResource("anim")
+animation_id = &"guard_stand"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "11_站防"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/11_站防/71.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b011"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a12"
+domain = 5
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "12_站防_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/12_站防_Impact/72.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b012"]
+script = ExtResource("anim")
+animation_id = &"blockstun"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "13_站防硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/13_站防硬直/73.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b013"]
+script = ExtResource("anim")
+animation_id = &"guard_crouch"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "14_蹲防"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/14_蹲防/74.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b014"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a15"
+domain = 5
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "15_蹲防_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/15_蹲防_Impact/75.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b015"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a16"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "16_蹲防硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/16_蹲防硬直/76.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b016"]
+script = ExtResource("anim")
+animation_id = &"hitstun"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "17_上段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/17_上段受擊/81.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b017"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a18"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "18_中段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/18_中段受擊/82.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b018"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a19"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "19_下段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/19_下段受擊/83.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b019"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a20"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "20_Heavy_Reel"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/20_Heavy_Reel/84.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b020"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a21"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "21_Counter_Hit_Panic"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/21_Counter_Hit_Panic/85.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b021"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a22"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "22_恢復_扶正眼鏡"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/22_恢復_扶正眼鏡/86.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b022"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a23"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "23_標準圓眼鏡"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/23_標準圓眼鏡/91.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b023"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a24"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "24_歪掉的眼鏡"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/24_歪掉的眼鏡/92.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b024"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a25"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "25_手機正面"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/25_手機正面/93.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b025"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a26"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "26_手機相機面"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/26_手機相機面/94.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b026"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a27"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "27_汗滴素材"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/27_汗滴素材/95.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b027"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a28"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_1"
+action_folder = "28_緊張抖動素材"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_1/28_緊張抖動素材/96.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b028"]
+script = ExtResource("anim")
+animation_id = &"dash_forward"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "01_前衝"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/01_前衝/11.webp", "res://assets/production_roster/source/YA鼠/ROUND_2/01_前衝/12.webp", "res://assets/production_roster/source/YA鼠/ROUND_2/01_前衝/13.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b029"]
+script = ExtResource("anim")
+animation_id = &"backstep"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "02_後撤"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/02_後撤/14.webp", "res://assets/production_roster/source/YA鼠/ROUND_2/02_後撤/15.webp", "res://assets/production_roster/source/YA鼠/ROUND_2/02_後撤/16.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b030"]
+script = ExtResource("anim")
+animation_id = &"ground_throw"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "03_投技「你離我太近了！」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/03_投技「你離我太近了！」/21.webp", "res://assets/production_roster/source/YA鼠/ROUND_2/03_投技「你離我太近了！」/22.webp", "res://assets/production_roster/source/YA鼠/ROUND_2/03_投技「你離我太近了！」/23.webp", "res://assets/production_roster/source/YA鼠/ROUND_2/03_投技「你離我太近了！」/24.webp", "res://assets/production_roster/source/YA鼠/ROUND_2/03_投技「你離我太近了！」/25.webp", "res://assets/production_roster/source/YA鼠/ROUND_2/03_投技「你離我太近了！」/26.webp")
+mode_id = &""
+move_id = &"ground_throw"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b031"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a04"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "04_強擊失衡"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/04_強擊失衡/31.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b032"]
+script = ExtResource("anim")
+animation_id = &"thrown"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "05_被摔空中"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/05_被摔空中/32.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b033"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a06"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "06_下墜"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/06_下墜/33.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b034"]
+script = ExtResource("anim")
+animation_id = &"knockdown"
+domain = 5
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "07_Knockdown_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/07_Knockdown_Impact/34.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b035"]
+script = ExtResource("anim")
+animation_id = &"knockdown"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "08_Knockdown_Hold"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/08_Knockdown_Hold/35.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b036"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a09"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "09_翻身恢復"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/09_翻身恢復/36.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b037"]
+script = ExtResource("anim")
+animation_id = &"getup"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "10_起身前段"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/10_起身前段/37.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b038"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a11"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "11_起身後段_扶眼鏡"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/11_起身後段_扶眼鏡/38.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b039"]
+script = ExtResource("anim")
+animation_id = &"ko"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "12_KO"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/12_KO/39.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b040"]
+script = ExtResource("anim")
+animation_id = &"charge"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "13_Charge_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/13_Charge_Start/41.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b041"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a14"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "14_Charge_Loop"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/14_Charge_Loop/42.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b042"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a15"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "15_Maximum_Charge"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/15_Maximum_Charge/43.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b043"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a16"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "16_Release_Anticipation"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/16_Release_Anticipation/44.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b044"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a17"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "17_招呼波_Release"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/17_招呼波_Release/45.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b045"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a18"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "18_尷尬後退恢復"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/18_尷尬後退恢復/46.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b046"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a19"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "19_短距離尷尬波"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/19_短距離尷尬波/51.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b047"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a20"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "20_命中_Slow_Ripple"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/20_命中_Slow_Ripple/52.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b048"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a21"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "21_Movement_Delay_Module"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/21_Movement_Delay_Module/53.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b049"]
+script = ExtResource("anim")
+animation_id = &"ya_wave_l2"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "22_Lv2_Zone_Core"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/22_Lv2_Zone_Core/54.webp")
+mode_id = &""
+move_id = &"ya_wave_l2"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b050"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a23"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "23_Persistent_Social-Pressure_Zone"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/23_Persistent_Social-Pressure_Zone/55.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b051"]
+script = ExtResource("anim")
+animation_id = &"ya_wave_l2"
+domain = 5
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "24_Lv2_Slow_Overlay"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/24_Lv2_Slow_Overlay/56.webp")
+mode_id = &""
+move_id = &"ya_wave_l2"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b052"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a25"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "25_Large_Social-Death_Zone"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/25_Large_Social-Death_Zone/57.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b053"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a26"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "26_Zone_Interior_Distortion"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/26_Zone_Interior_Distortion/58.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b054"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a27"
+domain = 5
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "27_Strong_Movement-Hesitation_Overlay"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/27_Strong_Movement-Hesitation_Overlay/59.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b055"]
+script = ExtResource("anim")
+animation_id = &"ultimate"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "28_偷偷拿手機"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/28_偷偷拿手機/61.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b056"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a29"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "29_手機相機準備"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/29_手機相機準備/62.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b057"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a30"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "30_CAMERA_FLASH_ACTIVE"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/30_CAMERA_FLASH_ACTIVE/63.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b058"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a31"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "31_Flash_命中確認"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/31_Flash_命中確認/64.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b059"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a32"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "32_Block_Whiff_Failure"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/32_Block_Whiff_Failure/65.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b060"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a33"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "33_Catastrophic_Recovery"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/33_Catastrophic_Recovery/66.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b061"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a34"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "34_Camera_Flash_Core"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/34_Camera_Flash_Core/71.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b062"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a35"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "35_前方_Camera_Flash_Cone"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/35_前方_Camera_Flash_Cone/72.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b063"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a36"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "36_Flash_Hit_Freeze"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/36_Flash_Hit_Freeze/73.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b064"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a37"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "37_拍立得照片框"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/37_拍立得照片框/74.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b065"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a38"
+domain = 5
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "38_Photographization_Overlay"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/38_Photographization_Overlay/75.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b066"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a39"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "39_巨型「社死大頭貼」框"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/39_巨型「社死大頭貼」框/76.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b067"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a40"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "40_Embarrassment_Pressure_Burst"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/40_Embarrassment_Pressure_Burst/77.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b068"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a41"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "41_Photo_Shake_Cringe"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/41_Photo_Shake_Cringe/78.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b069"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a42"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "42_照片開始產生撕裂裂痕"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/42_照片開始產生撕裂裂痕/79.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b070"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a43"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "43_上半張撕裂照片"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/43_上半張撕裂照片/81.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b071"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a44"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "44_下半張撕裂照片"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/44_下半張撕裂照片/82.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b072"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a45"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "45_左側碎片"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/45_左側碎片/83.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b073"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a46"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "46_右側碎片"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/46_右側碎片/84.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b074"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a47"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "47_中央撕裂爆發"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/47_中央撕裂爆發/85.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b075"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a48"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "48_多碎片照片爆裂"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/48_多碎片照片爆裂/86.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b076"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a49"
+domain = 5
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "49_Social-Death_Impact"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/49_Social-Death_Impact/87.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"HIT"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b077"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a50"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "50_Hard_Knockdown_Finish"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/50_Hard_Knockdown_Finish/88.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b078"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a51"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "51_照片碎片消散"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/51_照片碎片消散/89.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b079"]
+script = ExtResource("anim")
+animation_id = &"special_neutral"
+domain = 0
+asset_folder = "YA鼠"
+round_name = &"ROUND_2"
+action_folder = "13_Charge_Start"
+frame_paths = PackedStringArray("res://assets/production_roster/source/YA鼠/ROUND_2/13_Charge_Start/41.webp")
+mode_id = &""
+move_id = &"special_neutral"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Runtime special body fallback from exact authored charge/release body pose; detached effect remains separately bound."
+
+[resource]
+script = ExtResource("catalog")
+character_id = &"ya_mouse"
+display_name = "YA鼠"
+asset_folder = "YA鼠"
+source_inventory_path = "res://assets/production_roster/combat_asset_inventory.json"
+bindings = Array[ExtResource("anim")]([SubResource("b000"), SubResource("b001"), SubResource("b002"), SubResource("b003"), SubResource("b004"), SubResource("b005"), SubResource("b006"), SubResource("b007"), SubResource("b008"), SubResource("b009"), SubResource("b010"), SubResource("b011"), SubResource("b012"), SubResource("b013"), SubResource("b014"), SubResource("b015"), SubResource("b016"), SubResource("b017"), SubResource("b018"), SubResource("b019"), SubResource("b020"), SubResource("b021"), SubResource("b022"), SubResource("b023"), SubResource("b024"), SubResource("b025"), SubResource("b026"), SubResource("b027"), SubResource("b028"), SubResource("b029"), SubResource("b030"), SubResource("b031"), SubResource("b032"), SubResource("b033"), SubResource("b034"), SubResource("b035"), SubResource("b036"), SubResource("b037"), SubResource("b038"), SubResource("b039"), SubResource("b040"), SubResource("b041"), SubResource("b042"), SubResource("b043"), SubResource("b044"), SubResource("b045"), SubResource("b046"), SubResource("b047"), SubResource("b048"), SubResource("b049"), SubResource("b050"), SubResource("b051"), SubResource("b052"), SubResource("b053"), SubResource("b054"), SubResource("b055"), SubResource("b056"), SubResource("b057"), SubResource("b058"), SubResource("b059"), SubResource("b060"), SubResource("b061"), SubResource("b062"), SubResource("b063"), SubResource("b064"), SubResource("b065"), SubResource("b066"), SubResource("b067"), SubResource("b068"), SubResource("b069"), SubResource("b070"), SubResource("b071"), SubResource("b072"), SubResource("b073"), SubResource("b074"), SubResource("b075"), SubResource("b076"), SubResource("b077"), SubResource("b078"), SubResource("b079")])

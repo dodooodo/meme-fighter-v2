@@ -1,0 +1,7552 @@
+{
+  "Alien Meow": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_待機_天線掃描呼吸",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_前走",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_後走",
+          "frames": [
+            "17.webp",
+            "18.webp",
+            "19.webp"
+          ]
+        },
+        {
+          "action": "04_蹲下",
+          "frames": [
+            "21.webp"
+          ]
+        },
+        {
+          "action": "05_跳躍預備",
+          "frames": [
+            "22.webp"
+          ]
+        },
+        {
+          "action": "06_起跳",
+          "frames": [
+            "23.webp"
+          ]
+        },
+        {
+          "action": "07_空中上升_頂點",
+          "frames": [
+            "24.webp"
+          ]
+        },
+        {
+          "action": "08_下降",
+          "frames": [
+            "25.webp"
+          ]
+        },
+        {
+          "action": "09_落地",
+          "frames": [
+            "26.webp"
+          ]
+        },
+        {
+          "action": "10_前衝蓄勢",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "11_前衝爆發",
+          "frames": [
+            "32.webp"
+          ]
+        },
+        {
+          "action": "12_前衝煞停",
+          "frames": [
+            "33.webp"
+          ]
+        },
+        {
+          "action": "13_後撤起手",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "14_後撤空中",
+          "frames": [
+            "35.webp"
+          ]
+        },
+        {
+          "action": "15_後撤落地",
+          "frames": [
+            "36.webp"
+          ]
+        },
+        {
+          "action": "16_輕攻「訊號校正」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "17_重攻「水平掃描」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "18_下段「地表斷訊脈衝」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "19_空中攻擊「空域掃描墜擊」",
+          "frames": [
+            "71.webp",
+            "72.webp",
+            "73.webp",
+            "74.webp",
+            "75.webp",
+            "76.webp"
+          ]
+        },
+        {
+          "action": "20_站防「訊號屏障」",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "21_站防硬直",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "22_站防恢復",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "23_蹲防「訊號屏障」",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "24_蹲防硬直",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "25_蹲防恢復",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "26_上段受擊",
+          "frames": [
+            "87.webp"
+          ]
+        },
+        {
+          "action": "27_中段受擊",
+          "frames": [
+            "88.webp"
+          ]
+        },
+        {
+          "action": "28_下段受擊",
+          "frames": [
+            "89.webp"
+          ]
+        },
+        {
+          "action": "29_輕攻天線命中火花",
+          "frames": [
+            "91.webp"
+          ]
+        },
+        {
+          "action": "30_輕攻_Pushback_特效",
+          "frames": [
+            "92.webp"
+          ]
+        },
+        {
+          "action": "31_重攻掃描發射閘",
+          "frames": [
+            "93.webp"
+          ]
+        },
+        {
+          "action": "32_「水平掃描」主掃描波",
+          "frames": [
+            "94.webp"
+          ]
+        },
+        {
+          "action": "33_重攻命中爆訊號",
+          "frames": [
+            "95.webp"
+          ]
+        },
+        {
+          "action": "34_「地表斷訊脈衝」地面波",
+          "frames": [
+            "96.webp"
+          ]
+        },
+        {
+          "action": "35_地面波_Counter_Hit_推退特效",
+          "frames": [
+            "97.webp"
+          ]
+        },
+        {
+          "action": "36_空域掃描前向扇形波",
+          "frames": [
+            "98.webp"
+          ]
+        },
+        {
+          "action": "37_空域掃描斜下扇形波",
+          "frames": [
+            "99.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_投技「UFO_回收程序」",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp",
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "02_被抓反應",
+          "frames": [
+            "21.webp"
+          ]
+        },
+        {
+          "action": "03_被摔飛",
+          "frames": [
+            "22.webp"
+          ]
+        },
+        {
+          "action": "04_倒地撞擊",
+          "frames": [
+            "23.webp"
+          ]
+        },
+        {
+          "action": "05_倒地_Hold",
+          "frames": [
+            "24.webp"
+          ]
+        },
+        {
+          "action": "06_起身開始",
+          "frames": [
+            "25.webp"
+          ]
+        },
+        {
+          "action": "07_低姿起身",
+          "frames": [
+            "26.webp"
+          ]
+        },
+        {
+          "action": "08_完全起身",
+          "frames": [
+            "27.webp"
+          ]
+        },
+        {
+          "action": "09_KO_倒下",
+          "frames": [
+            "28.webp"
+          ]
+        },
+        {
+          "action": "10_KO_Hold",
+          "frames": [
+            "29.webp"
+          ]
+        },
+        {
+          "action": "11_開始蓄力",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "12_蓄力維持",
+          "frames": [
+            "32.webp"
+          ]
+        },
+        {
+          "action": "13_高蓄力",
+          "frames": [
+            "33.webp"
+          ]
+        },
+        {
+          "action": "14_掃描波釋放",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "15_發射後座",
+          "frames": [
+            "35.webp"
+          ]
+        },
+        {
+          "action": "16_收招",
+          "frames": [
+            "36.webp"
+          ]
+        },
+        {
+          "action": "17_Lv1「局部掃描」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp"
+          ]
+        },
+        {
+          "action": "18_Lv2「廣域掃描」",
+          "frames": [
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "19_Lv3「全頻率斷訊」",
+          "frames": [
+            "47.webp",
+            "48.webp"
+          ]
+        },
+        {
+          "action": "20_Signal_Mark",
+          "frames": [
+            "49.webp"
+          ]
+        },
+        {
+          "action": "21_UFO_進場",
+          "frames": [
+            "51.webp"
+          ]
+        },
+        {
+          "action": "22_Tractor_Beam_鎖定",
+          "frames": [
+            "52.webp"
+          ]
+        },
+        {
+          "action": "23_把對手吸起",
+          "frames": [
+            "53.webp"
+          ]
+        },
+        {
+          "action": "24_UFO_往另一側移動",
+          "frames": [
+            "54.webp"
+          ]
+        },
+        {
+          "action": "25_後方釋放對手",
+          "frames": [
+            "55.webp"
+          ]
+        },
+        {
+          "action": "26_UFO_離場",
+          "frames": [
+            "56.webp"
+          ]
+        },
+        {
+          "action": "27_Ultimate_啟動",
+          "frames": [
+            "61.webp"
+          ]
+        },
+        {
+          "action": "28_系統啟動_天線升頻",
+          "frames": [
+            "62.webp"
+          ]
+        },
+        {
+          "action": "29_初始掃描命令",
+          "frames": [
+            "63.webp"
+          ]
+        },
+        {
+          "action": "30_記錄對手當下位置",
+          "frames": [
+            "64.webp"
+          ]
+        },
+        {
+          "action": "31_固定座標轟炸命令",
+          "frames": [
+            "65.webp"
+          ]
+        },
+        {
+          "action": "32_Alien_恢復戰鬥姿勢",
+          "frames": [
+            "66.webp"
+          ]
+        },
+        {
+          "action": "33_初始大範圍掃描",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "34_Acquisition_掃描",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "35_記錄位置脈衝",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "36_Position_Lock_淡色地面圈",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "37_Position_Lock_啟動",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "38_Position_Lock_即將轟炸警告",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "39_Signal_Mark_快速鎖定特效",
+          "frames": [
+            "77.webp"
+          ]
+        },
+        {
+          "action": "40_座標鎖定確認",
+          "frames": [
+            "78.webp"
+          ]
+        },
+        {
+          "action": "41_Lock_消散",
+          "frames": [
+            "79.webp"
+          ]
+        },
+        {
+          "action": "42_轟炸前垂直訊號線",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "43_能量柱開始下降",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "44_主能量柱下降",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "45_地面接觸閃光",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "46_固定位置轟炸_Active",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "47_轟炸持續",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "48_能量柱收縮",
+          "frames": [
+            "87.webp"
+          ]
+        },
+        {
+          "action": "49_命中殘留訊號",
+          "frames": [
+            "88.webp"
+          ]
+        },
+        {
+          "action": "50_完全消散",
+          "frames": [
+            "89.webp"
+          ]
+        },
+        {
+          "action": "51_最終「全頻率收尾_Full-Frequency_Battlefield_Scan_Sweep」",
+          "frames": [
+            "91.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(256, 256)": 10,
+      "(279, 270)": 1,
+      "(275, 199)": 1,
+      "(242, 228)": 1,
+      "(231, 289)": 1,
+      "(252, 272)": 1,
+      "(259, 252)": 1,
+      "(252, 231)": 1,
+      "(239, 217)": 1,
+      "(294, 232)": 1,
+      "(234, 223)": 1,
+      "(211, 217)": 1,
+      "(189, 44)": 1,
+      "(250, 193)": 1,
+      "(234, 249)": 1,
+      "(221, 256)": 1,
+      "(222, 253)": 1,
+      "(224, 221)": 1,
+      "(250, 203)": 1,
+      "(261, 160)": 1,
+      "(249, 165)": 2,
+      "(261, 273)": 1,
+      "(243, 276)": 1,
+      "(245, 267)": 1,
+      "(251, 114)": 1,
+      "(264, 226)": 1,
+      "(241, 233)": 1,
+      "(235, 249)": 1,
+      "(267, 316)": 1,
+      "(272, 300)": 1,
+      "(281, 205)": 1,
+      "(243, 157)": 1,
+      "(279, 163)": 1,
+      "(245, 230)": 1,
+      "(238, 208)": 1,
+      "(231, 273)": 1,
+      "(289, 283)": 1,
+      "(256, 212)": 1,
+      "(256, 384)": 3,
+      "(242, 366)": 1,
+      "(307, 300)": 1,
+      "(238, 319)": 1,
+      "(222, 356)": 1,
+      "(212, 198)": 1,
+      "(337, 272)": 1,
+      "(190, 192)": 1,
+      "(265, 170)": 1,
+      "(223, 320)": 1,
+      "(274, 391)": 1,
+      "(288, 375)": 1,
+      "(240, 316)": 1,
+      "(261, 306)": 1,
+      "(251, 384)": 1,
+      "(264, 361)": 1,
+      "(255, 355)": 1,
+      "(277, 342)": 1,
+      "(231, 343)": 1,
+      "(240, 260)": 1,
+      "(264, 248)": 1,
+      "(256, 265)": 1,
+      "(250, 254)": 1,
+      "(256, 209)": 1,
+      "(265, 222)": 1,
+      "(237, 195)": 1,
+      "(258, 260)": 1,
+      "(251, 233)": 1,
+      "(232, 262)": 1,
+      "(210, 258)": 1,
+      "(179, 257)": 1,
+      "(226, 242)": 1,
+      "(251, 252)": 1,
+      "(239, 265)": 1,
+      "(247, 259)": 1,
+      "(259, 256)": 1,
+      "(252, 224)": 1,
+      "(956, 538)": 1
+    },
+    "modes": {
+      "RGBA": 88
+    }
+  },
+  "Doge": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_Idle",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_Walk_Forward",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_Walk_Backward",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp"
+          ]
+        },
+        {
+          "action": "04_Crouch",
+          "frames": [
+            "24.webp"
+          ]
+        },
+        {
+          "action": "05_Jump",
+          "frames": [
+            "25.webp",
+            "26.webp",
+            "27.webp",
+            "28.webp"
+          ]
+        },
+        {
+          "action": "06_Landing",
+          "frames": [
+            "29.webp"
+          ]
+        },
+        {
+          "action": "07_Light_Paw_Slap",
+          "frames": [
+            "31.webp",
+            "32.webp",
+            "33.webp",
+            "34.webp",
+            "35.webp",
+            "36.webp"
+          ]
+        },
+        {
+          "action": "08_Heavy_Serious_Punch",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "09_Low_Lazy_Trip",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "10_Air_Body_Splash",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "11_Guard_Standing",
+          "frames": [
+            "71.webp",
+            "72.webp",
+            "73.webp"
+          ]
+        },
+        {
+          "action": "12_Guard_Crouching",
+          "frames": [
+            "74.webp",
+            "75.webp",
+            "76.webp"
+          ]
+        },
+        {
+          "action": "13_Hitstun",
+          "frames": [
+            "81.webp",
+            "82.webp",
+            "83.webp",
+            "84.webp",
+            "85.webp",
+            "86.webp"
+          ]
+        },
+        {
+          "action": "14_Dash_Forward",
+          "frames": [
+            "91.webp",
+            "92.webp",
+            "93.webp"
+          ]
+        },
+        {
+          "action": "15_Backstep",
+          "frames": [
+            "94.webp",
+            "95.webp",
+            "96.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_Throw_Come_Here",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp",
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "02_Thrown_Knockdown_Getup_KO",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp",
+            "24.webp",
+            "25.webp",
+            "26.webp",
+            "27.webp",
+            "28.webp",
+            "29.webp"
+          ]
+        },
+        {
+          "action": "03_Special_Muscle_Rush",
+          "frames": [
+            "31.webp",
+            "32.webp",
+            "33.webp",
+            "34.webp",
+            "35.webp",
+            "36.webp"
+          ]
+        },
+        {
+          "action": "04_Special_Armor_VFX",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp",
+            "47.webp",
+            "48.webp",
+            "49.webp"
+          ]
+        },
+        {
+          "action": "05_Ultimate_Super_Doge_Transformation",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "06_Super_Idle",
+          "frames": [
+            "61.webp"
+          ]
+        },
+        {
+          "action": "07_Super_Walk_Forward",
+          "frames": [
+            "62.webp"
+          ]
+        },
+        {
+          "action": "08_Super_Walk_Backward",
+          "frames": [
+            "63.webp"
+          ]
+        },
+        {
+          "action": "09_Super_Dash_Forward",
+          "frames": [
+            "64.webp"
+          ]
+        },
+        {
+          "action": "10_Super_Backstep",
+          "frames": [
+            "65.webp"
+          ]
+        },
+        {
+          "action": "11_Super_Crouch",
+          "frames": [
+            "66.webp"
+          ]
+        },
+        {
+          "action": "12_Super_Jump",
+          "frames": [
+            "67.webp"
+          ]
+        },
+        {
+          "action": "13_Super_Landing",
+          "frames": [
+            "68.webp"
+          ]
+        },
+        {
+          "action": "14_Super_Hitstun",
+          "frames": [
+            "69.webp"
+          ]
+        },
+        {
+          "action": "15_Super_Light",
+          "frames": [
+            "71.webp",
+            "72.webp",
+            "73.webp"
+          ]
+        },
+        {
+          "action": "16_Super_Heavy",
+          "frames": [
+            "74.webp",
+            "75.webp",
+            "76.webp",
+            "77.webp",
+            "78.webp"
+          ]
+        },
+        {
+          "action": "17_Super_Low",
+          "frames": [
+            "79.webp"
+          ]
+        },
+        {
+          "action": "18_Super_Guard_Standing",
+          "frames": [
+            "81.webp",
+            "82.webp"
+          ]
+        },
+        {
+          "action": "19_Super_Guard_Crouching",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "20_Super_Air_Attack",
+          "frames": [
+            "84.webp",
+            "85.webp",
+            "86.webp"
+          ]
+        },
+        {
+          "action": "21_Super_Throw",
+          "frames": [
+            "87.webp",
+            "88.webp",
+            "89.webp"
+          ]
+        },
+        {
+          "action": "22_Super_Special_Muscle_Rush",
+          "frames": [
+            "91.webp",
+            "92.webp",
+            "93.webp",
+            "94.webp",
+            "95.webp",
+            "96.webp",
+            "97.webp"
+          ]
+        },
+        {
+          "action": "23_Super_Install_Aura",
+          "frames": [
+            "98.webp"
+          ]
+        },
+        {
+          "action": "24_Super_Heavy_Armor_Overlay",
+          "frames": [
+            "99.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(217, 254)": 1,
+      "(241, 247)": 1,
+      "(252, 278)": 1,
+      "(288, 211)": 1,
+      "(239, 224)": 1,
+      "(224, 186)": 1,
+      "(189, 245)": 1,
+      "(256, 256)": 5,
+      "(265, 265)": 1,
+      "(261, 270)": 1,
+      "(239, 244)": 1,
+      "(189, 248)": 1,
+      "(247, 241)": 1,
+      "(274, 285)": 1,
+      "(253, 326)": 1,
+      "(271, 248)": 1,
+      "(267, 250)": 1,
+      "(213, 233)": 1,
+      "(296, 281)": 1,
+      "(240, 259)": 1,
+      "(308, 223)": 1,
+      "(219, 272)": 1,
+      "(235, 225)": 1,
+      "(261, 257)": 1,
+      "(246, 229)": 1,
+      "(228, 256)": 1,
+      "(264, 238)": 1,
+      "(220, 238)": 1,
+      "(210, 256)": 1,
+      "(228, 273)": 1,
+      "(209, 253)": 1,
+      "(280, 256)": 1,
+      "(266, 280)": 1,
+      "(244, 267)": 1,
+      "(249, 268)": 1
+    },
+    "modes": {
+      "RGBA": 39
+    }
+  },
+  "OK喵老大": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_待機",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_前走",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_後走",
+          "frames": [
+            "17.webp",
+            "18.webp",
+            "19.webp"
+          ]
+        },
+        {
+          "action": "04_蹲下",
+          "frames": [
+            "21.webp"
+          ]
+        },
+        {
+          "action": "05_跳躍",
+          "frames": [
+            "22.webp",
+            "23.webp",
+            "24.webp",
+            "25.webp"
+          ]
+        },
+        {
+          "action": "06_落地",
+          "frames": [
+            "26.webp"
+          ]
+        },
+        {
+          "action": "07_前衝",
+          "frames": [
+            "31.webp",
+            "32.webp",
+            "33.webp"
+          ]
+        },
+        {
+          "action": "08_後撤",
+          "frames": [
+            "34.webp",
+            "35.webp",
+            "36.webp"
+          ]
+        },
+        {
+          "action": "09_輕攻「OK_指示」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "10_重攻「老大上勾」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "11_下段「這個不OK」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "12_空中攻擊「老大巡場」",
+          "frames": [
+            "71.webp",
+            "72.webp",
+            "73.webp",
+            "74.webp",
+            "75.webp",
+            "76.webp"
+          ]
+        },
+        {
+          "action": "13_站防",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "14_站防硬直",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "15_站防恢復",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "16_蹲防",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "17_蹲防硬直",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "18_蹲防恢復",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "19_上段受擊",
+          "frames": [
+            "87.webp"
+          ]
+        },
+        {
+          "action": "20_中段受擊",
+          "frames": [
+            "88.webp"
+          ]
+        },
+        {
+          "action": "21_下段受擊",
+          "frames": [
+            "89.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_前衝",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_後撤",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_投技「過來談一下」",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp",
+            "24.webp",
+            "25.webp",
+            "26.webp"
+          ]
+        },
+        {
+          "action": "04_上段受擊",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "05_下段受擊",
+          "frames": [
+            "32.webp"
+          ]
+        },
+        {
+          "action": "06_Heavy_Counter_Hit_大後仰",
+          "frames": [
+            "33.webp"
+          ]
+        },
+        {
+          "action": "07_被摔空中",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "08_倒地撞擊",
+          "frames": [
+            "35.webp"
+          ]
+        },
+        {
+          "action": "09_倒地_Hold",
+          "frames": [
+            "36.webp"
+          ]
+        },
+        {
+          "action": "10_起身前段",
+          "frames": [
+            "37.webp"
+          ]
+        },
+        {
+          "action": "11_起身後段",
+          "frames": [
+            "38.webp"
+          ]
+        },
+        {
+          "action": "12_KO",
+          "frames": [
+            "39.webp"
+          ]
+        },
+        {
+          "action": "13_開始蓄力",
+          "frames": [
+            "41.webp"
+          ]
+        },
+        {
+          "action": "14_蓄力維持",
+          "frames": [
+            "42.webp"
+          ]
+        },
+        {
+          "action": "15_最大蓄力",
+          "frames": [
+            "43.webp"
+          ]
+        },
+        {
+          "action": "16_放招準備",
+          "frames": [
+            "44.webp"
+          ]
+        },
+        {
+          "action": "17_判決波發射",
+          "frames": [
+            "45.webp"
+          ]
+        },
+        {
+          "action": "18_後座_收招",
+          "frames": [
+            "46.webp"
+          ]
+        },
+        {
+          "action": "19_判決波蓄力核心",
+          "frames": [
+            "51.webp"
+          ]
+        },
+        {
+          "action": "20_Lv1「OK」",
+          "frames": [
+            "52.webp",
+            "53.webp"
+          ]
+        },
+        {
+          "action": "21_Lv2「你確定？」",
+          "frames": [
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "22_Lv3「這不OK」",
+          "frames": [
+            "57.webp",
+            "58.webp",
+            "59.webp"
+          ]
+        },
+        {
+          "action": "23_Capture_Ultimate_發動",
+          "frames": [
+            "61.webp"
+          ]
+        },
+        {
+          "action": "24_向前抓取判定",
+          "frames": [
+            "62.webp"
+          ]
+        },
+        {
+          "action": "25_抓空_Whiff",
+          "frames": [
+            "63.webp"
+          ]
+        },
+        {
+          "action": "26_超大破綻收招",
+          "frames": [
+            "64.webp"
+          ]
+        },
+        {
+          "action": "27_成功抓到_老大確認",
+          "frames": [
+            "65.webp"
+          ]
+        },
+        {
+          "action": "28_老大慢慢走向對手",
+          "frames": [
+            "66.webp"
+          ]
+        },
+        {
+          "action": "29_拿出重機槍",
+          "frames": [
+            "67.webp"
+          ]
+        },
+        {
+          "action": "30_持續機槍掃射",
+          "frames": [
+            "68.webp"
+          ]
+        },
+        {
+          "action": "31_最後重火力爆發_後座",
+          "frames": [
+            "69.webp"
+          ]
+        },
+        {
+          "action": "32_小弟_A_衝入準備",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "33_高速衝入",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "34_抓上半身",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "35_鎖住上半身",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "36_持續壓制",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "37_放開_退場",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "38_小弟_B_衝入",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "39_低位攔截衝刺",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "40_抓下半身",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "41_雙掌固定",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "42_持續壓住下半身",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "43_放開_退場",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "44_重機槍本體素材",
+          "frames": [
+            "91.webp"
+          ]
+        },
+        {
+          "action": "45_槍口火光",
+          "frames": [
+            "92.webp"
+          ]
+        },
+        {
+          "action": "46_持續掃射槍口火焰",
+          "frames": [
+            "93.webp"
+          ]
+        },
+        {
+          "action": "47_子彈曳光群",
+          "frames": [
+            "94.webp"
+          ]
+        },
+        {
+          "action": "48_密集自動射擊彈道",
+          "frames": [
+            "95.webp"
+          ]
+        },
+        {
+          "action": "49_子彈命中火花",
+          "frames": [
+            "96.webp"
+          ]
+        },
+        {
+          "action": "50_持續命中煙霧_火花",
+          "frames": [
+            "97.webp"
+          ]
+        },
+        {
+          "action": "51_處決階段大型命中爆發",
+          "frames": [
+            "98.webp"
+          ]
+        },
+        {
+          "action": "52_FINAL_LAUNCH_IMPACT",
+          "frames": [
+            "99.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(260, 266)": 1,
+      "(260, 219)": 1,
+      "(275, 287)": 1,
+      "(258, 207)": 1,
+      "(229, 235)": 1,
+      "(243, 251)": 1,
+      "(241, 248)": 1,
+      "(294, 261)": 1,
+      "(256, 256)": 5,
+      "(245, 206)": 1,
+      "(213, 207)": 1,
+      "(238, 262)": 1,
+      "(260, 248)": 1,
+      "(255, 293)": 1,
+      "(235, 232)": 1,
+      "(265, 213)": 1,
+      "(256, 187)": 1,
+      "(256, 288)": 1,
+      "(262, 296)": 1,
+      "(233, 285)": 1,
+      "(268, 256)": 1,
+      "(233, 225)": 1,
+      "(266, 233)": 1,
+      "(271, 271)": 1,
+      "(238, 300)": 1,
+      "(248, 217)": 1,
+      "(266, 198)": 1,
+      "(252, 264)": 1,
+      "(269, 279)": 1,
+      "(248, 264)": 1,
+      "(239, 249)": 1,
+      "(249, 247)": 1,
+      "(255, 247)": 1,
+      "(251, 168)": 1,
+      "(263, 217)": 1,
+      "(245, 239)": 1,
+      "(202, 224)": 1,
+      "(218, 170)": 1,
+      "(252, 221)": 1,
+      "(258, 176)": 1,
+      "(418, 418)": 9,
+      "(221, 230)": 1,
+      "(248, 220)": 1,
+      "(239, 239)": 1,
+      "(242, 287)": 1,
+      "(229, 168)": 1,
+      "(285, 197)": 1,
+      "(208, 238)": 1,
+      "(213, 146)": 1,
+      "(228, 168)": 1,
+      "(253, 211)": 1,
+      "(210, 203)": 1,
+      "(270, 288)": 1,
+      "(240, 262)": 1,
+      "(253, 248)": 1,
+      "(244, 225)": 1,
+      "(262, 263)": 1,
+      "(225, 214)": 1,
+      "(262, 279)": 1,
+      "(287, 288)": 1,
+      "(247, 283)": 1
+    },
+    "modes": {
+      "RGBA": 73
+    }
+  },
+  "Oh fuxking 天婦羅尬哩涼": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_待機",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_前走",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_後走",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp"
+          ]
+        },
+        {
+          "action": "04_蹲下",
+          "frames": [
+            "24.webp"
+          ]
+        },
+        {
+          "action": "05_跳躍",
+          "frames": [
+            "25.webp",
+            "26.webp",
+            "27.webp",
+            "28.webp"
+          ]
+        },
+        {
+          "action": "06_落地",
+          "frames": [
+            "29.webp"
+          ]
+        },
+        {
+          "action": "07_輕攻「企鵝啄啄」",
+          "frames": [
+            "31.webp",
+            "32.webp",
+            "33.webp",
+            "34.webp",
+            "35.webp",
+            "36.webp"
+          ]
+        },
+        {
+          "action": "08_重攻「天婦羅鐵頭功」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "09_下段「冰面肚皮滑行」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "10_空中攻擊「企鵝炸彈」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "11_站防",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "12_站防_Impact",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "13_站防硬直",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "14_蹲防",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "15_蹲防_Impact",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "16_蹲防硬直",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "17_上段受擊",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "18_中段受擊",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "19_下段受擊",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "20_Heavy_Reel",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "21_Counter_Hit_Reel",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "22_恢復",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "23_前衝",
+          "frames": [
+            "91.webp",
+            "92.webp",
+            "93.webp"
+          ]
+        },
+        {
+          "action": "24_後撤",
+          "frames": [
+            "94.webp",
+            "95.webp",
+            "96.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_投技「一起摔啦！」",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp",
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "02_強擊起飛",
+          "frames": [
+            "21.webp"
+          ]
+        },
+        {
+          "action": "03_被摔空中",
+          "frames": [
+            "22.webp"
+          ]
+        },
+        {
+          "action": "04_下墜",
+          "frames": [
+            "23.webp"
+          ]
+        },
+        {
+          "action": "05_Knockdown_Impact",
+          "frames": [
+            "24.webp"
+          ]
+        },
+        {
+          "action": "06_Knockdown_Hold",
+          "frames": [
+            "25.webp"
+          ]
+        },
+        {
+          "action": "07_Soft_KD_Recovery",
+          "frames": [
+            "26.webp"
+          ]
+        },
+        {
+          "action": "08_起身前段",
+          "frames": [
+            "27.webp"
+          ]
+        },
+        {
+          "action": "09_起身後段",
+          "frames": [
+            "28.webp"
+          ]
+        },
+        {
+          "action": "10_KO",
+          "frames": [
+            "29.webp"
+          ]
+        },
+        {
+          "action": "11_Charge_Start",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "12_Charge_Loop",
+          "frames": [
+            "32.webp"
+          ]
+        },
+        {
+          "action": "13_Maximum_Charge",
+          "frames": [
+            "33.webp"
+          ]
+        },
+        {
+          "action": "14_短衝_Release",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "15_Full_Rush_Push_Through",
+          "frames": [
+            "35.webp"
+          ]
+        },
+        {
+          "action": "16_煞停_Recovery",
+          "frames": [
+            "36.webp"
+          ]
+        },
+        {
+          "action": "17_Lv1「小隊出發」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp"
+          ]
+        },
+        {
+          "action": "18_Lv2「全速前進」",
+          "frames": [
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "19_Lv3「企鵝不要停！」",
+          "frames": [
+            "47.webp",
+            "48.webp",
+            "49.webp"
+          ]
+        },
+        {
+          "action": "20_Ultimate_啟動",
+          "frames": [
+            "51.webp"
+          ]
+        },
+        {
+          "action": "21_召喚蓄勢",
+          "frames": [
+            "52.webp"
+          ]
+        },
+        {
+          "action": "22_大聲召喚",
+          "frames": [
+            "53.webp"
+          ]
+        },
+        {
+          "action": "23_指揮企鵝群往前",
+          "frames": [
+            "54.webp"
+          ]
+        },
+        {
+          "action": "24_快速_Recovery",
+          "frames": [
+            "55.webp"
+          ]
+        },
+        {
+          "action": "25_玩家恢復正常操作",
+          "frames": [
+            "56.webp"
+          ]
+        },
+        {
+          "action": "26_Minion_1_Deadpan",
+          "frames": [
+            "61.webp"
+          ]
+        },
+        {
+          "action": "27_Minion_1",
+          "frames": [
+            "62.webp"
+          ]
+        },
+        {
+          "action": "28_Minion_1",
+          "frames": [
+            "63.webp"
+          ]
+        },
+        {
+          "action": "29_Minion_2_Angry",
+          "frames": [
+            "64.webp"
+          ]
+        },
+        {
+          "action": "30_Minion_2",
+          "frames": [
+            "65.webp"
+          ]
+        },
+        {
+          "action": "31_Minion_2",
+          "frames": [
+            "66.webp"
+          ]
+        },
+        {
+          "action": "32_Minion_3_Nervous",
+          "frames": [
+            "67.webp"
+          ]
+        },
+        {
+          "action": "33_Minion_3",
+          "frames": [
+            "68.webp"
+          ]
+        },
+        {
+          "action": "34_Minion_3",
+          "frames": [
+            "69.webp"
+          ]
+        },
+        {
+          "action": "35_Minion_4_Smug",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "36_Body_Check",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "37_Hit_Defeat",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "38_Minion_5_Excited",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "39_Body_Check",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "40_Hit_Defeat",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "41_Minion_6_Confused",
+          "frames": [
+            "77.webp"
+          ]
+        },
+        {
+          "action": "42_Body_Check",
+          "frames": [
+            "78.webp"
+          ]
+        },
+        {
+          "action": "43_Hit_Defeat",
+          "frames": [
+            "79.webp"
+          ]
+        },
+        {
+          "action": "44_Minion_7_Sleepy",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "45_Body_Check",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "46_Hit_Defeat",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "47_Minion_8_Shocked",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "48_Body_Check",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "49_Hit_Defeat",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "50_Minion_9_Determined",
+          "frames": [
+            "87.webp"
+          ]
+        },
+        {
+          "action": "51_Body_Check",
+          "frames": [
+            "88.webp"
+          ]
+        },
+        {
+          "action": "52_Hit_Defeat",
+          "frames": [
+            "89.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(256, 256)": 4,
+      "(244, 224)": 1,
+      "(239, 224)": 1,
+      "(232, 228)": 1,
+      "(188, 239)": 1,
+      "(236, 223)": 1,
+      "(235, 207)": 1,
+      "(207, 233)": 1,
+      "(224, 301)": 1,
+      "(238, 287)": 1,
+      "(252, 291)": 1,
+      "(218, 212)": 1,
+      "(255, 217)": 1,
+      "(256, 233)": 1,
+      "(267, 254)": 1,
+      "(254, 254)": 1,
+      "(247, 254)": 1,
+      "(267, 258)": 1,
+      "(254, 258)": 1,
+      "(247, 258)": 1,
+      "(221, 231)": 1,
+      "(201, 240)": 1,
+      "(241, 181)": 5,
+      "(242, 181)": 5,
+      "(215, 219)": 1,
+      "(227, 151)": 1,
+      "(214, 145)": 1,
+      "(268, 170)": 1,
+      "(166, 170)": 1,
+      "(223, 141)": 1,
+      "(241, 272)": 1,
+      "(213, 200)": 1,
+      "(215, 180)": 1,
+      "(241, 271)": 1,
+      "(242, 271)": 1,
+      "(227, 224)": 1,
+      "(276, 154)": 1,
+      "(244, 272)": 1,
+      "(255, 272)": 1,
+      "(225, 272)": 1,
+      "(244, 271)": 1,
+      "(255, 271)": 1,
+      "(225, 271)": 1,
+      "(216, 208)": 1,
+      "(223, 170)": 1,
+      "(222, 155)": 1,
+      "(222, 151)": 1,
+      "(194, 199)": 1,
+      "(256, 197)": 1,
+      "(239, 192)": 1,
+      "(227, 171)": 1,
+      "(196, 168)": 1,
+      "(231, 155)": 1,
+      "(197, 178)": 1,
+      "(200, 172)": 1,
+      "(227, 153)": 1,
+      "(204, 185)": 1,
+      "(225, 170)": 1,
+      "(238, 141)": 1,
+      "(205, 178)": 1,
+      "(277, 161)": 1,
+      "(214, 175)": 1,
+      "(215, 185)": 1,
+      "(232, 169)": 1,
+      "(227, 147)": 1
+    },
+    "modes": {
+      "RGBA": 76
+    }
+  },
+  "YA鼠": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_待機_緊張_看手機",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_前走",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_後走",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp"
+          ]
+        },
+        {
+          "action": "04_蹲下",
+          "frames": [
+            "24.webp"
+          ]
+        },
+        {
+          "action": "05_跳躍",
+          "frames": [
+            "25.webp",
+            "26.webp",
+            "27.webp",
+            "28.webp"
+          ]
+        },
+        {
+          "action": "06_落地",
+          "frames": [
+            "29.webp"
+          ]
+        },
+        {
+          "action": "07_輕攻「那個...不好意思」",
+          "frames": [
+            "31.webp",
+            "32.webp",
+            "33.webp",
+            "34.webp",
+            "35.webp",
+            "36.webp"
+          ]
+        },
+        {
+          "action": "08_重攻「不好意思借過！」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "09_下段「假裝綁鞋帶」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "10_空中攻擊「我只是想跳過去！」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "11_站防",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "12_站防_Impact",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "13_站防硬直",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "14_蹲防",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "15_蹲防_Impact",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "16_蹲防硬直",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "17_上段受擊",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "18_中段受擊",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "19_下段受擊",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "20_Heavy_Reel",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "21_Counter_Hit_Panic",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "22_恢復_扶正眼鏡",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "23_標準圓眼鏡",
+          "frames": [
+            "91.webp"
+          ]
+        },
+        {
+          "action": "24_歪掉的眼鏡",
+          "frames": [
+            "92.webp"
+          ]
+        },
+        {
+          "action": "25_手機正面",
+          "frames": [
+            "93.webp"
+          ]
+        },
+        {
+          "action": "26_手機相機面",
+          "frames": [
+            "94.webp"
+          ]
+        },
+        {
+          "action": "27_汗滴素材",
+          "frames": [
+            "95.webp"
+          ]
+        },
+        {
+          "action": "28_緊張抖動素材",
+          "frames": [
+            "96.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_前衝",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_後撤",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_投技「你離我太近了！」",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp",
+            "24.webp",
+            "25.webp",
+            "26.webp"
+          ]
+        },
+        {
+          "action": "04_強擊失衡",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "05_被摔空中",
+          "frames": [
+            "32.webp"
+          ]
+        },
+        {
+          "action": "06_下墜",
+          "frames": [
+            "33.webp"
+          ]
+        },
+        {
+          "action": "07_Knockdown_Impact",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "08_Knockdown_Hold",
+          "frames": [
+            "35.webp"
+          ]
+        },
+        {
+          "action": "09_翻身恢復",
+          "frames": [
+            "36.webp"
+          ]
+        },
+        {
+          "action": "10_起身前段",
+          "frames": [
+            "37.webp"
+          ]
+        },
+        {
+          "action": "11_起身後段_扶眼鏡",
+          "frames": [
+            "38.webp"
+          ]
+        },
+        {
+          "action": "12_KO",
+          "frames": [
+            "39.webp"
+          ]
+        },
+        {
+          "action": "13_Charge_Start",
+          "frames": [
+            "41.webp"
+          ]
+        },
+        {
+          "action": "14_Charge_Loop",
+          "frames": [
+            "42.webp"
+          ]
+        },
+        {
+          "action": "15_Maximum_Charge",
+          "frames": [
+            "43.webp"
+          ]
+        },
+        {
+          "action": "16_Release_Anticipation",
+          "frames": [
+            "44.webp"
+          ]
+        },
+        {
+          "action": "17_招呼波_Release",
+          "frames": [
+            "45.webp"
+          ]
+        },
+        {
+          "action": "18_尷尬後退恢復",
+          "frames": [
+            "46.webp"
+          ]
+        },
+        {
+          "action": "19_短距離尷尬波",
+          "frames": [
+            "51.webp"
+          ]
+        },
+        {
+          "action": "20_命中_Slow_Ripple",
+          "frames": [
+            "52.webp"
+          ]
+        },
+        {
+          "action": "21_Movement_Delay_Module",
+          "frames": [
+            "53.webp"
+          ]
+        },
+        {
+          "action": "22_Lv2_Zone_Core",
+          "frames": [
+            "54.webp"
+          ]
+        },
+        {
+          "action": "23_Persistent_Social-Pressure_Zone",
+          "frames": [
+            "55.webp"
+          ]
+        },
+        {
+          "action": "24_Lv2_Slow_Overlay",
+          "frames": [
+            "56.webp"
+          ]
+        },
+        {
+          "action": "25_Large_Social-Death_Zone",
+          "frames": [
+            "57.webp"
+          ]
+        },
+        {
+          "action": "26_Zone_Interior_Distortion",
+          "frames": [
+            "58.webp"
+          ]
+        },
+        {
+          "action": "27_Strong_Movement-Hesitation_Overlay",
+          "frames": [
+            "59.webp"
+          ]
+        },
+        {
+          "action": "28_偷偷拿手機",
+          "frames": [
+            "61.webp"
+          ]
+        },
+        {
+          "action": "29_手機相機準備",
+          "frames": [
+            "62.webp"
+          ]
+        },
+        {
+          "action": "30_CAMERA_FLASH_ACTIVE",
+          "frames": [
+            "63.webp"
+          ]
+        },
+        {
+          "action": "31_Flash_命中確認",
+          "frames": [
+            "64.webp"
+          ]
+        },
+        {
+          "action": "32_Block_Whiff_Failure",
+          "frames": [
+            "65.webp"
+          ]
+        },
+        {
+          "action": "33_Catastrophic_Recovery",
+          "frames": [
+            "66.webp"
+          ]
+        },
+        {
+          "action": "34_Camera_Flash_Core",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "35_前方_Camera_Flash_Cone",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "36_Flash_Hit_Freeze",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "37_拍立得照片框",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "38_Photographization_Overlay",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "39_巨型「社死大頭貼」框",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "40_Embarrassment_Pressure_Burst",
+          "frames": [
+            "77.webp"
+          ]
+        },
+        {
+          "action": "41_Photo_Shake_Cringe",
+          "frames": [
+            "78.webp"
+          ]
+        },
+        {
+          "action": "42_照片開始產生撕裂裂痕",
+          "frames": [
+            "79.webp"
+          ]
+        },
+        {
+          "action": "43_上半張撕裂照片",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "44_下半張撕裂照片",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "45_左側碎片",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "46_右側碎片",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "47_中央撕裂爆發",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "48_多碎片照片爆裂",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "49_Social-Death_Impact",
+          "frames": [
+            "87.webp"
+          ]
+        },
+        {
+          "action": "50_Hard_Knockdown_Finish",
+          "frames": [
+            "88.webp"
+          ]
+        },
+        {
+          "action": "51_照片碎片消散",
+          "frames": [
+            "89.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(256, 256)": 18,
+      "(222, 275)": 1,
+      "(192, 191)": 1,
+      "(207, 229)": 1,
+      "(247, 220)": 1,
+      "(244, 248)": 1,
+      "(219, 211)": 1,
+      "(287, 225)": 1,
+      "(269, 277)": 1,
+      "(281, 241)": 1,
+      "(275, 239)": 1,
+      "(249, 239)": 1,
+      "(265, 237)": 1,
+      "(286, 255)": 1,
+      "(223, 255)": 1,
+      "(256, 239)": 1,
+      "(291, 239)": 1,
+      "(221, 239)": 1,
+      "(256, 273)": 1,
+      "(291, 273)": 1,
+      "(221, 273)": 1,
+      "(216, 235)": 1,
+      "(224, 224)": 1,
+      "(289, 242)": 1,
+      "(250, 233)": 1,
+      "(237, 231)": 1,
+      "(258, 216)": 1,
+      "(221, 242)": 1,
+      "(257, 212)": 1,
+      "(241, 275)": 1,
+      "(264, 252)": 1,
+      "(236, 256)": 1,
+      "(185, 194)": 1,
+      "(199, 158)": 1,
+      "(215, 213)": 1,
+      "(239, 211)": 1,
+      "(283, 213)": 1,
+      "(210, 217)": 1,
+      "(313, 282)": 1,
+      "(197, 231)": 1,
+      "(249, 225)": 1,
+      "(267, 245)": 1,
+      "(273, 234)": 1,
+      "(227, 257)": 1,
+      "(262, 222)": 1,
+      "(255, 231)": 1,
+      "(235, 199)": 1,
+      "(242, 287)": 1,
+      "(258, 252)": 1,
+      "(269, 296)": 1,
+      "(264, 256)": 1,
+      "(223, 231)": 1,
+      "(243, 258)": 1,
+      "(281, 218)": 1,
+      "(264, 249)": 1,
+      "(199, 263)": 1,
+      "(186, 274)": 1,
+      "(274, 270)": 1,
+      "(232, 254)": 1,
+      "(237, 245)": 1,
+      "(291, 258)": 1,
+      "(226, 254)": 1
+    },
+    "modes": {
+      "RGBA": 79
+    }
+  },
+  "哥布林也想談戀愛": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_待機_害羞_緊張準備",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_前走",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_後走",
+          "frames": [
+            "17.webp",
+            "18.webp",
+            "19.webp"
+          ]
+        },
+        {
+          "action": "04_蹲下",
+          "frames": [
+            "21.webp"
+          ]
+        },
+        {
+          "action": "05_跳躍",
+          "frames": [
+            "22.webp",
+            "23.webp"
+          ]
+        },
+        {
+          "action": "06_落地",
+          "frames": [
+            "24.webp"
+          ]
+        },
+        {
+          "action": "07_前衝",
+          "frames": [
+            "25.webp",
+            "26.webp"
+          ]
+        },
+        {
+          "action": "08_後撤",
+          "frames": [
+            "27.webp",
+            "28.webp",
+            "29.webp"
+          ]
+        },
+        {
+          "action": "09_站防",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "10_站防_Impact",
+          "frames": [
+            "32.webp"
+          ]
+        },
+        {
+          "action": "11_站防硬直",
+          "frames": [
+            "33.webp"
+          ]
+        },
+        {
+          "action": "12_蹲防",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "13_蹲防_Impact",
+          "frames": [
+            "35.webp"
+          ]
+        },
+        {
+          "action": "14_蹲防硬直",
+          "frames": [
+            "36.webp"
+          ]
+        },
+        {
+          "action": "15_Light_Hitstun",
+          "frames": [
+            "37.webp"
+          ]
+        },
+        {
+          "action": "16_Medium_Hitstun",
+          "frames": [
+            "38.webp"
+          ]
+        },
+        {
+          "action": "17_Heavy_Stagger",
+          "frames": [
+            "39.webp"
+          ]
+        },
+        {
+          "action": "18_輕攻「那個...妳好」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "19_重攻「戀愛頭槌」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "20_下段「卑微求愛掃腿」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "21_空中攻擊「從天而降的告白」",
+          "frames": [
+            "71.webp",
+            "72.webp",
+            "73.webp",
+            "74.webp",
+            "75.webp",
+            "76.webp"
+          ]
+        },
+        {
+          "action": "22_普通投技「不要走！」",
+          "frames": [
+            "81.webp",
+            "82.webp",
+            "83.webp",
+            "84.webp",
+            "85.webp",
+            "86.webp"
+          ]
+        },
+        {
+          "action": "23_Charge_Start",
+          "frames": [
+            "91.webp"
+          ]
+        },
+        {
+          "action": "24_Charge_Loop",
+          "frames": [
+            "92.webp"
+          ]
+        },
+        {
+          "action": "25_Lv1「抱一下就好」",
+          "frames": [
+            "93.webp"
+          ]
+        },
+        {
+          "action": "26_Lv2「真的一下就好」Step-In",
+          "frames": [
+            "94.webp"
+          ]
+        },
+        {
+          "action": "27_Lv3「我會對妳負責的！」Rush_Grab",
+          "frames": [
+            "95.webp"
+          ]
+        },
+        {
+          "action": "28_成功抱住",
+          "frames": [
+            "96.webp"
+          ]
+        },
+        {
+          "action": "29_Lv1_Whiff_Recovery",
+          "frames": [
+            "97.webp"
+          ]
+        },
+        {
+          "action": "30_Lv2_Whiff_Recovery",
+          "frames": [
+            "98.webp"
+          ]
+        },
+        {
+          "action": "31_Lv3_Catastrophic_Whiff_Recovery",
+          "frames": [
+            "99.webp"
+          ]
+        },
+        {
+          "action": "32_Thrown_Start",
+          "frames": [
+            "101.webp"
+          ]
+        },
+        {
+          "action": "33_空中被摔",
+          "frames": [
+            "102.webp"
+          ]
+        },
+        {
+          "action": "34_撞地",
+          "frames": [
+            "103.webp"
+          ]
+        },
+        {
+          "action": "35_Knockdown_Hold",
+          "frames": [
+            "104.webp"
+          ]
+        },
+        {
+          "action": "36_起身開始",
+          "frames": [
+            "105.webp"
+          ]
+        },
+        {
+          "action": "37_起身中段",
+          "frames": [
+            "106.webp"
+          ]
+        },
+        {
+          "action": "38_起身完成",
+          "frames": [
+            "107.webp"
+          ]
+        },
+        {
+          "action": "39_KO_Collapse",
+          "frames": [
+            "108.webp"
+          ]
+        },
+        {
+          "action": "40_KO_Hold",
+          "frames": [
+            "109.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_Ultimate_決意",
+          "frames": [
+            "11.webp"
+          ]
+        },
+        {
+          "action": "02_「長老您保重」自我生命犧牲",
+          "frames": [
+            "12.webp"
+          ]
+        },
+        {
+          "action": "03_變身臨界",
+          "frames": [
+            "13.webp"
+          ]
+        },
+        {
+          "action": "04_戀愛覺醒_Reveal",
+          "frames": [
+            "14.webp"
+          ]
+        },
+        {
+          "action": "05_覺醒後第一步",
+          "frames": [
+            "15.webp"
+          ]
+        },
+        {
+          "action": "06_Mode_Handoff",
+          "frames": [
+            "16.webp"
+          ]
+        },
+        {
+          "action": "07_覺醒_Idle",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp"
+          ]
+        },
+        {
+          "action": "08_強化前走",
+          "frames": [
+            "24.webp",
+            "25.webp",
+            "26.webp"
+          ]
+        },
+        {
+          "action": "09_後走",
+          "frames": [
+            "27.webp",
+            "28.webp",
+            "29.webp"
+          ]
+        },
+        {
+          "action": "10_蹲下",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "11_跳躍",
+          "frames": [
+            "32.webp",
+            "33.webp"
+          ]
+        },
+        {
+          "action": "12_落地",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "13_前衝",
+          "frames": [
+            "35.webp",
+            "36.webp"
+          ]
+        },
+        {
+          "action": "14_後撤",
+          "frames": [
+            "37.webp",
+            "38.webp",
+            "39.webp"
+          ]
+        },
+        {
+          "action": "15_站防",
+          "frames": [
+            "41.webp"
+          ]
+        },
+        {
+          "action": "16_站防_Impact",
+          "frames": [
+            "42.webp"
+          ]
+        },
+        {
+          "action": "17_站防硬直",
+          "frames": [
+            "43.webp"
+          ]
+        },
+        {
+          "action": "18_蹲防",
+          "frames": [
+            "44.webp"
+          ]
+        },
+        {
+          "action": "19_蹲防_Impact",
+          "frames": [
+            "45.webp"
+          ]
+        },
+        {
+          "action": "20_蹲防硬直",
+          "frames": [
+            "46.webp"
+          ]
+        },
+        {
+          "action": "21_Light_Hitstun",
+          "frames": [
+            "47.webp"
+          ]
+        },
+        {
+          "action": "22_Medium_Hitstun",
+          "frames": [
+            "48.webp"
+          ]
+        },
+        {
+          "action": "23_Heavy_Stagger",
+          "frames": [
+            "49.webp"
+          ]
+        },
+        {
+          "action": "24_Light「那個...妳好」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp"
+          ]
+        },
+        {
+          "action": "25_Low「卑微求愛掃腿」",
+          "frames": [
+            "54.webp",
+            "55.webp",
+            "56.webp",
+            "57.webp",
+            "58.webp",
+            "59.webp"
+          ]
+        },
+        {
+          "action": "26_覺醒_Heavy「戀愛頭槌」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "27_「從天而降的告白」",
+          "frames": [
+            "71.webp",
+            "72.webp",
+            "73.webp"
+          ]
+        },
+        {
+          "action": "28_強化普通投技「不要走！」",
+          "frames": [
+            "74.webp",
+            "75.webp",
+            "76.webp",
+            "77.webp",
+            "78.webp",
+            "79.webp"
+          ]
+        },
+        {
+          "action": "29_Charge_Start",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "30_Charge_Hold",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "31_強化_Lv1「抱一下就好」",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "32_強化_Lv2「真的一下就好」",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "33_強化_Lv3「我會對妳負責的！」",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "34_成功擁抱",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "35_Lv1_Lv2_正常後續",
+          "frames": [
+            "87.webp"
+          ]
+        },
+        {
+          "action": "36_Lv2_Whiff",
+          "frames": [
+            "88.webp"
+          ]
+        },
+        {
+          "action": "37_Lv3_Catastrophic_Whiff",
+          "frames": [
+            "89.webp"
+          ]
+        },
+        {
+          "action": "38_Mode_Thrown_Start",
+          "frames": [
+            "91.webp"
+          ]
+        },
+        {
+          "action": "39_空中翻滾",
+          "frames": [
+            "92.webp"
+          ]
+        },
+        {
+          "action": "40_撞地",
+          "frames": [
+            "93.webp"
+          ]
+        },
+        {
+          "action": "41_Knockdown_Hold",
+          "frames": [
+            "94.webp"
+          ]
+        },
+        {
+          "action": "42_起身開始",
+          "frames": [
+            "95.webp"
+          ]
+        },
+        {
+          "action": "43_起身中段",
+          "frames": [
+            "96.webp"
+          ]
+        },
+        {
+          "action": "44_起身完成",
+          "frames": [
+            "97.webp"
+          ]
+        },
+        {
+          "action": "45_KO_Collapse",
+          "frames": [
+            "98.webp"
+          ]
+        },
+        {
+          "action": "46_KO_Hold",
+          "frames": [
+            "99.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(275, 259)": 1,
+      "(246, 226)": 1,
+      "(287, 272)": 2,
+      "(195, 233)": 1,
+      "(194, 206)": 1,
+      "(211, 190)": 1,
+      "(254, 249)": 1,
+      "(263, 259)": 1,
+      "(256, 256)": 18,
+      "(237, 279)": 1,
+      "(274, 273)": 1,
+      "(236, 210)": 1,
+      "(219, 263)": 1,
+      "(221, 233)": 1,
+      "(281, 256)": 1,
+      "(264, 257)": 1,
+      "(229, 271)": 1,
+      "(282, 276)": 1,
+      "(259, 260)": 1,
+      "(251, 226)": 1,
+      "(235, 246)": 1,
+      "(202, 261)": 1,
+      "(251, 211)": 1,
+      "(252, 221)": 1,
+      "(271, 266)": 1,
+      "(253, 149)": 1,
+      "(170, 225)": 1,
+      "(173, 231)": 1,
+      "(160, 234)": 1,
+      "(226, 276)": 1,
+      "(246, 275)": 1,
+      "(210, 232)": 1,
+      "(266, 268)": 1,
+      "(295, 249)": 1,
+      "(245, 248)": 1,
+      "(235, 266)": 1,
+      "(253, 212)": 1,
+      "(243, 244)": 1,
+      "(248, 261)": 1,
+      "(250, 291)": 1,
+      "(265, 288)": 1,
+      "(246, 287)": 1,
+      "(253, 216)": 1,
+      "(222, 213)": 1,
+      "(256, 223)": 1,
+      "(257, 269)": 1,
+      "(248, 274)": 1,
+      "(240, 229)": 1,
+      "(235, 286)": 1,
+      "(253, 229)": 1,
+      "(207, 201)": 1,
+      "(252, 253)": 1,
+      "(202, 267)": 1,
+      "(238, 275)": 1,
+      "(251, 242)": 1,
+      "(274, 225)": 1,
+      "(296, 240)": 1,
+      "(189, 242)": 1,
+      "(233, 267)": 1,
+      "(273, 274)": 1,
+      "(264, 242)": 1,
+      "(278, 285)": 1,
+      "(228, 261)": 1,
+      "(258, 188)": 1,
+      "(248, 158)": 1,
+      "(224, 237)": 1,
+      "(232, 260)": 1,
+      "(257, 175)": 1
+    },
+    "modes": {
+      "RGBA": 86
+    }
+  },
+  "我的刀盾": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_待機",
+          "frames": [
+            "11.webp",
+            "12.webp"
+          ]
+        },
+        {
+          "action": "02_前走",
+          "frames": [
+            "13.webp",
+            "14.webp"
+          ]
+        },
+        {
+          "action": "03_後走",
+          "frames": [
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "04_蹲下",
+          "frames": [
+            "17.webp"
+          ]
+        },
+        {
+          "action": "05_跳躍",
+          "frames": [
+            "18.webp"
+          ]
+        },
+        {
+          "action": "06_落地",
+          "frames": [
+            "19.webp"
+          ]
+        },
+        {
+          "action": "07_前衝",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp"
+          ]
+        },
+        {
+          "action": "08_後撤",
+          "frames": [
+            "24.webp",
+            "25.webp",
+            "26.webp"
+          ]
+        },
+        {
+          "action": "09_輕攻「鈍刀試砍」",
+          "frames": [
+            "31.webp",
+            "32.webp",
+            "33.webp",
+            "34.webp",
+            "35.webp",
+            "36.webp"
+          ]
+        },
+        {
+          "action": "10_重攻「盾開路」＝盾擊to大鈍刀斬",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp",
+            "47.webp",
+            "48.webp",
+            "49.webp"
+          ]
+        },
+        {
+          "action": "11_下段「盾底掃腿」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "12_空中攻擊「盾牌墜擊」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "13_站防「不動如盾」",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "14_蹲防",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "15_各類防禦硬直",
+          "frames": [
+            "73.webp",
+            "74.webp",
+            "75.webp",
+            "76.webp"
+          ]
+        },
+        {
+          "action": "16_各類受擊",
+          "frames": [
+            "77.webp",
+            "78.webp",
+            "79.webp"
+          ]
+        },
+        {
+          "action": "17_投技「盾牌請你出去」",
+          "frames": [
+            "81.webp",
+            "82.webp",
+            "83.webp",
+            "84.webp",
+            "85.webp",
+            "86.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_被摔_翻滾_倒地_起身_KO",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp",
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "02_「鈍刀蓄斬」蓄力",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp"
+          ]
+        },
+        {
+          "action": "03_Lv1「鈍斬」",
+          "frames": [
+            "24.webp",
+            "25.webp"
+          ]
+        },
+        {
+          "action": "04_Lv2「重鈍斬」",
+          "frames": [
+            "26.webp",
+            "27.webp"
+          ]
+        },
+        {
+          "action": "05_Lv3「超級鈍刀蓄斬」",
+          "frames": [
+            "28.webp",
+            "29.webp"
+          ]
+        },
+        {
+          "action": "06_Lv1～Lv3_鈍刀斬_VFX",
+          "frames": [
+            "31.webp",
+            "32.webp",
+            "33.webp",
+            "34.webp",
+            "35.webp",
+            "36.webp",
+            "37.webp",
+            "38.webp",
+            "39.webp"
+          ]
+        },
+        {
+          "action": "07_Ultimate「汪爆氣流斬」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp",
+            "47.webp",
+            "48.webp",
+            "49.webp"
+          ]
+        },
+        {
+          "action": "08_雙刀待機",
+          "frames": [
+            "51.webp",
+            "52.webp"
+          ]
+        },
+        {
+          "action": "09_雙刀前走",
+          "frames": [
+            "53.webp",
+            "54.webp"
+          ]
+        },
+        {
+          "action": "10_雙刀後走",
+          "frames": [
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "11_雙刀蹲下",
+          "frames": [
+            "57.webp"
+          ]
+        },
+        {
+          "action": "12_雙刀跳躍",
+          "frames": [
+            "58.webp"
+          ]
+        },
+        {
+          "action": "13_雙刀落地",
+          "frames": [
+            "59.webp"
+          ]
+        },
+        {
+          "action": "14_雙刀前衝",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp"
+          ]
+        },
+        {
+          "action": "15_雙刀後撤",
+          "frames": [
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "16_雙刀輕攻",
+          "frames": [
+            "71.webp",
+            "72.webp",
+            "73.webp",
+            "74.webp",
+            "75.webp",
+            "76.webp"
+          ]
+        },
+        {
+          "action": "17_雙刀重攻",
+          "frames": [
+            "81.webp",
+            "82.webp",
+            "83.webp",
+            "84.webp",
+            "85.webp",
+            "86.webp"
+          ]
+        },
+        {
+          "action": "18_雙刀下段「雙刃剪腳」",
+          "frames": [
+            "91.webp",
+            "92.webp",
+            "93.webp",
+            "94.webp",
+            "95.webp",
+            "96.webp"
+          ]
+        },
+        {
+          "action": "19_雙刀空中攻擊「交叉落月斬」",
+          "frames": [
+            "101.webp",
+            "102.webp",
+            "103.webp",
+            "104.webp",
+            "105.webp",
+            "106.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(267, 259)": 1,
+      "(243, 226)": 1,
+      "(256, 256)": 5,
+      "(284, 236)": 1,
+      "(236, 224)": 1,
+      "(285, 253)": 1,
+      "(285, 259)": 1,
+      "(266, 267)": 1,
+      "(248, 238)": 1,
+      "(242, 228)": 1,
+      "(248, 270)": 1,
+      "(256, 261)": 1,
+      "(266, 251)": 1,
+      "(241, 259)": 1,
+      "(251, 296)": 1,
+      "(231, 283)": 1,
+      "(277, 256)": 1,
+      "(259, 232)": 1,
+      "(252, 217)": 1,
+      "(236, 230)": 1,
+      "(243, 252)": 1,
+      "(227, 247)": 1,
+      "(211, 232)": 1,
+      "(271, 217)": 1,
+      "(266, 290)": 1,
+      "(235, 238)": 1,
+      "(254, 163)": 1,
+      "(233, 283)": 1,
+      "(209, 240)": 1,
+      "(246, 227)": 1,
+      "(501, 521)": 1,
+      "(447, 470)": 1
+    },
+    "modes": {
+      "RGBA": 36
+    }
+  },
+  "沙拉貓貓": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_待機",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_前走",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_後走",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp"
+          ]
+        },
+        {
+          "action": "04_蹲下",
+          "frames": [
+            "24.webp"
+          ]
+        },
+        {
+          "action": "05_跳躍",
+          "frames": [
+            "25.webp",
+            "26.webp",
+            "27.webp",
+            "28.webp"
+          ]
+        },
+        {
+          "action": "06_落地",
+          "frames": [
+            "29.webp"
+          ]
+        },
+        {
+          "action": "07_輕攻「菜葉甩臉」",
+          "frames": [
+            "31.webp",
+            "32.webp",
+            "33.webp",
+            "34.webp",
+            "35.webp",
+            "36.webp"
+          ]
+        },
+        {
+          "action": "08_重攻「整盆不要！」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "09_下段「菜梗掃地」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "10_空中攻擊「空投沙拉盆」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "11_站防「拿盆擋一下」",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "12_站防命中",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "13_站防硬直",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "14_蹲防",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "15_蹲防命中",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "16_蹲防硬直",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "17_上段輕受擊",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "18_中段受擊",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "19_下段受擊",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "20_重擊後仰",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "21_Counter_Hit_大後仰",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "22_受擊恢復",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "23_普通空沙拉盆",
+          "frames": [
+            "91.webp"
+          ]
+        },
+        {
+          "action": "24_裝滿沙拉的標準沙拉盆",
+          "frames": [
+            "92.webp"
+          ]
+        },
+        {
+          "action": "25_「菜葉甩臉」菜葉",
+          "frames": [
+            "93.webp"
+          ]
+        },
+        {
+          "action": "26_「菜梗掃地」長菜梗",
+          "frames": [
+            "94.webp"
+          ]
+        },
+        {
+          "action": "27_小型沙拉碎片",
+          "frames": [
+            "95.webp"
+          ]
+        },
+        {
+          "action": "28_沙拉盆震動_命中粒子",
+          "frames": [
+            "96.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_前衝",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_後撤",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_投技「你吃掉！」",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp",
+            "24.webp",
+            "25.webp",
+            "26.webp"
+          ]
+        },
+        {
+          "action": "04_重擊起飛",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "05_空中被摔",
+          "frames": [
+            "32.webp"
+          ]
+        },
+        {
+          "action": "06_落地前",
+          "frames": [
+            "33.webp"
+          ]
+        },
+        {
+          "action": "07_倒地撞擊",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "08_倒地",
+          "frames": [
+            "35.webp"
+          ]
+        },
+        {
+          "action": "09_Soft_Knockdown_恢復",
+          "frames": [
+            "36.webp"
+          ]
+        },
+        {
+          "action": "10_起身前段",
+          "frames": [
+            "37.webp"
+          ]
+        },
+        {
+          "action": "11_起身後段",
+          "frames": [
+            "38.webp"
+          ]
+        },
+        {
+          "action": "12_KO",
+          "frames": [
+            "39.webp"
+          ]
+        },
+        {
+          "action": "13_開始蓄力",
+          "frames": [
+            "41.webp"
+          ]
+        },
+        {
+          "action": "14_蓄力維持",
+          "frames": [
+            "42.webp"
+          ]
+        },
+        {
+          "action": "15_最大蓄力",
+          "frames": [
+            "43.webp"
+          ]
+        },
+        {
+          "action": "16_放招準備",
+          "frames": [
+            "44.webp"
+          ]
+        },
+        {
+          "action": "17_「拒吃震波」釋放",
+          "frames": [
+            "45.webp"
+          ]
+        },
+        {
+          "action": "18_後座_恢復",
+          "frames": [
+            "46.webp"
+          ]
+        },
+        {
+          "action": "19_蓄力壓力核心",
+          "frames": [
+            "51.webp"
+          ]
+        },
+        {
+          "action": "20_Lv1「不要」短震波",
+          "frames": [
+            "52.webp"
+          ]
+        },
+        {
+          "action": "21_Lv1_Pushback_命中特效",
+          "frames": [
+            "53.webp"
+          ]
+        },
+        {
+          "action": "22_Lv2「我說不要」大型震波",
+          "frames": [
+            "54.webp",
+            "55.webp"
+          ]
+        },
+        {
+          "action": "23_Lv2_Soft_Knockdown_命中特效",
+          "frames": [
+            "56.webp"
+          ]
+        },
+        {
+          "action": "24_Lv3「我真的不吃！」巨大拒絕震波",
+          "frames": [
+            "57.webp",
+            "58.webp"
+          ]
+        },
+        {
+          "action": "25_Lv3_Neutral_Reset_Corner_Escape_爆發",
+          "frames": [
+            "59.webp"
+          ]
+        },
+        {
+          "action": "26_Ultimate_發動",
+          "frames": [
+            "61.webp"
+          ]
+        },
+        {
+          "action": "27_確認對手位置",
+          "frames": [
+            "62.webp"
+          ]
+        },
+        {
+          "action": "28_呼叫巨大沙拉盆",
+          "frames": [
+            "63.webp"
+          ]
+        },
+        {
+          "action": "29_Overhead_階段準備",
+          "frames": [
+            "64.webp"
+          ]
+        },
+        {
+          "action": "30_Low_Shockwave_階段後座",
+          "frames": [
+            "65.webp"
+          ]
+        },
+        {
+          "action": "31_Ultimate_收招_退回中距離",
+          "frames": [
+            "66.webp"
+          ]
+        },
+        {
+          "action": "32_巨大沙拉盆本體",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "33_高空落下",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "34_高速下降",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "35_Overhead_Active",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "36_撞擊地面",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "37_沙拉盆留在地面_銜接第二段",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "38_沙拉盆下降風壓",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "39_Overhead_命中特效",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "40_Overhead_沙拉飛散",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "41_地面撞擊核心",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "42_第二段_LOW_Shockwave_起始",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "43_LOW_大範圍震波",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "44_Low_左側震波",
+          "frames": [
+            "87.webp"
+          ]
+        },
+        {
+          "action": "45_Low_右側震波",
+          "frames": [
+            "88.webp"
+          ]
+        },
+        {
+          "action": "46_Neutral_Reset_最終爆發",
+          "frames": [
+            "89.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(256, 256)": 12,
+      "(257, 241)": 1,
+      "(512, 512)": 2,
+      "(239, 234)": 1,
+      "(231, 231)": 1,
+      "(245, 273)": 1,
+      "(274, 276)": 1,
+      "(237, 272)": 1,
+      "(246, 233)": 1,
+      "(262, 228)": 1,
+      "(249, 232)": 1,
+      "(253, 247)": 1,
+      "(248, 253)": 1,
+      "(264, 256)": 1,
+      "(251, 265)": 1,
+      "(238, 253)": 1,
+      "(273, 256)": 2,
+      "(242, 256)": 2,
+      "(253, 256)": 2,
+      "(194, 216)": 1,
+      "(280, 243)": 1,
+      "(271, 300)": 1,
+      "(241, 270)": 1,
+      "(229, 277)": 1,
+      "(270, 175)": 1,
+      "(248, 196)": 1,
+      "(251, 284)": 1,
+      "(276, 215)": 1,
+      "(244, 218)": 1,
+      "(263, 246)": 1,
+      "(275, 275)": 1,
+      "(249, 252)": 1,
+      "(246, 257)": 1,
+      "(281, 244)": 1,
+      "(224, 239)": 1,
+      "(266, 237)": 1,
+      "(265, 234)": 1,
+      "(238, 257)": 1,
+      "(239, 241)": 1,
+      "(257, 227)": 1,
+      "(266, 286)": 1,
+      "(255, 263)": 1,
+      "(252, 273)": 1,
+      "(258, 263)": 1,
+      "(250, 237)": 1,
+      "(258, 235)": 1,
+      "(263, 226)": 1,
+      "(231, 236)": 1,
+      "(248, 287)": 1,
+      "(263, 292)": 1,
+      "(240, 247)": 1,
+      "(227, 365)": 1,
+      "(249, 305)": 1,
+      "(259, 182)": 1,
+      "(241, 169)": 1,
+      "(273, 164)": 1,
+      "(266, 234)": 1,
+      "(255, 264)": 1,
+      "(269, 240)": 1
+    },
+    "modes": {
+      "RGBA": 74
+    }
+  },
+  "牛來": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_待機_Courage_Lv0「膽小」",
+          "frames": [
+            "11.webp"
+          ]
+        },
+        {
+          "action": "02_待機_Courage_Lv3「夢的勇士」",
+          "frames": [
+            "12.webp"
+          ]
+        },
+        {
+          "action": "03_前走_Lv0–1",
+          "frames": [
+            "13.webp",
+            "14.webp"
+          ]
+        },
+        {
+          "action": "04_強化前走_Lv2–3",
+          "frames": [
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "05_後走",
+          "frames": [
+            "17.webp",
+            "18.webp"
+          ]
+        },
+        {
+          "action": "06_蹲下",
+          "frames": [
+            "19.webp"
+          ]
+        },
+        {
+          "action": "07_跳躍",
+          "frames": [
+            "21.webp",
+            "22.webp"
+          ]
+        },
+        {
+          "action": "08_落地",
+          "frames": [
+            "23.webp"
+          ]
+        },
+        {
+          "action": "09_前衝",
+          "frames": [
+            "24.webp",
+            "25.webp"
+          ]
+        },
+        {
+          "action": "10_前衝收招_Lv0–1",
+          "frames": [
+            "26.webp"
+          ]
+        },
+        {
+          "action": "11_強化前衝收招_Lv2–3",
+          "frames": [
+            "27.webp"
+          ]
+        },
+        {
+          "action": "12_後撤",
+          "frames": [
+            "28.webp"
+          ]
+        },
+        {
+          "action": "13_後撤落地",
+          "frames": [
+            "29.webp"
+          ]
+        },
+        {
+          "action": "14_Lv0_輕攻「試探拳」",
+          "frames": [
+            "31.webp",
+            "32.webp",
+            "33.webp"
+          ]
+        },
+        {
+          "action": "15_Lv3_強化動作版「試探拳」",
+          "frames": [
+            "34.webp",
+            "35.webp",
+            "36.webp"
+          ]
+        },
+        {
+          "action": "16_Lv0–1_重攻「牛角重槌」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp"
+          ]
+        },
+        {
+          "action": "17_Lv2–3_前踏版「牛角重槌」",
+          "frames": [
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "18_Lv0–1「怕歸怕還是要踢」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp"
+          ]
+        },
+        {
+          "action": "19_Lv2_加長版",
+          "frames": [
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "20_Lv3_下段攻擊",
+          "frames": [
+            "57.webp"
+          ]
+        },
+        {
+          "action": "21_Lv3_Counter_Hit_後向前確認",
+          "frames": [
+            "58.webp"
+          ]
+        },
+        {
+          "action": "22_Lv3_接輕攻準備",
+          "frames": [
+            "59.webp"
+          ]
+        },
+        {
+          "action": "23_Lv0–1「閉眼勇氣飛踢」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp"
+          ]
+        },
+        {
+          "action": "24_Lv2_前進版",
+          "frames": [
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "25_Lv3_完整_Jump-in_版",
+          "frames": [
+            "67.webp",
+            "68.webp",
+            "69.webp"
+          ]
+        },
+        {
+          "action": "26_站防_Lv0",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "27_站防_Lv1",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "28_站防_Lv2",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "29_站防_Lv3",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "30_蹲防_Lv0",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "31_蹲防_Lv1",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "32_蹲防_Lv2",
+          "frames": [
+            "77.webp"
+          ]
+        },
+        {
+          "action": "33_蹲防_Lv3",
+          "frames": [
+            "78.webp"
+          ]
+        },
+        {
+          "action": "34_防禦解除_回待機",
+          "frames": [
+            "79.webp"
+          ]
+        },
+        {
+          "action": "35_輕防禦硬直",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "36_重防禦硬直",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "37_上段受擊",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "38_下段受擊",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "39_重受擊",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "40_空中受擊",
+          "frames": [
+            "86.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_投技「友情抱摔」",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp",
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "02_被摔起飛",
+          "frames": [
+            "21.webp"
+          ]
+        },
+        {
+          "action": "03_空中翻滾",
+          "frames": [
+            "22.webp"
+          ]
+        },
+        {
+          "action": "04_Heavy_Knockdown_撞地",
+          "frames": [
+            "23.webp"
+          ]
+        },
+        {
+          "action": "05_Heavy_Knockdown_倒地",
+          "frames": [
+            "24.webp"
+          ]
+        },
+        {
+          "action": "06_起身",
+          "frames": [
+            "25.webp"
+          ]
+        },
+        {
+          "action": "07_KO",
+          "frames": [
+            "26.webp"
+          ]
+        },
+        {
+          "action": "08_開始蓄力_深呼吸",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "09_持續蓄力",
+          "frames": [
+            "32.webp",
+            "33.webp"
+          ]
+        },
+        {
+          "action": "10_Charge_Lv1「小聲打氣」",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "11_Lv1_尷尬後座_收招",
+          "frames": [
+            "35.webp"
+          ]
+        },
+        {
+          "action": "12_Charge_Lv2「站起來！」",
+          "frames": [
+            "36.webp"
+          ]
+        },
+        {
+          "action": "13_Lv2_勇氣提升後收招",
+          "frames": [
+            "37.webp"
+          ]
+        },
+        {
+          "action": "14_Charge_Lv3「牛來，站起來！」",
+          "frames": [
+            "38.webp"
+          ]
+        },
+        {
+          "action": "15_Lv3_收招",
+          "frames": [
+            "39.webp"
+          ]
+        },
+        {
+          "action": "16_牛角蓄力光_Lv1",
+          "frames": [
+            "41.webp"
+          ]
+        },
+        {
+          "action": "17_牛角強蓄力光",
+          "frames": [
+            "42.webp"
+          ]
+        },
+        {
+          "action": "18_Courage_+1_爆發",
+          "frames": [
+            "43.webp"
+          ]
+        },
+        {
+          "action": "19_Courage_+1_收束",
+          "frames": [
+            "44.webp"
+          ]
+        },
+        {
+          "action": "20_Lv1_咆哮推退_VFX",
+          "frames": [
+            "45.webp"
+          ]
+        },
+        {
+          "action": "21_Lv3_咆哮推退_VFX",
+          "frames": [
+            "46.webp"
+          ]
+        },
+        {
+          "action": "22_Courage_-1_破裂",
+          "frames": [
+            "47.webp"
+          ]
+        },
+        {
+          "action": "23_Courage_-1_掉落粒子",
+          "frames": [
+            "48.webp"
+          ]
+        },
+        {
+          "action": "24_Courage_Lv3_達成特效",
+          "frames": [
+            "49.webp"
+          ]
+        },
+        {
+          "action": "25_Ultimate_發動決意",
+          "frames": [
+            "51.webp"
+          ]
+        },
+        {
+          "action": "26_夢之牛角突進起手",
+          "frames": [
+            "52.webp"
+          ]
+        },
+        {
+          "action": "27_「夢之牛角撞擊」有效攻擊",
+          "frames": [
+            "53.webp"
+          ]
+        },
+        {
+          "action": "28_Ultimate_揮空大硬直",
+          "frames": [
+            "54.webp"
+          ]
+        },
+        {
+          "action": "29_命中確認_夢境啟動",
+          "frames": [
+            "55.webp"
+          ]
+        },
+        {
+          "action": "30_Courage_Lv0～Lv2_共用「夢境覺醒」收尾",
+          "frames": [
+            "56.webp"
+          ]
+        },
+        {
+          "action": "31_Courage_Lv3_夢境轉場",
+          "frames": [
+            "57.webp"
+          ]
+        },
+        {
+          "action": "32_Courage_Lv3_完整「夢境覺醒」衝鋒",
+          "frames": [
+            "58.webp"
+          ]
+        },
+        {
+          "action": "33_Ultimate_結束toCourage_重置_Lv0",
+          "frames": [
+            "59.webp"
+          ]
+        },
+        {
+          "action": "34_「巨大夢之公牛幻影」",
+          "frames": [
+            "61.webp"
+          ]
+        },
+        {
+          "action": "35_夢之牛角命中特效",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "36_Hit_Confirm_夢境啟動",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "37_Courage_Lv0_基礎終結撞擊",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "38_Lv0_終結殘留",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "39_Courage_Lv1_Corner_Carry_軌跡",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "40_Courage_Lv1_Carry_撞擊",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "41_Courage_Lv2_強化位置獎勵撞擊",
+          "frames": [
+            "77.webp"
+          ]
+        },
+        {
+          "action": "42_Courage_Lv3_完整夢境衝鋒軌跡",
+          "frames": [
+            "78.webp"
+          ]
+        },
+        {
+          "action": "43_Courage_Lv3_最終「夢境覺醒」撞擊",
+          "frames": [
+            "79.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(242, 265)": 1,
+      "(278, 258)": 1,
+      "(256, 256)": 12,
+      "(202, 241)": 1,
+      "(256, 260)": 1,
+      "(286, 265)": 1,
+      "(238, 254)": 1,
+      "(251, 241)": 1,
+      "(221, 258)": 1,
+      "(272, 251)": 1,
+      "(224, 237)": 1,
+      "(189, 227)": 1,
+      "(226, 240)": 1,
+      "(227, 223)": 1,
+      "(253, 252)": 1,
+      "(232, 274)": 1,
+      "(238, 267)": 1,
+      "(259, 252)": 1,
+      "(236, 243)": 1,
+      "(233, 246)": 1,
+      "(229, 204)": 1,
+      "(230, 253)": 1,
+      "(295, 247)": 1,
+      "(195, 250)": 1,
+      "(203, 220)": 1,
+      "(243, 205)": 1,
+      "(253, 242)": 1,
+      "(224, 242)": 1,
+      "(276, 253)": 1,
+      "(235, 235)": 1,
+      "(293, 238)": 1,
+      "(272, 264)": 1,
+      "(238, 264)": 1,
+      "(258, 264)": 1,
+      "(272, 248)": 1,
+      "(238, 248)": 1,
+      "(258, 248)": 1,
+      "(254, 277)": 1,
+      "(194, 217)": 1,
+      "(240, 234)": 1,
+      "(180, 260)": 1,
+      "(244, 266)": 1,
+      "(209, 267)": 1,
+      "(231, 260)": 1,
+      "(184, 123)": 1,
+      "(228, 204)": 1,
+      "(192, 265)": 1,
+      "(230, 200)": 1,
+      "(214, 234)": 1,
+      "(233, 264)": 1,
+      "(248, 283)": 1,
+      "(198, 211)": 1,
+      "(216, 223)": 1,
+      "(259, 263)": 1,
+      "(231, 243)": 1,
+      "(258, 256)": 1,
+      "(279, 191)": 1,
+      "(211, 253)": 1,
+      "(260, 256)": 1,
+      "(206, 281)": 1,
+      "(312, 234)": 1,
+      "(208, 247)": 1,
+      "(956, 538)": 1,
+      "(252, 214)": 1,
+      "(248, 221)": 1,
+      "(236, 238)": 1,
+      "(226, 164)": 1,
+      "(267, 166)": 1,
+      "(264, 208)": 1,
+      "(235, 246)": 1,
+      "(298, 225)": 1,
+      "(252, 289)": 1
+    },
+    "modes": {
+      "RGBA": 83
+    }
+  },
+  "粉藍星星": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_待機",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_前走",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_後走",
+          "frames": [
+            "17.webp",
+            "18.webp",
+            "19.webp"
+          ]
+        },
+        {
+          "action": "04_蹲下",
+          "frames": [
+            "21.webp"
+          ]
+        },
+        {
+          "action": "05_跳躍",
+          "frames": [
+            "22.webp",
+            "23.webp",
+            "24.webp"
+          ]
+        },
+        {
+          "action": "06_落地",
+          "frames": [
+            "25.webp"
+          ]
+        },
+        {
+          "action": "07_前衝",
+          "frames": [
+            "26.webp",
+            "27.webp"
+          ]
+        },
+        {
+          "action": "08_後撤",
+          "frames": [
+            "28.webp",
+            "29.webp"
+          ]
+        },
+        {
+          "action": "09_站防",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "10_站防硬直",
+          "frames": [
+            "32.webp",
+            "33.webp"
+          ]
+        },
+        {
+          "action": "11_蹲防",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "12_蹲防硬直",
+          "frames": [
+            "35.webp",
+            "36.webp"
+          ]
+        },
+        {
+          "action": "13_輕_中_重受擊",
+          "frames": [
+            "37.webp",
+            "38.webp",
+            "39.webp"
+          ]
+        },
+        {
+          "action": "14_輕攻「甜心拍拍」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "15_重攻「星星頭槌」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "16_下段「星角鏟地」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "17_空中攻擊「尖叫星落」",
+          "frames": [
+            "71.webp",
+            "72.webp",
+            "73.webp",
+            "74.webp",
+            "75.webp",
+            "76.webp"
+          ]
+        },
+        {
+          "action": "18_投技「不要抱我！」",
+          "frames": [
+            "81.webp",
+            "82.webp",
+            "83.webp",
+            "84.webp",
+            "85.webp"
+          ]
+        },
+        {
+          "action": "19_被摔飛",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "20_倒地",
+          "frames": [
+            "87.webp"
+          ]
+        },
+        {
+          "action": "21_起身",
+          "frames": [
+            "88.webp"
+          ]
+        },
+        {
+          "action": "22_KO",
+          "frames": [
+            "89.webp"
+          ]
+        },
+        {
+          "action": "23_「尖叫爆震」蓄力",
+          "frames": [
+            "91.webp",
+            "92.webp",
+            "93.webp"
+          ]
+        },
+        {
+          "action": "24_「尖叫爆震」釋放_後座_收招",
+          "frames": [
+            "94.webp",
+            "95.webp",
+            "96.webp"
+          ]
+        },
+        {
+          "action": "25_Lv1～Lv3_蓄力_VFX",
+          "frames": [
+            "101.webp",
+            "102.webp",
+            "103.webp"
+          ]
+        },
+        {
+          "action": "26_Lv1「短尖叫」VFX",
+          "frames": [
+            "104.webp"
+          ]
+        },
+        {
+          "action": "27_Lv2「爆震」VFX",
+          "frames": [
+            "105.webp"
+          ]
+        },
+        {
+          "action": "28_Lv3「超音量尖叫」VFX",
+          "frames": [
+            "106.webp"
+          ]
+        },
+        {
+          "action": "29_「尖叫星落」聲波_VFX",
+          "frames": [
+            "107.webp"
+          ]
+        },
+        {
+          "action": "30_聲波命中_Pushback_VFX",
+          "frames": [
+            "108.webp",
+            "109.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_Ultimate「派甜心假面...露出」變身",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp",
+            "14.webp",
+            "15.webp",
+            "16.webp",
+            "17.webp",
+            "18.webp",
+            "19.webp"
+          ]
+        },
+        {
+          "action": "02_TRUE_FACE_待機",
+          "frames": [
+            "21.webp",
+            "22.webp"
+          ]
+        },
+        {
+          "action": "03_前走",
+          "frames": [
+            "23.webp",
+            "24.webp"
+          ]
+        },
+        {
+          "action": "04_強化前衝",
+          "frames": [
+            "25.webp"
+          ]
+        },
+        {
+          "action": "05_Dash_Cancel",
+          "frames": [
+            "26.webp"
+          ]
+        },
+        {
+          "action": "06_後走",
+          "frames": [
+            "27.webp"
+          ]
+        },
+        {
+          "action": "07_蹲下",
+          "frames": [
+            "28.webp"
+          ]
+        },
+        {
+          "action": "08_跳躍",
+          "frames": [
+            "29.webp"
+          ]
+        },
+        {
+          "action": "09_站防",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "10_站防硬直",
+          "frames": [
+            "32.webp"
+          ]
+        },
+        {
+          "action": "11_蹲防",
+          "frames": [
+            "33.webp"
+          ]
+        },
+        {
+          "action": "12_蹲防硬直",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "13_受擊_被摔_倒地_起身_KO",
+          "frames": [
+            "35.webp",
+            "36.webp",
+            "37.webp",
+            "38.webp",
+            "39.webp"
+          ]
+        },
+        {
+          "action": "14_輕攻「瘋狂連抓」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "15_重攻「捕食」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "16_下段「匍匐咬腳」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp"
+          ]
+        },
+        {
+          "action": "17_空中攻擊「捕食墜落」",
+          "frames": [
+            "66.webp",
+            "67.webp",
+            "68.webp",
+            "69.webp"
+          ]
+        },
+        {
+          "action": "18_TRUE_FACE_投技",
+          "frames": [
+            "71.webp",
+            "72.webp",
+            "73.webp",
+            "74.webp",
+            "75.webp",
+            "76.webp"
+          ]
+        },
+        {
+          "action": "19_「貼臉尖叫」蓄力",
+          "frames": [
+            "81.webp",
+            "82.webp",
+            "83.webp"
+          ]
+        },
+        {
+          "action": "20_「貼臉尖叫」釋放_收招",
+          "frames": [
+            "84.webp",
+            "85.webp",
+            "86.webp"
+          ]
+        },
+        {
+          "action": "21_變身_VFX",
+          "frames": [
+            "91.webp",
+            "92.webp",
+            "93.webp"
+          ]
+        },
+        {
+          "action": "22_Lv1_貼臉聲波",
+          "frames": [
+            "94.webp"
+          ]
+        },
+        {
+          "action": "23_Lv2_貼臉聲波",
+          "frames": [
+            "95.webp"
+          ]
+        },
+        {
+          "action": "24_Lv3_恐怖尖叫",
+          "frames": [
+            "96.webp"
+          ]
+        },
+        {
+          "action": "25_Finisher_地面震波_覺醒_VFX",
+          "frames": [
+            "97.webp",
+            "98.webp",
+            "99.webp"
+          ]
+        },
+        {
+          "action": "26_TRUE_FACE_最終_Finisher",
+          "frames": [
+            "101.webp",
+            "102.webp",
+            "103.webp",
+            "104.webp",
+            "105.webp"
+          ]
+        },
+        {
+          "action": "27_TRUE_FACE_力竭",
+          "frames": [
+            "106.webp"
+          ]
+        },
+        {
+          "action": "28_「假面崩潰」逆變身",
+          "frames": [
+            "107.webp",
+            "108.webp"
+          ]
+        },
+        {
+          "action": "29_回到普通粉藍星星",
+          "frames": [
+            "109.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(260, 229)": 1,
+      "(250, 251)": 1,
+      "(237, 239)": 1,
+      "(216, 178)": 1,
+      "(236, 224)": 1,
+      "(234, 237)": 1,
+      "(238, 233)": 1,
+      "(232, 250)": 1,
+      "(190, 221)": 2,
+      "(244, 234)": 1,
+      "(283, 222)": 1,
+      "(245, 214)": 1,
+      "(261, 279)": 1,
+      "(256, 244)": 1,
+      "(204, 156)": 1,
+      "(261, 257)": 1,
+      "(284, 267)": 1,
+      "(250, 267)": 1,
+      "(284, 254)": 1,
+      "(234, 254)": 1,
+      "(250, 254)": 1,
+      "(210, 219)": 1,
+      "(212, 231)": 1,
+      "(167, 170)": 1,
+      "(155, 172)": 1,
+      "(257, 218)": 1,
+      "(248, 255)": 1,
+      "(254, 236)": 1,
+      "(234, 235)": 1,
+      "(256, 256)": 4,
+      "(222, 270)": 1,
+      "(240, 279)": 1,
+      "(292, 227)": 1,
+      "(213, 215)": 1,
+      "(241, 246)": 1,
+      "(228, 237)": 1,
+      "(250, 323)": 1,
+      "(254, 282)": 1,
+      "(244, 281)": 1,
+      "(260, 276)": 1,
+      "(282, 255)": 1,
+      "(251, 231)": 1,
+      "(512, 512)": 1,
+      "(249, 249)": 1,
+      "(252, 217)": 1,
+      "(290, 236)": 1,
+      "(230, 256)": 1,
+      "(268, 254)": 1,
+      "(246, 247)": 1,
+      "(221, 210)": 1,
+      "(248, 240)": 1,
+      "(255, 269)": 1,
+      "(256, 282)": 1,
+      "(271, 293)": 1,
+      "(242, 247)": 1
+    },
+    "modes": {
+      "RGBA": 59
+    }
+  },
+  "蘸醬胡渣狗": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_待機_看碗_聞飯",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_前走",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_後走",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp"
+          ]
+        },
+        {
+          "action": "04_蹲下",
+          "frames": [
+            "24.webp"
+          ]
+        },
+        {
+          "action": "05_跳躍",
+          "frames": [
+            "25.webp",
+            "26.webp",
+            "27.webp",
+            "28.webp"
+          ]
+        },
+        {
+          "action": "06_落地",
+          "frames": [
+            "29.webp"
+          ]
+        },
+        {
+          "action": "07_輕攻「討飯小爪」",
+          "frames": [
+            "31.webp",
+            "32.webp",
+            "33.webp",
+            "34.webp",
+            "35.webp",
+            "36.webp"
+          ]
+        },
+        {
+          "action": "08_重攻「破碗敲頭」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "09_下段「低頭撿飯」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "10_空中攻擊「搶飯飛撲」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "11_站防「破碗遮臉」",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "12_站防_Impact",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "13_站防硬直",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "14_蹲防",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "15_蹲防_Impact",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "16_蹲防硬直",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "17_上段受擊",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "18_臉部受擊",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "19_中段受擊",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "20_下段受擊",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "21_Heavy_Hit_Reel",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "22_受擊恢復",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "23_空破碗_Master",
+          "frames": [
+            "91.webp"
+          ]
+        },
+        {
+          "action": "24_裝滿醬的破碗_Master",
+          "frames": [
+            "92.webp"
+          ]
+        },
+        {
+          "action": "25_標準黏醬材質",
+          "frames": [
+            "93.webp"
+          ]
+        },
+        {
+          "action": "26_小型醬汁滴落群",
+          "frames": [
+            "94.webp"
+          ]
+        },
+        {
+          "action": "27_「低頭撿飯」小食物碎屑",
+          "frames": [
+            "95.webp"
+          ]
+        },
+        {
+          "action": "28_破碗震動_局部醬汁灑出模組",
+          "frames": [
+            "96.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_前衝",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_後撤",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_投技「有飯一起滾」",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp",
+            "24.webp",
+            "25.webp",
+            "26.webp"
+          ]
+        },
+        {
+          "action": "04_強擊後仰",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "05_被摔空中",
+          "frames": [
+            "32.webp"
+          ]
+        },
+        {
+          "action": "06_落地前",
+          "frames": [
+            "33.webp"
+          ]
+        },
+        {
+          "action": "07_Knockdown_Impact",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "08_Knockdown_Hold",
+          "frames": [
+            "35.webp"
+          ]
+        },
+        {
+          "action": "09_Soft_Knockdown_Recovery",
+          "frames": [
+            "36.webp"
+          ]
+        },
+        {
+          "action": "10_起身前段",
+          "frames": [
+            "37.webp"
+          ]
+        },
+        {
+          "action": "11_起身後段",
+          "frames": [
+            "38.webp"
+          ]
+        },
+        {
+          "action": "12_KO「沒飯了」",
+          "frames": [
+            "39.webp"
+          ]
+        },
+        {
+          "action": "13_Charge_Start",
+          "frames": [
+            "41.webp"
+          ]
+        },
+        {
+          "action": "14_Charge_Loop",
+          "frames": [
+            "42.webp"
+          ]
+        },
+        {
+          "action": "15_Maximum_Charge",
+          "frames": [
+            "43.webp"
+          ]
+        },
+        {
+          "action": "16_放招準備",
+          "frames": [
+            "44.webp"
+          ]
+        },
+        {
+          "action": "17_黏醬飛射",
+          "frames": [
+            "45.webp"
+          ]
+        },
+        {
+          "action": "18_後座_Recovery",
+          "frames": [
+            "46.webp"
+          ]
+        },
+        {
+          "action": "19_Lv1「剩醬一甩」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp"
+          ]
+        },
+        {
+          "action": "20_Lv2「整碗潑出去」",
+          "frames": [
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "21_Lv3「陳年老醬」",
+          "frames": [
+            "57.webp",
+            "58.webp",
+            "59.webp"
+          ]
+        },
+        {
+          "action": "22_Ultimate_啟動",
+          "frames": [
+            "61.webp"
+          ]
+        },
+        {
+          "action": "23_Blink_Rush_起跑準備",
+          "frames": [
+            "62.webp"
+          ]
+        },
+        {
+          "action": "24_Rush_Pass_1",
+          "frames": [
+            "63.webp"
+          ]
+        },
+        {
+          "action": "25_Rush_Pass_2",
+          "frames": [
+            "64.webp"
+          ]
+        },
+        {
+          "action": "26_Rush_Pass_3",
+          "frames": [
+            "65.webp"
+          ]
+        },
+        {
+          "action": "27_Rush_Pass_4",
+          "frames": [
+            "66.webp"
+          ]
+        },
+        {
+          "action": "28_第四次衝刺後煞停",
+          "frames": [
+            "67.webp"
+          ]
+        },
+        {
+          "action": "29_SAUCE_EXPLOSION_蓄爆",
+          "frames": [
+            "68.webp"
+          ]
+        },
+        {
+          "action": "30_爆炸後座_Ultimate_Recovery",
+          "frames": [
+            "69.webp"
+          ]
+        },
+        {
+          "action": "31_短醬汁路徑預告",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "32_中距離_Rush_Warning",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "33_Blink_Entry_Puff",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "34_Rush_Pass_1_水平軌跡",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "35_後續較高位置_Rush_軌跡",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "36_Pass_3_空中_弧形軌跡",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "37_Pass_4_最密集_Rush_軌跡",
+          "frames": [
+            "77.webp"
+          ]
+        },
+        {
+          "action": "38_Blink_Exit_Residue",
+          "frames": [
+            "78.webp"
+          ]
+        },
+        {
+          "action": "39_四段衝刺後殘留醬汁視覺",
+          "frames": [
+            "79.webp"
+          ]
+        },
+        {
+          "action": "40_普通爆炸核心",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "41_普通外圈醬汁飛濺",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "42_普通爆炸消散",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "43_Cashout_強化爆炸核心",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "44_大型放射狀醬汁爆發",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "45_強化_Knockdown_衝擊",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "46_Sticky_Consumption_Implosion",
+          "frames": [
+            "87.webp"
+          ]
+        },
+        {
+          "action": "47_Cashout_Detonation_Transition",
+          "frames": [
+            "88.webp"
+          ]
+        },
+        {
+          "action": "48_最終_Sauce_Disaster_Residue",
+          "frames": [
+            "89.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(164, 246)": 1,
+      "(225, 237)": 1,
+      "(215, 243)": 1,
+      "(213, 209)": 1,
+      "(248, 223)": 1,
+      "(234, 218)": 1,
+      "(258, 272)": 1,
+      "(209, 240)": 1,
+      "(208, 221)": 1,
+      "(256, 256)": 15,
+      "(253, 269)": 1,
+      "(256, 269)": 1,
+      "(244, 276)": 1,
+      "(245, 244)": 1,
+      "(221, 247)": 1,
+      "(221, 225)": 1,
+      "(269, 270)": 1,
+      "(237, 264)": 1,
+      "(261, 248)": 1,
+      "(220, 214)": 1,
+      "(212, 242)": 1,
+      "(204, 246)": 1,
+      "(144, 127)": 1,
+      "(244, 244)": 1,
+      "(241, 204)": 1,
+      "(200, 218)": 1,
+      "(289, 220)": 1,
+      "(273, 261)": 1,
+      "(239, 205)": 1,
+      "(192, 236)": 1,
+      "(267, 241)": 1,
+      "(232, 201)": 1,
+      "(251, 223)": 1,
+      "(215, 275)": 1,
+      "(237, 207)": 1,
+      "(180, 218)": 1,
+      "(176, 216)": 1,
+      "(255, 235)": 1,
+      "(224, 205)": 1,
+      "(285, 243)": 1,
+      "(221, 264)": 1,
+      "(240, 228)": 1,
+      "(276, 173)": 1,
+      "(302, 230)": 1,
+      "(257, 236)": 1,
+      "(258, 228)": 1,
+      "(253, 247)": 1,
+      "(226, 205)": 1,
+      "(258, 189)": 1,
+      "(257, 208)": 1,
+      "(255, 246)": 1,
+      "(295, 263)": 1,
+      "(277, 258)": 1,
+      "(253, 234)": 1,
+      "(245, 226)": 1,
+      "(234, 197)": 1,
+      "(247, 258)": 1,
+      "(269, 280)": 1,
+      "(252, 261)": 1,
+      "(236, 250)": 1,
+      "(227, 213)": 1,
+      "(274, 255)": 1
+    },
+    "modes": {
+      "RGBA": 76
+    }
+  },
+  "豹拉": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_待機",
+          "frames": [
+            "11.webp",
+            "12.webp"
+          ]
+        },
+        {
+          "action": "02_前走",
+          "frames": [
+            "13.webp",
+            "14.webp"
+          ]
+        },
+        {
+          "action": "03_後走",
+          "frames": [
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "04_蹲下",
+          "frames": [
+            "17.webp"
+          ]
+        },
+        {
+          "action": "05_跳躍",
+          "frames": [
+            "18.webp"
+          ]
+        },
+        {
+          "action": "06_落地",
+          "frames": [
+            "19.webp"
+          ]
+        },
+        {
+          "action": "07_前衝",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp"
+          ]
+        },
+        {
+          "action": "08_後撤",
+          "frames": [
+            "24.webp",
+            "25.webp",
+            "26.webp"
+          ]
+        },
+        {
+          "action": "09_輕攻「豹爪」",
+          "frames": [
+            "31.webp",
+            "32.webp",
+            "33.webp",
+            "34.webp",
+            "35.webp",
+            "36.webp"
+          ]
+        },
+        {
+          "action": "10_重攻「裂痕重爪」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "11_下段「守線截踝」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "12_空中攻擊「回身斷後爪」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "13_站防「我不走」",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "14_蹲防",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "15_輕防禦硬直",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "16_重防禦硬直",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "17_上段受擊",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "18_下段受擊",
+          "frames": [
+            "76.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_投技「斷後摔」",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp",
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "02_被摔起飛",
+          "frames": [
+            "21.webp"
+          ]
+        },
+        {
+          "action": "03_空中翻滾",
+          "frames": [
+            "22.webp"
+          ]
+        },
+        {
+          "action": "04_倒地撞擊",
+          "frames": [
+            "23.webp"
+          ]
+        },
+        {
+          "action": "05_倒地",
+          "frames": [
+            "24.webp"
+          ]
+        },
+        {
+          "action": "06_起身",
+          "frames": [
+            "25.webp"
+          ]
+        },
+        {
+          "action": "07_KO",
+          "frames": [
+            "26.webp"
+          ]
+        },
+        {
+          "action": "08_開始蓄力",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "09_蓄力維持",
+          "frames": [
+            "32.webp",
+            "33.webp"
+          ]
+        },
+        {
+          "action": "10_放開_進入反擊準備",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "11_Counter_有效窗口",
+          "frames": [
+            "35.webp"
+          ]
+        },
+        {
+          "action": "12_反擊失敗收招",
+          "frames": [
+            "36.webp"
+          ]
+        },
+        {
+          "action": "13_Lv1「護身」成功",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp"
+          ]
+        },
+        {
+          "action": "14_Lv2「斷後反擊」成功",
+          "frames": [
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "15_Lv3_對_Strike_反擊",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp"
+          ]
+        },
+        {
+          "action": "16_Lv3_對_Projectile_反擊",
+          "frames": [
+            "56.webp",
+            "57.webp",
+            "58.webp",
+            "59.webp"
+          ]
+        },
+        {
+          "action": "17_Ultimate_啟動_深吸氣",
+          "frames": [
+            "61.webp"
+          ]
+        },
+        {
+          "action": "18_啟動咆哮",
+          "frames": [
+            "62.webp"
+          ]
+        },
+        {
+          "action": "19_進入_LAST_STAND",
+          "frames": [
+            "63.webp"
+          ]
+        },
+        {
+          "action": "20_LAST_STAND_等待",
+          "frames": [
+            "64.webp"
+          ]
+        },
+        {
+          "action": "21_吸收敵人攻擊",
+          "frames": [
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "22_Resolve_≥1，準備反擊",
+          "frames": [
+            "67.webp"
+          ]
+        },
+        {
+          "action": "23_反擊咆哮本體",
+          "frames": [
+            "68.webp"
+          ]
+        },
+        {
+          "action": "24_0_Hit_失敗_巨大硬直",
+          "frames": [
+            "69.webp"
+          ]
+        },
+        {
+          "action": "25_Resolve_●",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "26_Resolve_●●",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "27_Resolve_●●●",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "28_LAST_STAND_吸收命中特效",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "29_最大_Resolve_特效",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "30_0_Hit_失敗消散特效",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "31_「巨大記憶怪物幻影」",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "32_1_Resolve「短距離咆哮」",
+          "frames": [
+            "91.webp",
+            "92.webp",
+            "93.webp"
+          ]
+        },
+        {
+          "action": "33_2_Resolve「大型咆哮」",
+          "frames": [
+            "94.webp",
+            "95.webp",
+            "96.webp"
+          ]
+        },
+        {
+          "action": "34_3_Resolve_完整「怪物前的咆哮」",
+          "frames": [
+            "97.webp",
+            "98.webp",
+            "99.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(263, 252)": 1,
+      "(263, 245)": 1,
+      "(256, 256)": 9,
+      "(282, 226)": 1,
+      "(251, 263)": 1,
+      "(264, 232)": 1,
+      "(263, 225)": 1,
+      "(310, 238)": 1,
+      "(238, 246)": 1,
+      "(268, 260)": 1,
+      "(264, 264)": 1,
+      "(233, 249)": 1,
+      "(230, 248)": 1,
+      "(229, 258)": 1,
+      "(226, 248)": 1,
+      "(282, 277)": 1,
+      "(243, 265)": 1,
+      "(238, 267)": 1,
+      "(271, 277)": 1,
+      "(244, 225)": 1,
+      "(250, 272)": 1,
+      "(269, 189)": 1,
+      "(254, 200)": 1,
+      "(260, 179)": 1,
+      "(222, 246)": 1,
+      "(220, 250)": 1,
+      "(273, 263)": 1,
+      "(223, 240)": 1,
+      "(247, 189)": 1,
+      "(267, 279)": 1,
+      "(252, 241)": 1,
+      "(262, 262)": 1,
+      "(252, 266)": 1,
+      "(229, 283)": 1,
+      "(230, 247)": 1,
+      "(252, 263)": 1,
+      "(262, 268)": 1,
+      "(243, 233)": 1,
+      "(240, 251)": 1,
+      "(264, 229)": 1,
+      "(211, 257)": 1,
+      "(956, 538)": 1,
+      "(210, 213)": 1,
+      "(233, 239)": 1
+    },
+    "modes": {
+      "RGBA": 52
+    }
+  },
+  "驚嚇小貓": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_Panic_Idle_緊張待機",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp",
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "02_前走",
+          "frames": [
+            "21.webp",
+            "22.webp",
+            "23.webp"
+          ]
+        },
+        {
+          "action": "03_後走",
+          "frames": [
+            "24.webp",
+            "25.webp",
+            "26.webp"
+          ]
+        },
+        {
+          "action": "04_蹲下",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "05_跳躍",
+          "frames": [
+            "32.webp",
+            "33.webp",
+            "34.webp",
+            "35.webp"
+          ]
+        },
+        {
+          "action": "06_Landing",
+          "frames": [
+            "36.webp"
+          ]
+        },
+        {
+          "action": "07_輕攻「不要過來拳」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "08_重攻「救命亂抓」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "09_下段「尾巴被踩到了！」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "10_空中攻擊「空中炸毛亂抓」",
+          "frames": [
+            "71.webp",
+            "72.webp",
+            "73.webp",
+            "74.webp",
+            "75.webp",
+            "76.webp"
+          ]
+        },
+        {
+          "action": "11_站防",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "12_Standing_Guard_Impact",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "13_Standing_Blockstun",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "14_蹲防_縮毛球",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "15_Crouching_Guard_Impact",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "16_Crouching_Blockstun",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "17_Light_High_Hit",
+          "frames": [
+            "91.webp"
+          ]
+        },
+        {
+          "action": "18_Light_Body_Hit",
+          "frames": [
+            "92.webp"
+          ]
+        },
+        {
+          "action": "19_Medium_High_Hit",
+          "frames": [
+            "93.webp"
+          ]
+        },
+        {
+          "action": "20_Medium_Body_Hit",
+          "frames": [
+            "94.webp"
+          ]
+        },
+        {
+          "action": "21_Low_Hit",
+          "frames": [
+            "95.webp"
+          ]
+        },
+        {
+          "action": "22_Heavy_Stagger",
+          "frames": [
+            "96.webp"
+          ]
+        },
+        {
+          "action": "23_前衝",
+          "frames": [
+            "101.webp",
+            "102.webp",
+            "103.webp"
+          ]
+        },
+        {
+          "action": "24_普通後撤",
+          "frames": [
+            "104.webp",
+            "105.webp",
+            "106.webp"
+          ]
+        },
+        {
+          "action": "25_Panic_Exit_強化後撤",
+          "frames": [
+            "107.webp",
+            "108.webp",
+            "109.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_投技「啊啊啊不是你！」",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp",
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "02_Thrown_Start",
+          "frames": [
+            "21.webp"
+          ]
+        },
+        {
+          "action": "03_Airborne_Tumble",
+          "frames": [
+            "22.webp"
+          ]
+        },
+        {
+          "action": "04_Ground_Impact",
+          "frames": [
+            "23.webp"
+          ]
+        },
+        {
+          "action": "05_Knockdown_Hold",
+          "frames": [
+            "24.webp"
+          ]
+        },
+        {
+          "action": "06_Getup_Start",
+          "frames": [
+            "25.webp"
+          ]
+        },
+        {
+          "action": "07_Getup_Middle",
+          "frames": [
+            "26.webp"
+          ]
+        },
+        {
+          "action": "08_Getup_Finish",
+          "frames": [
+            "27.webp"
+          ]
+        },
+        {
+          "action": "09_KO_Collapse",
+          "frames": [
+            "28.webp"
+          ]
+        },
+        {
+          "action": "10_KO_Hold",
+          "frames": [
+            "29.webp"
+          ]
+        },
+        {
+          "action": "11_Charge_Start",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "12_Charge_Hold",
+          "frames": [
+            "32.webp"
+          ]
+        },
+        {
+          "action": "13_Release_Anticipation",
+          "frames": [
+            "33.webp"
+          ]
+        },
+        {
+          "action": "14_Panic_Rush_Active",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "15_撞到後自己反彈",
+          "frames": [
+            "35.webp"
+          ]
+        },
+        {
+          "action": "16_Recovery_距離重設",
+          "frames": [
+            "36.webp"
+          ]
+        },
+        {
+          "action": "17_Lv1_Charge_Pulse",
+          "frames": [
+            "41.webp"
+          ]
+        },
+        {
+          "action": "18_Lv2_Charge_Pulse",
+          "frames": [
+            "42.webp"
+          ]
+        },
+        {
+          "action": "19_Lv3_Maximum_Charge",
+          "frames": [
+            "43.webp"
+          ]
+        },
+        {
+          "action": "20_Lv1_Short_Rush_Streak",
+          "frames": [
+            "44.webp"
+          ]
+        },
+        {
+          "action": "21_Lv2_Rush_Streak",
+          "frames": [
+            "45.webp"
+          ]
+        },
+        {
+          "action": "22_Lv3_High-Speed_Rush",
+          "frames": [
+            "46.webp"
+          ]
+        },
+        {
+          "action": "23_Lv1_Impact",
+          "frames": [
+            "47.webp"
+          ]
+        },
+        {
+          "action": "24_Lv2_強_Knockback_Shockwave",
+          "frames": [
+            "48.webp"
+          ]
+        },
+        {
+          "action": "25_Lv3_Extreme_Separation_Shockwave",
+          "frames": [
+            "49.webp"
+          ]
+        },
+        {
+          "action": "26_突然警報",
+          "frames": [
+            "51.webp"
+          ]
+        },
+        {
+          "action": "27_超巨大吸氣",
+          "frames": [
+            "52.webp"
+          ]
+        },
+        {
+          "action": "28_開始尖叫",
+          "frames": [
+            "53.webp"
+          ]
+        },
+        {
+          "action": "29_Ultimate_Peak_Scream",
+          "frames": [
+            "54.webp"
+          ]
+        },
+        {
+          "action": "30_尖叫後驚恐",
+          "frames": [
+            "55.webp"
+          ]
+        },
+        {
+          "action": "31_恢復正常操作_哈士奇持續在場",
+          "frames": [
+            "56.webp"
+          ]
+        },
+        {
+          "action": "32_Neutral_Arrival",
+          "frames": [
+            "61.webp"
+          ]
+        },
+        {
+          "action": "33_Chase_Start",
+          "frames": [
+            "62.webp"
+          ]
+        },
+        {
+          "action": "34_Low_Chase_Gallop",
+          "frames": [
+            "63.webp"
+          ]
+        },
+        {
+          "action": "35_Chase_Passing",
+          "frames": [
+            "64.webp"
+          ]
+        },
+        {
+          "action": "36_Fast_Open-Mouth_Sprint",
+          "frames": [
+            "65.webp"
+          ]
+        },
+        {
+          "action": "37_Bark_Warning",
+          "frames": [
+            "66.webp"
+          ]
+        },
+        {
+          "action": "38_Target_Point_「就是你」警告",
+          "frames": [
+            "67.webp"
+          ]
+        },
+        {
+          "action": "39_Tongue-Out_Cooldown",
+          "frames": [
+            "68.webp"
+          ]
+        },
+        {
+          "action": "40_Cooldown_to_Chase_Recovery",
+          "frames": [
+            "69.webp"
+          ]
+        },
+        {
+          "action": "41_Pounce_Anticipation",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "42_前爪飛撲_Active",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "43_Pounce_Landing_Recovery",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "44_Bite_Windup",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "45_張嘴飛咬_Active",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "46_Bite_Recovery",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "47_Hit_Reaction",
+          "frames": [
+            "77.webp"
+          ]
+        },
+        {
+          "action": "48_Heavy_Hit_Forced_Back",
+          "frames": [
+            "78.webp"
+          ]
+        },
+        {
+          "action": "49_Defeated_Disengage_Despawn",
+          "frames": [
+            "79.webp"
+          ]
+        },
+        {
+          "action": "50_主要_Paw_Bite_Impact",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "51_小型_Contact_Impact",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "52_Heavy_Companion_Impact",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "53_Horizontal_Speed_Smear",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "54_Pounce_Directional_Streak",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "55_Bite_Lunge_Directional_Streak",
+          "frames": [
+            "86.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(270, 229)": 1,
+      "(276, 239)": 1,
+      "(265, 264)": 1,
+      "(258, 176)": 1,
+      "(256, 256)": 10,
+      "(246, 264)": 1,
+      "(245, 248)": 1,
+      "(274, 185)": 1,
+      "(245, 257)": 1,
+      "(273, 274)": 1,
+      "(241, 241)": 1,
+      "(274, 233)": 1,
+      "(237, 216)": 1,
+      "(228, 211)": 1,
+      "(246, 248)": 1,
+      "(245, 245)": 1,
+      "(278, 242)": 1,
+      "(216, 285)": 1,
+      "(243, 253)": 1,
+      "(284, 336)": 1,
+      "(209, 264)": 1,
+      "(257, 274)": 1,
+      "(282, 170)": 1,
+      "(233, 177)": 1,
+      "(243, 187)": 1,
+      "(243, 229)": 1,
+      "(254, 267)": 1,
+      "(242, 225)": 1,
+      "(209, 187)": 1,
+      "(249, 241)": 1,
+      "(235, 249)": 1,
+      "(299, 210)": 1,
+      "(260, 196)": 1,
+      "(225, 217)": 1,
+      "(161, 197)": 1,
+      "(204, 206)": 1,
+      "(284, 266)": 1,
+      "(163, 129)": 1,
+      "(212, 148)": 1,
+      "(316, 187)": 1,
+      "(185, 191)": 1,
+      "(249, 231)": 1,
+      "(336, 268)": 1,
+      "(249, 264)": 1,
+      "(286, 284)": 1,
+      "(238, 243)": 1,
+      "(250, 249)": 1,
+      "(254, 276)": 1,
+      "(244, 243)": 1,
+      "(265, 229)": 1,
+      "(257, 198)": 1,
+      "(251, 211)": 1,
+      "(260, 236)": 1,
+      "(229, 284)": 1,
+      "(251, 286)": 1,
+      "(266, 256)": 1,
+      "(220, 231)": 1,
+      "(300, 191)": 1,
+      "(209, 244)": 1,
+      "(253, 231)": 1,
+      "(265, 230)": 1,
+      "(237, 230)": 1,
+      "(241, 285)": 1,
+      "(266, 277)": 1,
+      "(251, 267)": 1,
+      "(233, 225)": 1,
+      "(157, 126)": 1,
+      "(279, 271)": 1,
+      "(251, 205)": 1,
+      "(230, 227)": 1,
+      "(240, 176)": 1
+    },
+    "modes": {
+      "RGBA": 80
+    }
+  },
+  "魔法胖橘貓": {
+    "rounds": {
+      "ROUND_1": [
+        {
+          "action": "01_待機",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp"
+          ]
+        },
+        {
+          "action": "02_前走",
+          "frames": [
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "03_後走",
+          "frames": [
+            "17.webp",
+            "18.webp",
+            "19.webp"
+          ]
+        },
+        {
+          "action": "04_蹲下",
+          "frames": [
+            "21.webp"
+          ]
+        },
+        {
+          "action": "05_跳躍",
+          "frames": [
+            "22.webp",
+            "23.webp",
+            "24.webp",
+            "25.webp"
+          ]
+        },
+        {
+          "action": "06_落地",
+          "frames": [
+            "26.webp"
+          ]
+        },
+        {
+          "action": "07_前衝",
+          "frames": [
+            "31.webp",
+            "32.webp",
+            "33.webp"
+          ]
+        },
+        {
+          "action": "08_後撤",
+          "frames": [
+            "34.webp",
+            "35.webp",
+            "36.webp"
+          ]
+        },
+        {
+          "action": "09_輕攻「見習杖戳」",
+          "frames": [
+            "41.webp",
+            "42.webp",
+            "43.webp",
+            "44.webp",
+            "45.webp",
+            "46.webp"
+          ]
+        },
+        {
+          "action": "10_重攻「大法師橫掃」",
+          "frames": [
+            "51.webp",
+            "52.webp",
+            "53.webp",
+            "54.webp",
+            "55.webp",
+            "56.webp"
+          ]
+        },
+        {
+          "action": "11_下段「法杖畫圈」",
+          "frames": [
+            "61.webp",
+            "62.webp",
+            "63.webp",
+            "64.webp",
+            "65.webp",
+            "66.webp"
+          ]
+        },
+        {
+          "action": "12_空中攻擊「帽子掉了！」",
+          "frames": [
+            "71.webp",
+            "72.webp",
+            "73.webp",
+            "74.webp",
+            "75.webp",
+            "76.webp"
+          ]
+        },
+        {
+          "action": "13_站防",
+          "frames": [
+            "81.webp"
+          ]
+        },
+        {
+          "action": "14_Standing_Blockstun",
+          "frames": [
+            "82.webp"
+          ]
+        },
+        {
+          "action": "15_Standing_Guard_Recovery",
+          "frames": [
+            "83.webp"
+          ]
+        },
+        {
+          "action": "16_蹲防",
+          "frames": [
+            "84.webp"
+          ]
+        },
+        {
+          "action": "17_Crouching_Blockstun",
+          "frames": [
+            "85.webp"
+          ]
+        },
+        {
+          "action": "18_Crouching_Guard_Recovery",
+          "frames": [
+            "86.webp"
+          ]
+        },
+        {
+          "action": "19_High_Hitstun",
+          "frames": [
+            "87.webp"
+          ]
+        },
+        {
+          "action": "20_Mid_Hitstun",
+          "frames": [
+            "88.webp"
+          ]
+        },
+        {
+          "action": "21_Low_Hitstun",
+          "frames": [
+            "89.webp"
+          ]
+        }
+      ],
+      "ROUND_2": [
+        {
+          "action": "01_投技「杖子勾腳」",
+          "frames": [
+            "11.webp",
+            "12.webp",
+            "13.webp",
+            "14.webp",
+            "15.webp",
+            "16.webp"
+          ]
+        },
+        {
+          "action": "02_Throw_Reaction",
+          "frames": [
+            "21.webp"
+          ]
+        },
+        {
+          "action": "03_Airborne_Thrown",
+          "frames": [
+            "22.webp"
+          ]
+        },
+        {
+          "action": "04_Ground_Impact",
+          "frames": [
+            "23.webp"
+          ]
+        },
+        {
+          "action": "05_Knockdown_Hold",
+          "frames": [
+            "24.webp"
+          ]
+        },
+        {
+          "action": "06_Getup_Brace",
+          "frames": [
+            "25.webp"
+          ]
+        },
+        {
+          "action": "07_Heavy_Rise",
+          "frames": [
+            "26.webp"
+          ]
+        },
+        {
+          "action": "08_Getup_Return",
+          "frames": [
+            "27.webp"
+          ]
+        },
+        {
+          "action": "09_KO_Collapse",
+          "frames": [
+            "28.webp"
+          ]
+        },
+        {
+          "action": "10_KO_Hold",
+          "frames": [
+            "29.webp"
+          ]
+        },
+        {
+          "action": "11_Cast_Start",
+          "frames": [
+            "31.webp"
+          ]
+        },
+        {
+          "action": "12_Staff_Lift",
+          "frames": [
+            "32.webp"
+          ]
+        },
+        {
+          "action": "13_Ground_Placement",
+          "frames": [
+            "33.webp"
+          ]
+        },
+        {
+          "action": "14_Channel_Hold",
+          "frames": [
+            "34.webp"
+          ]
+        },
+        {
+          "action": "15_Placement_Confirmation",
+          "frames": [
+            "35.webp"
+          ]
+        },
+        {
+          "action": "16_Recovery",
+          "frames": [
+            "36.webp"
+          ]
+        },
+        {
+          "action": "17_Dormant_Arming",
+          "frames": [
+            "41.webp"
+          ]
+        },
+        {
+          "action": "18_Armed",
+          "frames": [
+            "42.webp"
+          ]
+        },
+        {
+          "action": "19_Trigger_Burst",
+          "frames": [
+            "43.webp"
+          ]
+        },
+        {
+          "action": "20_Dormant_Arming",
+          "frames": [
+            "44.webp"
+          ]
+        },
+        {
+          "action": "21_Armed+Entry_Warning",
+          "frames": [
+            "45.webp"
+          ]
+        },
+        {
+          "action": "22_Delayed_Burst",
+          "frames": [
+            "46.webp"
+          ]
+        },
+        {
+          "action": "23_Large_Armed_Base",
+          "frames": [
+            "47.webp"
+          ]
+        },
+        {
+          "action": "24_Large_Trigger_Warning",
+          "frames": [
+            "48.webp"
+          ]
+        },
+        {
+          "action": "25_Complete_Burst",
+          "frames": [
+            "49.webp"
+          ]
+        },
+        {
+          "action": "26_Ultimate_Startup",
+          "frames": [
+            "51.webp"
+          ]
+        },
+        {
+          "action": "27_Staff_Raise",
+          "frames": [
+            "52.webp"
+          ]
+        },
+        {
+          "action": "28_Invocation_Peak",
+          "frames": [
+            "53.webp"
+          ]
+        },
+        {
+          "action": "29_Summon_Command",
+          "frames": [
+            "54.webp"
+          ]
+        },
+        {
+          "action": "30_Early_Recovery",
+          "frames": [
+            "55.webp"
+          ]
+        },
+        {
+          "action": "31_Gameplay_Return",
+          "frames": [
+            "56.webp"
+          ]
+        },
+        {
+          "action": "32_Tentacle_Warning_Faint",
+          "frames": [
+            "61.webp"
+          ]
+        },
+        {
+          "action": "33_Warning_Active",
+          "frames": [
+            "62.webp"
+          ]
+        },
+        {
+          "action": "34_Warning_Imminent",
+          "frames": [
+            "63.webp"
+          ]
+        },
+        {
+          "action": "35_Safe_Zone_Appearance",
+          "frames": [
+            "64.webp"
+          ]
+        },
+        {
+          "action": "36_Safe_Zone_Active",
+          "frames": [
+            "65.webp"
+          ]
+        },
+        {
+          "action": "37_Safe_Zone_Dissipation",
+          "frames": [
+            "66.webp"
+          ]
+        },
+        {
+          "action": "38_Emergence_Tip",
+          "frames": [
+            "71.webp"
+          ]
+        },
+        {
+          "action": "39_Rapid_Rise",
+          "frames": [
+            "72.webp"
+          ]
+        },
+        {
+          "action": "40_Full_Eruption_Active",
+          "frames": [
+            "73.webp"
+          ]
+        },
+        {
+          "action": "41_Whip_Peak_Active",
+          "frames": [
+            "74.webp"
+          ]
+        },
+        {
+          "action": "42_Retraction",
+          "frames": [
+            "75.webp"
+          ]
+        },
+        {
+          "action": "43_Portal_Residue",
+          "frames": [
+            "76.webp"
+          ]
+        },
+        {
+          "action": "44_=_一整張獨立_16_9_CTHULHU_PULSE_VFX",
+          "frames": [
+            "81.webp"
+          ]
+        }
+      ]
+    },
+    "dim_samples": {
+      "(256, 256)": 3,
+      "(256, 250)": 1,
+      "(273, 235)": 1,
+      "(245, 255)": 1,
+      "(279, 242)": 1,
+      "(248, 241)": 1,
+      "(253, 227)": 1,
+      "(277, 235)": 1,
+      "(242, 239)": 2,
+      "(237, 249)": 1,
+      "(260, 238)": 1,
+      "(418, 418)": 4,
+      "(483, 418)": 1,
+      "(376, 417)": 1,
+      "(439, 395)": 1,
+      "(394, 418)": 1,
+      "(357, 413)": 1,
+      "(418, 449)": 1,
+      "(392, 439)": 1,
+      "(239, 276)": 1,
+      "(407, 452)": 1,
+      "(415, 475)": 1,
+      "(428, 323)": 1,
+      "(419, 307)": 1,
+      "(458, 366)": 1,
+      "(390, 403)": 1,
+      "(397, 430)": 1,
+      "(205, 188)": 1,
+      "(185, 232)": 1,
+      "(268, 224)": 1,
+      "(274, 207)": 1,
+      "(206, 260)": 1,
+      "(237, 258)": 1,
+      "(237, 222)": 1,
+      "(272, 259)": 1,
+      "(260, 247)": 1,
+      "(251, 246)": 1,
+      "(252, 258)": 1,
+      "(250, 281)": 1,
+      "(264, 241)": 1,
+      "(513, 409)": 1,
+      "(474, 580)": 1,
+      "(508, 583)": 1,
+      "(600, 425)": 1,
+      "(474, 433)": 1,
+      "(447, 451)": 1,
+      "(506, 327)": 1,
+      "(535, 441)": 1,
+      "(497, 491)": 1,
+      "(519, 487)": 1,
+      "(565, 493)": 1,
+      "(512, 458)": 1,
+      "(531, 450)": 1,
+      "(433, 495)": 1,
+      "(509, 566)": 1,
+      "(595, 468)": 1,
+      "(429, 445)": 1,
+      "(526, 434)": 1,
+      "(1672, 941)": 1
+    },
+    "modes": {
+      "RGBA": 65
+    }
+  }
+}

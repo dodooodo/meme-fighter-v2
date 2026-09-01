@@ -21,6 +21,8 @@ enum Condition {
 @export var target_kind: TargetKind = TargetKind.MOVE
 @export var movement_resource_cost_id: StringName = &""
 @export var movement_resource_cost_amount: int = 0
+# 0 = unlimited. Used by finite-resource mode cancels such as True Face; runtime accounting stays generic.
+@export_range(0, 20, 1) var max_uses_per_combo: int = 0
 @export var resource_condition_id: StringName = &""
 @export var resource_at_least: int = 0
 

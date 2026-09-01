@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/cpu/cpu_utility_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = &"bao_la"
+archetype = "Counter / Retaliation"
+preferred_range_min_units = 10000
+preferred_range_max_units = 28000
+approach_weight = 34
+retreat_weight = 68
+light_weight = 40
+heavy_weight = 62
+low_weight = 42
+air_weight = 30
+anti_air_weight = 44
+throw_weight = 25
+special_lv1_weight = 35
+special_lv2_weight = 55
+special_lv3_weight = 70
+ultimate_weight = 38
+guard_weight = 56
+backstep_weight = 42
+jump_weight = 18
+resource_spend_weight = 52
+mode_activation_weight = 38
+summon_weight = 8
+trap_weight = 8
+counter_weight = 94
+notes = "Bait/backwalk/counter/punish; Last Stand only under sensible conditions."

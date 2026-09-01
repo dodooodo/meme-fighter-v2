@@ -8,7 +8,8 @@ func build_throw_contact(attacker: Fighter, defender: Fighter) -> ThrowContact:
     var move := attacker.move_runner.current_move
     if move == null: return null
     if not defender.state_machine.is_throwable() or defender.movement_motor.is_airborne(): return null
-    if move.throw_avoids_backstep and defender.state_machine.state == FighterStateMachine.State.BACKSTEP: return null
+    if defender.state_machine.is_throw_protected(): return null
+    if defender.state_machine.has_backstep_throw_invulnerability(): return null
     if not attacker.hitbox_owner.can_hit_defender(attacker.move_runner.attack_instance_id, defender.fighter_id, 0): return null
     var throw_rect := attacker.hitbox_owner.active_throw_rect(attacker.position_pixels(), attacker.movement_motor.facing, attacker.move_runner)
     var target_rect := defender.hitbox_owner.hurtbox_rect(defender.position_pixels(), defender.movement_motor.facing, defender.move_runner)

@@ -26,7 +26,7 @@ func _test_gameplay_contract() -> void:
     var r := MoveRegistry.new()
     r.configure(c.move_set)
     t.equal(c.mechanics.resources[0].max_value, 3, "Niu Courage range is 0..3")
-    t.equal(c.mechanics.heavy_knockdown_resource_id, &"courage", "Heavy Knockdown decrements Courage generically")
+    t.equal(c.mechanics.heavy_knockdown_resource_id, &"", "Heavy Knockdown does not tax Courage")
     t.equal(r.get_move(MoveIds.STAND_HEAVY).cancel_windows[0].resource_condition_id, &"courage", "Heavy->Special cancel is Courage-gated by generic window data")
     t.equal(RosterRegistry.character_by_id(&"niu_lai"), c, "Compatibility roster routes Niu Lai through package gameplay")
     t.equal(RosterRegistry.presentation_by_id(&"niu_lai"), manifest.presentation_resource, "Compatibility roster routes Niu Lai through package presentation")

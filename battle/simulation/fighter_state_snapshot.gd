@@ -35,15 +35,20 @@ var air_attack_available: bool = true
 var landing_remaining: int = 0
 var dash_move_remaining: int = 0
 var dash_recovery_remaining: int = 0
+var dash_elapsed_frames: int = 0
+var throw_protection_remaining: int = 0
 var thrown_remaining: int = 0
 var knockdown_remaining: int = 0
 var getup_remaining: int = 0
 var pending_knockdown_frames: int = 0
 var pending_getup_frames: int = 18
+var throw_tech_pending: bool = false
 var jump_started_this_tick: bool = false
+var jump_buffer_expiry_frame: int = -1
 var charge_frames: int = 0
 var charge_entry_move_id: StringName = &""
 var charge_locked_facing: int = 1
+var charge_early_release_requested: bool = false
 
 # MoveRunner: static MoveData is represented only by stable current_move_id.
 var current_move_id: StringName = &""
@@ -53,6 +58,7 @@ var next_attack_instance_serial: int = 0
 var move_connected_hit: bool = false
 var move_connected_block: bool = false
 var move_spawned_projectile_indices: Array[int] = []
+var move_activation_resource_values: Dictionary = {}
 
 # HitboxOwner duplicate-contact registry.
 var tracked_attack_instance_id: int = -1
@@ -75,3 +81,5 @@ var next_status_application_serial: int = 1
 var mode_state: Dictionary = {}
 var mechanics_state: Dictionary = {}
 var contacted_hit_keys: Array[int] = []
+# Generic outgoing combo/scaling runtime.
+var combo_state: Dictionary = {}

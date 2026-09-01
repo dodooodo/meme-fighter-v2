@@ -7,6 +7,7 @@ script = ExtResource("area")
 id = &"jpeg_circle"
 replace_group = &"jpeg_circle"
 lifetime_frames = 180
+arm_frames = 36
 telegraph_frames = 18
 half_extents_units = Vector2i(10500, 3200)
 trigger_on_enemy_enter = true
@@ -21,6 +22,8 @@ area = SubResource("area_2")
 [resource]
 script = ExtResource("move")
 id = &"magic_circle_l2"
+meter_gain_on_hit = 7
+meter_gain_on_block = 2
 display_name = "JPEG 魔法陣 Lv2"
 animation_id = &"magic_circle_l2"
 startup_frames = 11

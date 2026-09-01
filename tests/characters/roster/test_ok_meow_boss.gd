@@ -7,5 +7,8 @@ func run_all() -> int:
     var r := MoveRegistry.new(); r.configure(c.move_set)
     t.equal(r.get_move(MoveIds.ULTIMATE).throw_kind, MoveData.ThrowKind.GROUND_CAPTURE_SUPER, "OK Ultimate is Ground Capture Super, not cinematic auto-hit")
     t.equal(r.get_move(MoveIds.ULTIMATE).throw_conditions.size(), 3, "Ground Capture validates grounded/grabbable/not ordinary hitstun")
+    t.equal(r.get_move(&"ok_pressure_l1").blockstun_frames - r.get_move(&"ok_pressure_l1").recovery_frames, -2, "OK Lv1 block advantage is -2")
+    t.equal(r.get_move(&"ok_pressure_l2").blockstun_frames - r.get_move(&"ok_pressure_l2").recovery_frames, 1, "OK Lv2 block advantage is +1")
+    t.equal(r.get_move(&"ok_pressure_l3").blockstun_frames - r.get_move(&"ok_pressure_l3").recovery_frames, 2, "OK Lv3 block advantage is +2")
     print("\nOK Meow Boss roster tests: %d passed, %d failed" % [t.passed, t.failed])
     return t.failed

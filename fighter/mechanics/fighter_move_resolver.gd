@@ -2,5 +2,5 @@
 class_name FighterMoveResolver
 extends RefCounted
 
-func resolve(canonical_id: StringName, mode: ModeComponent) -> StringName:
-    return mode.resolve_move_id(canonical_id) if mode != null else canonical_id
+func resolve(canonical_id: StringName, mode: ModeComponent, resources: FighterResourceComponent = null) -> StringName:
+    return mode.resolve_move_id(canonical_id, resources) if mode != null else canonical_id

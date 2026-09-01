@@ -7,5 +7,6 @@ func run_all() -> int:
     var r := MoveRegistry.new(); r.configure(c.move_set)
     t.equal(c.mechanics.successful_hit_grants_status_id, &"panic_exit", "Successful hit grants Panic Exit status")
     t.equal(r.get_move(MoveIds.ULTIMATE).on_start_effects[0].summon.id, &"husky_guardian", "Ultimate spawns Husky via SummonSystem")
+    t.equal(r.get_move(MoveIds.ULTIMATE).on_start_effects[0].summon.replace_group, &"husky_guardian", "Husky is authored as a single replacement-group summon")
     print("\nScared Cat roster tests: %d passed, %d failed" % [t.passed, t.failed])
     return t.failed

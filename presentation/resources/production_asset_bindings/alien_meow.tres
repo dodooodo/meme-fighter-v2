@@ -1,0 +1,1703 @@
+[gd_resource type="Resource" load_steps=92 format=3]
+
+[ext_resource type="Script" path="res://presentation/data/production_animation_binding.gd" id="anim"]
+[ext_resource type="Script" path="res://presentation/data/production_character_asset_binding.gd" id="catalog"]
+
+[sub_resource type="Resource" id="b000"]
+script = ExtResource("anim")
+animation_id = &"idle"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "01_待機_天線掃描呼吸"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/01_待機_天線掃描呼吸/11.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/01_待機_天線掃描呼吸/12.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/01_待機_天線掃描呼吸/13.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b001"]
+script = ExtResource("anim")
+animation_id = &"walk_forward"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "02_前走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/02_前走/14.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/02_前走/15.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/02_前走/16.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b002"]
+script = ExtResource("anim")
+animation_id = &"walk_back"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "03_後走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/03_後走/17.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/03_後走/18.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/03_後走/19.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b003"]
+script = ExtResource("anim")
+animation_id = &"crouch"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "04_蹲下"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/04_蹲下/21.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b004"]
+script = ExtResource("anim")
+animation_id = &"jump"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "05_跳躍預備"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/05_跳躍預備/22.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b005"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a06"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "06_起跳"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/06_起跳/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b006"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a07"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "07_空中上升_頂點"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/07_空中上升_頂點/24.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b007"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a08"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "08_下降"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/08_下降/25.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b008"]
+script = ExtResource("anim")
+animation_id = &"landing"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "09_落地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/09_落地/26.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b009"]
+script = ExtResource("anim")
+animation_id = &"dash_forward"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "10_前衝蓄勢"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/10_前衝蓄勢/31.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b010"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a11"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "11_前衝爆發"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/11_前衝爆發/32.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b011"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a12"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "12_前衝煞停"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/12_前衝煞停/33.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b012"]
+script = ExtResource("anim")
+animation_id = &"backstep"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "13_後撤起手"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/13_後撤起手/34.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b013"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a14"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "14_後撤空中"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/14_後撤空中/35.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b014"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a15"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "15_後撤落地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/15_後撤落地/36.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b015"]
+script = ExtResource("anim")
+animation_id = &"stand_light"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "16_輕攻「訊號校正」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/16_輕攻「訊號校正」/41.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/16_輕攻「訊號校正」/42.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/16_輕攻「訊號校正」/43.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/16_輕攻「訊號校正」/44.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/16_輕攻「訊號校正」/45.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/16_輕攻「訊號校正」/46.webp")
+mode_id = &""
+move_id = &"stand_light"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b016"]
+script = ExtResource("anim")
+animation_id = &"stand_heavy"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "17_重攻「水平掃描」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/17_重攻「水平掃描」/51.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/17_重攻「水平掃描」/52.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/17_重攻「水平掃描」/53.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/17_重攻「水平掃描」/54.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/17_重攻「水平掃描」/55.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/17_重攻「水平掃描」/56.webp")
+mode_id = &""
+move_id = &"stand_heavy"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b017"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a18"
+domain = 5
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "18_下段「地表斷訊脈衝」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/18_下段「地表斷訊脈衝」/61.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/18_下段「地表斷訊脈衝」/62.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/18_下段「地表斷訊脈衝」/63.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/18_下段「地表斷訊脈衝」/64.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/18_下段「地表斷訊脈衝」/65.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/18_下段「地表斷訊脈衝」/66.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b018"]
+script = ExtResource("anim")
+animation_id = &"air_attack"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "19_空中攻擊「空域掃描墜擊」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/19_空中攻擊「空域掃描墜擊」/71.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/19_空中攻擊「空域掃描墜擊」/72.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/19_空中攻擊「空域掃描墜擊」/73.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/19_空中攻擊「空域掃描墜擊」/74.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/19_空中攻擊「空域掃描墜擊」/75.webp", "res://assets/production_roster/source/Alien Meow/ROUND_1/19_空中攻擊「空域掃描墜擊」/76.webp")
+mode_id = &""
+move_id = &"air_attack"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b019"]
+script = ExtResource("anim")
+animation_id = &"guard_stand"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "20_站防「訊號屏障」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/20_站防「訊號屏障」/81.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b020"]
+script = ExtResource("anim")
+animation_id = &"blockstun"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "21_站防硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/21_站防硬直/82.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b021"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a22"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "22_站防恢復"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/22_站防恢復/83.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b022"]
+script = ExtResource("anim")
+animation_id = &"guard_crouch"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "23_蹲防「訊號屏障」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/23_蹲防「訊號屏障」/84.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b023"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a24"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "24_蹲防硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/24_蹲防硬直/85.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b024"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a25"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "25_蹲防恢復"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/25_蹲防恢復/86.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b025"]
+script = ExtResource("anim")
+animation_id = &"hitstun"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "26_上段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/26_上段受擊/87.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b026"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a27"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "27_中段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/27_中段受擊/88.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b027"]
+script = ExtResource("anim")
+animation_id = &"crouch_low"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "28_下段受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/28_下段受擊/89.webp")
+mode_id = &""
+move_id = &"crouch_low"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b028"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a29"
+domain = 5
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "29_輕攻天線命中火花"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/29_輕攻天線命中火花/91.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b029"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a30"
+domain = 5
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "30_輕攻_Pushback_特效"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/30_輕攻_Pushback_特效/92.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b030"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a31"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "31_重攻掃描發射閘"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/31_重攻掃描發射閘/93.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b031"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a32"
+domain = 2
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "32_「水平掃描」主掃描波"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/32_「水平掃描」主掃描波/94.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b032"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a33"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "33_重攻命中爆訊號"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/33_重攻命中爆訊號/95.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b033"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a34"
+domain = 5
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "34_「地表斷訊脈衝」地面波"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/34_「地表斷訊脈衝」地面波/96.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b034"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a35"
+domain = 5
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "35_地面波_Counter_Hit_推退特效"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/35_地面波_Counter_Hit_推退特效/97.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b035"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a36"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "36_空域掃描前向扇形波"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/36_空域掃描前向扇形波/98.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b036"]
+script = ExtResource("anim")
+animation_id = &"asset_round_1_a37"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_1"
+action_folder = "37_空域掃描斜下扇形波"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_1/37_空域掃描斜下扇形波/99.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b037"]
+script = ExtResource("anim")
+animation_id = &"ground_throw"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "01_投技「UFO_回收程序」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/01_投技「UFO_回收程序」/11.webp", "res://assets/production_roster/source/Alien Meow/ROUND_2/01_投技「UFO_回收程序」/12.webp", "res://assets/production_roster/source/Alien Meow/ROUND_2/01_投技「UFO_回收程序」/13.webp", "res://assets/production_roster/source/Alien Meow/ROUND_2/01_投技「UFO_回收程序」/14.webp", "res://assets/production_roster/source/Alien Meow/ROUND_2/01_投技「UFO_回收程序」/15.webp", "res://assets/production_roster/source/Alien Meow/ROUND_2/01_投技「UFO_回收程序」/16.webp")
+mode_id = &""
+move_id = &"ground_throw"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b038"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a02"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "02_被抓反應"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/02_被抓反應/21.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b039"]
+script = ExtResource("anim")
+animation_id = &"thrown"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "03_被摔飛"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/03_被摔飛/22.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b040"]
+script = ExtResource("anim")
+animation_id = &"knockdown"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "04_倒地撞擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/04_倒地撞擊/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b041"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a05"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "05_倒地_Hold"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/05_倒地_Hold/24.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b042"]
+script = ExtResource("anim")
+animation_id = &"getup"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "06_起身開始"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/06_起身開始/25.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b043"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a07"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "07_低姿起身"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/07_低姿起身/26.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b044"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a08"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "08_完全起身"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/08_完全起身/27.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b045"]
+script = ExtResource("anim")
+animation_id = &"ko"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "09_KO_倒下"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/09_KO_倒下/28.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b046"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a10"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "10_KO_Hold"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/10_KO_Hold/29.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b047"]
+script = ExtResource("anim")
+animation_id = &"charge"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "11_開始蓄力"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/11_開始蓄力/31.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b048"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a12"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "12_蓄力維持"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/12_蓄力維持/32.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b049"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a13"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "13_高蓄力"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/13_高蓄力/33.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b050"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a14"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "14_掃描波釋放"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/14_掃描波釋放/34.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b051"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a15"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "15_發射後座"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/15_發射後座/35.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b052"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a16"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "16_收招"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/16_收招/36.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b053"]
+script = ExtResource("anim")
+animation_id = &"alien_scan_l1"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "17_Lv1「局部掃描」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/17_Lv1「局部掃描」/41.webp", "res://assets/production_roster/source/Alien Meow/ROUND_2/17_Lv1「局部掃描」/42.webp", "res://assets/production_roster/source/Alien Meow/ROUND_2/17_Lv1「局部掃描」/43.webp")
+mode_id = &""
+move_id = &"alien_scan_l1"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b054"]
+script = ExtResource("anim")
+animation_id = &"alien_scan_l2"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "18_Lv2「廣域掃描」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/18_Lv2「廣域掃描」/44.webp", "res://assets/production_roster/source/Alien Meow/ROUND_2/18_Lv2「廣域掃描」/45.webp", "res://assets/production_roster/source/Alien Meow/ROUND_2/18_Lv2「廣域掃描」/46.webp")
+mode_id = &""
+move_id = &"alien_scan_l2"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b055"]
+script = ExtResource("anim")
+animation_id = &"alien_scan_l3"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "19_Lv3「全頻率斷訊」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/19_Lv3「全頻率斷訊」/47.webp", "res://assets/production_roster/source/Alien Meow/ROUND_2/19_Lv3「全頻率斷訊」/48.webp")
+mode_id = &""
+move_id = &"alien_scan_l3"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b056"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a20"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "20_Signal_Mark"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/20_Signal_Mark/49.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b057"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a21"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "21_UFO_進場"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/21_UFO_進場/51.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b058"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a22"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "22_Tractor_Beam_鎖定"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/22_Tractor_Beam_鎖定/52.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b059"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a23"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "23_把對手吸起"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/23_把對手吸起/53.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b060"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a24"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "24_UFO_往另一側移動"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/24_UFO_往另一側移動/54.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b061"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a25"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "25_後方釋放對手"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/25_後方釋放對手/55.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b062"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a26"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "26_UFO_離場"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/26_UFO_離場/56.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b063"]
+script = ExtResource("anim")
+animation_id = &"ultimate"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "27_Ultimate_啟動"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/27_Ultimate_啟動/61.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b064"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a28"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "28_系統啟動_天線升頻"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/28_系統啟動_天線升頻/62.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b065"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a29"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "29_初始掃描命令"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/29_初始掃描命令/63.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b066"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a30"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "30_記錄對手當下位置"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/30_記錄對手當下位置/64.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b067"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a31"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "31_固定座標轟炸命令"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/31_固定座標轟炸命令/65.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b068"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a32"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "32_Alien_恢復戰鬥姿勢"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/32_Alien_恢復戰鬥姿勢/66.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b069"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a33"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "33_初始大範圍掃描"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/33_初始大範圍掃描/71.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b070"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a34"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "34_Acquisition_掃描"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/34_Acquisition_掃描/72.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b071"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a35"
+domain = 5
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "35_記錄位置脈衝"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/35_記錄位置脈衝/73.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b072"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a36"
+domain = 4
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "36_Position_Lock_淡色地面圈"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/36_Position_Lock_淡色地面圈/74.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b073"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a37"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "37_Position_Lock_啟動"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/37_Position_Lock_啟動/75.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b074"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a38"
+domain = 5
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "38_Position_Lock_即將轟炸警告"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/38_Position_Lock_即將轟炸警告/76.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b075"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a39"
+domain = 5
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "39_Signal_Mark_快速鎖定特效"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/39_Signal_Mark_快速鎖定特效/77.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b076"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a40"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "40_座標鎖定確認"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/40_座標鎖定確認/78.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b077"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a41"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "41_Lock_消散"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/41_Lock_消散/79.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b078"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a42"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "42_轟炸前垂直訊號線"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/42_轟炸前垂直訊號線/81.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b079"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a43"
+domain = 5
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "43_能量柱開始下降"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/43_能量柱開始下降/82.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b080"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a44"
+domain = 5
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "44_主能量柱下降"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/44_主能量柱下降/83.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b081"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a45"
+domain = 5
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "45_地面接觸閃光"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/45_地面接觸閃光/84.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b082"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a46"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "46_固定位置轟炸_Active"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/46_固定位置轟炸_Active/85.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b083"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a47"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "47_轟炸持續"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/47_轟炸持續/86.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b084"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a48"
+domain = 5
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "48_能量柱收縮"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/48_能量柱收縮/87.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b085"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a49"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "49_命中殘留訊號"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/49_命中殘留訊號/88.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b086"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a50"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "50_完全消散"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/50_完全消散/89.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b087"]
+script = ExtResource("anim")
+animation_id = &"asset_round_2_a51"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "51_最終「全頻率收尾_Full-Frequency_Battlefield_Scan_Sweep」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/51_最終「全頻率收尾_Full-Frequency_Battlefield_Scan_Sweep」/91.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b088"]
+script = ExtResource("anim")
+animation_id = &"special_neutral"
+domain = 0
+asset_folder = "Alien Meow"
+round_name = &"ROUND_2"
+action_folder = "11_開始蓄力"
+frame_paths = PackedStringArray("res://assets/production_roster/source/Alien Meow/ROUND_2/11_開始蓄力/31.webp")
+mode_id = &""
+move_id = &"special_neutral"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Runtime special body fallback from exact authored charge/release body pose; detached effect remains separately bound."
+
+[resource]
+script = ExtResource("catalog")
+character_id = &"alien_meow"
+display_name = "Alien Meow"
+asset_folder = "Alien Meow"
+source_inventory_path = "res://assets/production_roster/combat_asset_inventory.json"
+bindings = Array[ExtResource("anim")]([SubResource("b000"), SubResource("b001"), SubResource("b002"), SubResource("b003"), SubResource("b004"), SubResource("b005"), SubResource("b006"), SubResource("b007"), SubResource("b008"), SubResource("b009"), SubResource("b010"), SubResource("b011"), SubResource("b012"), SubResource("b013"), SubResource("b014"), SubResource("b015"), SubResource("b016"), SubResource("b017"), SubResource("b018"), SubResource("b019"), SubResource("b020"), SubResource("b021"), SubResource("b022"), SubResource("b023"), SubResource("b024"), SubResource("b025"), SubResource("b026"), SubResource("b027"), SubResource("b028"), SubResource("b029"), SubResource("b030"), SubResource("b031"), SubResource("b032"), SubResource("b033"), SubResource("b034"), SubResource("b035"), SubResource("b036"), SubResource("b037"), SubResource("b038"), SubResource("b039"), SubResource("b040"), SubResource("b041"), SubResource("b042"), SubResource("b043"), SubResource("b044"), SubResource("b045"), SubResource("b046"), SubResource("b047"), SubResource("b048"), SubResource("b049"), SubResource("b050"), SubResource("b051"), SubResource("b052"), SubResource("b053"), SubResource("b054"), SubResource("b055"), SubResource("b056"), SubResource("b057"), SubResource("b058"), SubResource("b059"), SubResource("b060"), SubResource("b061"), SubResource("b062"), SubResource("b063"), SubResource("b064"), SubResource("b065"), SubResource("b066"), SubResource("b067"), SubResource("b068"), SubResource("b069"), SubResource("b070"), SubResource("b071"), SubResource("b072"), SubResource("b073"), SubResource("b074"), SubResource("b075"), SubResource("b076"), SubResource("b077"), SubResource("b078"), SubResource("b079"), SubResource("b080"), SubResource("b081"), SubResource("b082"), SubResource("b083"), SubResource("b084"), SubResource("b085"), SubResource("b086"), SubResource("b087"), SubResource("b088")])

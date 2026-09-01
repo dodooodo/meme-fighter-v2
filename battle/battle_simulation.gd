@@ -6,7 +6,10 @@ class_name BattleSimulation
 extends RefCounted
 
 const STAGE_LEFT_UNITS: int = 8000
-const STAGE_RIGHT_UNITS: int = 120000
+const STAGE_WIDTH_UNITS: int = 18 * SimulationUnits.DESIGN_UNIT_TO_SIM_UNITS
+const STAGE_RIGHT_UNITS: int = STAGE_LEFT_UNITS + STAGE_WIDTH_UNITS
+const P1_START_X_UNITS: int = STAGE_LEFT_UNITS + 6 * SimulationUnits.DESIGN_UNIT_TO_SIM_UNITS
+const P2_START_X_UNITS: int = STAGE_LEFT_UNITS + 12 * SimulationUnits.DESIGN_UNIT_TO_SIM_UNITS
 const GROUND_Y_UNITS: int = 56000
 
 var frame_number: int = 0
@@ -22,22 +25,42 @@ var combat_logger: CombatLogger = CombatLogger.new(false)
 # Tooling/input-layer observer only; intentionally excluded from Snapshot/Hash gameplay state.
 var replay_recorder: ReplayRecorder = null
 var _event_queue: Array[CombatEvent] = []
-var _start_a: Vector2i = Vector2i(50000, GROUND_Y_UNITS)
-var _start_b: Vector2i = Vector2i(78000, GROUND_Y_UNITS)
+# Captured Normal Throws awaiting the canonical 7F tech decision. Primitive dictionaries are snapshotted/hashed.
+var _pending_normal_throws: Array[Dictionary] = []
+var _start_a: Vector2i = Vector2i(P1_START_X_UNITS, GROUND_Y_UNITS)
+var _start_b: Vector2i = Vector2i(P2_START_X_UNITS, GROUND_Y_UNITS)
 var _start_facing_a: int = 1
 var _start_facing_b: int = -1
+
+func configure_standard(
+    character_a: CharacterData,
+    character_b: CharacterData,
+    source_a: InputSource = null,
+    source_b: InputSource = null,
+    match_rules: MatchRulesData = null
+) -> void:
+    configure(
+        character_a,
+        character_b,
+        source_a,
+        source_b,
+        Vector2i(P1_START_X_UNITS, GROUND_Y_UNITS),
+        Vector2i(P2_START_X_UNITS, GROUND_Y_UNITS),
+        match_rules
+    )
 
 func configure(
     character_a: CharacterData,
     character_b: CharacterData,
     source_a: InputSource = null,
     source_b: InputSource = null,
-    start_a: Vector2i = Vector2i(50000, GROUND_Y_UNITS),
-    start_b: Vector2i = Vector2i(78000, GROUND_Y_UNITS),
+    start_a: Vector2i = Vector2i(P1_START_X_UNITS, GROUND_Y_UNITS),
+    start_b: Vector2i = Vector2i(P2_START_X_UNITS, GROUND_Y_UNITS),
     match_rules: MatchRulesData = null
 ) -> void:
     frame_number = 0
     _event_queue.clear()
+    _pending_normal_throws.clear()
     replay_recorder = null
     _start_a = start_a
     _start_b = start_b
@@ -65,6 +88,13 @@ func configure(
     _start_facing_a = fighter_a.movement_motor.facing
     _start_facing_b = fighter_b.movement_motor.facing
     _event_queue.append(CombatEvent.round_started(frame_number, round_controller.round_number))
+
+func configured_start_position(fighter_id: int) -> Vector2i:
+    if fighter_id == 1:
+        return _start_a
+    if fighter_id == 2:
+        return _start_b
+    return Vector2i.ZERO
 
 func simulate_frame(input_a: InputFrame, input_b: InputFrame) -> void:
     var next_frame := frame_number + 1
@@ -136,6 +166,7 @@ func fighter_by_id(fighter_id: int) -> Fighter:
 func cleanup_temporary_combat_entities() -> void:
     projectile_system.clear_active()
     temporary_entity_system.clear_active()
+    _clear_pending_normal_throws()
 
 # Compatibility with M5 tests/debug reset; this is a full projectile-subsystem reset including serial.
 func reset_projectiles() -> void:
@@ -144,6 +175,7 @@ func reset_projectiles() -> void:
 func reset_full_match() -> void:
     frame_number = 0
     _event_queue.clear()
+    _pending_normal_throws.clear()
     round_controller.reset_match()
     projectile_system.reset_for_new_match()
     temporary_entity_system.reset_for_new_match()
@@ -168,6 +200,7 @@ func _simulate_round_active_tick(next_frame: int, input_a: InputFrame, input_b: 
     # 1. Canonical normalized inputs.
     fighter_a.ingest_input(input_a)
     fighter_b.ingest_input(input_b)
+    _process_pending_normal_throws(next_frame)
 
     # 2. Resolve action starts from canonical move IDs, then execute authored start effects.
     var move_a_before := fighter_a.move_runner.current_move_id()
@@ -237,6 +270,11 @@ func _simulate_round_active_tick(next_frame: int, input_a: InputFrame, input_b: 
         if resolved != null: world_results.append(resolved)
     var throw_result_a_to_b := combat_resolver.resolve_throw_contact(throw_a_to_b, fighter_a, fighter_b)
     var throw_result_b_to_a := combat_resolver.resolve_throw_contact(throw_b_to_a, fighter_b, fighter_a)
+    var arbitration := SameTickArbitrator.arbitrate(strike_results, throw_result_a_to_b, throw_result_b_to_a, fighter_a, fighter_b)
+    throw_result_a_to_b = arbitration["throw_a"]
+    throw_result_b_to_a = arbitration["throw_b"]
+    if bool(arbitration["normal_auto_tech"]):
+        _apply_immediate_throw_tech(next_frame, throw_result_a_to_b if throw_result_a_to_b != null else combat_resolver.resolve_throw_contact(throw_a_to_b, fighter_a, fighter_b), fighter_a, fighter_b)
 
     # 9. Apply canonical result groups. Same-frame lethal trades remain possible because all candidates are already resolved.
     var meter_a_before_combat := fighter_a.meter.get_value(); var meter_b_before_combat := fighter_b.meter.get_value()
@@ -248,8 +286,8 @@ func _simulate_round_active_tick(next_frame: int, input_a: InputFrame, input_b: 
             combat_logger.log_projectile_impact(next_frame, result.source_runtime_id, result.attacker_id, result.defender_id, result.projectile_id, result.result_type)
     for result: HitResult in world_results:
         combat_resolver.apply_strike_result(next_frame, result, fighter_by_id(result.attacker_id), fighter_by_id(result.defender_id), _event_queue)
-    combat_resolver.apply_throw_result(next_frame, throw_result_a_to_b, fighter_a, fighter_b, _event_queue)
-    combat_resolver.apply_throw_result(next_frame, throw_result_b_to_a, fighter_b, fighter_a, _event_queue)
+    _apply_or_queue_throw(next_frame, throw_result_a_to_b, fighter_a, fighter_b)
+    _apply_or_queue_throw(next_frame, throw_result_b_to_a, fighter_b, fighter_a)
     combat_logger.log_meter_gain(next_frame, fighter_a.fighter_id, fighter_a.meter.get_value() - meter_a_before_combat, fighter_a.meter.get_value())
     combat_logger.log_meter_gain(next_frame, fighter_b.fighter_id, fighter_b.meter.get_value() - meter_b_before_combat, fighter_b.meter.get_value())
 
@@ -274,6 +312,7 @@ func _simulate_round_active_tick(next_frame: int, input_a: InputFrame, input_b: 
         _execute_completion_effects(fighter_b, fighter_a)
     fighter_a.status_tick(); fighter_b.status_tick()
     fighter_a.post_tick(); fighter_b.post_tick()
+    _reset_completed_combos()
 
     # 13. Facing + sparse diagnostics.
     _update_facings()
@@ -343,6 +382,133 @@ func _spawn_move_projectiles(frame: int, fighter: Fighter) -> void:
         var projectile := projectile_system.spawn_from_descriptor(fighter, source_move_id, spawn_index, descriptor)
         if projectile != null:
             combat_logger.log_projectile_spawn(frame, projectile.instance_id, projectile.owner_fighter_id, projectile.projectile_id, projectile.position_units, projectile.facing)
+
+func _apply_or_queue_throw(frame: int, result: HitResult, attacker: Fighter, defender: Fighter) -> void:
+    if result == null or attacker == null or defender == null:
+        return
+    var move := attacker.move_registry.get_move(result.move_id)
+    if move == null:
+        return
+    if move.throw_kind != MoveData.ThrowKind.NORMAL_THROW:
+        combat_resolver.apply_throw_result(frame, result, attacker, defender, _event_queue)
+        return
+    # The capture tick itself counts as the first tech frame. A same-tick F+H is therefore a tech.
+    if defender.input_parser.throw_chord_pressed:
+        _apply_immediate_throw_tech(frame, result, attacker, defender)
+        return
+    defender.move_runner.interrupt()
+    defender.state_machine.enter_throw_tech_window(defender.input_buffer)
+    _pending_normal_throws.append({
+        "attacker_id": attacker.fighter_id,
+        "defender_id": defender.fighter_id,
+        "move_id": result.move_id,
+        "attack_instance_id": result.attack_instance_id,
+        "captured_flags": result.contact_flags,
+        "hit_x_milli": int(round(result.hit_position.x * 1000.0)),
+        "hit_y_milli": int(round(result.hit_position.y * 1000.0)),
+        "expires_frame": frame + 6,
+    })
+    _pending_normal_throws.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return int(a["attacker_id"]) < int(b["attacker_id"]))
+
+func _process_pending_normal_throws(frame: int) -> void:
+    if _pending_normal_throws.is_empty():
+        return
+    var remaining: Array[Dictionary] = []
+    for pending: Dictionary in _pending_normal_throws:
+        var attacker := fighter_by_id(int(pending.get("attacker_id", 0)))
+        var defender := fighter_by_id(int(pending.get("defender_id", 0)))
+        if attacker == null or defender == null:
+            continue
+        # If the thrower was interrupted/KO'd before settlement, release the captured target safely.
+        if attacker.combatant.is_ko or attacker.combatant.hitstun_remaining > 0:
+            defender.state_machine.exit_throw_tech_window(defender.input_parser)
+            continue
+        if defender.input_parser.throw_chord_pressed:
+            _apply_pending_throw_tech(frame, pending, attacker, defender)
+            continue
+        if frame >= int(pending.get("expires_frame", frame)):
+            var contact := ThrowContact.new()
+            contact.attacker_id = attacker.fighter_id
+            contact.defender_id = defender.fighter_id
+            contact.move_id = StringName(pending.get("move_id", &""))
+            contact.attack_instance_id = int(pending.get("attack_instance_id", 0))
+            contact.hit_position = Vector2(float(int(pending.get("hit_x_milli", 0))) / 1000.0, float(int(pending.get("hit_y_milli", 0))) / 1000.0)
+            defender.state_machine.throw_tech_pending = false
+            var result := combat_resolver.resolve_confirmed_throw(contact, attacker, defender, int(pending.get("captured_flags", 0)))
+            combat_resolver.apply_throw_result(frame, result, attacker, defender, _event_queue)
+            continue
+        remaining.append(pending)
+    _pending_normal_throws = remaining
+
+func _apply_immediate_throw_tech(frame: int, result: HitResult, attacker: Fighter, defender: Fighter) -> void:
+    if result == null or attacker == null or defender == null:
+        return
+    attacker.move_runner.interrupt()
+    defender.move_runner.interrupt()
+    attacker.state_machine.exit_throw_after_tech(attacker.input_parser)
+    if defender.state_machine.throw_tech_pending:
+        defender.state_machine.exit_throw_tech_window(defender.input_parser)
+    elif defender.state_machine.state == FighterStateMachine.State.THROW:
+        defender.state_machine.exit_throw_after_tech(defender.input_parser)
+    _event_queue.append(CombatEvent.throw_tech(frame, attacker.fighter_id, defender.fighter_id, result.move_id, result.attack_instance_id))
+
+func _apply_pending_throw_tech(frame: int, pending: Dictionary, attacker: Fighter, defender: Fighter) -> void:
+    var move_id := StringName(pending.get("move_id", &""))
+    var attack_instance_id := int(pending.get("attack_instance_id", 0))
+    attacker.move_runner.interrupt()
+    defender.move_runner.interrupt()
+    attacker.state_machine.exit_throw_after_tech(attacker.input_parser)
+    defender.state_machine.exit_throw_tech_window(defender.input_parser)
+    _event_queue.append(CombatEvent.throw_tech(frame, attacker.fighter_id, defender.fighter_id, move_id, attack_instance_id))
+
+func _clear_pending_normal_throws() -> void:
+    for pending: Dictionary in _pending_normal_throws:
+        var defender := fighter_by_id(int(pending.get("defender_id", 0)))
+        if defender != null and defender.state_machine.throw_tech_pending:
+            defender.state_machine.exit_throw_tech_window(defender.input_parser)
+    _pending_normal_throws.clear()
+
+func pending_normal_throw_count() -> int:
+    return _pending_normal_throws.size()
+
+func capture_pending_normal_throws() -> Array[Dictionary]:
+    var out: Array[Dictionary] = []
+    for pending: Dictionary in _pending_normal_throws:
+        out.append(pending.duplicate(true))
+    return out
+
+func validate_pending_normal_throws(values: Array[Dictionary]) -> bool:
+    var seen_attackers: Dictionary = {}
+    for pending: Dictionary in values:
+        var attacker_id := int(pending.get("attacker_id", 0))
+        var defender_id := int(pending.get("defender_id", 0))
+        var move_id := StringName(pending.get("move_id", &""))
+        var attacker := fighter_by_id(attacker_id)
+        var defender := fighter_by_id(defender_id)
+        if attacker == null or defender == null or attacker_id == defender_id or move_id == &"":
+            return false
+        var move := attacker.move_registry.get_move(move_id)
+        if move == null or move.throw_kind != MoveData.ThrowKind.NORMAL_THROW:
+            return false
+        if int(pending.get("attack_instance_id", 0)) <= 0 or int(pending.get("expires_frame", -1)) < frame_number:
+            return false
+        if seen_attackers.has(attacker_id):
+            return false
+        seen_attackers[attacker_id] = true
+    return true
+
+func restore_pending_normal_throws(values: Array[Dictionary]) -> void:
+    _pending_normal_throws.clear()
+    for pending: Dictionary in values:
+        _pending_normal_throws.append(pending.duplicate(true))
+    _pending_normal_throws.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return int(a["attacker_id"]) < int(b["attacker_id"]))
+
+func _reset_completed_combos() -> void:
+    if fighter_a != null and fighter_b != null:
+        if fighter_b.combatant.can_act() and fighter_b.state_machine.has_actionable_control():
+            fighter_a.combo_scaling.reset()
+        if fighter_a.combatant.can_act() and fighter_a.state_machine.has_actionable_control():
+            fighter_b.combo_scaling.reset()
 
 func _authoritative_input(frame: InputFrame, required_frame: int) -> InputFrame:
     if not round_controller.is_round_active():

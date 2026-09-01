@@ -17,6 +17,7 @@ extends Resource
 @export var effect_bindings: Array[EffectPresentationBinding] = []
 @export var attachment_bindings: Array[AttachmentPresentationBinding] = []
 @export var socket_offsets: Dictionary = {}
+@export var production_asset_binding: ProductionCharacterAssetBinding
 
 var _state_lookup: Dictionary = {}
 var _move_lookup: Dictionary = {}
@@ -39,6 +40,10 @@ func validate(expected_character_id: StringName = &"") -> PackedStringArray:
     if visual_scale <= 0.0:
         errors.append("visual_scale must be > 0")
     _validate_bindings(errors)
+    if production_asset_binding != null:
+        if production_asset_binding.character_id != character_id:
+            errors.append("production asset character_id mismatch")
+        errors.append_array(production_asset_binding.validate())
     return errors
 
 func rebuild_cache() -> bool:
@@ -77,11 +82,21 @@ func rebuild_cache() -> bool:
 
 func animation_for_state(state_key: StringName, fallback: StringName = &"idle", resources: FighterResourceComponent = null) -> StringName:
     _ensure_cache()
-    return _resolve_resource_variant(_state_lookup.get(state_key, []), fallback, resources)
+    var values: Variant = _state_lookup.get(state_key, [])
+    if values is Array and not values.is_empty():
+        return _resolve_resource_variant(values, fallback, resources)
+    if production_asset_binding != null and production_asset_binding.has_animation(state_key):
+        return state_key
+    return fallback
 
 func animation_for_move(move_id: StringName, fallback: StringName = &"attack", resources: FighterResourceComponent = null) -> StringName:
     _ensure_cache()
-    return _resolve_resource_variant(_move_lookup.get(move_id, []), fallback, resources)
+    var values: Variant = _move_lookup.get(move_id, [])
+    if values is Array and not values.is_empty():
+        return _resolve_resource_variant(values, fallback, resources)
+    if production_asset_binding != null and production_asset_binding.has_animation(move_id):
+        return move_id
+    return fallback
 
 # True when an animation key is driven by a Move phase timeline rather than by
 # animation playback. Data-driven so Courage-style variants stay timeline-driven

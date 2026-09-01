@@ -10,7 +10,7 @@ func run_all() -> int:
     battle.fighter_a.mode.enter(&"last_stand", 91, 7)
     battle.fighter_a.sync_mechanics_from_mode()
     var snap := battle.capture_state()
-    t.equal(snap.version, 8, "Roster snapshot version is v8")
+    t.equal(snap.version, BattleStateSnapshot.VERSION, "Snapshot follows current authoritative schema")
     var signature := battle.state_signature()
     t.that(battle.restore_state(snap), "v8 snapshot restores roster mechanics")
     t.equal(battle.state_signature(), signature, "v8 restore reproduces canonical hash")

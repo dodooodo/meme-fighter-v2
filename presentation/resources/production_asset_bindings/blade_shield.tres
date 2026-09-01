@@ -1,0 +1,734 @@
+[gd_resource type="Resource" load_steps=41 format=3]
+
+[ext_resource type="Script" path="res://presentation/data/production_animation_binding.gd" id="anim"]
+[ext_resource type="Script" path="res://presentation/data/production_character_asset_binding.gd" id="catalog"]
+
+[sub_resource type="Resource" id="b000"]
+script = ExtResource("anim")
+animation_id = &"idle"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "01_待機"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/01_待機/11.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/01_待機/12.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b001"]
+script = ExtResource("anim")
+animation_id = &"walk_forward"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "02_前走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/02_前走/13.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/02_前走/14.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b002"]
+script = ExtResource("anim")
+animation_id = &"walk_back"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "03_後走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/03_後走/15.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/03_後走/16.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b003"]
+script = ExtResource("anim")
+animation_id = &"crouch"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "04_蹲下"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/04_蹲下/17.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b004"]
+script = ExtResource("anim")
+animation_id = &"jump"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "05_跳躍"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/05_跳躍/18.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b005"]
+script = ExtResource("anim")
+animation_id = &"landing"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "06_落地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/06_落地/19.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b006"]
+script = ExtResource("anim")
+animation_id = &"dash_forward"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "07_前衝"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/07_前衝/21.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/07_前衝/22.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/07_前衝/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b007"]
+script = ExtResource("anim")
+animation_id = &"backstep"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "08_後撤"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/08_後撤/24.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/08_後撤/25.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/08_後撤/26.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b008"]
+script = ExtResource("anim")
+animation_id = &"stand_light"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "09_輕攻「鈍刀試砍」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/09_輕攻「鈍刀試砍」/31.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/09_輕攻「鈍刀試砍」/32.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/09_輕攻「鈍刀試砍」/33.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/09_輕攻「鈍刀試砍」/34.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/09_輕攻「鈍刀試砍」/35.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/09_輕攻「鈍刀試砍」/36.webp")
+mode_id = &""
+move_id = &"stand_light"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b009"]
+script = ExtResource("anim")
+animation_id = &"stand_heavy"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "10_重攻「盾開路」＝盾擊to大鈍刀斬"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/10_重攻「盾開路」＝盾擊to大鈍刀斬/41.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/10_重攻「盾開路」＝盾擊to大鈍刀斬/42.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/10_重攻「盾開路」＝盾擊to大鈍刀斬/43.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/10_重攻「盾開路」＝盾擊to大鈍刀斬/44.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/10_重攻「盾開路」＝盾擊to大鈍刀斬/45.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/10_重攻「盾開路」＝盾擊to大鈍刀斬/46.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/10_重攻「盾開路」＝盾擊to大鈍刀斬/47.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/10_重攻「盾開路」＝盾擊to大鈍刀斬/48.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/10_重攻「盾開路」＝盾擊to大鈍刀斬/49.webp")
+mode_id = &""
+move_id = &"stand_heavy"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b010"]
+script = ExtResource("anim")
+animation_id = &"crouch_low"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "11_下段「盾底掃腿」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/11_下段「盾底掃腿」/51.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/11_下段「盾底掃腿」/52.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/11_下段「盾底掃腿」/53.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/11_下段「盾底掃腿」/54.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/11_下段「盾底掃腿」/55.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/11_下段「盾底掃腿」/56.webp")
+mode_id = &""
+move_id = &"crouch_low"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b011"]
+script = ExtResource("anim")
+animation_id = &"air_attack"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "12_空中攻擊「盾牌墜擊」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/12_空中攻擊「盾牌墜擊」/61.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/12_空中攻擊「盾牌墜擊」/62.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/12_空中攻擊「盾牌墜擊」/63.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/12_空中攻擊「盾牌墜擊」/64.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/12_空中攻擊「盾牌墜擊」/65.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/12_空中攻擊「盾牌墜擊」/66.webp")
+mode_id = &""
+move_id = &"air_attack"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b012"]
+script = ExtResource("anim")
+animation_id = &"guard_stand"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "13_站防「不動如盾」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/13_站防「不動如盾」/71.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b013"]
+script = ExtResource("anim")
+animation_id = &"guard_crouch"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "14_蹲防"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/14_蹲防/72.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b014"]
+script = ExtResource("anim")
+animation_id = &"blockstun"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "15_各類防禦硬直"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/15_各類防禦硬直/73.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/15_各類防禦硬直/74.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/15_各類防禦硬直/75.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/15_各類防禦硬直/76.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b015"]
+script = ExtResource("anim")
+animation_id = &"hitstun"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "16_各類受擊"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/16_各類受擊/77.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/16_各類受擊/78.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/16_各類受擊/79.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b016"]
+script = ExtResource("anim")
+animation_id = &"ground_throw"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_1"
+action_folder = "17_投技「盾牌請你出去」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_1/17_投技「盾牌請你出去」/81.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/17_投技「盾牌請你出去」/82.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/17_投技「盾牌請你出去」/83.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/17_投技「盾牌請你出去」/84.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/17_投技「盾牌請你出去」/85.webp", "res://assets/production_roster/source/我的刀盾/ROUND_1/17_投技「盾牌請你出去」/86.webp")
+mode_id = &""
+move_id = &"ground_throw"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b017"]
+script = ExtResource("anim")
+animation_id = &"thrown"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "01_被摔_翻滾_倒地_起身_KO"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/01_被摔_翻滾_倒地_起身_KO/11.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/01_被摔_翻滾_倒地_起身_KO/12.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/01_被摔_翻滾_倒地_起身_KO/13.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/01_被摔_翻滾_倒地_起身_KO/14.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/01_被摔_翻滾_倒地_起身_KO/15.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/01_被摔_翻滾_倒地_起身_KO/16.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b018"]
+script = ExtResource("anim")
+animation_id = &"charge"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "02_「鈍刀蓄斬」蓄力"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/02_「鈍刀蓄斬」蓄力/21.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/02_「鈍刀蓄斬」蓄力/22.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/02_「鈍刀蓄斬」蓄力/23.webp")
+mode_id = &""
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b019"]
+script = ExtResource("anim")
+animation_id = &"blade_slash_l1"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "03_Lv1「鈍斬」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/03_Lv1「鈍斬」/24.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/03_Lv1「鈍斬」/25.webp")
+mode_id = &""
+move_id = &"blade_slash_l1"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b020"]
+script = ExtResource("anim")
+animation_id = &"blade_slash_l2"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "04_Lv2「重鈍斬」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/04_Lv2「重鈍斬」/26.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/04_Lv2「重鈍斬」/27.webp")
+mode_id = &""
+move_id = &"blade_slash_l2"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b021"]
+script = ExtResource("anim")
+animation_id = &"blade_slash_l3"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "05_Lv3「超級鈍刀蓄斬」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/05_Lv3「超級鈍刀蓄斬」/28.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/05_Lv3「超級鈍刀蓄斬」/29.webp")
+mode_id = &""
+move_id = &"blade_slash_l3"
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b022"]
+script = ExtResource("anim")
+animation_id = &"blade_slash_l1"
+domain = 5
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "06_Lv1～Lv3_鈍刀斬_VFX"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/06_Lv1～Lv3_鈍刀斬_VFX/31.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/06_Lv1～Lv3_鈍刀斬_VFX/32.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/06_Lv1～Lv3_鈍刀斬_VFX/33.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/06_Lv1～Lv3_鈍刀斬_VFX/34.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/06_Lv1～Lv3_鈍刀斬_VFX/35.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/06_Lv1～Lv3_鈍刀斬_VFX/36.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/06_Lv1～Lv3_鈍刀斬_VFX/37.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/06_Lv1～Lv3_鈍刀斬_VFX/38.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/06_Lv1～Lv3_鈍刀斬_VFX/39.webp")
+mode_id = &""
+move_id = &"blade_slash_l1"
+entity_id = &""
+trigger_event = &"MOVE_STARTED"
+hold_policy = 3
+loop = false
+anchor = &"CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b023"]
+script = ExtResource("anim")
+animation_id = &"ultimate"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "07_Ultimate「汪爆氣流斬」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/07_Ultimate「汪爆氣流斬」/41.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/07_Ultimate「汪爆氣流斬」/42.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/07_Ultimate「汪爆氣流斬」/43.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/07_Ultimate「汪爆氣流斬」/44.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/07_Ultimate「汪爆氣流斬」/45.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/07_Ultimate「汪爆氣流斬」/46.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/07_Ultimate「汪爆氣流斬」/47.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/07_Ultimate「汪爆氣流斬」/48.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/07_Ultimate「汪爆氣流斬」/49.webp")
+mode_id = &""
+move_id = &"ultimate"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b024"]
+script = ExtResource("anim")
+animation_id = &"idle"
+domain = 1
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "08_雙刀待機"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/08_雙刀待機/51.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/08_雙刀待機/52.webp")
+mode_id = &"dual_blade"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b025"]
+script = ExtResource("anim")
+animation_id = &"walk_forward"
+domain = 1
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "09_雙刀前走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/09_雙刀前走/53.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/09_雙刀前走/54.webp")
+mode_id = &"dual_blade"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b026"]
+script = ExtResource("anim")
+animation_id = &"walk_back"
+domain = 1
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "10_雙刀後走"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/10_雙刀後走/55.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/10_雙刀後走/56.webp")
+mode_id = &"dual_blade"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 1
+loop = true
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b027"]
+script = ExtResource("anim")
+animation_id = &"crouch"
+domain = 1
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "11_雙刀蹲下"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/11_雙刀蹲下/57.webp")
+mode_id = &"dual_blade"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b028"]
+script = ExtResource("anim")
+animation_id = &"jump"
+domain = 1
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "12_雙刀跳躍"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/12_雙刀跳躍/58.webp")
+mode_id = &"dual_blade"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b029"]
+script = ExtResource("anim")
+animation_id = &"landing"
+domain = 1
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "13_雙刀落地"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/13_雙刀落地/59.webp")
+mode_id = &"dual_blade"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b030"]
+script = ExtResource("anim")
+animation_id = &"dash_forward"
+domain = 1
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "14_雙刀前衝"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/14_雙刀前衝/61.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/14_雙刀前衝/62.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/14_雙刀前衝/63.webp")
+mode_id = &"dual_blade"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b031"]
+script = ExtResource("anim")
+animation_id = &"backstep"
+domain = 1
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "15_雙刀後撤"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/15_雙刀後撤/64.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/15_雙刀後撤/65.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/15_雙刀後撤/66.webp")
+mode_id = &"dual_blade"
+move_id = &""
+entity_id = &""
+trigger_event = &""
+hold_policy = 3
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b032"]
+script = ExtResource("anim")
+animation_id = &"stand_light"
+domain = 1
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "16_雙刀輕攻"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/16_雙刀輕攻/71.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/16_雙刀輕攻/72.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/16_雙刀輕攻/73.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/16_雙刀輕攻/74.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/16_雙刀輕攻/75.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/16_雙刀輕攻/76.webp")
+mode_id = &"dual_blade"
+move_id = &"stand_light"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b033"]
+script = ExtResource("anim")
+animation_id = &"dual_blade_heavy"
+domain = 1
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "17_雙刀重攻"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/17_雙刀重攻/81.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/17_雙刀重攻/82.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/17_雙刀重攻/83.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/17_雙刀重攻/84.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/17_雙刀重攻/85.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/17_雙刀重攻/86.webp")
+mode_id = &"dual_blade"
+move_id = &"dual_blade_heavy"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b034"]
+script = ExtResource("anim")
+animation_id = &"dual_blade_low"
+domain = 1
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "18_雙刀下段「雙刃剪腳」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/18_雙刀下段「雙刃剪腳」/91.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/18_雙刀下段「雙刃剪腳」/92.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/18_雙刀下段「雙刃剪腳」/93.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/18_雙刀下段「雙刃剪腳」/94.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/18_雙刀下段「雙刃剪腳」/95.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/18_雙刀下段「雙刃剪腳」/96.webp")
+mode_id = &"dual_blade"
+move_id = &"dual_blade_low"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b035"]
+script = ExtResource("anim")
+animation_id = &"dual_blade_air"
+domain = 1
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "19_雙刀空中攻擊「交叉落月斬」"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/19_雙刀空中攻擊「交叉落月斬」/101.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/19_雙刀空中攻擊「交叉落月斬」/102.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/19_雙刀空中攻擊「交叉落月斬」/103.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/19_雙刀空中攻擊「交叉落月斬」/104.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/19_雙刀空中攻擊「交叉落月斬」/105.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/19_雙刀空中攻擊「交叉落月斬」/106.webp")
+mode_id = &"dual_blade"
+move_id = &"dual_blade_air"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Exact production inventory binding."
+
+[sub_resource type="Resource" id="b036"]
+script = ExtResource("anim")
+animation_id = &"special_neutral"
+domain = 1
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "17_雙刀重攻"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/17_雙刀重攻/81.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/17_雙刀重攻/82.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/17_雙刀重攻/83.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/17_雙刀重攻/84.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/17_雙刀重攻/85.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/17_雙刀重攻/86.webp")
+mode_id = &"dual_blade"
+move_id = &"special_neutral"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"YELLOW"
+notes = "Approved fallback: Dual Heavy key poses + detached 鈍刀蓄斬 VFX; no gameplay impact."
+
+[sub_resource type="Resource" id="b037"]
+script = ExtResource("anim")
+animation_id = &"special_neutral"
+domain = 0
+asset_folder = "我的刀盾"
+round_name = &"ROUND_2"
+action_folder = "02_「鈍刀蓄斬」蓄力"
+frame_paths = PackedStringArray("res://assets/production_roster/source/我的刀盾/ROUND_2/02_「鈍刀蓄斬」蓄力/21.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/02_「鈍刀蓄斬」蓄力/22.webp", "res://assets/production_roster/source/我的刀盾/ROUND_2/02_「鈍刀蓄斬」蓄力/23.webp")
+mode_id = &""
+move_id = &"special_neutral"
+entity_id = &""
+trigger_event = &""
+hold_policy = 2
+loop = false
+anchor = &"FEET_CENTER"
+facing_policy = &"CANONICAL_RIGHT_MIRROR"
+status = &"GREEN"
+notes = "Runtime special body fallback from exact authored charge/release body pose; detached effect remains separately bound."
+
+[resource]
+script = ExtResource("catalog")
+character_id = &"blade_shield"
+display_name = "我的刀盾"
+asset_folder = "我的刀盾"
+source_inventory_path = "res://assets/production_roster/combat_asset_inventory.json"
+bindings = Array[ExtResource("anim")]([SubResource("b000"), SubResource("b001"), SubResource("b002"), SubResource("b003"), SubResource("b004"), SubResource("b005"), SubResource("b006"), SubResource("b007"), SubResource("b008"), SubResource("b009"), SubResource("b010"), SubResource("b011"), SubResource("b012"), SubResource("b013"), SubResource("b014"), SubResource("b015"), SubResource("b016"), SubResource("b017"), SubResource("b018"), SubResource("b019"), SubResource("b020"), SubResource("b021"), SubResource("b022"), SubResource("b023"), SubResource("b024"), SubResource("b025"), SubResource("b026"), SubResource("b027"), SubResource("b028"), SubResource("b029"), SubResource("b030"), SubResource("b031"), SubResource("b032"), SubResource("b033"), SubResource("b034"), SubResource("b035"), SubResource("b036"), SubResource("b037")])

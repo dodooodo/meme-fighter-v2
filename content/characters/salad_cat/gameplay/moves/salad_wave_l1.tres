@@ -20,6 +20,6 @@ hitstop_attacker = 4
 hitstop_defender = 4
 hit_level = 1
 knockback_x_units = 2400
-meter_gain_on_hit = 3
+meter_gain_on_hit = 5
 meter_gain_on_block = 1
 hitbox = SubResource("box_7")

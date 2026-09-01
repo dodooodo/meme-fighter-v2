@@ -3,6 +3,8 @@
 class_name UltimateScreenPresenter
 extends CanvasLayer
 
+const PULSE_SCRIPT := preload("res://presentation/ultimates/ultimate_screen_pulse.gd")
+
 var simulation: BattleSimulation
 var _presentations: Dictionary = {}
 var _active_nodes: Array[Node] = []
@@ -22,7 +24,9 @@ func present_event(event: CombatEvent) -> void:
     if event.type in [CombatEvent.EventType.ROUND_STARTED, CombatEvent.EventType.ROUND_ENDED, CombatEvent.EventType.MATCH_ENDED]:
         clear_all()
         return
-    if event.type != CombatEvent.EventType.MOVE_STARTED or event.move_id != &"ultimate":
+    if event.type != CombatEvent.EventType.MOVE_STARTED:
+        return
+    if event.move_id != &"ultimate" and not _is_finisher_move(event.move_id):
         return
     if simulation == null:
         return
@@ -33,12 +37,35 @@ func present_event(event: CombatEvent) -> void:
     if data == null:
         return
     var binding := data.ultimate_binding(event.move_id)
-    if binding == null:
-        return
+    var production: ProductionAnimationBinding = null
+    if data.production_asset_binding != null:
+        production = data.production_asset_binding.first_binding_for_move(event.move_id, ProductionAnimationBinding.Domain.ULTIMATE_SCREEN)
     clear_all()
-    _instantiate(binding.background_scene, 0)
-    _instantiate(binding.overlay_scene, 20)
-    _instantiate(binding.cutin_scene, 30)
+    _spawn_pulse(data, CombatFeedbackProfile.tier_for_move(event.move_id) >= 4)
+    if binding != null:
+        _instantiate(binding.background_scene, 0)
+        _instantiate(binding.overlay_scene, 20)
+        _instantiate(binding.cutin_scene, 30)
+    if production != null:
+        var node := load("res://presentation/visuals/production/inventory_bound_effect_visual.tscn").instantiate() as Node2D
+        if node != null:
+            add_child(node)
+            node.position = Vector2(640, 360)
+            node.call("configure_binding", production, 1, 1.0)
+            node.z_index = 5
+            _active_nodes.append(node)
+
+func _is_finisher_move(move_id: StringName) -> bool:
+    return "finisher" in String(move_id)
+
+func _spawn_pulse(data: CharacterPresentationData, finisher: bool) -> void:
+    var pulse := PULSE_SCRIPT.new() as ColorRect
+    if pulse == null:
+        return
+    add_child(pulse)
+    pulse.configure(data.placeholder_color, 0.42 if finisher else 0.30, 0.30 if finisher else 0.20)
+    pulse.z_index = 1
+    _active_nodes.append(pulse)
 
 func _instantiate(scene: PackedScene, order: int) -> void:
     if scene == null:

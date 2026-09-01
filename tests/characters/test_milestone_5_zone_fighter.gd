@@ -124,7 +124,7 @@ func _test_zone_normals_and_throw_runtime() -> void:
     light.configure(zone, close_generic, null, null, Vector2i(50000, BattleSimulation.GROUND_Y_UNITS), Vector2i(57000, BattleSimulation.GROUND_Y_UNITS))
     _advance_attack_to_contact(light, InputFrame.with_light_press(1), 6)
     t.equal(light.fighter_b.combatant.hp, 4952, "Zone Light actual simulation deals 48")
-    t.equal(light.fighter_a.meter.get_value(), 35, "Zone Light actual HIT gives +7 meter")
+    t.equal(light.fighter_a.meter.get_value(), 7, "Zone Light actual HIT gives +7 meter")
     var heavy := BattleSimulation.new()
     heavy.configure(zone, close_generic, null, null, Vector2i(50000, BattleSimulation.GROUND_Y_UNITS), Vector2i(57000, BattleSimulation.GROUND_Y_UNITS))
     _advance_attack_to_contact(heavy, InputFrame.with_heavy_press(1), 13)
@@ -136,8 +136,10 @@ func _test_zone_normals_and_throw_runtime() -> void:
     var throw_battle := BattleSimulation.new()
     throw_battle.configure(zone, close_generic, null, null, Vector2i(50000, BattleSimulation.GROUND_Y_UNITS), Vector2i(57000, BattleSimulation.GROUND_Y_UNITS))
     _advance_attack_to_contact(throw_battle, InputFrame.with_heavy_press(1, 1), 6, true)
+    for _i in range(6):
+        _tick_battle(throw_battle, null, InputFrame.new(throw_battle.frame_number + 1, 0, 0, InputFrame.InputButton.GUARD, 0, 0))
     t.equal(throw_battle.fighter_b.combatant.hp, 4890, "Zone Forward+Heavy actual throw deals 110")
-    t.equal(throw_battle.fighter_a.meter.get_value(), 60, "Zone actual Throw gives +12 meter")
+    t.equal(throw_battle.fighter_a.meter.get_value(), 12, "Zone actual Throw gives +12 meter")
 
 func _test_cancel_graph() -> void:
     var light := registry.get_move(MoveIds.STAND_LIGHT)

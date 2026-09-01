@@ -8,6 +8,8 @@ var t = ASSERT_HELPER.new()
 func run_all() -> int:
     _test_shared_dedupe()
     _test_feedback_hierarchy()
+    _test_authored_level_and_finisher_feedback()
+    _test_audio_cue_categories()
     _test_block_and_ko_are_distinct()
     _test_camera_follow_and_reset()
     print("\nM7 feedback presenter tests: %d passed, %d failed" % [t.passed, t.failed])
@@ -75,6 +77,26 @@ func _test_block_and_ko_are_distinct() -> void:
     block_audio.free()
     ko_vfx.free()
     ko_camera.free()
+
+func _test_authored_level_and_finisher_feedback() -> void:
+    var special_moves := [&"doge_rush_l3", &"salad_wave_l3", &"magic_circle_l2", &"bao_counter_success_l3"]
+    for move_id: StringName in special_moves:
+        t.equal(CombatFeedbackProfile.tier_for_move(move_id), 3,
+            "%s resolves to the readable Special feedback tier" % String(move_id))
+    t.equal(CombatFeedbackProfile.tier_for_move(&"pink_true_finisher_5"), 4,
+        "Finisher hit feedback resolves to the Ultimate tier")
+
+func _test_audio_cue_categories() -> void:
+    t.equal(CombatFeedbackProfile.audio_cue_for_move(CombatEvent.EventType.HIT, &"bao_counter_success_l3"), &"counter_special",
+        "Counter hit has a dedicated presentation audio cue")
+    t.equal(CombatFeedbackProfile.audio_cue_for_move(CombatEvent.EventType.HIT, &"pink_true_finisher_5"), &"finisher_ultimate",
+        "Finisher hit has a dedicated presentation audio cue")
+    var audio := CombatAudioPresenter.new()
+    audio.present_event(CombatEvent.round_started(1, 1))
+    t.equal(audio.last_cue, &"round_start", "Round start exposes its fallback audio hook")
+    audio.present_event(CombatEvent.match_ended(2, RoundController.Participant.P1, 1))
+    t.equal(audio.last_cue, &"victory", "Match end exposes the victory audio hook")
+    audio.free()
 
 func _test_shared_dedupe() -> void:
     var ledger := PresentationEventLedger.new()

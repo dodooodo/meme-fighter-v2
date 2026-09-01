@@ -24,49 +24,42 @@ func update_from_simulation(simulation: BattleSimulation) -> void:
     if not enabled or simulation == null:
         return
     var run_state := "Paused" if frame_stepper != null and frame_stepper.paused else "Running"
-    var projectile_lines: PackedStringArray = []
-    var active := simulation.projectile_system.active_projectiles()
-    for i in range(mini(active.size(), 4)):
-        var projectile: ProjectileRuntime = active[i]
-        projectile_lines.append("  #%d %s Owner P%d Pos %d/%d Facing %d Life %d" % [
-            projectile.instance_id,
-            String(projectile.projectile_id),
-            projectile.owner_fighter_id,
-            projectile.position_units.x,
-            projectile.position_units.y,
-            projectile.facing,
-            projectile.remaining_lifetime_frames,
-        ])
-    if active.size() > 4:
-        projectile_lines.append("  ... +%d more" % (active.size() - 4))
-    var projectile_summary := "Active Projectiles: %d" % active.size()
-    if not projectile_lines.is_empty():
-        projectile_summary += "\n" + "\n".join(projectile_lines)
     var round := simulation.round_controller
     var timer_text := "∞" if round.rules != null and not round.rules.timer_enabled else str(round.timer_display_seconds())
-    var match_summary := "Rules: %s | Round State: %s | Round: %d | Round Wins: P1 %d / P2 %d | Timer Frames: %d | Timer Display: %s | Post Round: %d | Match Winner: %s" % [
-        String(round.rules.id) if round.rules != null else "<none>",
-        round.state_name(),
-        round.round_number,
-        round.p1_round_wins,
-        round.p2_round_wins,
-        round.round_timer_remaining_frames,
-        timer_text,
-        round.post_round_remaining_frames,
-        round.winner_name(round.match_winner),
-    ]
-    var replay_summary := "Replay: %s" % ("RECORDING" if simulation.replay_recorder != null and simulation.replay_recorder.is_recording() else "OFF")
-    var presentation_summary := presentation_controller.diagnostic_summary() if presentation_controller != null else "Presentation: NONE"
-    label.text = "Simulation Frame %d | %s | Render FPS %d\n%s\n%s\n%s\n%s\n%s\n%s\nInputs P1: %s\nInputs P2: %s" % [
-        simulation.frame_number,
-        run_state,
-        Engine.get_frames_per_second(),
-        match_summary,
-        replay_summary,
-        presentation_summary,
-        simulation.fighter_a.debug_summary(simulation.frame_number),
-        simulation.fighter_b.debug_summary(simulation.frame_number),
-        projectile_summary,
-        simulation.fighter_a.input_history.debug_string(10),
-        simulation.fighter_b.input_history.debug_string(10),
-    ]
+    var lines: PackedStringArray = []
+    lines.append("Tick %d | %s | FPS %d | Rules: %s | Round State: %s | Round: %d | Round Wins: P1 %d/P2 %d | Timer Frames: %d | Timer: %s | Post Round: %d | Match Winner: %s" % [simulation.frame_number, run_state, Engine.get_frames_per_second(), String(round.rules.id) if round.rules != null else "<none>", round.state_name(), round.round_number, round.p1_round_wins, round.p2_round_wins, round.round_timer_remaining_frames, timer_text, round.post_round_remaining_frames, round.winner_name(round.match_winner)])
+    lines.append(_fighter_line(simulation.fighter_a, simulation.frame_number))
+    lines.append(_fighter_line(simulation.fighter_b, simulation.frame_number))
+    lines.append("Projectiles=%d Areas/Summons/Hazards/Sequences=%d | PendingThrows=%d" % [simulation.projectile_system.active_projectiles().size(), simulation.temporary_entity_system.active_entities().size(), simulation.pending_normal_throw_count()])
+    lines.append(_entity_line(simulation))
+    lines.append("Inputs P1: %s" % simulation.fighter_a.input_history.debug_string(10))
+    lines.append("Inputs P2: %s" % simulation.fighter_b.input_history.debug_string(10))
+    lines.append(presentation_controller.diagnostic_summary() if presentation_controller != null else "Presentation: NONE")
+    label.text = "\n".join(lines)
+
+func _fighter_line(fighter: Fighter, current_frame: int) -> String:
+    var read := fighter.capture_combat_read()
+    var move := fighter.move_runner.current_move
+    var move_id := String(read["current_move_id"]) if move != null else "-"
+    var advantage := "H%+d/B%+d" % [FrameAdvantageCalculator.on_hit(move), FrameAdvantageCalculator.on_block(move)] if move != null else "H-/B-"
+    var status_parts: PackedStringArray = []
+    var status_ids: Dictionary = {}
+    for status: Dictionary in read["statuses"]:
+        var id := StringName(str(status.get("id", "")))
+        status_ids[id] = true
+        status_parts.append("%s:%d%s" % [String(id), int(status.get("remaining", 0)), "+EXT" if bool(status.get("extended_once", false)) else ""])
+    var resources := read["resources"] as Dictionary
+    return "P%d %s | State=%s Move=%s F%d %s Adv=%s | HP=%d/%d Meter=%d | HS=%d BS=%d Stop=%d | Combo=%d Dmg=%d Scale=%d%% DC=%d | Charge=%dF/Lv%d | ThrowProtect=%d ThrowInv=%s Tech=%s | Mode=%s:%d | Res=%s | Status=%s | Signal=%s Panic=%s Sticky=%s Courage=%d Stars=%d Resolve=%d" % [
+        int(read["fighter_id"]), String(read["character_id"]), String(read["state_name"]), move_id, int(read["current_move_frame"]), String(read["current_move_phase"]), advantage,
+        int(read["hp"]), int(read["max_hp"]), int(read["meter"]), int(read["hitstun_remaining"]), int(read["blockstun_remaining"]), int(read["hitstop_remaining"]),
+        int(read["combo_hit_count"]), int(read["combo_damage"]), int(read["combo_scale_percent"]), int(read["dash_cancel_count"]),
+        int(read["charge_frames"]), int(read["charge_level"]), int(read["throw_protection_frames"]), str(read["backstep_throw_invulnerable"]), str(read["throw_tech_pending"]),
+        String(read["active_mode_id"]), int(read["mode_remaining_frames"]), str(resources), ",".join(status_parts),
+        str(status_ids.has(&"signal_mark")), str(status_ids.has(&"panic_exit")), str(status_ids.has(&"sauce")),
+        int(resources.get("courage", 0)), int(resources.get("face_actions", 0)), int(resources.get("resolve", 0))]
+
+func _entity_line(simulation: BattleSimulation) -> String:
+    var values: PackedStringArray = []
+    for runtime: TemporaryEntityRuntime in simulation.temporary_entity_system.active_entities():
+        values.append("#%d %s kind=%d hp=%d life=%d phase=%d/%d" % [runtime.instance_id, String(runtime.data_id), runtime.kind, runtime.hp, runtime.remaining_lifetime_frames, runtime.phase, runtime.phase_remaining])
+    return "Entities: " + (" | ".join(values) if not values.is_empty() else "-")
